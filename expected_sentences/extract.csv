@@ -1,0 +1,123 @@
+MNEMONIC	ORDER_SENTENCE_DISPLAY_LINE
+BMP	Blood, ASAP (Now) collect, Once
+BMP	Blood, ASAP collect, Once
+BMP	Blood, Add On collect, Once
+BMP	Blood, Routine Today collect, Once
+BMP	Blood, Stat collect, Lab Collect
+BMP	Blood, Stat collect, Nurse collect, Once
+BMP	Blood, Stat collect, Once
+BMP	Blood, Stat collect, Once, Lab Collect
+BMP	Blood, Stat collect, Once, Lab Coolect
+BMP	Blood, Timed Study collect, Once
+BMP	Blood, Timed Study collect, q6hr (interval)
+BMP	Blood, Tomorrow AM collect, Once
+BMP	Requested Draw Date and T T+1;0400, Blood, Tomorrow AM collect, 1xDaily
+BMP	Requested Draw Date and T T+1;0400, Blood, Tomorrow AM collect, Once
+BMP	Requested Draw Date and T T;N+240, Blood, Timed Study collect, Once
+BMP	Requested Draw Date and T T;N+240, Blood, Timed Study collect, q4hr (interval), while on hypertonic sodium chloride 3% infusion
+BMP	Requested Draw Date and T T;N, Blood, Stat collect
+Calcium Level Ionized, Serum	Requested Draw Date and T T+1;0400, Blood, Tomorrow AM collect, Once
+Calcium Level Ionized, Serum	Requested Draw Date and T T;N+120, Blood, Timed Study collect, Once
+Calcium Level Ionized, Serum	Requested Draw Date and T T;N+600, Blood, Timed Study collect, Once
+Calcium Level Ionized, Serum	Requested Draw Date and T T;N, Blood, ASAP collect, Once
+Calcium Level Ionized, Whole Blood	Blood, ASAP (Now) collect, Once
+Calcium Level Ionized, Whole Blood	Blood, Routine Today collect, Once
+Calcium Level Ionized, Whole Blood	Blood, Stat collect, Once
+Calcium Level Ionized, Whole Blood	Blood, Tomorrow AM collect, Requested Draw Date and T T+1;0400, Once
+Calcium Level Ionized, Whole Blood	Requested Draw Date and T T+1;0400, Blood, Tomorrow AM collect, 1xDaily
+Calcium Level Ionized, Whole Blood	Requested Draw Date and T T+1;0400, Blood, Tomorrow AM collect, Once, for 3 days
+Calcium Level Ionized, Whole Blood	Requested Draw Date and T T+1;0400, Blood, Tomorrow AM collect, Once
+Calcium Level Ionized, Whole Blood	Requested Draw Date and T T;N+120, Blood, Timed Study collect, Once
+Calcium Level Ionized, Whole Blood	Requested Draw Date and T T;N+600, Blood, Timed Study collect, Once
+K-Phos Neutral	1 tab(s), PO, Tab, 3xDaily with meals, Clinical Instructions: contains: phosphorus 8 mmol, potassium 1.1 meq, sodium 13 meq per tablet.
+K-Phos Neutral	2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)
+K-Phos Neutral	2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)
+Magnesium Level	Blood, ASAP (Now) collect, Once
+Magnesium Level	Blood, Add On collect, Once
+Magnesium Level	Blood, Routine Today collect
+Magnesium Level	Blood, Routine Today collect, Once
+Magnesium Level	Blood, Stat collect, Lab Collect, Once
+Magnesium Level	Blood, Stat collect, Nurse collect, Once
+Magnesium Level	Blood, Stat collect, Once
+Magnesium Level	Blood, Timed Study collect, q4hr, until HCO3 is greater than 20 mmol/L
+Magnesium Level	Blood, Tomorrow AM collect, Requested Draw Date and T T+1;0400, Once
+Magnesium Level	Requested Draw Date and T T+1;0400, Blood, Tomorrow AM collect, 1xDaily, for 3 day(s)
+Magnesium Level	Requested Draw Date and T T+1;0400, Blood, Tomorrow AM collect, Once
+Magnesium Level	Requested Draw Date and T T;N+240, Blood, Timed Study collect, Once
+Magnesium Level	Requested Draw Date and T T;N+360, Blood, Timed Study collect, Once
+Magnesium Level	Requested Draw Date and T T;N+480, Blood, Timed Study collect, Once
+Magnesium Level	Requested Draw Date and T T;N, Blood, Routine Today collect, Once, add to specimen in lab
+Phosphate Level	Blood, ASAP (Now) collect, Once
+Phosphate Level	Blood, Add On collect, Once
+Phosphate Level	Blood, Routine Today collect, Once
+Phosphate Level	Blood, Stat collect, Lab Collect, Once
+Phosphate Level	Blood, Stat collect, Once
+Phosphate Level	Blood, Timed Study collect, q4hr, until HCO3 is greater than 20 mmol/L
+Phosphate Level	Requested Draw Date and T T+1;0400, Blood, Tomorrow AM collect, 1xDaily
+Phosphate Level	Requested Draw Date and T T+1;0400, Blood, Tomorrow AM collect, Once
+Phosphate Level	Requested Draw Date and T T;N+120, Blood, Timed Study collect, Once
+Phosphate Level	Requested Draw Date and T T;N+240, Blood, Timed Study collect, Once
+Phosphate Level	Requested Draw Date and T T;N+600, Blood, Timed Study collect, Once
+Phosphate Level	Requested Draw Date and T T;N, Blood, Routine Today collect, Once, add to specimen in lab
+Potassium Level	Blood, ASAP (Now) collect, Once
+Potassium Level	Blood, Routine Today collect, Once
+Potassium Level	Blood, Stat collect, Once
+Potassium Level	Requested Draw Date and T T+1;0400, Blood, Tomorrow AM collect, 1xDaily, for 3 day(s)
+Potassium Level	Requested Draw Date and T T+1;0400, Blood, Tomorrow AM collect, Once
+Potassium Level	Requested Draw Date and T T;N+180, Blood, Timed Study collect, Once
+Potassium Level	Requested Draw Date and T T;N+240, Blood, Timed Study collect, Once
+Potassium Level	Requested Draw Date and T T;N+300, Blood, Timed Study collect, Once
+Potassium Level	Requested Draw Date and T T;N+360, Blood, Timed Study collect, Once
+Potassium Level	Requested Draw Date and T T;N+420, Blood, Timed Study collect, Once
+Potassium Level	Requested Draw Date and T T;N+480, Blood, Timed Study collect, Once
+Potassium Level	Requested Draw Date and T T;N+540, Blood, Timed Study collect, Once
+Potassium Level	Requested Draw Date and T T;N+60, Blood, Timed Study collect, Once
+Potassium Level	Requested Draw Date and T T;N+600, Blood, Timed Study collect, Once
+calcium chloride	1 g, IV, Inj, Once
+calcium chloride	1 g, IV, Syringe, Once
+calcium chloride	1 g, IV, Syringe, Once, STAT
+calcium chloride	1 g, IVPB, Inj, Once
+calcium chloride	1 g, IVPB, Inj, Once, Infuse over: 1 hr
+calcium chloride	10 mg/kg, IVPB, Inj, Once
+calcium chloride	20 mg, IV, Once, Clinical Instructions: Max dose 1000mg, STAT
+calcium chloride	20 mg/kg, IV, Once, Clinical Instructions: Max dose 1,000 mg, STAT
+calcium chloride	20 mg/kg, IVPB, Inj, Once
+magnesium oxide	400 mg, PO, Tab, q12hr (interval), Duration: 2 dose(s)
+magnesium sulfate	1 g, IVPB, Premix, Once, Clinical Instructions: for Migraine. Infuse over 20 minutes.
+magnesium sulfate	1 g, IVPB, Premix, Once, Infuse over: 1 hr
+magnesium sulfate	2 g, IV, Inj, Once, Clinical Instructions: Dilute in 10 mL D5W and give over 15 minutes for torsade de pointes or VF/pulseless VT associated with torsade de pointes, STAT
+magnesium sulfate	2 g, IVPB, Inj, Once
+magnesium sulfate	2 g, IVPB, Premix, Once
+magnesium sulfate	2 g, IVPB, Premix, Once, Clinical Instructions: for Migraine. Infuse over 20 minutes.
+magnesium sulfate	2 g, IVPB, Premix, Once, Infuse over: 2 hr
+magnesium sulfate	2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr
+magnesium sulfate	4 g, IVPB, Premix, Once
+magnesium sulfate	50 mg/kg, IVPB, Inj, Once, Clinical Instructions: Maximum dose 2 grams, STAT
+potassium chloride	20 mEq, Feeding Tube, Liq, Once
+potassium chloride	20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 2 dose(s)
+potassium chloride	20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 3 dose(s)
+potassium chloride	20 mEq, PO, Liq, Once, Routine
+potassium chloride	40 mEq, IVPB, Inj, Once
+potassium chloride	40 mEq, PO, ER tab, Once
+potassium chloride 10 mEq/100 mL intravenous solution	10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr
+potassium chloride 10 mEq/100 mL intravenous solution	10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr
+potassium chloride 10 mEq/100 mL intravenous solution	10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr
+potassium chloride 10 mEq/100 mL intravenous solution	10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr
+potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, Once, Infuse over: 1 hr
+potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr
+potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr
+potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr
+potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q2hr (interval), Duration: 2 dose(s), Rate: 2, hr
+potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q2hr (interval), Duration: 3 dose(s), Infuse over: 2 hr
+potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q2hr (interval), Duration: 4 dose(s), Infuse over: 2 hr
+potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q2hr, Duration: 2 dose(s), Infuse over: 2 hr
+potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q2hr, Duration: 3 dose(s), Infuse over: 2 hr
+potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q2hr, Duration: 4 dose(s), Infuse over: 2 hr
+potassium chloride extended release	10 mEq, PO, ER tab, Once
+potassium chloride extended release	20 mEq, PO, ER tab, Once
+potassium chloride extended release	20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)
+potassium chloride extended release	20 mEq, PO, ER tab, q2hr (interval), Duration: 3 dose(s)
+potassium chloride extended release	40 mEq, PO, ER tab, Once
+potassium chloride extended release	8 mEq, PO, ER tab, Once
+sodium phosphate	15 mmol, IVPB, Inj, Once
+sodium phosphate	15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)

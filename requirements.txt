@@ -1,0 +1,5 @@
+pytest
+pytest-sugar
+pandas 
+thefuzz
+python-Levenshtein 

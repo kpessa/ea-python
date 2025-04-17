@@ -1,0 +1,680 @@
+{
+    "RCONFIG": {
+      "TABS": [
+        {
+          "TAB_NAME": "Magnesium",
+          "TAB_KEY": "MAGNESIUM",
+          "FLAG_ON_CONCEPT": "[%{EALABMAGTODO}.COUNT > 0%]",
+          "CONCEPT_FOR_DISMISS": "EALABMAGTODO",
+          "MNEMONICS": [
+            {
+              "MNEMONIC": "Magnesium Replacement"
+            }
+          ],
+          "CONCEPTS": [],
+          "CRITERIA": [
+            {
+              "LABEL": "SCr < 2.0 mg/dL",
+              "CONCEPT_NAME": "[%true%]",
+              "DISPLAY": "",
+              "TOOLTIP": ""
+            },
+            {
+              "LABEL": "Not on renal replacement therapy (HD, PD, CRRT)",
+              "CONCEPT_NAME": "[%true%]",
+              "DISPLAY": "",
+              "TOOLTIP": "No orders for hemodialysis, peritoneal dialysis, or CRRT"
+            },
+            {
+              "LABEL": "Critical Care Unit or have telemetry monitoring in place (telemetry monitoring order)",
+              "CONCEPT_NAME": "[%true%]",
+              "DISPLAY": "",
+              "TOOLTIP": "Room type: Critical Care, PCU, Telemetry, MS (Med/Surg) with Telemetry Monitoring order"
+            }
+          ],
+          "GRAPHED_RESULTS": [
+            {
+              "LABEL": "Magnesium Level",
+              "EVENT_SET": "TPN Magnesium Serum Magnesium",
+              "LOOKBACK": "144,H",
+              "MAX_RESULT_COUNT": "6",
+              "RESULTS_VIEW": {
+                "LOOKBEHIND_LABEL": ""
+              }
+            }
+          ],
+          "ORDER_SECTIONS": [
+            {
+              "SECTION_NAME": "<span style=\"color:blue;font-weight:bold;\">If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>Magnesium - 1.4 - 1.5 mg/dL",
+              "CONCEPT_NAME": "[%{EALABMAGTODO}.COUNT > 0 AND {EALABMAGBTW14AND15}%]",
+              "SINGLE_SELECT": 1,
+              "SHOW_INACTIVE_DUPLICATES": 0,
+              "ORDERS": [
+                {
+                  "MNEMONIC": "magnesium oxide",
+                  "ORDER_SENTENCE": "400 mg, PO, tab,  q12h interval, Duration: 2 doses",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Recheck BMP and magnesium level with next AM labs."
+                },
+                {
+                  "MNEMONIC": "magnesium sulfate",
+                  "ORDER_SENTENCE": "2 g, IVPB, Premix, Once, infuse over 2 hr",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Recheck BMP and magnesium level with next AM labs."
+                }
+              ]
+            },
+            {
+              "SECTION_NAME": "Magnesium Labs (1.4 - 1.5 mg/dL)",
+              "CONCEPT_NAME": "[%{EALABMAGTODO}.COUNT > 0 AND {EALABMAGBTW14AND15}%]",
+              "SINGLE_SELECT": 0,
+              "SHOW_INACTIVE_DUPLICATES": 0,
+              "ORDERS": [
+                {
+                  "MNEMONIC": "BMP",
+                  "ORDER_SENTENCE": "Blood, Tomorrow AM collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Order a BMP with next AM labs"
+                },
+                {
+                  "MNEMONIC": "Magnesium Level",
+                  "ORDER_SENTENCE": "Blood, Tomorrow AM collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Order a Magnesium Level with next AM labs"
+                }
+              ]
+            },
+            {
+              "SECTION_NAME": "<span style=\"color: red;\">NOTIFY PHYSICIAN if less than 1.2 mg/dL<br>CRITICALLY LOW RESULT</span> <br>Magnesium - Less Than 1.4 mg/dL",
+              "CONCEPT_NAME": "[%{EALABMAGTODO}.COUNT > 0 AND {EALABMAGLT14}%]",
+              "SINGLE_SELECT": 1,
+              "SHOW_INACTIVE_DUPLICATES": 0,
+              "ORDERS": [
+                {
+                  "MNEMONIC": "magnesium sulfate",
+                  "ORDER_SENTENCE": "2 g, IVPB, Premix, q2h interval, Duration: 2 doses, infuse over 2 hr",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Recheck magnesium level 4 hrs after infusion complete."
+                }
+              ]
+            },
+            {
+              "SECTION_NAME": "Magnesium Labs (Less Than 1.4 mg/dL)",
+              "CONCEPT_NAME": "[%{EALABMAGTODO}.COUNT > 0 AND {EALABMAGLT14}%]",
+              "SINGLE_SELECT": 0,
+              "SHOW_INACTIVE_DUPLICATES": 0,
+              "ORDERS": [
+                {
+                  "MNEMONIC": "Magnesium Level",
+                  "ORDER_SENTENCE": "Requested Draw Date and T T;N+480, Blood, Timed Study collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Schedule a Magnesium Level for 4 hours after replacement therapy."
+                }
+              ]
+            },
+            {
+              "SECTION_NAME": "Magnesium Lab Orders",
+              "CONCEPT_NAME": "[%{EALABMAGTODO}.COUNT = 0%]",
+              "SINGLE_SELECT": 0,
+              "SHOW_INACTIVE_DUPLICATES": 0,
+              "ORDERS": [
+                {
+                  "MNEMONIC": "Magnesium Level",
+                  "ORDER_SENTENCE": "Blood, ASAP collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Order a STAT Magnesium Level"
+                },
+                {
+                  "MNEMONIC": "Magnesium Level",
+                  "ORDER_SENTENCE": "Blood, Tomorrow AM collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Order a Magnesium Level with next AM labs"
+                },
+                {
+                  "MNEMONIC": "BMP",
+                  "ORDER_SENTENCE": "Blood, Tomorrow AM collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Order a BMP with next AM labs"
+                },
+                {
+                  "MNEMONIC": "Magnesium Level",
+                  "ORDER_SENTENCE": "Requested Draw Date and T T;N+240, Blood, Timed Study collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Schedule a Magnesium Level for 4 hours after replacement therapy."
+                }
+              ]
+            }
+          ],
+          "RESOURCE_URLS": [
+            {
+              "LABEL": "Electrolyte Protocol Guideline",
+              "URL": "https://baycare1.sharepoint.com/sites/NUR/Shared%20Documents/Electrolyte%20Protocol%20Guideline.pdf"
+            }
+          ],
+          "SUBMIT_BUTTON": {
+            "DISMISS_LABEL": "No Orders Necessary",
+            "SIGN_LABEL": "Sign Orders"
+          },
+          "CANCEL_BUTTON": {}
+        },
+        {
+          "TAB_NAME": "Potassium",
+          "TAB_KEY": "POTASSIUM",
+          "FLAG_ON_CONCEPT": "[%{EALABPOTTODO}.COUNT > 0%]",
+          "CONCEPT_FOR_DISMISS": "EALABPOTTODO",
+          "MNEMONICS": [
+            {
+              "MNEMONIC": "Potassium Replacement"
+            }
+          ],
+          "CONCEPTS": [],
+          "CRITERIA": [
+            {
+              "LABEL": "SCr < 2.0 mg/dL",
+              "CONCEPT_NAME": "[%true%]",
+              "DISPLAY": "",
+              "TOOLTIP": ""
+            },
+            {
+              "LABEL": "Not on renal replacement therapy (HD, PD, CRRT)",
+              "CONCEPT_NAME": "[%true%]",
+              "DISPLAY": "",
+              "TOOLTIP": "No orders for hemodialysis, peritoneal dialysis, or CRRT"
+            },
+            {
+              "LABEL": "Critical Care Unit or have telemetry monitoring in place (telemetry monitoring order)",
+              "CONCEPT_NAME": "[%true%]",
+              "DISPLAY": "",
+              "TOOLTIP": "Room type: Critical Care, PCU, Telemetry, MS (Med/Surg) with Telemetry Monitoring order"
+            }
+          ],
+          "GRAPHED_RESULTS": [
+            {
+              "LABEL": "Potassium Level",
+              "EVENT_SET": "TPN Potassium Serum Potassium",
+              "LOOKBACK": "144,H",
+              "MAX_RESULT_COUNT": "6",
+              "RESULTS_VIEW": {
+                "LOOKBEHIND_LABEL": ""
+              }
+            }
+          ],
+          "ORDER_SECTIONS": [
+            {
+              "SECTION_NAME": "<span style=\"color:blue;font-weight:bold;\">If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>Potassium - 3.2 - 3.4 mmol/L",
+              "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW32AND34}%]",
+              "SINGLE_SELECT": 1,
+              "SHOW_INACTIVE_DUPLICATES": 0,
+              "ORDERS": [
+                {
+                  "MNEMONIC": "potassium chloride extended release",
+                  "ORDER_SENTENCE": "20 mEq, PO, ER tab, q2h interval, Duration: 2 doses",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Recheck BMP with next AM labs."
+                },
+                {
+                  "MNEMONIC": "potassium chloride",
+                  "ORDER_SENTENCE": "20 mEq, Feeding Tube, liq, q2h interval, Duration: 2 doses",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Recheck BMP with next AM labs."
+                },
+                {
+                  "MNEMONIC": "potassium chloride 10 mEq/100 mL intravenous solution",
+                  "ORDER_SENTENCE": "10 mEq, IV, q1h, Duration: 4 doses, infuse over 1 hr",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "<span style='text-decoration:underline;font-weight:900;'>Peripheral Line.</span><br>Recheck BMP with next AM labs."
+                },
+                {
+                  "MNEMONIC": "potassium chloride 20 mEq/100 mL intravenous solution",
+                  "ORDER_SENTENCE": "20 mEq, IV, q2h interval, Duration: 2 doses, infuse over 2 hr",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "<i style='text-decoration:underline;font-weight:900;'>Central Line preferred.</i><br>Recheck BMP with next AM labs."
+                }
+              ]
+            },
+            {
+              "SECTION_NAME": "Potassium Labs (3.2 - 3.4 mmol/L)",
+              "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW32AND34}%]",
+              "SINGLE_SELECT": 0,
+              "SHOW_INACTIVE_DUPLICATES": 0,
+              "ORDERS": [
+                {
+                  "MNEMONIC": "BMP",
+                  "ORDER_SENTENCE": "Blood, Tomorrow AM collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Order a BMP with next AM labs"
+                }
+              ]
+            },
+            {
+              "SECTION_NAME": "<span style=\"color:blue;font-weight:bold;\">If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>Potassium - 2.8 - 3.1 mmol/L",
+              "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW28AND31}%]",
+              "SINGLE_SELECT": 1,
+              "SHOW_INACTIVE_DUPLICATES": 0,
+              "ORDERS": [
+                {
+                  "MNEMONIC": "potassium chloride extended release",
+                  "ORDER_SENTENCE": "20 mEq, PO, ER tab, q2h interval, Duration: 3 doses",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Recheck potassium level 4 hrs after last dose."
+                },
+                {
+                  "MNEMONIC": "potassium chloride",
+                  "ORDER_SENTENCE": "20 mEq, Feeding Tube, liq, q2h interval, Duration: 3 doses",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Recheck potassium level 4 hrs after last dose."
+                },
+                {
+                  "MNEMONIC": "potassium chloride 10 mEq/100 mL intravenous solution",
+                  "ORDER_SENTENCE": "10 mEq, IV, q1h, Duration: 6 doses, infuse over 1 hr",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "<u style='text-decoration:underline;'>Peripheral Line.</u><br>Recheck potassium level 1 hr after infusion."
+                },
+                {
+                  "MNEMONIC": "potassium chloride 20 mEq/100 mL intravenous solution",
+                  "ORDER_SENTENCE": "20 mEq, IV, q2h interval, Duration: 3 doses, infuse over 2 hr",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "<i style='text-decoration:underline;font-weight:900;'>Central Line preferred.</i><br>Recheck potassium level 1 hr after infusion."
+                }
+              ]
+            },
+            {
+              "SECTION_NAME": "Potassium Labs (2.8 - 3.1 mmol/L) - ORAL Replacement",
+              "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW28AND31}%]",
+              "SINGLE_SELECT": 0,
+              "SHOW_INACTIVE_DUPLICATES": 0,
+              "ORDERS": [
+                {
+                  "MNEMONIC": "Potassium Level",
+                  "ORDER_SENTENCE": "Requested Draw Date and T T;N+600, Blood, Timed Study collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Recheck potassium level 4 hrs after last dose."
+                }
+              ]
+            },
+            {
+              "SECTION_NAME": "Potassium Labs (2.8 - 3.1 mmol/L) - IV Replacement",
+              "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW28AND31}%]",
+              "SINGLE_SELECT": 0,
+              "SHOW_INACTIVE_DUPLICATES": 0,
+              "ORDERS": [
+                {
+                  "MNEMONIC": "Potassium Level",
+                  "ORDER_SENTENCE": "Requested Draw Date and T T;N+420, Blood, Timed Study collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Recheck potassium level 1 hr after infusion complete."
+                }
+              ]
+            },
+            {
+              "SECTION_NAME": "<span style=\"color: red;\">NOTIFY PHYSICIAN<br>CRITICALLY LOW RESULT</span> <br>Potassium - Less Than 2.8 mmol/L",
+              "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTLT28}%]",
+              "SINGLE_SELECT": 1,
+              "SHOW_INACTIVE_DUPLICATES": 0,
+              "ORDERS": [
+                {
+                  "MNEMONIC": "potassium chloride 10 mEq/100 mL intravenous solution",
+                  "ORDER_SENTENCE": "10 mEq, IVPB, Inj, q1hr (interval), Duration: 8 dose(s)",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "<i style='text-decoration:underline;font-weight:900;'>Peripheral Line.</i><br>Add-on mag + phos levels STAT, if not recently obtained.<br>Recheck potassium level 1 hr after infusion complete. Repeat BMP, mag and phos levels with next AM labs."
+                },
+                {
+                  "MNEMONIC": "potassium chloride 20 mEq/100 mL intravenous solution",
+                  "ORDER_SENTENCE": "20 mEq, IV, q2h interval, Duration: 4 doses, infuse over 2 hr",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "<i style='text-decoration:underline;font-weight:900;'>Central Line preferred.</i><br>Add-on mag + phos levels STAT, if not recently obtained.<br>Recheck potassium level 1 hr after infusion complete. Repeat BMP, mag and phos levels with next AM labs."
+                }
+              ]
+            },
+            {
+              "SECTION_NAME": "Potassium Labs (Less Than 2.8 mmol/L)",
+              "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTLT28}%]",
+              "SINGLE_SELECT": 0,
+              "SHOW_INACTIVE_DUPLICATES": 0,
+              "ORDERS": [
+                {
+                  "MNEMONIC": "Phosphate Level",
+                  "ORDER_SENTENCE": "Blood, Add On collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Order an add-on Phosphate Level."
+                },
+                {
+                  "MNEMONIC": "Magnesium Level",
+                  "ORDER_SENTENCE": "Blood, Add On collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Order an add-on Magnesium Level."
+                },
+                {
+                  "MNEMONIC": "Potassium Level",
+                  "ORDER_SENTENCE": "Requested Draw Date and T T;N+600, Blood, Timed Study collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Recheck potassium level 4 hrs after last dose."
+                }
+              ]
+            },
+            {
+              "SECTION_NAME": "Potassium Lab Orders",
+              "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT = 0%]",
+              "SINGLE_SELECT": 0,
+              "SHOW_INACTIVE_DUPLICATES": 0,
+              "ORDERS": [
+                {
+                  "MNEMONIC": "Potassium Level",
+                  "ORDER_SENTENCE": "Blood, Stat collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Order a STAT Potassium Level."
+                },
+                {
+                  "MNEMONIC": "BMP",
+                  "ORDER_SENTENCE": "Requested Draw Date and T T;N+240, Blood, Timed Study collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Schedule a BMP for 4 hours after repeat potassium within normal range."
+                },
+                {
+                  "MNEMONIC": "Magnesium Level",
+                  "ORDER_SENTENCE": "Requested Draw Date and T T;N+240, Blood, Timed Study collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Schedule a Magnesium Level for 4 hours after repeat potassium within normal range."
+                },
+                {
+                  "MNEMONIC": "Phosphate Level",
+                  "ORDER_SENTENCE": "Requested Draw Date and T T;N+240, Blood, Timed Study collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Schedule a Phosphate Level for 4 hours after replacement therapy."
+                }
+              ]
+            }
+          ],
+          "RESOURCE_URLS": [
+            {
+              "LABEL": "Electrolyte Protocol Guideline",
+              "URL": "https://baycare1.sharepoint.com/sites/NUR/Shared%20Documents/Electrolyte%20Protocol%20Guideline.pdf"
+            }
+          ],
+          "SUBMIT_BUTTON": {
+            "DISMISS_LABEL": "No Orders Necessary",
+            "SIGN_LABEL": "Sign Orders"
+          },
+          "CANCEL_BUTTON": {}
+        },
+        {
+          "TAB_NAME": "Phosphorous",
+          "TAB_KEY": "PHOSPHATE",
+          "FLAG_ON_CONCEPT": "[%{EALABPHOSTODO}.COUNT > 0%]",
+          "CONCEPT_FOR_DISMISS": "EALABPHOSTODO",
+          "MNEMONICS": [
+            {
+              "MNEMONIC": "Phosphorus Replacement"
+            }
+          ],
+          "CONCEPTS": [],
+          "CRITERIA": [
+            {
+              "LABEL": "SCr < 2.0 mg/dL",
+              "CONCEPT_NAME": "[%true%]",
+              "DISPLAY": "",
+              "TOOLTIP": ""
+            },
+            {
+              "LABEL": "Not on renal replacement therapy (HD, PD, CRRT)",
+              "CONCEPT_NAME": "[%true%]",
+              "DISPLAY": "",
+              "TOOLTIP": "No orders for hemodialysis, peritoneal dialysis, or CRRT"
+            },
+            {
+              "LABEL": "Critical Care Unit or have telemetry monitoring in place (telemetry monitoring order)",
+              "CONCEPT_NAME": "[%true%]",
+              "DISPLAY": "",
+              "TOOLTIP": "Room type: Critical Care, PCU, Telemetry, MS (Med/Surg) with Telemetry Monitoring order"
+            }
+          ],
+          "GRAPHED_RESULTS": [
+            {
+              "LABEL": "Phosporous Level",
+              "EVENT_SET": "TPN Phosphorus Serum Phosphorus",
+              "LOOKBACK": "144,H",
+              "MAX_RESULT_COUNT": "6",
+              "RESULTS_VIEW": {
+                "LOOKBEHIND_LABEL": ""
+              }
+            }
+          ],
+          "ORDER_SECTIONS": [
+            {
+              "SECTION_NAME": "<span style=\"color:blue;font-weight:bold;\">If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>Phosphorous - 1.6 - 2.0 mg/dL",
+              "CONCEPT_NAME": "[%{EALABPHOSTODO}.COUNT > 0 AND {EALABPHOSBTW16AND20}%]",
+              "SINGLE_SELECT": 1,
+              "SHOW_INACTIVE_DUPLICATES": 0,
+              "ORDERS": [
+                {
+                  "MNEMONIC": "K-Phos Neutral",
+                  "ORDER_SENTENCE": "2 tabs, q2h interval, PO, tab, Duration: 2 doses",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Recheck phosphorous  & calcium levels with next AM labs"
+                },
+                {
+                  "MNEMONIC": "sodium phosphate",
+                  "ORDER_SENTENCE": "15 mmol, IVPB, inj, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Recheck phosphorous  & calcium levels with next AM labs"
+                }
+              ]
+            },
+            {
+              "SECTION_NAME": "Phosphorous Labs (1.6 - 2.0 mg/dL)",
+              "CONCEPT_NAME": "[%{EALABPHOSTODO}.COUNT > 0 AND {EALABPHOSBTW16AND20}%]",
+              "SINGLE_SELECT": 0,
+              "SHOW_INACTIVE_DUPLICATES": 0,
+              "ORDERS": [
+                {
+                  "MNEMONIC": "Phosphate Level",
+                  "ORDER_SENTENCE": "Blood, Tomorrow AM collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Order a Phosphate Level with next AM labs"
+                },
+                {
+                  "MNEMONIC": "Calcium Level Ionized, Serum",
+                  "ORDER_SENTENCE": "Blood, Tomorrow AM collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Order a Calcium Level with next AM labs"
+                },
+                {
+                  "MNEMONIC": "Calcium Level Ionized, Whole Blood",
+                  "ORDER_SENTENCE": "Blood, Tomorrow AM collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Order a Calcium Level with next AM labs"
+                }
+              ]
+            },
+            {
+              "SECTION_NAME": "<span style=\"color: red;\">NOTIFY PHYSICIAN if less than 1.1 mg/dL</span><br><span style=\"color:blue;font-weight:bold;\">If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>Phosphorous - 1.0 - 1.5 mg/dL",
+              "CONCEPT_NAME": "[%{EALABPHOSTODO}.COUNT > 0 AND {EALABPHOSBTW10AND15}%]",
+              "SINGLE_SELECT": 1,
+              "SHOW_INACTIVE_DUPLICATES": 0,
+              "ORDERS": [
+                {
+                  "MNEMONIC": "K-Phos Neutral",
+                  "ORDER_SENTENCE": "2 tabs, q2h interval, PO, tab, Duration: 3 doses",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Recheck phosphorous  & calcium levels with next AM labs"
+                },
+                {
+                  "MNEMONIC": "sodium phosphate",
+                  "ORDER_SENTENCE": "15 mmol, IVPB, inj, q4h interval, Duration: 2 dose",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Recheck phosphorous & calcium levels 2 hrs after infusion"
+                }
+              ]
+            },
+            {
+              "SECTION_NAME": "Phosphorous Labs (1.0 - 1.5 mg/dL) - ORAL Replacement",
+              "CONCEPT_NAME": "[%{EALABPHOSTODO}.COUNT > 0 AND {EALABPHOSBTW10AND15}%]",
+              "SINGLE_SELECT": 0,
+              "SHOW_INACTIVE_DUPLICATES": 0,
+              "ORDERS": [
+                {
+                  "MNEMONIC": "Phosphate Level",
+                  "ORDER_SENTENCE": "Blood, Tomorrow AM collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Order a Phosphate Level with next AM labs"
+                },
+                {
+                  "MNEMONIC": "Calcium Level Ionized, Serum",
+                  "ORDER_SENTENCE": "Blood, Tomorrow AM collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Order a Calcium Level with next AM labs"
+                },
+                {
+                  "MNEMONIC": "Calcium Level Ionized, Whole Blood",
+                  "ORDER_SENTENCE": "Blood, Tomorrow AM collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Order a Calcium Level with next AM labs"
+                }
+              ]
+            },
+            {
+              "SECTION_NAME": "Phosphorous Labs (1.0 - 1.5 mg/dL) - IV Replacement",
+              "CONCEPT_NAME": "[%true%]",
+              "SINGLE_SELECT": 0,
+              "SHOW_INACTIVE_DUPLICATES": 0,
+              "ORDERS": [
+                {
+                  "MNEMONIC": "Phosphate Level",
+                  "ORDER_SENTENCE": "Requested Draw Date and T T;N+600, Blood, Timed Study collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Schedule a Phosphate Level for 2 hours after replacement therapy."
+                },
+                {
+                  "MNEMONIC": "Calcium Level Ionized, Serum",
+                  "ORDER_SENTENCE": "Requested Draw Date and T T;N+600, Blood, Timed Study collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Schedule a Calcium Level for 2 hours after replacement therapy."
+                },
+                {
+                  "MNEMONIC": "Calcium Level Ionized, Whole Blood",
+                  "ORDER_SENTENCE": "Requested Draw Date and T T;N+600, Blood, Timed Study collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Schedule a Calcium Level for 2 hours after replacement therapy."
+                }
+              ]
+            },
+            {
+              "SECTION_NAME": "<span style=\"color: red;\">NOTIFY PHYSICIAN if less than 1.1 mg/dL<br>CRITICALLY LOW RESULT</span> <br>Phosphorous - Less Than 1.0 mg/dL",
+              "CONCEPT_NAME": "[%{EALABPHOSTODO}.COUNT > 0 AND {EALABPHOSLT10}%]",
+              "SINGLE_SELECT": 1,
+              "SHOW_INACTIVE_DUPLICATES": 0,
+              "ORDERS": [
+                {
+                  "MNEMONIC": "sodium phosphate",
+                  "ORDER_SENTENCE": "15 mmol, IVPB, inj, q4h interval, Duration: 2 dose",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Recheck phosphorous & calcium levels 2 hrs after infusion"
+                }
+              ]
+            },
+            {
+              "SECTION_NAME": "Phosphorous Labs (Less Than 1.0 mg/dL)",
+              "CONCEPT_NAME": "[%{EALABPHOSTODO}.COUNT > 0 AND {EALABPHOSLT10}%]",
+              "SINGLE_SELECT": 0,
+              "SHOW_INACTIVE_DUPLICATES": 0,
+              "ORDERS": [
+                {
+                  "MNEMONIC": "Phosphate Level",
+                  "ORDER_SENTENCE": "Requested Draw Date and T T;N+600, Blood, Timed Study collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Schedule a Phosphate Level for 2 hours after replacement therapy."
+                },
+                {
+                  "MNEMONIC": "Calcium Level Ionized, Serum",
+                  "ORDER_SENTENCE": "Requested Draw Date and T T;N+600, Blood, Timed Study collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Schedule a Calcium Level for 2 hours after replacement therapy."
+                },
+                {
+                  "MNEMONIC": "Calcium Level Ionized, Whole Blood",
+                  "ORDER_SENTENCE": "Requested Draw Date and T T;N+600, Blood, Timed Study collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Schedule a Calcium Level for 2 hours after replacement therapy."
+                }
+              ]
+            },
+            {
+              "SECTION_NAME": "Phosphorous Lab Orders",
+              "CONCEPT_NAME": "[%{EALABPHOSTODO}.COUNT = 0%]",
+              "SINGLE_SELECT": 0,
+              "SHOW_INACTIVE_DUPLICATES": 0,
+              "ORDERS": [
+                {
+                  "MNEMONIC": "Phosphate Level",
+                  "ORDER_SENTENCE": "Blood, Stat collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Order a STAT Phosphate Level."
+                },
+                {
+                  "MNEMONIC": "Calcium Level Ionized, Serum",
+                  "ORDER_SENTENCE": "Blood, Stat collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Order a STAT Calcium Level"
+                },
+                {
+                  "MNEMONIC": "Calcium Level Ionized, Whole Blood",
+                  "ORDER_SENTENCE": "Blood, Stat collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Order a STAT Calcium Level"
+                },
+                {
+                  "MNEMONIC": "Phosphate Level",
+                  "ORDER_SENTENCE": "Blood, Tomorrow AM collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Order a Phosphate Level with next AM labs"
+                },
+                {
+                  "MNEMONIC": "Calcium Level Ionized, Serum",
+                  "ORDER_SENTENCE": "Blood, Tomorrow AM collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Order a Calcium Level with next AM labs"
+                },
+                {
+                  "MNEMONIC": "Calcium Level Ionized, Whole Blood",
+                  "ORDER_SENTENCE": "Blood, Tomorrow AM collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Order a Calcium Level with next AM labs"
+                },
+                {
+                  "MNEMONIC": "Phosphate Level",
+                  "ORDER_SENTENCE": "Requested Draw Date and T T;N+120, Blood, Timed Study collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Schedule a Phosphate Level for 2 hours after replacement therapy."
+                },
+                {
+                  "MNEMONIC": "Calcium Level Ionized, Serum",
+                  "ORDER_SENTENCE": "Requested Draw Date and T T;N+120, Blood, Timed Study collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Schedule a Calcium Level for 2 hours after replacement therapy."
+                },
+                {
+                  "MNEMONIC": "Calcium Level Ionized, Whole Blood",
+                  "ORDER_SENTENCE": "Requested Draw Date and T T;N+120, Blood, Timed Study collect, Once",
+                  "ASC_SHORT_DESCRIPTION": "",
+                  "COMMENT": "Schedule a Calcium Level for 2 hours after replacement therapy."
+                }
+              ]
+            }
+          ],
+          "RESOURCE_URLS": [
+            {
+              "LABEL": "Electrolyte Protocol Guideline",
+              "URL": "https://baycare1.sharepoint.com/sites/NUR/Shared%20Documents/Electrolyte%20Protocol%20Guideline.pdf"
+            }
+          ],
+          "SUBMIT_BUTTON": {
+            "DISMISS_LABEL": "No Orders Necessary",
+            "SIGN_LABEL": "Sign Orders"
+          },
+          "CANCEL_BUTTON": {}
+        }
+      ],
+      "CCL_POSTPROCESS": "UHS_MPG_GET_TABBED_ADVISOR",
+      "JSON_RETURN": ""
+    }
+}
