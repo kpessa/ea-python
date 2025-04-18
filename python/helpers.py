@@ -4,13 +4,16 @@ from typing import List, Dict, Optional, cast, Union
 
 # Import types and other helper modules
 from .types import (
-    BaseOrder, MedicationOrderParams, BaseMedicationDefinition, LabOrderDefinition,
+    BaseOrder, # MedicationOrderParams removed
+    BaseMedicationDefinition, LabOrderDefinition,
     OrderSection, SectionGroup, InitialLabConfig, ProtocolData, Mnemonic,
-    GraphedResult, TabConfig, GenerationContext, Protocol, RouteStyle, RangeInfo
+    GraphedResult, TabConfig, GenerationContext, Protocol, # RouteStyle removed
+    RangeInfo
 )
 from . import text as Text
 from . import components as Components
 from .predefined_med_orders import PREDEFINED_MED_ORDERS # Import the new definitions
+from . import lab_orders as Labs 
 
 # --- Environment Variable Handling ---
 
@@ -18,24 +21,21 @@ def get_generation_context() -> GenerationContext:
     """Reads environment variables to determine build context."""
     # Default values mimic compile.sh
     raw_protocol = os.environ.get('EA_PROTOCOL', 'REGULAR')
-    raw_route_style = os.environ.get('EA_ROUTE_STYLE', 'bold_underline')
-    raw_show_total_dose = os.environ.get('EA_SHOW_TOTAL_DOSE', 'false').lower()
+    # route_style = cast(RouteStyle, os.environ.get('ROUTE_STYLE', 'bold_underline')) # Removed
+    # show_total_dose_env = os.environ.get('SHOW_TOTAL_DOSE', 'false').lower() # Removed
+    # show_total_dose = show_total_dose_env == 'true' # Removed
 
     # Basic validation
     protocol = cast(Protocol, raw_protocol)
     if protocol not in ['REGULAR', 'CARDIAC', 'DKA']:
         raise ValueError(f"Invalid EA_PROTOCOL: {protocol}")
-
-    route_style = cast(RouteStyle, raw_route_style)
-    if route_style not in ['badge', 'bold_underline']:
-        raise ValueError(f"Invalid EA_ROUTE_STYLE: {route_style}")
-
-    show_total_dose = raw_show_total_dose == 'true'
+    # if route_style not in ['badge', 'bold_underline']: # Removed
+    #     raise ValueError(f"Invalid ROUTE_STYLE: {route_style}") # Removed
 
     return {
         'protocol': protocol,
-        'routeStyle': route_style,
-        'showTotalDose': show_total_dose,
+        # 'routeStyle': route_style, # Removed
+        # 'showTotalDose': show_total_dose # Removed
     }
 
 # --- Formatting Helpers ---
@@ -68,13 +68,13 @@ def create_between_concept(electrolyte: str, lower: float, upper: float) -> str:
     concept = get_concept_name(electrolyte)
     lower_str = format_level_for_concept(lower)
     upper_str = format_level_for_concept(upper)
-    return f"[%{{EALAB{concept}TODO}}.COUNT > 0 AND {{EALAB{concept}BTW{lower_str}AND{upper_str}}}%}}]"
+    return f"[%{{EALAB{concept}TODO}}.COUNT > 0 AND {{EALAB{concept}BTW{lower_str}AND{upper_str}}}%]"
 
 def create_less_than_concept(electrolyte: str, level: float) -> str:
     """Creates the concept string for a value less than level."""
     concept = get_concept_name(electrolyte)
     level_str = format_level_for_concept(level)
-    return f"[%{{EALAB{concept}TODO}}.COUNT > 0 AND {{EALAB{concept}LT{level_str}}}%}}]"
+    return f"[%{{EALAB{concept}TODO}}.COUNT > 0 AND {{EALAB{concept}LT{level_str}}}%]"
 
 # --- Section Name Helpers ---
 
@@ -150,33 +150,17 @@ def _create_order_sentence(
     final_sentence = ', '.join(filter(None, parts)) # Filter out potential None parts if logic changes
     return final_sentence
 
-def _format_total_dose_comment(parse_info: Dict, show_total_dose: bool) -> str:
-    """Formats the total dose part of the comment using parsed info."""
-    if not show_total_dose or not parse_info: # Also check if parse_info exists
-        return ''
-    # Use pre-parsed values
-    num_doses = parse_info.get('numberOfDoses', 1) or 1 # Handle None or 0
-    dose = parse_info.get('dose')
-    dose_unit = parse_info.get('doseUnit')
-
-    if dose is None or dose_unit is None:
-        print(f"Warning: Missing dose or doseUnit in parse_info for total dose comment: {parse_info}")
-        return '' # Don't add comment if info is missing
-
-    total_dose_value = dose * num_doses
-    return Text.format_total_dose_text(total_dose_value, dose_unit) + '<br>'
-
-# --- Medication Order Creation (Refactored) ---
+# --- Medication Order Creation (Refactored & Simplified) ---
 
 def create_medication_order(
     predefined_med_key: str, # Use the key instead of baseMed + params
     recommend_oral: bool,
-    context: GenerationContext,
+    context: GenerationContext, # Context no longer contains style/dose info
     extra_comment_override: Optional[str] = None # Allow overriding extra comment if needed
 ) -> BaseOrder:
     """Creates a BaseOrder structure using a predefined medication key."""
-    route_style = context['routeStyle']
-    show_total_dose = context['showTotalDose']
+    # route_style = context['routeStyle'] # Removed
+    # show_total_dose = context['showTotalDose'] # Removed
 
     # Look up the predefined order details
     predefined_order = PREDEFINED_MED_ORDERS.get(predefined_med_key)
@@ -187,29 +171,44 @@ def create_medication_order(
     mnemonic = predefined_order['mnemonic']
     order_sentence = predefined_order['order_sentence']
     base_med_ref = predefined_order['base_med_ref']
-    parse_info = predefined_order['parse_info']
+    # parse_info = predefined_order['parse_info'] # Removed
 
-    # Use parse_info for total dose comment
-    total_dose_comment = _format_total_dose_comment(parse_info, show_total_dose)
+    # total_dose_comment = _format_total_dose_comment(parse_info, show_total_dose) # Removed
 
     # Determine route display text based on style using base_med_ref
     route_display_text = ''
     route_info = base_med_ref['routeInfo']
-    show_asterisk = route_info['isOralOrTube'] and recommend_oral
+    show_asterisk = route_info['isOralOrTube'] and recommend_oral # Keep asterisk logic
 
-    if route_style == 'bold_underline':
-        if route_info['pillText'] in ['Peripheral IV', 'Central IV Preferred']:
-            route_display_text = f'<span style="font-weight: 900; text-decoration: underline;">{route_info["pillText"]}</span>'
-        # No else needed, route_display_text remains ''
-    else: # Default to 'badge' style
-        route_display_text = Text.create_pill(pill_text=route_info['pillText'], background_color=route_info['pillBgColor'], text_color=route_info['pillTextColor'], show_asterisk=show_asterisk)
+    # Simplified logic - only bold_underline style remains
+    pill_text = route_info['pillText']
+    asterisk_str = ' *' if show_asterisk else ''
+
+    if pill_text in ['Peripheral IV', 'Central IV Preferred']:
+        # Underline style for specific IV routes
+        route_display_text = f'<span style="font-weight: 900; text-decoration: underline;">{pill_text}</span>'
+    elif route_info['isOralOrTube']:
+         # Plain text for Oral/Tube, add asterisk if needed
+         route_display_text = f'{pill_text}{asterisk_str}'
+    elif pill_text == 'Intravenous': # Condition for generic IV
+         # Plain text for generic Intravenous
+         route_display_text = 'Intravenous'
+    # else: No text for other routes
 
     # Construct final comment (using optional override if provided)
     extra_comment = extra_comment_override # Use override if present
-    # Wrap concatenation in parentheses to allow multi-line
-    final_comment = (total_dose_comment +
-                     (route_display_text if route_display_text else '') +
-                     (f' {extra_comment}' if extra_comment else ''))
+
+    # Simplified comment construction
+    comment_parts = []
+    # No Total Dose comment anymore
+    if route_display_text:
+        comment_parts.append(route_display_text)
+    if extra_comment:
+        # Add space before extra comment only if other parts exist
+        prefix = ' ' if comment_parts else ''
+        comment_parts.append(prefix + extra_comment)
+
+    final_comment = ''.join(comment_parts)
 
     return {
         'MNEMONIC': mnemonic,
@@ -270,43 +269,74 @@ def _build_lab_section(
     context: GenerationContext
 ) -> OrderSection:
     """Builds a lab order section."""
-    route_style = context['routeStyle']
+    # route_style = context['routeStyle'] # Removed
     protocol = context['protocol']
+    # Apply step prefix ONLY to the first lab section within the group (index 0)
     step_prefix = Text.step2_text if index == 0 else ''
-    
-    # Determine prefix/badge based on style ONLY if associatedRouteType is present
-    associated_route = lab_section_config.get('associatedRouteType')
-    display_prefix_or_badge = ''
-    if associated_route: # Only add prefix if route type is specified
-        if route_style == 'bold_underline':
-            temp_prefix = ''
-            if associated_route == 'Oral':
-                temp_prefix = 'ORAL - Labs'
-            elif associated_route == 'Peripheral':
-                temp_prefix = 'PERIPHERAL IV - Labs' if protocol == 'CARDIAC' else 'IV - Labs'
-            elif associated_route == 'Central':
-                temp_prefix = 'CENTRAL IV - Labs' if protocol == 'CARDIAC' else 'IV - Labs'
-            elif associated_route == 'IV':
-                temp_prefix = 'IV - Labs'
-            
-            if temp_prefix:
-                 # display_prefix_or_badge = f'<span style="font-weight: bold;">{temp_prefix}:</span> ' # Original attempt with span
-                 display_prefix_or_badge = f"{temp_prefix}:" # Simpler bold prefix
 
-        # TODO: Add badge logic for 'badge' route_style here if needed
+    # Determine prefix based on associatedRouteType
+    associated_route = lab_section_config.get('associatedRouteType')
+    display_prefix = ''
+    if associated_route:
+        temp_prefix = ''
+        route_lower = associated_route.lower() # Convert to lowercase for easier comparison
+        
+        # Handle combined and specific routes
+        if 'oral' in route_lower: # Catches 'Oral' and 'Oral / Feeding Tube'
+            temp_prefix = 'ORAL / FEEDING TUBE - Labs' if '/' in associated_route else 'ORAL - Labs'
+        elif 'peripheral' in route_lower or 'central' in route_lower: # Catches IV types
+            if protocol == 'CARDIAC':
+                temp_prefix = 'PERIPHERAL / CENTRAL IV - Labs' if '/' in associated_route else \
+                                ('PERIPHERAL IV - Labs' if 'peripheral' in route_lower else 'CENTRAL IV - Labs')
+            else: # REGULAR protocol
+                temp_prefix = 'IV - Labs' # Simpler for REGULAR
+        elif associated_route == 'IV': # Catch generic 'IV'
+            temp_prefix = 'IV - Labs'
+        # Add more mappings here if other associatedRouteTypes appear
+        
+        if temp_prefix:
+            display_prefix = f"{temp_prefix}:" # Just the text prefix, no extra styling needed now
 
     # Construct section name
     monitoring_instructions = lab_section_config.get('sectionDescription', 'Missing Description')
-    separator = '<br>' if display_prefix_or_badge else '' # Separator only if prefix exists
-    formatted_instructions = f'<small style="font-weight: normal;">{monitoring_instructions}</small>'    
-    final_section_name = step_prefix + display_prefix_or_badge + separator + formatted_instructions
+    # --- REMOVE TEMPORARY DEBUGGING --- 
+    # if index == 0 and 'Add-on mag & phos levels STAT' in monitoring_instructions: 
+    #     print(f"---> DEBUG: Lab Section index={index}, monitoring_instructions = {repr(monitoring_instructions)}")
+    # --- END TEMPORARY DEBUGGING ---
+    # Add separator ONLY if both prefix and instructions exist
+    separator = '<br>' if display_prefix and monitoring_instructions else ''
+    formatted_instructions = f'<small style="font-weight: normal;">{monitoring_instructions}</small>' if monitoring_instructions else ''
+    
+    # Combine parts, ensuring step_prefix comes first if present
+    parts = [step_prefix, display_prefix, separator, formatted_instructions]
+    final_section_name = ''.join(filter(None, parts)) # Join non-empty parts
+
+    # Build orders list based on type
+    orders_list: List[BaseOrder] = []
+    for order_config in lab_section_config.get('orders', []):
+        if isinstance(order_config, dict) and order_config.get('type') == 'timed_lab':
+            # Handle new timed lab structure
+            base_name = order_config.get('base_name')
+            minutes = order_config.get('minutes')
+            comment_base = order_config.get('comment_base')
+            suffix = order_config.get('suffix', '')
+            if not all([base_name, minutes is not None, comment_base]):
+                raise ValueError(f"Missing required fields for timed_lab: {order_config}")
+            # Call the new function from lab_orders to get the LabOrderDefinition
+            timed_lab_def = Labs.create_specific_timed_lab(base_name, minutes, comment_base, suffix)
+            # Process it like a standard lab order to get the BaseOrder format
+            orders_list.append(create_lab_order(timed_lab_def)) 
+        else:
+            # Assume it's a standard LabOrderDefinition (like Labs.bmp_tomorrow_am)
+            orders_list.append(create_lab_order(order_config))
 
     final_lab_section: OrderSection = {
         'SECTION_NAME': final_section_name,
         'CONCEPT_NAME': lab_section_config['conceptName'],
         'SINGLE_SELECT': 0, # Labs usually multi-select
         'SHOW_INACTIVE_DUPLICATES': 0,
-        'ORDERS': [create_lab_order(order_def) for order_def in lab_section_config['orders']],
+        # 'ORDERS': [create_lab_order(order_def) for order_def in lab_section_config['orders']], # Old way
+        'ORDERS': orders_list, # Use the newly built list
     }
     return final_lab_section
 
@@ -355,12 +385,32 @@ def create_initial_lab_sections(
     """Creates order sections for initial labs."""
     order_sections: List[OrderSection] = []
     for lab_config in initial_labs:
+        # Process orders within the initial lab config
+        processed_orders: List[BaseOrder] = []
+        for order_def in lab_config.get('orders', []):
+            if isinstance(order_def, dict) and order_def.get('type') == 'timed_lab':
+                # Handle new timed lab structure
+                base_name = order_def.get('base_name')
+                minutes = order_def.get('minutes')
+                comment_base = order_def.get('comment_base')
+                suffix = order_def.get('suffix', '')
+                if not all([base_name, minutes is not None, comment_base]):
+                    raise ValueError(f"Missing required fields for initial timed_lab: {order_def}")
+                # Generate the LabOrderDefinition using the specific function
+                timed_lab_definition = Labs.create_specific_timed_lab(base_name, minutes, comment_base, suffix)
+                # Convert to BaseOrder format
+                processed_orders.append(create_lab_order(timed_lab_definition))
+            else:
+                # Assume it's a standard LabOrderDefinition
+                processed_orders.append(create_lab_order(order_def))
+        
         order_sections.append({
             'SECTION_NAME': lab_config['sectionName'],
             'CONCEPT_NAME': lab_config['conceptName'],
             'SINGLE_SELECT': 0, # Allow multiple initial labs
             'SHOW_INACTIVE_DUPLICATES': 0,
-            'ORDERS': [create_lab_order(order_def) for order_def in lab_config['orders']],
+            # 'ORDERS': [create_lab_order(order_def) for order_def in lab_config['orders']], # Old way
+            'ORDERS': processed_orders, # Use the processed list
         })
     return order_sections
 

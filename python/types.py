@@ -8,35 +8,19 @@ class BaseOrder(TypedDict):
     ASC_SHORT_DESCRIPTION: str # Often empty
     COMMENT: str
 
-class MedicationOrderParams(TypedDict):
-    dose: Union[int, float] # Allow float for doses like 1.5
-    doseUnit: str
-    route: str
-    form: Optional[str]
-    frequency: Optional[str]
-    duration: Optional[str]
-    numberOfDoses: Optional[int]
-    infuseOver: Optional[str]
-    extraComment: Optional[str]
-
 class RouteInfo(TypedDict):
     isOralOrTube: bool
     pillText: str
-    pillBgColor: str
-    pillTextColor: str
 
 class BaseMedicationDefinition(TypedDict):
     MNEMONIC: str
     routeInfo: RouteInfo
+    COMMENT: Optional[str]
 
 class LabOrderDefinition(TypedDict):
     MNEMONIC: str
     ORDER_SENTENCE: str
     COMMENT: Optional[str]
-
-class MedicationOrderItem(TypedDict):
-    baseMed: BaseMedicationDefinition
-    params: MedicationOrderParams
 
 class OrderSection(TypedDict):
     SECTION_NAME: str
@@ -50,7 +34,7 @@ class ReplacementSectionConfig(TypedDict):
     conceptName: str
     singleSelect: Literal[0, 1]
     criticalAlertText: Optional[str]
-    orders: List[MedicationOrderItem]
+    orders: List[Dict] # Now a list of dicts like {'predefinedMedKey': str, 'extraComment': Optional[str]}
 
 class LabSectionConfig(TypedDict):
     conceptName: str
@@ -152,9 +136,9 @@ class CommonComponents(TypedDict):
 
 # --- Generation Context ---
 Protocol = Literal['REGULAR', 'CARDIAC', 'DKA']
-RouteStyle = Literal['badge', 'bold_underline']
 
 class GenerationContext(TypedDict):
     protocol: Protocol
-    routeStyle: RouteStyle
-    showTotalDose: bool 
+
+# RouteStyle = Literal['badge', 'bold_underline']
+# showTotalDose: bool 

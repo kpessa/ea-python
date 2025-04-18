@@ -40,7 +40,7 @@ mag_level_asap: LabOrderDefinition = {
 mag_level_add_on: LabOrderDefinition = {
     'MNEMONIC': 'Magnesium Level',
     'ORDER_SENTENCE': 'Requested Draw Date and T T;N, Blood, Routine Today collect, Once, add to specimen in lab',
-    'COMMENT': 'Order an add-on Magnesium Level. Repeat with next AM labs.',
+    'COMMENT': 'Order an add-on Magnesium Level.',
 }
 
 # --- Potassium ---
@@ -72,7 +72,7 @@ phos_level_stat: LabOrderDefinition = {
 phos_level_add_on: LabOrderDefinition = {
     'MNEMONIC': 'Phosphate Level',
     'ORDER_SENTENCE': 'Requested Draw Date and T T;N, Blood, Routine Today collect, Once, add to specimen in lab',
-    'COMMENT': 'Order an add-on Phosphate Level. Repeat with next AM labs.',
+    'COMMENT': 'Order an add-on Phosphate Level.',
 }
 
 # --- Calcium ---
@@ -137,3 +137,22 @@ def get_timed_lab(base_name: str, minutes: int, suffix: str = '') -> LabOrderDef
     else:
         # Base name didn't match known labs
             raise ValueError(f"Unknown base lab name '{base_name}' for timed order")
+
+# --- New function for specific timed lab comments ---
+def create_specific_timed_lab(base_name: str, minutes: int, comment_base: str, suffix: str = '') -> LabOrderDefinition:
+    """Generates LabOrderDefinitions for timed labs with a specific base comment."""
+    mnemonic = _base_lab_mnemonics.get(base_name)
+    if not mnemonic:
+        raise ValueError(f"Unknown base lab name '{base_name}' for specific timed order")
+
+    # Generate the dynamic name part - Not needed for comment anymore
+    # name = f"{base_name}_timed_n{minutes}{suffix}"
+    # Construct the final comment using ONLY the base comment provided
+    final_comment = comment_base # Remove the dynamic suffix
+
+    return {
+        'MNEMONIC': mnemonic,
+        'ORDER_SENTENCE': f'Requested Draw Date and T T;N+{minutes}, Blood, Timed Study collect, Once',
+        'COMMENT': final_comment,
+        # 'ASC_SHORT_DESCRIPTION': '', # Assuming empty for labs, handled by create_lab_order
+    }

@@ -46,17 +46,14 @@ def main():
 
     build_failed = False
     for protocol in protocols_to_build:
-        # print(f"\\nGenerating config for protocol: {protocol}...") # Quieten
+        # print(f"\\\\nGenerating config for protocol: {protocol}...") # Quieten
 
-        # Create context specific to this protocol iteration
-        current_context: GenerationContext = {
-            'protocol': protocol,
-            'routeStyle': base_context['routeStyle'],
-            'showTotalDose': base_context['showTotalDose'],
-        }
+        # Update base_context directly with the current protocol
+        base_context['protocol'] = protocol
 
         try:
-            config_data = generate_config(current_context)
+            # Pass the updated base_context directly
+            config_data = generate_config(base_context)
             output_filename = f"output_{protocol.lower()}.json"
             output_path = os.path.join(output_dir, output_filename)
 
@@ -72,10 +69,10 @@ def main():
             traceback.print_exc(file=sys.stderr) # Print stack trace for debugging
             build_failed = True # Mark build as failed but continue
 
-    # print('\\nPython build process completed.') # Quieten
+    # print('\\\\nPython build process completed.') # Quieten
 
     # --- Run Automated Tests ---
-    # print("\\nRunning automated configuration tests...") # Quieten
+    # print("\\\\nRunning automated configuration tests...") # Quieten
     try:
         # Assuming test_configs.py is in the same directory as build.py (project root)
         # test_script_path = os.path.join(os.path.dirname(__file__), 'test_configs.py') # Old way
@@ -107,11 +104,11 @@ def main():
         # print(result.stdout) 
         if result.returncode != 0:
             # print(result.stderr, file=sys.stderr) # Output already in file
-            # print(f"\\nPytest output written to {output_py_path}", file=sys.stderr) # Quieten
-            print("\\nConfiguration tests failed!", file=sys.stderr)
+            # print(f"\\\\nPytest output written to {output_py_path}", file=sys.stderr) # Quieten
+            print("\\\\nConfiguration tests failed!", file=sys.stderr)
             build_failed = True # Mark build as failed
         else:
-            # print(f"\\nPytest output written to {output_py_path}") # Quieten
+            # print(f"\\\\nPytest output written to {output_py_path}") # Quieten
             # print("Configuration tests passed.") # Quieten
             pass # Keep structure
     # except FileNotFoundError: # Less likely with pytest module execution
@@ -122,10 +119,10 @@ def main():
 
     # --- Final Build Status ---
     if build_failed:
-        print("\\nBuild finished with errors.", file=sys.stderr)
+        print("\\\\nBuild finished with errors.", file=sys.stderr)
         sys.exit(1)
     else:
-        # print("\\nBuild finished successfully.") # Quieten
+        # print("\\\\nBuild finished successfully.") # Quieten
         pass # Keep structure
 
 if __name__ == "__main__":

@@ -70,7 +70,8 @@ _section_groups: List[SectionGroup] = [
                 'associatedRouteType': 'Oral',
                 'sectionDescription': 'Monitoring: Recheck potassium level 4 hours after last dose.',
                 'orders': [
-                    Labs.get_timed_lab('k_level', 480),
+                    {'type': 'timed_lab', 'base_name': 'k_level', 'minutes': 480, 
+                     'comment_base': Text.timed_lab_comment_k_oral},
                 ]
             },
             {
@@ -78,7 +79,8 @@ _section_groups: List[SectionGroup] = [
                 'associatedRouteType': 'Peripheral',
                 'sectionDescription': 'Monitoring: Recheck potassium level 1 hr after infusion complete.',
                 'orders': [
-                    Labs.get_timed_lab('k_level', 300),
+                    {'type': 'timed_lab', 'base_name': 'k_level', 'minutes': 300, 
+                     'comment_base': Text.timed_lab_comment_k_iv},
                 ]
             },
             {
@@ -86,7 +88,8 @@ _section_groups: List[SectionGroup] = [
                 'associatedRouteType': 'Central',
                 'sectionDescription': 'Monitoring: Recheck potassium level 1 hr after infusion complete.',
                 'orders': [
-                    Labs.get_timed_lab('k_level', 180),
+                    {'type': 'timed_lab', 'base_name': 'k_level', 'minutes': 180, 
+                     'comment_base': Text.timed_lab_comment_k_iv},
                 ]
             }
         ]
@@ -120,7 +123,8 @@ _section_groups: List[SectionGroup] = [
                 'associatedRouteType': 'Oral',
                 'sectionDescription': 'Monitoring: Recheck potassium level 4 hrs after last dose.',
                 'orders': [
-                    Labs.get_timed_lab('k_level', 600, suffix='_oral'),
+                    {'type': 'timed_lab', 'base_name': 'k_level', 'minutes': 600, 'suffix': '_oral',
+                     'comment_base': Text.timed_lab_comment_k_oral},
                 ]
             },
             {
@@ -128,7 +132,8 @@ _section_groups: List[SectionGroup] = [
                 'associatedRouteType': 'Peripheral',
                 'sectionDescription': 'Monitoring: Recheck potassium level 1 hr after infusion complete.',
                 'orders': [
-                    Labs.get_timed_lab('k_level', 420),
+                    {'type': 'timed_lab', 'base_name': 'k_level', 'minutes': 420, 
+                     'comment_base': Text.timed_lab_comment_k_iv},
                 ]
             },
             {
@@ -136,7 +141,8 @@ _section_groups: List[SectionGroup] = [
                 'associatedRouteType': 'Central',
                 'sectionDescription': 'Monitoring: Recheck potassium level 1 hr after infusion complete.',
                 'orders': [
-                    Labs.get_timed_lab('k_level', 240),
+                    {'type': 'timed_lab', 'base_name': 'k_level', 'minutes': 240, 
+                     'comment_base': Text.timed_lab_comment_k_iv},
                 ]
             }
         ]
@@ -144,8 +150,9 @@ _section_groups: List[SectionGroup] = [
     # Group for < 2.8 mmol/L
     {
         'rangeInfo': {'type': 'lessThan', 'electrolyte': _electrolyte, 'level': 2.8, 'unit': _unit},
+        'recommendOral': False,
         'replacementSection': {
-            'criticalAlertText': Text.critically_low_notify_physician_simple_text,
+            'criticalAlertText': Text.notify_provider_simple_text,
             'sectionName': '',
             'conceptName': H.create_less_than_concept(_electrolyte, 2.8),
             'singleSelect': 1,
@@ -161,7 +168,7 @@ _section_groups: List[SectionGroup] = [
         'labSections': [
             {
                 'conceptName': H.create_less_than_concept(_electrolyte, 2.8),
-                'sectionDescription': 'Monitoring: Add-on mag & phos levels STAT, if not recently obtained.',
+                'sectionDescription': 'Monitoring: <br>1. Add-on mag & phos levels STAT, if not recently obtained.<br>2. Recheck potassium level 1 hr after infusion complete.<br>3. Repeat BMP, mag and phos levels with next AM labs.<hr>1. Add-on mag & phos levels STAT, if not recently obtained.',
                 'orders': [
                     Labs.phos_level_add_on,
                     Labs.mag_level_add_on,
@@ -172,7 +179,8 @@ _section_groups: List[SectionGroup] = [
                 'associatedRouteType': 'Peripheral',
                 'sectionDescription': 'Monitoring: Recheck potassium level 1 hr after infusion complete.',
                 'orders': [
-                    Labs.get_timed_lab('k_level', 540),
+                    {'type': 'timed_lab', 'base_name': 'k_level', 'minutes': 540, 
+                     'comment_base': Text.timed_lab_comment_k_iv},
                 ]
             },
             {
@@ -180,7 +188,8 @@ _section_groups: List[SectionGroup] = [
                 'associatedRouteType': 'Central',
                 'sectionDescription': 'Monitoring: Recheck potassium level 1 hr after infusion complete.',
                 'orders': [
-                    Labs.get_timed_lab('k_level', 300),
+                    {'type': 'timed_lab', 'base_name': 'k_level', 'minutes': 300, 
+                     'comment_base': Text.timed_lab_comment_k_iv},
                 ]
             },
             {
@@ -202,9 +211,12 @@ _initial_labs: List[InitialLabConfig] = [
         'conceptName': '[%{EALABPOTTODO}.COUNT = 0%]',
         'orders': [
             Labs.k_level_stat,
-            Labs.get_timed_lab('bmp', 240),
-            Labs.get_timed_lab('mag_level', 240),
-            Labs.get_timed_lab('phos_level', 240),
+            {'type': 'timed_lab', 'base_name': 'bmp', 'minutes': 240, 
+             'comment_base': 'Collect BMP 4 hours after event'},
+            {'type': 'timed_lab', 'base_name': 'mag_level', 'minutes': 240, 
+             'comment_base': 'Collect mag level 4 hours after event'},
+            {'type': 'timed_lab', 'base_name': 'phos_level', 'minutes': 240, 
+             'comment_base': 'Collect phos level 4 hours after event'},
         ]
     },
 ]
