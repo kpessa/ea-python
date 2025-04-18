@@ -25,23 +25,20 @@ from python.config import generate_config
 
 def main():
     """Main build function to generate JSON configs."""
-    print('Starting Python build process...')
+    # print('Starting Python build process...') # Quieten
 
     # --- Get Context from Environment Variables ---
     # Similar to TS version, get context once, but generate_config uses it per protocol.
     try:
         base_context = get_generation_context()
-        print(f"Base context: {base_context}")
+        # print(f"Base context: {base_context}") # Quieten
     except ValueError as e:
         print(f"Error reading environment variables: {e}", file=sys.stderr)
         sys.exit(1)
 
     # --- Define Output Directory (now uses constant) ---
-    # Output to a 'generated_configs' subdirectory within the project root
-    # script_dir = os.path.dirname(os.path.abspath(__file__)) # No longer needed here
-    # project_root = script_dir # No longer needed here
     output_dir = GENERATED_CONFIG_DIR # Use the constant
-    print(f"Output directory set to: {output_dir}")
+    # print(f"Output directory set to: {output_dir}") # Quieten
     os.makedirs(output_dir, exist_ok=True) # Ensure the directory exists
 
     # --- Generate and Write Configs ---
@@ -49,7 +46,7 @@ def main():
 
     build_failed = False
     for protocol in protocols_to_build:
-        print(f"\nGenerating config for protocol: {protocol}...")
+        # print(f"\\nGenerating config for protocol: {protocol}...") # Quieten
 
         # Create context specific to this protocol iteration
         current_context: GenerationContext = {
@@ -63,11 +60,20 @@ def main():
             output_filename = f"output_{protocol.lower()}.json"
             output_path = os.path.join(output_dir, output_filename)
 
+            # --- DEBUG: Inspect final structure before dump ---
+            if protocol == 'CARDIAC':
+                try:
+                    problematic_sentence = config_data['RCONFIG']['TABS'][0]['ORDER_SECTIONS'][1]['ORDERS'][0]['ORDER_SENTENCE']
+                    print(f"DEBUG CARDIAC Mg 1.4-1.7 Sentence BEFORE dump: {repr(problematic_sentence)}")
+                except (IndexError, KeyError, TypeError) as inspect_e:
+                    print(f"DEBUG Error inspecting config_data: {inspect_e}")
+            # --- END DEBUG ---
+
             # Write the file with pretty printing (indent=2)
             with open(output_path, 'w', encoding='utf-8') as f:
                 json.dump(config_data, f, indent=2, ensure_ascii=False)
             
-            print(f"Successfully wrote {output_filename} to {output_path}")
+            # print(f"Successfully wrote {output_filename} to {output_path}") # Quieten
 
         except Exception as e:
             print(f"Error generating config for protocol {protocol}: {e}", file=sys.stderr)
@@ -75,10 +81,10 @@ def main():
             traceback.print_exc(file=sys.stderr) # Print stack trace for debugging
             build_failed = True # Mark build as failed but continue
 
-    print('\nPython build process completed.')
+    # print('\\nPython build process completed.') # Quieten
 
     # --- Run Automated Tests ---
-    print("\nRunning automated configuration tests...")
+    # print("\\nRunning automated configuration tests...") # Quieten
     try:
         # Assuming test_configs.py is in the same directory as build.py (project root)
         # test_script_path = os.path.join(os.path.dirname(__file__), 'test_configs.py') # Old way
@@ -92,27 +98,44 @@ def main():
         # The -r w flag adds warnings to the short test summary info
         # The -W always flag attempts to show all warnings
         pytest_command = [sys.executable, '-m', 'pytest', '-v', '-r', 'w', '-W', 'always']
-        result = subprocess.run(pytest_command, check=False, capture_output=True, text=True, encoding='utf-8')
-        print(result.stdout)
+        
+        # Open the output file
+        output_py_path = os.path.join(SCRIPT_DIR, 'output.py')
+        with open(output_py_path, 'w', encoding='utf-8') as outfile:
+            # Run pytest directing output to the file
+            result = subprocess.run(
+                pytest_command, 
+                check=False, 
+                stdout=outfile, # Redirect stdout to file
+                stderr=outfile, # Redirect stderr to file
+                text=True, 
+                encoding='utf-8'
+            )
+        
+        # No longer print stdout/stderr here as it went to the file
+        # print(result.stdout) 
         if result.returncode != 0:
-            print(result.stderr, file=sys.stderr) # Print pytest stderr output
-            print("\nConfiguration tests failed!", file=sys.stderr)
+            # print(result.stderr, file=sys.stderr) # Output already in file
+            # print(f"\\nPytest output written to {output_py_path}", file=sys.stderr) # Quieten
+            print("\\nConfiguration tests failed!", file=sys.stderr)
             build_failed = True # Mark build as failed
         else:
-            print("Configuration tests passed.")
+            # print(f"\\nPytest output written to {output_py_path}") # Quieten
+            # print("Configuration tests passed.") # Quieten
+            pass # Keep structure
     # except FileNotFoundError: # Less likely with pytest module execution
     #      print(f"ERROR: Test script not found at {test_script_path}", file=sys.stderr)
-    #      build_failed = True
     except Exception as e:
         print(f"ERROR: An exception occurred while running tests: {e}", file=sys.stderr)
         build_failed = True
 
     # --- Final Build Status ---
     if build_failed:
-        print("\nBuild finished with errors.", file=sys.stderr)
+        print("\\nBuild finished with errors.", file=sys.stderr)
         sys.exit(1)
     else:
-        print("\nBuild finished successfully.")
+        # print("\\nBuild finished successfully.") # Quieten
+        pass # Keep structure
 
 if __name__ == "__main__":
     main() 

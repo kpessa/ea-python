@@ -120,49 +120,20 @@ all_lab_orders: Dict[str, LabOrderDefinition] = {
 
 # --- Dynamic Lab Order Generation ---
 
-def __getattr__(name: str) -> LabOrderDefinition:
-    """Dynamically generates LabOrderDefinitions for timed labs."""
-    # Pattern: base_name_timed_n<minutes>(_optional_suffix)
-    match = re.match(r"^(.*?)_timed_n(\d+)(_.*)?$", name)
+def get_timed_lab(base_name: str, minutes: int, suffix: str = '') -> LabOrderDefinition:
+    """Generates LabOrderDefinitions for timed labs based on base name, minutes, and optional suffix."""
+    # Find the base mnemonic
+    mnemonic = _base_lab_mnemonics.get(base_name)
     
-    if match:
-        base_name = match.group(1)
-        minutes = int(match.group(2))
-        # optional_suffix = match.group(3) # Store if needed later
-
-        # Find the base mnemonic
-        mnemonic = _base_lab_mnemonics.get(base_name)
-        
-        if mnemonic:
-            # Generate the specific timed order sentence format
-            # TODO: Potentially refine COMMENT later based on medication context
-            hours = round(minutes / 60, 1)
-            return {
-                'MNEMONIC': mnemonic,
-                'ORDER_SENTENCE': f'Requested Draw Date and T T;N+{minutes}, Blood, Timed Study collect, Once',
-                'COMMENT': f'Collect {hours} hours after event. [Dynamic: {name}]',
-            }
-        else:
-            # Base name didn't match known labs
-             raise AttributeError(f"Module '{__name__}' has no attribute '{name}' (Unknown base lab for dynamic timed order)")
-
-    # If the name doesn't match the pattern, raise AttributeError
-    # This allows Python to continue searching for normally defined attributes
-    raise AttributeError(f"Module '{__name__}' has no attribute '{name}'")
-
-# --- Ensure existing definitions are accessible ---
-# This helps avoid conflicts with __getattr__ if the names were identical
-# (though they aren't in this case)
-bmp_tomorrow_am = all_lab_orders["bmpTomorrowAm"]
-mag_level_tomorrow_am = all_lab_orders["magLevelTomorrowAm"]
-mag_level_asap = all_lab_orders["magLevelAsap"]
-mag_level_add_on = all_lab_orders["magLevelAddOn"]
-k_level_tomorrow_am = all_lab_orders["kLevelTomorrowAm"]
-k_level_stat = all_lab_orders["kLevelStat"]
-phos_level_tomorrow_am = all_lab_orders["phosLevelTomorrowAm"]
-phos_level_stat = all_lab_orders["phosLevelStat"]
-phos_level_add_on = all_lab_orders["phosLevelAddOn"]
-calcium_ion_serum_tomorrow_am = all_lab_orders["calciumIonSerumTomorrowAm"]
-calcium_ion_wb_tomorrow_am = all_lab_orders["calciumIonWbTomorrowAm"]
-calcium_ion_serum_stat = all_lab_orders["calciumIonSerumStat"] # Uncommented
-calcium_ion_wb_stat = all_lab_orders["calciumIonWbStat"]
+    if mnemonic:
+        # Generate the specific timed order sentence format
+        hours = round(minutes / 60, 1)
+        name = f"{base_name}_timed_n{minutes}{suffix}" # Include suffix in dynamic name
+        return {
+            'MNEMONIC': mnemonic,
+            'ORDER_SENTENCE': f'Requested Draw Date and T T;N+{minutes}, Blood, Timed Study collect, Once',
+            'COMMENT': f'Collect {hours} hours after event. [Dynamic: {name}]', # Keep dynamic name in comment
+        }
+    else:
+        # Base name didn't match known labs
+            raise ValueError(f"Unknown base lab name '{base_name}' for timed order")

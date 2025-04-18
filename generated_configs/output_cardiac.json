@@ -52,7 +52,7 @@
             "ORDERS": [
               {
                 "MNEMONIC": "magnesium sulfate",
-                "ORDER_SENTENCE": "1 g, IVPB, Premix, Once, Infuse over: 1 hr",
+                "ORDER_SENTENCE": "1 g, IVPB, Premix, Once, infuse over 1 hr",
                 "ASC_SHORT_DESCRIPTION": "",
                 "COMMENT": ""
               }
@@ -80,7 +80,7 @@
             "ORDERS": [
               {
                 "MNEMONIC": "magnesium sulfate",
-                "ORDER_SENTENCE": "2 g, IVPB, Premix, Once, Infuse over: 2 hr",
+                "ORDER_SENTENCE": "2 g, IVPB, Premix, Once, infuse over 2 hr",
                 "ASC_SHORT_DESCRIPTION": "",
                 "COMMENT": ""
               }
@@ -108,7 +108,7 @@
             "ORDERS": [
               {
                 "MNEMONIC": "magnesium sulfate",
-                "ORDER_SENTENCE": "2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr",
+                "ORDER_SENTENCE": "2 g, IVPB, Premix, q2h interval, Duration: 2 doses, infuse over 2 hr",
                 "ASC_SHORT_DESCRIPTION": "",
                 "COMMENT": ""
               }
@@ -240,13 +240,13 @@
               },
               {
                 "MNEMONIC": "potassium chloride 10 mEq/100 mL intravenous solution",
-                "ORDER_SENTENCE": "10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr",
+                "ORDER_SENTENCE": "10 mEq, IV, q1h, Duration: 2 doses, infuse over 1 hr",
                 "ASC_SHORT_DESCRIPTION": "",
                 "COMMENT": "<span style=\"font-weight: 900; text-decoration: underline;\">Peripheral IV</span>"
               },
               {
                 "MNEMONIC": "potassium chloride 20 mEq/100 mL intravenous solution",
-                "ORDER_SENTENCE": "20 mEq, IV, Once, Infuse over: 1 hr",
+                "ORDER_SENTENCE": "20 mEq, IV, Once, infuse over 1 hr",
                 "ASC_SHORT_DESCRIPTION": "",
                 "COMMENT": "<span style=\"font-weight: 900; text-decoration: underline;\">Central IV Preferred</span>"
               }
@@ -274,25 +274,25 @@
             "ORDERS": [
               {
                 "MNEMONIC": "potassium chloride extended release",
-                "ORDER_SENTENCE": "20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)",
+                "ORDER_SENTENCE": "20 mEq, PO, ER tab, q2h interval, Duration: 2 doses",
                 "ASC_SHORT_DESCRIPTION": "",
                 "COMMENT": ""
               },
               {
                 "MNEMONIC": "potassium chloride",
-                "ORDER_SENTENCE": "20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 2 dose(s)",
+                "ORDER_SENTENCE": "20 mEq, Feeding Tube, Liq, q2h interval, Duration: 2 doses",
                 "ASC_SHORT_DESCRIPTION": "",
                 "COMMENT": ""
               },
               {
                 "MNEMONIC": "potassium chloride 10 mEq/100 mL intravenous solution",
-                "ORDER_SENTENCE": "10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr",
+                "ORDER_SENTENCE": "10 mEq, IV, q1h, Duration: 4 doses, infuse over 1 hr",
                 "ASC_SHORT_DESCRIPTION": "",
                 "COMMENT": "<span style=\"font-weight: 900; text-decoration: underline;\">Peripheral IV</span>"
               },
               {
                 "MNEMONIC": "potassium chloride 20 mEq/100 mL intravenous solution",
-                "ORDER_SENTENCE": "20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr",
+                "ORDER_SENTENCE": "20 mEq, IV, q1h, Duration: 2 doses, infuse over 1 hr",
                 "ASC_SHORT_DESCRIPTION": "",
                 "COMMENT": "<span style=\"font-weight: 900; text-decoration: underline;\">Central IV Preferred</span>"
               }
@@ -348,25 +348,25 @@
             "ORDERS": [
               {
                 "MNEMONIC": "potassium chloride extended release",
-                "ORDER_SENTENCE": "20 mEq, PO, ER tab, q2hr (interval), Duration: 3 dose(s)",
+                "ORDER_SENTENCE": "20 mEq, PO, ER tab, q2h interval, Duration: 3 doses",
                 "ASC_SHORT_DESCRIPTION": "",
                 "COMMENT": ""
               },
               {
                 "MNEMONIC": "potassium chloride",
-                "ORDER_SENTENCE": "20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 3 dose(s)",
+                "ORDER_SENTENCE": "20 mEq, Feeding Tube, Liq, q2h interval, Duration: 3 doses",
                 "ASC_SHORT_DESCRIPTION": "",
                 "COMMENT": ""
               },
               {
                 "MNEMONIC": "potassium chloride 10 mEq/100 mL intravenous solution",
-                "ORDER_SENTENCE": "10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr",
+                "ORDER_SENTENCE": "10 mEq, IV, q1h, Duration: 6 doses, infuse over 1 hr",
                 "ASC_SHORT_DESCRIPTION": "",
                 "COMMENT": "<span style=\"font-weight: 900; text-decoration: underline;\">Peripheral IV</span>"
               },
               {
                 "MNEMONIC": "potassium chloride 20 mEq/100 mL intravenous solution",
-                "ORDER_SENTENCE": "20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr",
+                "ORDER_SENTENCE": "20 mEq, IV, q1h, Duration: 3 doses, infuse over 1 hr",
                 "ASC_SHORT_DESCRIPTION": "",
                 "COMMENT": "<span style=\"font-weight: 900; text-decoration: underline;\">Central IV Preferred</span>"
               }
@@ -422,13 +422,13 @@
             "ORDERS": [
               {
                 "MNEMONIC": "potassium chloride 10 mEq/100 mL intravenous solution",
-                "ORDER_SENTENCE": "10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr",
+                "ORDER_SENTENCE": "10 mEq, IV, q1h, Duration: 8 doses, infuse over 1 hr",
                 "ASC_SHORT_DESCRIPTION": "",
                 "COMMENT": "<span style=\"font-weight: 900; text-decoration: underline;\">Peripheral IV</span>"
               },
               {
                 "MNEMONIC": "potassium chloride 20 mEq/100 mL intravenous solution",
-                "ORDER_SENTENCE": "20 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr",
+                "ORDER_SENTENCE": "20 mEq, IV, q1h, Duration: 4 doses, infuse over 1 hr",
                 "ASC_SHORT_DESCRIPTION": "",
                 "COMMENT": "<span style=\"font-weight: 900; text-decoration: underline;\">Central IV Preferred</span>"
               }
@@ -608,7 +608,7 @@
             "ORDERS": [
               {
                 "MNEMONIC": "K-Phos Neutral",
-                "ORDER_SENTENCE": "2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)",
+                "ORDER_SENTENCE": "2 tab(s), PO, Tab, q2h interval, Duration: 2 doses",
                 "ASC_SHORT_DESCRIPTION": "",
                 "COMMENT": ""
               },
@@ -654,13 +654,13 @@
             "ORDERS": [
               {
                 "MNEMONIC": "K-Phos Neutral",
-                "ORDER_SENTENCE": "2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)",
+                "ORDER_SENTENCE": "2 tab(s), PO, Tab, q2h interval, Duration: 3 doses",
                 "ASC_SHORT_DESCRIPTION": "",
                 "COMMENT": ""
               },
               {
                 "MNEMONIC": "sodium phosphate",
-                "ORDER_SENTENCE": "15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)",
+                "ORDER_SENTENCE": "15 mmol, IVPB, Inj, q4h interval, Duration: 2 doses",
                 "ASC_SHORT_DESCRIPTION": "",
                 "COMMENT": ""
               }
@@ -726,7 +726,7 @@
             "ORDERS": [
               {
                 "MNEMONIC": "sodium phosphate",
-                "ORDER_SENTENCE": "15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)",
+                "ORDER_SENTENCE": "15 mmol, IVPB, Inj, q4h interval, Duration: 2 doses",
                 "ASC_SHORT_DESCRIPTION": "",
                 "COMMENT": ""
               }
@@ -888,7 +888,7 @@
             "ORDERS": [
               {
                 "MNEMONIC": "calcium chloride",
-                "ORDER_SENTENCE": "1 g, IVPB, Inj, Once, Infuse over: 1 hr",
+                "ORDER_SENTENCE": "1 g, IVPB, Inj, Once, infuse over 1 hr",
                 "ASC_SHORT_DESCRIPTION": "",
                 "COMMENT": ""
               }

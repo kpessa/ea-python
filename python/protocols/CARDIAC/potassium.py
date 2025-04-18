@@ -78,7 +78,7 @@ _section_groups: List[SectionGroup] = [
                 'associatedRouteType': 'Oral',
                 'sectionDescription': 'Monitoring: Recheck potassium level 4 hours after last dose.',
                 'orders': [
-                    Labs.k_level_timed_n480,
+                    Labs.get_timed_lab('k_level', 480),
                 ]
             },
             {
@@ -86,7 +86,7 @@ _section_groups: List[SectionGroup] = [
                 'associatedRouteType': 'Peripheral',
                 'sectionDescription': 'Monitoring: Recheck potassium level 1 hr after infusion complete.',
                 'orders': [
-                    Labs.k_level_timed_n300,
+                    Labs.get_timed_lab('k_level', 300),
                 ]
             },
             {
@@ -94,7 +94,7 @@ _section_groups: List[SectionGroup] = [
                 'associatedRouteType': 'Central',
                 'sectionDescription': 'Monitoring: Recheck potassium level 1 hr after infusion complete.',
                 'orders': [
-                    Labs.k_level_timed_n180,
+                    Labs.get_timed_lab('k_level', 180),
                 ]
             }
         ]
@@ -132,7 +132,7 @@ _section_groups: List[SectionGroup] = [
                 'associatedRouteType': 'Oral',
                 'sectionDescription': 'Monitoring: Recheck potassium level 4 hrs after last dose.',
                 'orders': [
-                    Labs.k_level_timed_n600_oral,
+                    Labs.get_timed_lab('k_level', 600, suffix='_oral'),
                 ]
             },
             {
@@ -140,7 +140,7 @@ _section_groups: List[SectionGroup] = [
                 'associatedRouteType': 'Peripheral',
                 'sectionDescription': 'Monitoring: Recheck potassium level 1 hr after infusion complete.',
                 'orders': [
-                    Labs.k_level_timed_n420,
+                    Labs.get_timed_lab('k_level', 420),
                 ]
             },
             {
@@ -148,7 +148,7 @@ _section_groups: List[SectionGroup] = [
                 'associatedRouteType': 'Central',
                 'sectionDescription': 'Monitoring: Recheck potassium level 1 hr after infusion complete.',
                 'orders': [
-                    Labs.k_level_timed_n240,
+                    Labs.get_timed_lab('k_level', 240),
                 ]
             }
         ]
@@ -187,7 +187,7 @@ _section_groups: List[SectionGroup] = [
                 'associatedRouteType': 'Peripheral',
                 'sectionDescription': 'Monitoring: Recheck potassium level 1 hr after infusion complete.',
                 'orders': [
-                    Labs.k_level_timed_n540,
+                    Labs.get_timed_lab('k_level', 540),
                 ]
             },
             {
@@ -195,7 +195,7 @@ _section_groups: List[SectionGroup] = [
                 'associatedRouteType': 'Central',
                 'sectionDescription': 'Monitoring: Recheck potassium level 1 hr after infusion complete.',
                 'orders': [
-                    Labs.k_level_timed_n300,
+                    Labs.get_timed_lab('k_level', 300),
                 ]
             },
             {
@@ -218,9 +218,9 @@ _initial_labs: List[InitialLabConfig] = [
         'conceptName': '[%{EALABPOTTODO}.COUNT = 0%]',
         'orders': [
             Labs.k_level_stat,
-            Labs.bmp_timed_n240,
-            Labs.mag_level_timed_n240,
-            Labs.phos_level_timed_n240,
+            Labs.get_timed_lab('bmp', 240),
+            Labs.get_timed_lab('mag_level', 240),
+            Labs.get_timed_lab('phos_level', 240),
         ]
     },
 ]

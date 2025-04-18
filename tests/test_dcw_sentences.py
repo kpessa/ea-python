@@ -67,47 +67,62 @@ def get_protocol_from_filename(filepath):
         return protocol_part.capitalize()
     return None
 
-def ranges_match(dcw_range_str: str, json_range_group: dict) -> bool:
-    """Checks if the DCW lab range string matches the JSON range group dict.
-    Parses DCW string and compares with JSON keys 'LAB_VALUE_LOW'/'HIGH'.
-    """
-    if not dcw_range_str or not json_range_group:
-        return False
-    dcw_cleaned = dcw_range_str.lower().replace("current serum level", "").replace("ical", "").strip()
-    json_low = json_range_group.get('LAB_VALUE_LOW')
-    json_high = json_range_group.get('LAB_VALUE_HIGH')
-    print(f"\nDEBUG ranges_match: Comparing DCW='{dcw_range_str}' with JSON={json_range_group}")
-    try:
-        json_low_float = float(json_low) if json_low is not None else None
-        json_high_float = float(json_high) if json_high is not None else None
-    except (ValueError, TypeError):
-        print(f"DEBUG ranges_match: Invalid JSON range values: low={json_low}, high={json_high}")
-        return False
-    dcw_low_float, dcw_high_float, match_found = None, None, False
-    match = re.fullmatch(r"\s*([\d.]+)\s*-\s*([\d.]+)\s*", dcw_cleaned)
+def _parse_range_string(range_str: str) -> tuple[float | None, float | None]:
+    """Parses a range string (e.g., '1.0-1.5', '< 1.0', or embedded in text) into low/high float values."""
+    if not range_str:
+        return None, None
+    
+    # Keep basic cleaning, but the regex will search within the string
+    cleaned_str = range_str.lower().replace("current serum level", "").replace("ical", "").strip()
+    low_float, high_float = None, None
+    
+    # Try searching for "low - high" format (e.g., "1.8 - 2.0")
+    # Use re.search to find the pattern anywhere in the string
+    match = re.search(r"(\d+\.\d+)\\s*-\\s*(\d+\.\d+)", cleaned_str)
     if match:
         try:
-            dcw_low_float = float(match.group(1))
-            dcw_high_float = float(match.group(2))
-            match_found = True
-        except ValueError: pass
-    if not match_found:
-        match = re.fullmatch(r"\s*<\s*([\d.]+)\s*", dcw_cleaned)
-        if match:
-            try:
-                dcw_high_float = float(match.group(1))
-                match_found = True
-            except ValueError: pass
-    if not match_found:
-        print(f"DEBUG ranges_match: Failed to parse DCW range: '{dcw_cleaned}'")
+            low_float = float(match.group(1))
+            high_float = float(match.group(2))
+            # Basic sanity check: low should be less than or equal to high
+            if low_float <= high_float:
+                return low_float, high_float
+        except ValueError:
+            pass # Ignore parsing error and try next format
+
+    # Try searching for "< high" format (e.g., "< 1.4")
+    match = re.search(r"<\\s*(\d+\.\d+)", cleaned_str)
+    if match:
+        try:
+            # For '< X', low is None, high is X
+            high_float = float(match.group(1))
+            return None, high_float
+        except ValueError:
+             pass # Ignore parsing error
+
+    print(f"DEBUG _parse_range_string: Failed to parse range from: '{range_str}' (cleaned: '{cleaned_str}')")
+    return None, None # Return None if no format matched
+
+def ranges_match(dcw_range_str: str, json_section_name: str) -> bool:
+    """Checks if the range parsed from dcw_range_str matches the range parsed from json_section_name."""
+    if not dcw_range_str or not json_section_name:
         return False
-    print(f"DEBUG ranges_match: Parsed DCW floats: low={dcw_low_float}, high={dcw_high_float}")
-    print(f"DEBUG ranges_match: JSON floats      : low={json_low_float}, high={json_high_float}")
+
+    dcw_low, dcw_high = _parse_range_string(dcw_range_str)
+    json_low, json_high = _parse_range_string(json_section_name)
+
+    print(f"\nDEBUG ranges_match: Comparing DCW='{dcw_range_str}' (Parsed: {dcw_low}-{dcw_high}) vs JSON_Section='{json_section_name}' (Parsed: {json_low}-{json_high})")
+
+    # If parsing failed for either, they don't match
+    # (Consider if None should match None - currently requires both to parse successfully)
+    # Allow matching if both low parse results are None OR if they are close floats
+    # Allow matching if both high parse results are None OR if they are close floats
+    
     TOLERANCE = 1e-9
-    low_match = (dcw_low_float is None and json_low_float is None) or \
-                (dcw_low_float is not None and json_low_float is not None and abs(dcw_low_float - json_low_float) < TOLERANCE)
-    high_match = (dcw_high_float is None and json_high_float is None) or \
-                 (dcw_high_float is not None and json_high_float is not None and abs(dcw_high_float - json_high_float) < TOLERANCE)
+    low_match = (dcw_low is None and json_low is None) or \
+                (dcw_low is not None and json_low is not None and abs(dcw_low - json_low) < TOLERANCE)
+    high_match = (dcw_high is None and json_high is None) or \
+                 (dcw_high is not None and json_high is not None and abs(dcw_high - json_high) < TOLERANCE)
+                 
     result = low_match and high_match
     print(f"DEBUG ranges_match: Comparison result = {result}")
     return result
@@ -192,22 +207,38 @@ def test_dcw_sentences_match_generated(config_file_path, dcw_data):
         try:
             tabs = loaded_json_config.get('RCONFIG', {}).get('TABS', [])
             target_tab = next((
-                t for t in tabs 
-                if t.get('TAB_KEY') and dcw_electrolyte and t.get('TAB_KEY').upper() == dcw_electrolyte.upper()
+                t for t in tabs
+                if t.get('TAB_KEY') and dcw_electrolyte and (
+                    # Standard check
+                    (t.get('TAB_KEY').upper() == dcw_electrolyte.upper()) or
+                    # Specific mapping for Phosphorus -> PHOSPHATE
+                    (dcw_electrolyte.upper() == 'PHOSPHORUS' and t.get('TAB_KEY').upper() == 'PHOSPHATE')
+                   )
             ), None)
 
             if target_tab:
                 order_sections = target_tab.get('ORDER_SECTIONS', [])
+                found_match_for_dcw_entry = False # Flag to ensure we find a matching section/order
                 for section in order_sections:
-                    orders_in_section = section.get('ORDERS', [])
-                    for order in orders_in_section:
-                        if order.get('MNEMONIC') == dcw_mnemonic:
-                            json_sentence_found = order.get('ORDER_SENTENCE')
-                            if json_sentence_found: # Found the first match
-                                break
-                    if json_sentence_found:
-                        break
+                    section_name = section.get('SECTION_NAME', '')
+                    
+                    # Use the refactored ranges_match function
+                    is_range_match = ranges_match(dcw_range, section_name)
+
+                    if is_range_match:
+                         orders_in_section = section.get('ORDERS', [])
+                         for order in orders_in_section:
+                             if order.get('MNEMONIC') == dcw_mnemonic:
+                                 json_sentence_found = order.get('ORDER_SENTENCE')
+                                 found_match_for_dcw_entry = True # Mark as found
+                                 break # Found the correct order in the matching section
+                         if found_match_for_dcw_entry:
+                             break # Exit section loop once match is found
                 
+                # If no match was found after checking all sections, json_sentence_found remains None
+                if not found_match_for_dcw_entry:
+                    json_sentence_found = None # Ensure it's None if no suitable section/order found
+
         except Exception as e:
             processing_errors.append(f"Error finding JSON counterpart for DCW entry {index}: {e}")
             continue 

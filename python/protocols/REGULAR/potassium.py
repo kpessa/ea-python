@@ -79,7 +79,7 @@ _section_groups: List[SectionGroup] = [
                 'associatedRouteType': 'Oral',
                 'sectionDescription': 'Monitoring: Recheck potassium level 4 hrs after last dose.',
                 'orders': [
-                    Labs.k_level_timed_n600_oral,
+                    Labs.get_timed_lab('k_level', 600, suffix='_oral'),
                 ]
             },
             {
@@ -87,12 +87,20 @@ _section_groups: List[SectionGroup] = [
                 'associatedRouteType': 'IV',
                 'sectionDescription': 'Monitoring: Recheck potassium level 1 hr after infusion complete.',
                 'orders': [
-                    Labs.k_level_timed_n420,
+                    Labs.get_timed_lab('k_level', 420),
+                ]
+            },
+            {
+                'conceptName': H.create_between_concept(_electrolyte, 2.8, 3.1),
+                'associatedRouteType': 'Central',
+                'sectionDescription': 'Monitoring: Recheck potassium level 1 hr after infusion complete.',
+                'orders': [
+                    Labs.get_timed_lab('k_level', 600, suffix='_critical'),
                 ]
             }
         ]
     },
-    # Group for < 2.8 mmol/L
+    # Group for < 2.8 mmol/L (LOW)
     {
         'rangeInfo': {'type': 'lessThan', 'electrolyte': _electrolyte, 'level': 2.8, 'unit': _unit},
         'replacementSection': {
@@ -115,14 +123,26 @@ _section_groups: List[SectionGroup] = [
             {
                 'conceptName': H.create_less_than_concept(_electrolyte, 2.8),
                 'associatedRouteType': 'IV',
-                'sectionDescription': 'Monitoring: Add-on mag & phos levels STAT, if not recently obtained. Recheck potassium level 1 hr after infusion complete. Repeat BMP, mag and phos levels with next AM labs.',
+                'sectionDescription': 'Monitoring: Add-on mag & phos levels STAT, if not recently obtained.',
                 'orders': [
                     Labs.phos_level_add_on,
                     Labs.mag_level_add_on,
-                    Labs.k_level_timed_n600_critical,
-                    Labs.bmp_tomorrow_am,
-                    Labs.mag_level_tomorrow_am,
-                    Labs.phos_level_tomorrow_am,
+                ]
+            },
+            {
+                'conceptName': H.create_less_than_concept(_electrolyte, 2.8),
+                'associatedRouteType': 'Peripheral',
+                'sectionDescription': 'Monitoring: Recheck potassium level 1 hr after infusion complete.',
+                'orders': [
+                    Labs.get_timed_lab('k_level', 540),
+                ]
+            },
+            {
+                'conceptName': H.create_less_than_concept(_electrolyte, 2.8),
+                'associatedRouteType': 'Central',
+                'sectionDescription': 'Monitoring: Recheck magnesium level 4 hrs after last dose.',
+                'orders': [
+                    Labs.get_timed_lab('mag_level', 240),
                 ]
             }
         ]
@@ -136,7 +156,7 @@ _initial_labs: List[InitialLabConfig] = [
         'orders': [
             Labs.k_level_stat,
             Labs.bmp_tomorrow_am,
-            Labs.mag_level_timed_n240,
+            Labs.get_timed_lab('mag_level', 240),
             Labs.phos_level_tomorrow_am,
         ]
     },

@@ -1,0 +1,91 @@
+DEBUG LOOP PARAMS for magnesium oxide: {'dose': 400, 'doseUnit': 'mg', 'route': 'PO', 'form': 'Tab', 'frequency': 'q12hr (interval)', 'duration': '2 dose(s)', 'numberOfDoses': 2, 'infuseOver': None}
+DEBUG Sentence after call: '400 mg, PO, Tab, q12hr (interval), Duration: 2 dose(s)'
+DEBUG LOOP PARAMS for magnesium sulfate: {'dose': 2, 'doseUnit': 'g', 'route': 'IVPB', 'form': 'Premix', 'frequency': 'Once', 'duration': None, 'numberOfDoses': 1, 'infuseOver': '2 hr'}
+DEBUG Sentence after call: '2 g, IVPB, Premix, Once, Infuse over: 2 hr'
+DEBUG LOOP PARAMS for magnesium sulfate: {'dose': 2, 'doseUnit': 'g', 'route': 'IVPB', 'form': 'Premix', 'frequency': 'q2hr (interval)', 'duration': '2 dose(s)', 'numberOfDoses': 2, 'infuseOver': '2 hr'}
+DEBUG Sentence after call: '2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr'
+DEBUG LOOP PARAMS for potassium chloride extended release: {'dose': 20, 'doseUnit': 'mEq', 'route': 'PO', 'form': 'ER tab', 'frequency': 'q2hr (interval)', 'duration': '2 dose(s)', 'numberOfDoses': 2}
+DEBUG Sentence after call: '20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)'
+DEBUG LOOP PARAMS for potassium chloride: {'dose': 20, 'doseUnit': 'mEq', 'route': 'Feeding Tube', 'form': 'Liq', 'frequency': 'q2hr (interval)', 'duration': '2 dose(s)', 'numberOfDoses': 2}
+DEBUG Sentence after call: '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 2 dose(s)'
+DEBUG LOOP PARAMS for potassium chloride 10 mEq/100 mL intravenous solution: {'dose': 10, 'doseUnit': 'mEq', 'route': 'IV', 'frequency': 'q1hr', 'duration': '4 dose(s)', 'numberOfDoses': 4, 'infuseOver': '1 hr'}
+DEBUG Sentence after call: '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'
+DEBUG LOOP PARAMS for potassium chloride 20 mEq/100 mL intravenous solution: {'dose': 20, 'doseUnit': 'mEq', 'route': 'IV', 'frequency': 'q2hr', 'duration': '2 dose(s)', 'numberOfDoses': 2, 'infuseOver': '2 hr'}
+DEBUG Sentence after call: '20 mEq, IV, q2hr, Duration: 2 dose(s), Infuse over: 2 hr'
+DEBUG LOOP PARAMS for potassium chloride extended release: {'dose': 20, 'doseUnit': 'mEq', 'route': 'PO', 'form': 'ER tab', 'frequency': 'q2hr (interval)', 'duration': '3 dose(s)', 'numberOfDoses': 3}
+DEBUG Sentence after call: '20 mEq, PO, ER tab, q2hr (interval), Duration: 3 dose(s)'
+DEBUG LOOP PARAMS for potassium chloride: {'dose': 20, 'doseUnit': 'mEq', 'route': 'Feeding Tube', 'form': 'Liq', 'frequency': 'q2hr (interval)', 'duration': '3 dose(s)', 'numberOfDoses': 3}
+DEBUG Sentence after call: '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 3 dose(s)'
+DEBUG LOOP PARAMS for potassium chloride 10 mEq/100 mL intravenous solution: {'dose': 10, 'doseUnit': 'mEq', 'route': 'IV', 'frequency': 'q1hr', 'duration': '6 dose(s)', 'numberOfDoses': 6, 'infuseOver': '1 hr'}
+DEBUG Sentence after call: '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
+DEBUG LOOP PARAMS for potassium chloride 20 mEq/100 mL intravenous solution: {'dose': 20, 'doseUnit': 'mEq', 'route': 'IV', 'frequency': 'q2hr', 'duration': '3 dose(s)', 'numberOfDoses': 3, 'infuseOver': '2 hr'}
+DEBUG Sentence after call: '20 mEq, IV, q2hr, Duration: 3 dose(s), Infuse over: 2 hr'
+DEBUG LOOP PARAMS for potassium chloride 10 mEq/100 mL intravenous solution: {'dose': 10, 'doseUnit': 'mEq', 'route': 'IV', 'form': None, 'frequency': 'q1hr', 'duration': '8 dose(s)', 'numberOfDoses': 8, 'infuseOver': '1 hr'}
+DEBUG Sentence after call: '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
+DEBUG LOOP PARAMS for potassium chloride 20 mEq/100 mL intravenous solution: {'dose': 20, 'doseUnit': 'mEq', 'route': 'IV', 'frequency': 'q2hr', 'duration': '4 dose(s)', 'numberOfDoses': 4, 'infuseOver': '2 hr'}
+DEBUG Sentence after call: '20 mEq, IV, q2hr, Duration: 4 dose(s), Infuse over: 2 hr'
+DEBUG LOOP PARAMS for K-Phos Neutral: {'dose': 2, 'doseUnit': 'tab(s)', 'route': 'PO', 'form': 'Tab', 'frequency': 'q2hr (interval)', 'duration': '2 dose(s)', 'numberOfDoses': 2}
+DEBUG Sentence after call: '2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)'
+DEBUG LOOP PARAMS for sodium phosphate: {'dose': 15, 'doseUnit': 'mmol', 'route': 'IVPB', 'form': 'Inj', 'frequency': 'Once', 'numberOfDoses': 1}
+DEBUG Sentence after call: '15 mmol, IVPB, Inj, Once'
+DEBUG LOOP PARAMS for K-Phos Neutral: {'dose': 2, 'doseUnit': 'tab(s)', 'route': 'PO', 'form': 'Tab', 'frequency': 'q2hr (interval)', 'duration': '3 dose(s)', 'numberOfDoses': 3}
+DEBUG Sentence after call: '2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)'
+DEBUG LOOP PARAMS for sodium phosphate: {'dose': 15, 'doseUnit': 'mmol', 'route': 'IVPB', 'form': 'Inj', 'frequency': 'q4hr (interval)', 'duration': '2 dose(s)', 'numberOfDoses': 2}
+DEBUG Sentence after call: '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'
+DEBUG LOOP PARAMS for sodium phosphate: {'dose': 15, 'doseUnit': 'mmol', 'route': 'IVPB', 'form': 'Inj', 'frequency': 'q4hr (interval)', 'duration': '2 dose(s)', 'numberOfDoses': 2}
+DEBUG Sentence after call: '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'
+DEBUG LOOP PARAMS for magnesium sulfate: {'dose': 1, 'doseUnit': 'g', 'route': 'IVPB', 'form': 'Premix', 'frequency': 'Once', 'duration': None, 'numberOfDoses': 1, 'infuseOver': '1 hr'}
+DEBUG Sentence after call: '1 g, IVPB, Premix, Once, Infuse over: 1 hr'
+DEBUG LOOP PARAMS for magnesium sulfate: {'dose': 2, 'doseUnit': 'g', 'route': 'IVPB', 'form': 'Premix', 'frequency': 'Once', 'duration': None, 'numberOfDoses': 1, 'infuseOver': '2 hr'}
+DEBUG Sentence after call: '2 g, IVPB, Premix, Once, Infuse over: 2 hr'
+DEBUG Sentence in list after append repl section: '2 g, IVPB, Premix, Once, Infuse over: 2 hr'
+DEBUG LOOP PARAMS for magnesium sulfate: {'dose': 2, 'doseUnit': 'g', 'route': 'IVPB', 'form': 'Premix', 'frequency': 'q2hr (interval)', 'duration': '2 dose(s)', 'numberOfDoses': 2, 'infuseOver': '2 hr'}
+DEBUG Sentence after call: '2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr'
+DEBUG build_order_sections grouped_sections[1]['ORDERS'][0]['ORDER_SENTENCE'] BEFORE RETURN: 'Requested Draw Date and T T+1;0400, Blood, Tomorrow AM collect, Once'
+DEBUG Mg order_sections[1]['ORDERS'][0]['ORDER_SENTENCE'] before assignment: 'Requested Draw Date and T T+1;0400, Blood, Tomorrow AM collect, Once'
+DEBUG LOOP PARAMS for potassium chloride extended release: {'dose': 20, 'doseUnit': 'mEq', 'route': 'PO', 'form': 'ER tab', 'frequency': 'Once', 'numberOfDoses': 1}
+DEBUG Sentence after call: '20 mEq, PO, ER tab, Once'
+DEBUG LOOP PARAMS for potassium chloride: {'dose': 20, 'doseUnit': 'mEq', 'route': 'Feeding Tube', 'form': 'Liq', 'frequency': 'Once', 'numberOfDoses': 1}
+DEBUG Sentence after call: '20 mEq, Feeding Tube, Liq, Once'
+DEBUG LOOP PARAMS for potassium chloride 10 mEq/100 mL intravenous solution: {'dose': 10, 'doseUnit': 'mEq', 'route': 'IV', 'frequency': 'q1hr', 'duration': '2 dose(s)', 'numberOfDoses': 2, 'infuseOver': '1 hr'}
+DEBUG Sentence after call: '10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
+DEBUG LOOP PARAMS for potassium chloride 20 mEq/100 mL intravenous solution: {'dose': 20, 'doseUnit': 'mEq', 'route': 'IV', 'frequency': 'Once', 'numberOfDoses': 1, 'infuseOver': '1 hr'}
+DEBUG Sentence after call: '20 mEq, IV, Once, Infuse over: 1 hr'
+DEBUG LOOP PARAMS for potassium chloride extended release: {'dose': 20, 'doseUnit': 'mEq', 'route': 'PO', 'form': 'ER tab', 'frequency': 'q2hr (interval)', 'duration': '2 dose(s)', 'numberOfDoses': 2}
+DEBUG Sentence after call: '20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)'
+DEBUG LOOP PARAMS for potassium chloride: {'dose': 20, 'doseUnit': 'mEq', 'route': 'Feeding Tube', 'form': 'Liq', 'frequency': 'q2hr (interval)', 'duration': '2 dose(s)', 'numberOfDoses': 2}
+DEBUG Sentence after call: '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 2 dose(s)'
+DEBUG LOOP PARAMS for potassium chloride 10 mEq/100 mL intravenous solution: {'dose': 10, 'doseUnit': 'mEq', 'route': 'IV', 'frequency': 'q1hr', 'duration': '4 dose(s)', 'numberOfDoses': 4, 'infuseOver': '1 hr'}
+DEBUG Sentence after call: '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'
+\nConfiguration tests failed!
+\nBuild finished with errors.
+DEBUG LOOP PARAMS for potassium chloride 20 mEq/100 mL intravenous solution: {'dose': 20, 'doseUnit': 'mEq', 'route': 'IV', 'frequency': 'q1hr', 'duration': '2 dose(s)', 'numberOfDoses': 2, 'infuseOver': '1 hr'}
+DEBUG Sentence after call: '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
+DEBUG LOOP PARAMS for potassium chloride extended release: {'dose': 20, 'doseUnit': 'mEq', 'route': 'PO', 'form': 'ER tab', 'frequency': 'q2hr (interval)', 'duration': '3 dose(s)', 'numberOfDoses': 3}
+DEBUG Sentence after call: '20 mEq, PO, ER tab, q2hr (interval), Duration: 3 dose(s)'
+DEBUG LOOP PARAMS for potassium chloride: {'dose': 20, 'doseUnit': 'mEq', 'route': 'Feeding Tube', 'form': 'Liq', 'frequency': 'q2hr (interval)', 'duration': '3 dose(s)', 'numberOfDoses': 3}
+DEBUG Sentence after call: '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 3 dose(s)'
+DEBUG LOOP PARAMS for potassium chloride 10 mEq/100 mL intravenous solution: {'dose': 10, 'doseUnit': 'mEq', 'route': 'IV', 'frequency': 'q1hr', 'duration': '6 dose(s)', 'numberOfDoses': 6, 'infuseOver': '1 hr'}
+DEBUG Sentence after call: '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
+DEBUG LOOP PARAMS for potassium chloride 20 mEq/100 mL intravenous solution: {'dose': 20, 'doseUnit': 'mEq', 'route': 'IV', 'frequency': 'q1hr', 'duration': '3 dose(s)', 'numberOfDoses': 3, 'infuseOver': '1 hr'}
+DEBUG Sentence after call: '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'
+DEBUG LOOP PARAMS for potassium chloride 10 mEq/100 mL intravenous solution: {'dose': 10, 'doseUnit': 'mEq', 'route': 'IV', 'form': None, 'frequency': 'q1hr', 'duration': '8 dose(s)', 'numberOfDoses': 8, 'infuseOver': '1 hr'}
+DEBUG Sentence after call: '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
+DEBUG LOOP PARAMS for potassium chloride 20 mEq/100 mL intravenous solution: {'dose': 20, 'doseUnit': 'mEq', 'route': 'IV', 'frequency': 'q1hr', 'duration': '4 dose(s)', 'numberOfDoses': 4, 'infuseOver': '1 hr'}
+DEBUG Sentence after call: '20 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'
+DEBUG build_order_sections grouped_sections[1]['ORDERS'][0]['ORDER_SENTENCE'] BEFORE RETURN: 'Requested Draw Date and T T+1;0400, Blood, Tomorrow AM collect, Once'
+DEBUG LOOP PARAMS for K-Phos Neutral: {'dose': 2, 'doseUnit': 'tab(s)', 'route': 'PO', 'form': 'Tab', 'frequency': 'q2hr (interval)', 'duration': '2 dose(s)', 'numberOfDoses': 2}
+DEBUG Sentence after call: '2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)'
+DEBUG LOOP PARAMS for sodium phosphate: {'dose': 15, 'doseUnit': 'mmol', 'route': 'IVPB', 'form': 'Inj', 'frequency': 'Once', 'numberOfDoses': 1}
+DEBUG Sentence after call: '15 mmol, IVPB, Inj, Once'
+DEBUG LOOP PARAMS for K-Phos Neutral: {'dose': 2, 'doseUnit': 'tab(s)', 'route': 'PO', 'form': 'Tab', 'frequency': 'q2hr (interval)', 'duration': '3 dose(s)', 'numberOfDoses': 3}
+DEBUG Sentence after call: '2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)'
+DEBUG LOOP PARAMS for sodium phosphate: {'dose': 15, 'doseUnit': 'mmol', 'route': 'IVPB', 'form': 'Inj', 'frequency': 'q4hr (interval)', 'duration': '2 dose(s)', 'numberOfDoses': 2}
+DEBUG Sentence after call: '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'
+DEBUG LOOP PARAMS for sodium phosphate: {'dose': 15, 'doseUnit': 'mmol', 'route': 'IVPB', 'form': 'Inj', 'frequency': 'q4hr (interval)', 'duration': '2 dose(s)', 'numberOfDoses': 2}
+DEBUG Sentence after call: '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'
+DEBUG build_order_sections grouped_sections[1]['ORDERS'][0]['ORDER_SENTENCE'] BEFORE RETURN: 'Requested Draw Date and T T+1;0400, Blood, Tomorrow AM collect, Once'
+DEBUG LOOP PARAMS for calcium chloride: {'dose': 1, 'doseUnit': 'g', 'route': 'IVPB', 'form': 'Inj', 'frequency': 'Once', 'numberOfDoses': 1, 'infuseOver': '1 hr'}
+DEBUG Sentence after call: '1 g, IVPB, Inj, Once, Infuse over: 1 hr'
+DEBUG build_order_sections grouped_sections[1]['ORDERS'][0]['ORDER_SENTENCE'] BEFORE RETURN: 'Requested Draw Date and T T+1;0400, Blood, Tomorrow AM collect, Once'
+DEBUG CARDIAC Mg 1.4-1.7 Sentence BEFORE dump: 'Requested Draw Date and T T+1;0400, Blood, Tomorrow AM collect, Once'

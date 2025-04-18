@@ -64,7 +64,7 @@ _section_groups: List[SectionGroup] = [
                 'associatedRouteType': 'IV',
                 'sectionDescription': 'Monitoring: Recheck magnesium level 4 hrs after infusion complete.',
                 'orders': [
-                    Labs.mag_level_timed_n360,
+                    Labs.get_timed_lab('mag_level', 360),
                 ]
             }
         ]
@@ -95,7 +95,7 @@ _section_groups: List[SectionGroup] = [
                 'associatedRouteType': 'IV',
                 'sectionDescription': 'Monitoring: Recheck magnesium level 4 hrs after infusion complete.',
                 'orders': [
-                    Labs.mag_level_timed_n480,
+                    Labs.get_timed_lab('mag_level', 480),
                 ]
             }
         ]
@@ -111,7 +111,7 @@ _initial_labs: List[InitialLabConfig] = [
             Labs.mag_level_asap,
             Labs.mag_level_tomorrow_am,
             Labs.bmp_tomorrow_am,
-            Labs.mag_level_timed_n240,
+            Labs.get_timed_lab('mag_level', 240),
         ]
     }
 ]

@@ -107,13 +107,47 @@ def _create_order_sentence(
     duration: Optional[str] = None,
     infuse_over: Optional[str] = None
 ) -> str:
-    """Constructs the ORDER_SENTENCE string."""
+    """Constructs the ORDER_SENTENCE string matching DCW format."""
     parts = [f"{dose} {dose_unit}", route]
-    if form: parts.append(form)
-    if frequency: parts.append(frequency)
-    if duration: parts.append(f"Duration: {duration}")
-    if infuse_over: parts.append(f"Infuse over: {infuse_over}")
-    return ', '.join(parts)
+
+    # Standardize form capitalization
+    if form:
+        if form.lower() == 'inj': parts.append('Inj')
+        elif form.lower() == 'liq': parts.append('Liq')
+        elif form.lower() == 'er tab': parts.append('ER tab') # Keep space
+        elif form.lower() == 'tab': parts.append('Tab')
+        else: parts.append(form.capitalize()) # Default capitalize
+
+    # Standardize frequency
+    if frequency:
+        freq_lower = frequency.lower()
+        if 'interval' in freq_lower:
+             parts.append(freq_lower.replace('(interval)', 'interval').replace('hr', 'h')) # qXh interval
+        elif freq_lower == 'once':
+             parts.append('Once')
+        elif 'hr' in freq_lower:
+             parts.append(freq_lower.replace('hr', 'h')) # qXh
+        else:
+             parts.append(frequency) # Keep original if unsure
+
+    # Standardize duration
+    if duration:
+        dur_lower = duration.lower()
+        num_str = ''.join(filter(str.isdigit, dur_lower))
+        if num_str:
+            num = int(num_str)
+            dose_str = 'dose' if num == 1 else 'doses'
+            parts.append(f"Duration: {num} {dose_str}")
+        # else: # Don't append duration if number not found? Or keep original?
+            # parts.append(f"Duration: {duration}") # Keep original for now if parse fails
+
+    # Standardize infuse over
+    if infuse_over:
+        # Expects format like "X hr"
+        parts.append(f"infuse over {infuse_over.lower()}") # lowercase 'i', no colon
+
+    final_sentence = ', '.join(filter(None, parts)) # Filter out potential None parts if logic changes
+    return final_sentence
 
 def _format_total_dose_comment(params: MedicationOrderParams, show_total_dose: bool) -> str:
     """Formats the total dose part of the comment."""
@@ -135,6 +169,11 @@ def create_medication_order(
     route_style = context['routeStyle']
     show_total_dose = context['showTotalDose']
 
+    # --- DEBUG --- 
+    # print(f"DEBUG create_medication_order PARAMS Type: {type(params)}, Keys: {list(params.keys()) if isinstance(params, dict) else 'N/A'}, Value: {params}") # Quieten DEBUG
+    # --- END DEBUG ---
+
+    # Restore original call
     order_sentence = _create_order_sentence(
         params['dose'],
         params['doseUnit'],
@@ -144,6 +183,10 @@ def create_medication_order(
         params.get('duration'),
         params.get('infuseOver')
     )
+
+    # --- Add DEBUG print HERE ---
+    print(f"DEBUG Sentence after call: {repr(order_sentence)}")
+    # --- END DEBUG ---
 
     total_dose_comment = _format_total_dose_comment(params, show_total_dose)
 
@@ -199,11 +242,18 @@ def _build_replacement_section(
         'CONCEPT_NAME': repl_section_config['conceptName'],
         'SINGLE_SELECT': repl_section_config['singleSelect'],
         'SHOW_INACTIVE_DUPLICATES': 0,
-        'ORDERS': [
-            create_medication_order(item['baseMed'], recommend_oral_flag, item['params'], context)
-            for item in repl_section_config['orders']
-        ],
     }
+    # --- Build ORDERS with explicit loop for debugging ---
+    orders_list: List[BaseOrder] = []
+    for item in repl_section_config.get('orders', []):
+        # --- DEBUG ---
+        print(f"DEBUG LOOP PARAMS for {item.get('baseMed', {}).get('MNEMONIC', 'Unknown')}: {item.get('params')}")
+        # --- END DEBUG ---
+        med_order = create_medication_order(item['baseMed'], recommend_oral_flag, item['params'], context)
+        orders_list.append(med_order)
+    replacement_section['ORDERS'] = orders_list
+    # --- End build ORDERS with loop ---
+
     return replacement_section
 
 def _build_lab_section(
@@ -279,6 +329,14 @@ def create_grouped_order_sections(
             context=context
         )
         order_sections.append(replacement_section)
+
+        # --- DEBUG: Check sentence immediately after appending replacement section ---
+        if context['protocol'] == 'CARDIAC' and group['rangeInfo'].get('lower') == 1.4:
+            try:
+                print(f"DEBUG Sentence in list after append repl section: {repr(order_sections[-1]['ORDERS'][0]['ORDER_SENTENCE'])}")
+            except Exception as e:
+                 print(f"DEBUG Error inspecting order_sections after append: {e}")
+        # --- END DEBUG ---
 
         # --- Lab Sections ---
         for index, lab_section_config in enumerate(group['labSections']):

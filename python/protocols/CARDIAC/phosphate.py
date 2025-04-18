@@ -77,9 +77,9 @@ _section_groups: List[SectionGroup] = [
                 'associatedRouteType': 'IV',
                 'sectionDescription': 'Monitoring: Recheck phosphorous & calcium levels 2 hrs after infusion.',
                 'orders': [
-                    Labs.phos_level_timed_n600,
-                    Labs.calcium_ion_serum_timed_n600,
-                    Labs.calcium_ion_wb_timed_n600,
+                    Labs.get_timed_lab('phos_level', 600),
+                    Labs.get_timed_lab('calcium_ion_serum', 600),
+                    Labs.get_timed_lab('calcium_ion_wb', 600),
                 ]
             }
         ]
@@ -105,9 +105,9 @@ _section_groups: List[SectionGroup] = [
                 'associatedRouteType': 'IV',
                 'sectionDescription': 'Monitoring: Recheck phosphorous & calcium levels 2 hrs after infusion.',
                 'orders': [
-                    Labs.phos_level_timed_n600,
-                    Labs.calcium_ion_serum_timed_n600,
-                    Labs.calcium_ion_wb_timed_n600,
+                    Labs.get_timed_lab('phos_level', 600),
+                    Labs.get_timed_lab('calcium_ion_serum', 600),
+                    Labs.get_timed_lab('calcium_ion_wb', 600),
                 ]
             }
         ]
@@ -125,9 +125,9 @@ _initial_labs: List[InitialLabConfig] = [
             Labs.phos_level_tomorrow_am,
             Labs.calcium_ion_serum_tomorrow_am,
             Labs.calcium_ion_wb_tomorrow_am,
-            Labs.phos_level_timed_n120,
-            Labs.calcium_ion_serum_timed_n120,
-            Labs.calcium_ion_wb_timed_n120,
+            Labs.get_timed_lab('phos_level', 120),
+            Labs.get_timed_lab('calcium_ion_serum', 120),
+            Labs.get_timed_lab('calcium_ion_wb', 120),
         ]
     },
 ]
