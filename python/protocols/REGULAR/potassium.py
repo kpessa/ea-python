@@ -18,27 +18,22 @@ _section_groups: List[SectionGroup] = [
             'singleSelect': 1,
             'orders': [
                 {
-                    'baseMed': Meds.kcl_er_tab,
-                    'params': {'dose': 20, 'doseUnit': 'mEq', 'route': 'PO', 'form': 'ER tab', 'frequency': 'q2hr (interval)', 'duration': '2 dose(s)', 'numberOfDoses': 2},
+                    'predefinedMedKey': 'KCL_ERTAB_20MEQ_Q2H_2DOSES'
                 },
                 {
-                    'baseMed': Meds.kcl_liquid,
-                    'params': {'dose': 20, 'doseUnit': 'mEq', 'route': 'Feeding Tube', 'form': 'Liq', 'frequency': 'q2hr (interval)', 'duration': '2 dose(s)', 'numberOfDoses': 2},
+                    'predefinedMedKey': 'KCL_LIQ_20MEQ_Q2H_2DOSES'
                 },
                 {
-                    'baseMed': Meds.kcl_iv_peripheral,
-                    'params': {'dose': 10, 'doseUnit': 'mEq', 'route': 'IV', 'frequency': 'q1hr', 'duration': '4 dose(s)', 'numberOfDoses': 4, 'infuseOver': '1 hr'},
+                    'predefinedMedKey': 'KCL_IVPERIPH_10MEQ_Q1H_4DOSES_1HR'
                 },
                 {
-                    'baseMed': Meds.kcl_iv_central,
-                    'params': {'dose': 20, 'doseUnit': 'mEq', 'route': 'IV', 'frequency': 'q2hr', 'duration': '2 dose(s)', 'numberOfDoses': 2, 'infuseOver': '2 hr'},
+                    'predefinedMedKey': 'KCL_IVCENT_20MEQ_Q2H_2DOSES_2HR'
                 },
             ]
         },
         'labSections': [
             {
                 'conceptName': H.create_between_concept(_electrolyte, 3.2, 3.4),
-                'associatedRouteType': 'IV',
                 'sectionDescription': 'Monitoring: Recheck BMP with next AM labs.',
                 'orders': [
                     Labs.bmp_tomorrow_am,
@@ -56,20 +51,16 @@ _section_groups: List[SectionGroup] = [
             'singleSelect': 1,
             'orders': [
                 {
-                    'baseMed': Meds.kcl_er_tab,
-                    'params': {'dose': 20, 'doseUnit': 'mEq', 'route': 'PO', 'form': 'ER tab', 'frequency': 'q2hr (interval)', 'duration': '3 dose(s)', 'numberOfDoses': 3},
+                    'predefinedMedKey': 'KCL_ERTAB_20MEQ_Q2H_3DOSES'
                 },
                 {
-                    'baseMed': Meds.kcl_liquid,
-                    'params': {'dose': 20, 'doseUnit': 'mEq', 'route': 'Feeding Tube', 'form': 'Liq', 'frequency': 'q2hr (interval)', 'duration': '3 dose(s)', 'numberOfDoses': 3},
+                    'predefinedMedKey': 'KCL_LIQ_20MEQ_Q2H_3DOSES'
                 },
                 {
-                    'baseMed': Meds.kcl_iv_peripheral,
-                    'params': {'dose': 10, 'doseUnit': 'mEq', 'route': 'IV', 'frequency': 'q1hr', 'duration': '6 dose(s)', 'numberOfDoses': 6, 'infuseOver': '1 hr'},
+                    'predefinedMedKey': 'KCL_IVPERIPH_10MEQ_Q1H_6DOSES_1HR'
                 },
                 {
-                    'baseMed': Meds.kcl_iv_central,
-                    'params': {'dose': 20, 'doseUnit': 'mEq', 'route': 'IV', 'frequency': 'q2hr', 'duration': '3 dose(s)', 'numberOfDoses': 3, 'infuseOver': '2 hr'},
+                    'predefinedMedKey': 'KCL_IVCENT_20MEQ_Q2H_3DOSES_2HR'
                 },
             ]
         },
@@ -110,12 +101,10 @@ _section_groups: List[SectionGroup] = [
             'singleSelect': 1,
             'orders': [
                 {
-                    'baseMed': Meds.kcl_iv_peripheral,
-                    'params': {'dose': 10, 'doseUnit': 'mEq', 'route': 'IV', 'form': None, 'frequency': 'q1hr', 'duration': '8 dose(s)', 'numberOfDoses': 8, 'infuseOver': '1 hr'},
+                    'predefinedMedKey': 'KCL_IVPERIPH_10MEQ_Q1H_8DOSES_1HR'
                 },
                 {
-                    'baseMed': Meds.kcl_iv_central,
-                    'params': {'dose': 20, 'doseUnit': 'mEq', 'route': 'IV', 'frequency': 'q2hr', 'duration': '4 dose(s)', 'numberOfDoses': 4, 'infuseOver': '2 hr'},
+                    'predefinedMedKey': 'KCL_IVCENT_20MEQ_Q2H_4DOSES_2HR'
                 },
             ]
         },
@@ -143,6 +132,15 @@ _section_groups: List[SectionGroup] = [
                 'sectionDescription': 'Monitoring: Recheck magnesium level 4 hrs after last dose.',
                 'orders': [
                     Labs.get_timed_lab('mag_level', 240),
+                ]
+            },
+            {
+                'conceptName': H.create_less_than_concept(_electrolyte, 2.8),
+                'sectionDescription': 'Monitoring: Repeat BMP, mag and phos levels with next AM labs.',
+                'orders': [
+                    Labs.bmp_tomorrow_am,
+                    Labs.mag_level_tomorrow_am,
+                    Labs.phos_level_tomorrow_am,
                 ]
             }
         ]

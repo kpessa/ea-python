@@ -18,8 +18,8 @@ tests/test_expected_sentences.py::test_expected_sentences_match_generated[/home/
 =================================== FAILURES ===================================
 __________________________ test_sentence_verification __________________________
 
-expected_sentences = defaultdict(<class 'set'>, {'BMP': {'Blood, Timed Study collect, Once', 'Blood, ASAP collect, Once', 'Requested Draw D... Once'}, 'sodium phosphate': {'15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)', '15 mmol, IVPB, Inj, Once'}})
-actual_orders_by_mnemonic = defaultdict(<class 'set'>, {'magnesium sulfate': {'2 g, IVPB, Premix, Once, infuse over 2 hr', '1 g, IVPB, Premix, Onc... {'1 g, IVPB, Inj, Once, infuse over 1 hr'}, 'magnesium oxide': {'400 mg, PO, Tab, q12h interval, Duration: 2 doses'}})
+expected_sentences = defaultdict(<class 'set'>, {'BMP': {'Blood, Stat collect, Lab Collect', 'Requested Draw Date and T T;N, Blood, Stat co... Once'}, 'sodium phosphate': {'15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)', '15 mmol, IVPB, Inj, Once'}})
+actual_orders_by_mnemonic = defaultdict(<class 'set'>, {'magnesium sulfate': {'2 g, IVPB, Premix, Once, Infuse over: 2 hr', '2 g, IVPB, Premix, q2..., IVPB, Inj, Once, Infuse over: 1 hr'}, 'magnesium oxide': {'400 mg, PO, Tab, q12hr (interval), Duration: 2 dose(s)'}})
 
     def test_sentence_verification(expected_sentences, actual_orders_by_mnemonic):
         """Verify that generated sentences for each mnemonic exist in the expected extract.csv pool."""
@@ -51,47 +51,20 @@ actual_orders_by_mnemonic = defaultdict(<class 'set'>, {'magnesium sulfate': {'2
 >       assert not failures, "\n\n" + "\n\n".join(failures)
 E       AssertionError: 
 E         
-E         Sentences generated for MNEMONIC 'magnesium sulfate' that DO NOT match any entry in /home/pessk/code/ea-python/expected_sentences/extract.csv:
-E             - '1 g, IVPB, Premix, Once, infuse over 1 hr'
-E             - '2 g, IVPB, Premix, Once, infuse over 2 hr'
-E             - '2 g, IVPB, Premix, q2h interval, Duration: 2 doses, infuse over 2 hr'
-E         
-E         Sentences generated for MNEMONIC 'potassium chloride extended release' that DO NOT match any entry in /home/pessk/code/ea-python/expected_sentences/extract.csv:
-E             - '20 mEq, PO, ER tab, q2h interval, Duration: 2 doses'
-E             - '20 mEq, PO, ER tab, q2h interval, Duration: 3 doses'
-E         
-E         Sentences generated for MNEMONIC 'potassium chloride' that DO NOT match any entry in /home/pessk/code/ea-python/expected_sentences/extract.csv:
-E             - '20 mEq, Feeding Tube, Liq, q2h interval, Duration: 2 doses'
-E             - '20 mEq, Feeding Tube, Liq, q2h interval, Duration: 3 doses'
-E         
 E         Sentences generated for MNEMONIC 'potassium chloride 10 mEq/100 mL intravenous solution' that DO NOT match any entry in /home/pessk/code/ea-python/expected_sentences/extract.csv:
-E             - '10 mEq, IV, q1h, Duration: 2 doses, infuse over 1 hr'
-E             - '10 mEq, IV, q1h, Duration: 4 doses, infuse over 1 hr'
-E             - '10 mEq, IV, q1h, Duration: 6 doses, infuse over 1 hr'
-E             - '10 mEq, IV, q1h, Duration: 8 doses, infuse over 1 hr'
+E             - '10 mEq, IV, q1h, Duration: 2 dose(s), Infuse over: 1 hr'
+E             - '10 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'
+E             - '10 mEq, IV, q1h, Duration: 6 dose(s), Infuse over: 1 hr'
+E             - '10 mEq, IV, q1h, Duration: 8 dose(s), Infuse over: 1 hr'
 E         
 E         Sentences generated for MNEMONIC 'potassium chloride 20 mEq/100 mL intravenous solution' that DO NOT match any entry in /home/pessk/code/ea-python/expected_sentences/extract.csv:
-E             - '20 mEq, IV, Once, infuse over 1 hr'
-E             - '20 mEq, IV, q1h, Duration: 2 doses, infuse over 1 hr'
-E             - '20 mEq, IV, q1h, Duration: 3 doses, infuse over 1 hr'
-E             - '20 mEq, IV, q1h, Duration: 4 doses, infuse over 1 hr'
-E             - '20 mEq, IV, q2h, Duration: 2 doses, infuse over 2 hr'
-E             - '20 mEq, IV, q2h, Duration: 3 doses, infuse over 2 hr'
-E             - '20 mEq, IV, q2h, Duration: 4 doses, infuse over 2 hr'
-E         
-E         Sentences generated for MNEMONIC 'K-Phos Neutral' that DO NOT match any entry in /home/pessk/code/ea-python/expected_sentences/extract.csv:
-E             - '2 tab(s), PO, Tab, q2h interval, Duration: 2 doses'
-E             - '2 tab(s), PO, Tab, q2h interval, Duration: 3 doses'
-E         
-E         Sentences generated for MNEMONIC 'sodium phosphate' that DO NOT match any entry in /home/pessk/code/ea-python/expected_sentences/extract.csv:
-E             - '15 mmol, IVPB, Inj, q4h interval, Duration: 2 doses'
-E         
-E         Sentences generated for MNEMONIC 'calcium chloride' that DO NOT match any entry in /home/pessk/code/ea-python/expected_sentences/extract.csv:
-E             - '1 g, IVPB, Inj, Once, infuse over 1 hr'
-E         
-E         Sentences generated for MNEMONIC 'magnesium oxide' that DO NOT match any entry in /home/pessk/code/ea-python/expected_sentences/extract.csv:
-E             - '400 mg, PO, Tab, q12h interval, Duration: 2 doses'
-E       assert not ["Sentences generated for MNEMONIC 'magnesium sulfate' that DO NOT match any entry in /home/pessk/code/ea-python/expected_sentences/extract.csv:\n    - '1 g, IVPB, Premix, Once, infuse over 1 hr'\n    - '2 g, IVPB, Premix, Once, infuse over 2 hr'\n    - '2 g, IVPB, Premix, q2h interval, Duration: 2 doses, infuse over 2 hr'", "Sentences generated for MNEMONIC 'potassium chloride extended release' that DO NOT match any entry in /home/pessk/code/ea-python/expected_sentences/extract.csv:\n    - '20 mEq, PO, ER tab, q2h interval, Duration: 2 doses'\n    - '20 mEq, PO, ER tab, q2h interval, Duration: 3 doses'", "Sentences generated for MNEMONIC 'potassium chloride' that DO NOT match any entry in /home/pessk/code/ea-python/expected_sentences/extract.csv:\n    - '20 mEq, Feeding Tube, Liq, q2h interval, Duration: 2 doses'\n    - '20 mEq, Feeding Tube, Liq, q2h interval, Duration: 3 doses'", "Sentences generated for MNEMONIC 'potassium chloride 10 mEq/100 mL intravenous solution' that DO NOT match any entry in /home/pessk/code/ea-python/expected_sentences/extract.csv:\n    - '10 mEq, IV, q1h, Duration: 2 doses, infuse over 1 hr'\n    - '10 mEq, IV, q1h, Duration: 4 doses, infuse over 1 hr'\n    - '10 mEq, IV, q1h, Duration: 6 doses, infuse over 1 hr'\n    - '10 mEq, IV, q1h, Duration: 8 doses, infuse over 1 hr'", "Sentences generated for MNEMONIC 'potassium chloride 20 mEq/100 mL intravenous solution' that DO NOT match any entry in /home/pessk/code/ea-python/expected_sentences/extract.csv:\n    - '20 mEq, IV, Once, infuse over 1 hr'\n    - '20 mEq, IV, q1h, Duration: 2 doses, infuse over 1 hr'\n    - '20 mEq, IV, q1h, Duration: 3 doses, infuse over 1 hr'\n    - '20 mEq, IV, q1h, Duration: 4 doses, infuse over 1 hr'\n    - '20 mEq, IV, q2h, Duration: 2 doses, infuse over 2 hr'\n    - '20 mEq, IV, q2h, Duration: 3 doses, infuse over 2 hr'\n    - '20 mEq, IV, q2h, Duration: 4 doses, infuse over 2 hr'", "Sentences generated for MNEMONIC 'K-Phos Neutral' that DO NOT match any entry in /home/pessk/code/ea-python/expected_sentences/extract.csv:\n    - '2 tab(s), PO, Tab, q2h interval, Duration: 2 doses'\n    - '2 tab(s), PO, Tab, q2h interval, Duration: 3 doses'", ...]
+E             - '20 mEq, IV, q1h, Duration: 2 dose(s), Infuse over: 1 hr'
+E             - '20 mEq, IV, q1h, Duration: 3 dose(s), Infuse over: 1 hr'
+E             - '20 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'
+E             - '20 mEq, IV, q2h, Duration: 2 dose(s), Infuse over: 2 hr'
+E             - '20 mEq, IV, q2h, Duration: 3 dose(s), Infuse over: 2 hr'
+E             - '20 mEq, IV, q2h, Duration: 4 dose(s), Infuse over: 2 hr'
+E       assert not ["Sentences generated for MNEMONIC 'potassium chloride 10 mEq/100 mL intravenous solution' that DO NOT match any entry in /home/pessk/code/ea-python/expected_sentences/extract.csv:\n    - '10 mEq, IV, q1h, Duration: 2 dose(s), Infuse over: 1 hr'\n    - '10 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'\n    - '10 mEq, IV, q1h, Duration: 6 dose(s), Infuse over: 1 hr'\n    - '10 mEq, IV, q1h, Duration: 8 dose(s), Infuse over: 1 hr'", "Sentences generated for MNEMONIC 'potassium chloride 20 mEq/100 mL intravenous solution' that DO NOT match any entry in /home/pessk/code/ea-python/expected_sentences/extract.csv:\n    - '20 mEq, IV, q1h, Duration: 2 dose(s), Infuse over: 1 hr'\n    - '20 mEq, IV, q1h, Duration: 3 dose(s), Infuse over: 1 hr'\n    - '20 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'\n    - '20 mEq, IV, q2h, Duration: 2 dose(s), Infuse over: 2 hr'\n    - '20 mEq, IV, q2h, Duration: 3 dose(s), Infuse over: 2 hr'\n    - '20 mEq, IV, q2h, Duration: 4 dose(s), Infuse over: 2 hr'"]
 
 test_config_sentences.py:173: AssertionError
 _ test_dcw_sentences_match_generated[/home/pessk/code/ea-python/generated_configs/output_cardiac.json] _
@@ -202,18 +175,18 @@ E         DCW vs JSON Sentence Comparison Report for output_cardiac.json:
 E         
 E         --- DCW Entry #0 (Mnem: 'magnesium sulfate', Range: 'Current serum level 1.8-2') ---
 E           DCW Spec : '1 g, IVPB, Premix, Once, Infuse over: 1 hr'
-E           JSON Gen : '1 g, IVPB, Premix, Once, infuse over 1 hr'
+E           JSON Gen : '1 g, IVPB, Premix, Once, Infuse over: 1 hr'
 E           (Score DCW vs JSON: 100%)
 E         
 E         --- DCW Entry #1 (Mnem: 'magnesium sulfate', Range: 'Current serum level 1.4-1.7') ---
 E           DCW Spec : '2 g, IVPB, Premix, Once, Infuse over: 2 hr'
-E           JSON Gen : '1 g, IVPB, Premix, Once, infuse over 1 hr'
+E           JSON Gen : '1 g, IVPB, Premix, Once, Infuse over: 1 hr'
 E           (Score DCW vs JSON: 95%)
 E         
 E         --- DCW Entry #2 (Mnem: 'magnesium sulfate', Range: 'Current serum level < 1.4') ---
-E           DCW Spec : '2 g, IVPB, Premix, q2h interval, Duration: 2 doses, infuse over 2 hr'
-E           JSON Gen : '1 g, IVPB, Premix, Once, infuse over 1 hr'
-E           (Score DCW vs JSON: 61%)
+E           DCW Spec : '2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr'
+E           JSON Gen : '1 g, IVPB, Premix, Once, Infuse over: 1 hr'
+E           (Score DCW vs JSON: 59%)
 E         
 E         --- DCW Entry #3 (Mnem: 'potassium chloride extended release', Range: 'Current serum level 3.6-3.9') ---
 E           DCW Spec : '20 mEq, PO, ER tab, Once'
@@ -221,100 +194,100 @@ E           JSON Gen : '20 mEq, PO, ER tab, Once'
 E           (Score DCW vs JSON: 100%)
 E         
 E         --- DCW Entry #4 (Mnem: 'potassium chloride', Range: 'Current serum level 3.6-3.9') ---
-E           DCW Spec : '20 mEq, Feeding Tube, liq, Once'
+E           DCW Spec : '20 mEq, Feeding Tube, Liq, Once'
 E           JSON Gen : '20 mEq, Feeding Tube, Liq, Once'
 E           (Score DCW vs JSON: 100%)
 E         
 E         --- DCW Entry #5 (Mnem: 'potassium chloride 10 mEq/100 mL intravenous solution', Range: 'Current serum level 3.6-3.9') ---
-E           DCW Spec : '10 mEq, IV, q1h, Duration: 2 doses, Infuse over: 1 hr'
-E           JSON Gen : '10 mEq, IV, q1h, Duration: 2 doses, infuse over 1 hr'
-E           (Score DCW vs JSON: 100%)
+E           DCW Spec : '10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
+E           JSON Gen : '10 mEq, IV, q1h, Duration: 2 dose(s), Infuse over: 1 hr'
+E           (Score DCW vs JSON: 99%)
 E         
 E         --- DCW Entry #6 (Mnem: 'potassium chloride 20 mEq/100 mL intravenous solution', Range: 'Current serum level 3.6-3.9') ---
-E           DCW Spec : '20 mEq, IV, q1h, Once, Infuse over: 1 hr'
-E           JSON Gen : '20 mEq, IV, Once, infuse over 1 hr'
-E           (Score DCW vs JSON: 94%)
+E           DCW Spec : '20 mEq, IV, Once, Infuse over: 1 hr'
+E           JSON Gen : '20 mEq, IV, Once, Infuse over: 1 hr'
+E           (Score DCW vs JSON: 100%)
 E         
 E         --- DCW Entry #7 (Mnem: 'potassium chloride extended release', Range: 'Current serum level 3.2-3.5') ---
-E           DCW Spec : '20 mEq, PO, ER tab, q2h interval, Duration: 2 doses'
+E           DCW Spec : '20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)'
 E           JSON Gen : '20 mEq, PO, ER tab, Once'
-E           (Score DCW vs JSON: 51%)
+E           (Score DCW vs JSON: 49%)
 E         
 E         --- DCW Entry #8 (Mnem: 'potassium chloride', Range: 'Current serum level 3.2-3.5') ---
-E           DCW Spec : '20 mEq, Feeding Tube, liq, q2h interval, Duration: 2 doses'
+E           DCW Spec : '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 2 dose(s)'
 E           JSON Gen : '20 mEq, Feeding Tube, Liq, Once'
-E           (Score DCW vs JSON: 59%)
+E           (Score DCW vs JSON: 58%)
 E         
 E         --- DCW Entry #9 (Mnem: 'potassium chloride 10 mEq/100 mL intravenous solution', Range: 'Current serum level 3.2-3.5') ---
-E           DCW Spec : '10 mEq, IV, q1h, Duration: 4 doses, Infuse over: 1 hr'
-E           JSON Gen : '10 mEq, IV, q1h, Duration: 2 doses, infuse over 1 hr'
-E           (Score DCW vs JSON: 98%)
+E           DCW Spec : '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'
+E           JSON Gen : '10 mEq, IV, q1h, Duration: 2 dose(s), Infuse over: 1 hr'
+E           (Score DCW vs JSON: 97%)
 E         
 E         --- DCW Entry #10 (Mnem: 'potassium chloride 20 mEq/100 mL intravenous solution', Range: 'Current serum level 3.2-3.5') ---
-E           DCW Spec : '20 mEq, IV, q1h, Duration: 2 doses, Infuse over: 1 hr'
-E           JSON Gen : '20 mEq, IV, Once, infuse over 1 hr'
-E           (Score DCW vs JSON: 67%)
+E           DCW Spec : '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
+E           JSON Gen : '20 mEq, IV, Once, Infuse over: 1 hr'
+E           (Score DCW vs JSON: 65%)
 E         
 E         --- DCW Entry #11 (Mnem: 'potassium chloride extended release', Range: 'Current serum level 2.8-3.1') ---
-E           DCW Spec : '20 mEq, PO, ER tab, q2h interval, Duration: 3 doses'
+E           DCW Spec : '20 mEq, PO, ER tab, q2hr (interval), Duration: 3 dose(s)'
 E           JSON Gen : '20 mEq, PO, ER tab, Once'
-E           (Score DCW vs JSON: 51%)
+E           (Score DCW vs JSON: 49%)
 E         
 E         --- DCW Entry #12 (Mnem: 'potassium chloride', Range: 'Current serum level 2.8-3.1') ---
-E           DCW Spec : '20 mEq, Feeding Tube, liq, q2h interval, Duration: 3 doses'
+E           DCW Spec : '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 3 dose(s)'
 E           JSON Gen : '20 mEq, Feeding Tube, Liq, Once'
-E           (Score DCW vs JSON: 59%)
+E           (Score DCW vs JSON: 58%)
 E         
 E         --- DCW Entry #13 (Mnem: 'potassium chloride 10 mEq/100 mL intravenous solution', Range: 'Current serum level 2.8-3.1') ---
-E           DCW Spec : '10 mEq, IV, q1h, Duration: 6 doses, Infuse over: 1 hr'
-E           JSON Gen : '10 mEq, IV, q1h, Duration: 2 doses, infuse over 1 hr'
-E           (Score DCW vs JSON: 98%)
+E           DCW Spec : '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
+E           JSON Gen : '10 mEq, IV, q1h, Duration: 2 dose(s), Infuse over: 1 hr'
+E           (Score DCW vs JSON: 97%)
 E         
 E         --- DCW Entry #14 (Mnem: 'potassium chloride 20 mEq/100 mL intravenous solution', Range: 'Current serum level 2.8-3.1') ---
-E           DCW Spec : '20 mEq, IV, q1h, Duration: 3 doses, Infuse over: 1 hr'
-E           JSON Gen : '20 mEq, IV, Once, infuse over 1 hr'
-E           (Score DCW vs JSON: 67%)
+E           DCW Spec : '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'
+E           JSON Gen : '20 mEq, IV, Once, Infuse over: 1 hr'
+E           (Score DCW vs JSON: 65%)
 E         
 E         --- DCW Entry #15 (Mnem: 'potassium chloride 10 mEq/100 mL intravenous solution', Range: 'Current serum level < 2.8') ---
-E           DCW Spec : '10 mEq, IV, q1h, Duration: 8 doses, Infuse over: 1 hr'
-E           JSON Gen : '10 mEq, IV, q1h, Duration: 2 doses, infuse over 1 hr'
-E           (Score DCW vs JSON: 98%)
+E           DCW Spec : '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
+E           JSON Gen : '10 mEq, IV, q1h, Duration: 2 dose(s), Infuse over: 1 hr'
+E           (Score DCW vs JSON: 97%)
 E         
 E         --- DCW Entry #16 (Mnem: 'potassium chloride 20 mEq/100 mL intravenous solution', Range: 'Current serum level < 2.8') ---
-E           DCW Spec : '20 mEq, IV, q1h, Duration: 4 doses, Infuse over: 1 hr'
-E           JSON Gen : '20 mEq, IV, Once, infuse over 1 hr'
-E           (Score DCW vs JSON: 67%)
+E           DCW Spec : '20 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'
+E           JSON Gen : '20 mEq, IV, Once, Infuse over: 1 hr'
+E           (Score DCW vs JSON: 65%)
 E         
 E         --- DCW Entry #17 (Mnem: 'K-Phos Neutral (brand name synonym under primary potassium phosphate-sodium phosphate)', Range: 'Current serum level 1.6-2.0') ---
-E           DCW Spec : '2 tabs, q2h interval, PO, tab, Duration: 2 doses'
+E           DCW Spec : '2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)'
 E           JSON Gen : *** NOT FOUND in JSON Tab ***
 E           (Score DCW vs JSON: 0%)
 E         
 E         --- DCW Entry #18 (Mnem: 'sodium phosphate', Range: 'Current serum level 1.6-2.0') ---
-E           DCW Spec : '15 mmol, IVPB, inj, Once'
+E           DCW Spec : '15 mmol, IVPB, Inj, Once'
 E           JSON Gen : '15 mmol, IVPB, Inj, Once'
 E           (Score DCW vs JSON: 100%)
 E         
 E         --- DCW Entry #19 (Mnem: 'K-Phos Neutral', Range: 'Current serum level 1.0-1.5') ---
-E           DCW Spec : '2 tabs, q2h interval, PO, tab, Duration: 3 doses'
-E           JSON Gen : '2 tab(s), PO, Tab, q2h interval, Duration: 2 doses'
-E           (Score DCW vs JSON: 94%)
+E           DCW Spec : '2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)'
+E           JSON Gen : '2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)'
+E           (Score DCW vs JSON: 98%)
 E         
 E         --- DCW Entry #20 (Mnem: 'sodium phosphate', Range: 'Current serum level 1.0-1.5') ---
-E           DCW Spec : '15 mmol, IVPB, inj, q4h interval, Duration: 2 dose'
+E           DCW Spec : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'
 E           JSON Gen : '15 mmol, IVPB, Inj, Once'
-E           (Score DCW vs JSON: 52%)
+E           (Score DCW vs JSON: 49%)
 E         
 E         --- DCW Entry #21 (Mnem: 'sodium phosphate', Range: 'Current serum level <1.0') ---
-E           DCW Spec : '15 mmol, IVPB, inj, q4h interval, Duration: 2 dose'
+E           DCW Spec : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'
 E           JSON Gen : '15 mmol, IVPB, Inj, Once'
-E           (Score DCW vs JSON: 52%)
+E           (Score DCW vs JSON: 49%)
 E         
 E         --- DCW Entry #22 (Mnem: 'calcium chloride', Range: 'iCal < 1.1') ---
 E           DCW Spec : '1 g, IVPB, Inj, Once, Infuse over: 1 hr'
-E           JSON Gen : '1 g, IVPB, Inj, Once, infuse over 1 hr'
+E           JSON Gen : '1 g, IVPB, Inj, Once, Infuse over: 1 hr'
 E           (Score DCW vs JSON: 100%)
-E       assert not "\nDCW vs JSON Sentence Comparison Report for output_cardiac.json:\n\n--- DCW Entry #0 (Mnem: 'magnesium sulfate', Range: 'Current serum level 1.8-2') ---\n  DCW Spec : '1 g, IVPB, Premix, Once, Infuse over: 1 hr'\n  JSON Gen : '1 g, IVPB, Premix, Once, infuse over 1 hr'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #1 (Mnem: 'magnesium sulfate', Range: 'Current serum level 1.4-1.7') ---\n  DCW Spec : '2 g, IVPB, Premix, Once, Infuse over: 2 hr'\n  JSON Gen : '1 g, IVPB, Premix, Once, infuse over 1 hr'\n  (Score DCW vs JSON: 95%)\n\n--- DCW Entry #2 (Mnem: 'magnesium sulfate', Range: 'Current serum level < 1.4') ---\n  DCW Spec : '2 g, IVPB, Premix, q2h interval, Duration: 2 doses, infuse over 2 hr'\n  JSON Gen : '1 g, IVPB, Premix, Once, infuse over 1 hr'\n  (Score DCW vs JSON: 61%)\n\n--- DCW Entry #3 (Mnem: 'potassium chloride extended release', Range: 'Current serum level 3.6-3.9') ---\n  DCW Spec : '20 mEq, PO, ER tab, Once'\n  JSON Gen : '20 mEq, PO, ER tab, Once'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #4 (Mnem: 'potassium chloride', Range: 'Current serum level 3.6-3.9') ---\n  DCW Spec : '20 mEq, Feeding Tube, liq, Once'\n  JSON Gen : '20 mEq, Feeding Tube, Liq, Onc...ration: 2 doses'\n  JSON Gen : *** NOT FOUND in JSON Tab ***\n  (Score DCW vs JSON: 0%)\n\n--- DCW Entry #18 (Mnem: 'sodium phosphate', Range: 'Current serum level 1.6-2.0') ---\n  DCW Spec : '15 mmol, IVPB, inj, Once'\n  JSON Gen : '15 mmol, IVPB, Inj, Once'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #19 (Mnem: 'K-Phos Neutral', Range: 'Current serum level 1.0-1.5') ---\n  DCW Spec : '2 tabs, q2h interval, PO, tab, Duration: 3 doses'\n  JSON Gen : '2 tab(s), PO, Tab, q2h interval, Duration: 2 doses'\n  (Score DCW vs JSON: 94%)\n\n--- DCW Entry #20 (Mnem: 'sodium phosphate', Range: 'Current serum level 1.0-1.5') ---\n  DCW Spec : '15 mmol, IVPB, inj, q4h interval, Duration: 2 dose'\n  JSON Gen : '15 mmol, IVPB, Inj, Once'\n  (Score DCW vs JSON: 52%)\n\n--- DCW Entry #21 (Mnem: 'sodium phosphate', Range: 'Current serum level <1.0') ---\n  DCW Spec : '15 mmol, IVPB, inj, q4h interval, Duration: 2 dose'\n  JSON Gen : '15 mmol, IVPB, Inj, Once'\n  (Score DCW vs JSON: 52%)\n\n--- DCW Entry #22 (Mnem: 'calcium chloride', Range: 'iCal < 1.1') ---\n  DCW Spec : '1 g, IVPB, Inj, Once, Infuse over: 1 hr'\n  JSON Gen : '1 g, IVPB, Inj, Once, infuse over 1 hr'\n  (Score DCW vs JSON: 100%)"
+E       assert not "\nDCW vs JSON Sentence Comparison Report for output_cardiac.json:\n\n--- DCW Entry #0 (Mnem: 'magnesium sulfate', Range: 'Current serum level 1.8-2') ---\n  DCW Spec : '1 g, IVPB, Premix, Once, Infuse over: 1 hr'\n  JSON Gen : '1 g, IVPB, Premix, Once, Infuse over: 1 hr'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #1 (Mnem: 'magnesium sulfate', Range: 'Current serum level 1.4-1.7') ---\n  DCW Spec : '2 g, IVPB, Premix, Once, Infuse over: 2 hr'\n  JSON Gen : '1 g, IVPB, Premix, Once, Infuse over: 1 hr'\n  (Score DCW vs JSON: 95%)\n\n--- DCW Entry #2 (Mnem: 'magnesium sulfate', Range: 'Current serum level < 1.4') ---\n  DCW Spec : '2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr'\n  JSON Gen : '1 g, IVPB, Premix, Once, Infuse over: 1 hr'\n  (Score DCW vs JSON: 59%)\n\n--- DCW Entry #3 (Mnem: 'potassium chloride extended release', Range: 'Current serum level 3.6-3.9') ---\n  DCW Spec : '20 mEq, PO, ER tab, Once'\n  JSON Gen : '20 mEq, PO, ER tab, Once'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #4 (Mnem: 'potassium chloride', Range: 'Current serum level 3.6-3.9') ---\n  DCW Spec : '20 mEq, Feeding Tube, Liq, Once'\n  JSON Gen : '20 mEq, Feeding Tube,...Gen : *** NOT FOUND in JSON Tab ***\n  (Score DCW vs JSON: 0%)\n\n--- DCW Entry #18 (Mnem: 'sodium phosphate', Range: 'Current serum level 1.6-2.0') ---\n  DCW Spec : '15 mmol, IVPB, Inj, Once'\n  JSON Gen : '15 mmol, IVPB, Inj, Once'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #19 (Mnem: 'K-Phos Neutral', Range: 'Current serum level 1.0-1.5') ---\n  DCW Spec : '2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)'\n  JSON Gen : '2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)'\n  (Score DCW vs JSON: 98%)\n\n--- DCW Entry #20 (Mnem: 'sodium phosphate', Range: 'Current serum level 1.0-1.5') ---\n  DCW Spec : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'\n  JSON Gen : '15 mmol, IVPB, Inj, Once'\n  (Score DCW vs JSON: 49%)\n\n--- DCW Entry #21 (Mnem: 'sodium phosphate', Range: 'Current serum level <1.0') ---\n  DCW Spec : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'\n  JSON Gen : '15 mmol, IVPB, Inj, Once'\n  (Score DCW vs JSON: 49%)\n\n--- DCW Entry #22 (Mnem: 'calcium chloride', Range: 'iCal < 1.1') ---\n  DCW Spec : '1 g, IVPB, Inj, Once, Infuse over: 1 hr'\n  JSON Gen : '1 g, IVPB, Inj, Once, Infuse over: 1 hr'\n  (Score DCW vs JSON: 100%)"
 
 tests/test_dcw_sentences.py:270: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -409,9 +382,9 @@ DEBUG _parse_range_string: Failed to parse range from: 'Phosphorus: 1.6 - 2.0 mg
 DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
 DEBUG ranges_match: Comparison result = True
 DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.6-2.0' (cleaned: '1.6-2.0')
-DEBUG _parse_range_string: Failed to parse range from: '<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels with next AM labs.</small>' (cleaned: '<strong style="font-size: 18px; font-weight: bold; color: #333;">step 2 - order corresponding follow-up lab(s):</strong><br>iv - labs:<br><small style="font-weight: normal;">monitoring: recheck phosphorous & calcium levels with next am labs.</small>')
+DEBUG _parse_range_string: Failed to parse range from: '<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels with next AM labs.</small>' (cleaned: '<strong style="font-size: 18px; font-weight: bold; color: #333;">step 2 - order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">monitoring: recheck phosphorous & calcium levels with next am labs.</small>')
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels with next AM labs.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels with next AM labs.</small>' (Parsed: None-None)
 DEBUG ranges_match: Comparison result = True
 DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.6-2.0' (cleaned: '1.6-2.0')
 DEBUG _parse_range_string: Failed to parse range from: 'Phosphorus: 1.0 - 1.5 mg/dL<br><span style="color: red; font-weight: bold;">NOTIFY PHYSICIAN if less than 1.1 mg/dL<br>CRITICALLY LOW RESULT</span> <br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'phosphorus: 1.0 - 1.5 mg/dl<br><span style="color: red; font-weight: bold;">notify physician if less than 1.1 mg/dl<br>critly low result</span> <br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
@@ -434,9 +407,9 @@ DEBUG _parse_range_string: Failed to parse range from: 'Phosphorus: < 1.0 mg/dL<
 DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='Phosphorus: < 1.0 mg/dL<br><span style="color: red; font-weight: bold;">NOTIFY PHYSICIAN if less than 1.1 mg/dL<br>CRITICALLY LOW RESULT</span> <br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
 DEBUG ranges_match: Comparison result = True
 DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.6-2.0' (cleaned: '1.6-2.0')
-DEBUG _parse_range_string: Failed to parse range from: '<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels 2 hrs after infusion.</small>' (cleaned: '<strong style="font-size: 18px; font-weight: bold; color: #333;">step 2 - order corresponding follow-up lab(s):</strong><br>iv - labs:<br><small style="font-weight: normal;">monitoring: recheck phosphorous & calcium levels 2 hrs after infusion.</small>')
+DEBUG _parse_range_string: Failed to parse range from: '<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels 2 hrs after infusion.</small>' (cleaned: '<strong style="font-size: 18px; font-weight: bold; color: #333;">step 2 - order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">monitoring: recheck phosphorous & calcium levels 2 hrs after infusion.</small>')
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels 2 hrs after infusion.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels 2 hrs after infusion.</small>' (Parsed: None-None)
 DEBUG ranges_match: Comparison result = True
 DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.6-2.0' (cleaned: '1.6-2.0')
 DEBUG _parse_range_string: Failed to parse range from: 'Phosphorous Lab Orders' (cleaned: 'phosphorous lab orders')
@@ -575,95 +548,95 @@ E       AssertionError:
 E         DCW vs JSON Sentence Comparison Report for output_regular.json:
 E         
 E         --- DCW Entry #0 (Mnem: 'magnesium oxide', Range: 'Current serum level 1.4-1.5') ---
-E           DCW Spec : '400 mg, PO, tab,  q12h interval, Duration: 2 doses'
-E           JSON Gen : '400 mg, PO, Tab, q12h interval, Duration: 2 doses'
+E           DCW Spec : '400 mg, PO, Tab, q12hr (interval), Duration: 2 dose(s)'
+E           JSON Gen : '400 mg, PO, Tab, q12hr (interval), Duration: 2 dose(s)'
 E           (Score DCW vs JSON: 100%)
 E         
 E         --- DCW Entry #1 (Mnem: 'magnesium sulfate', Range: 'Current serum level 1.4-1.5') ---
 E           DCW Spec : '2 g, IVPB, Premix, Once, Infuse over: 2 hr'
-E           JSON Gen : '2 g, IVPB, Premix, Once, infuse over 2 hr'
+E           JSON Gen : '2 g, IVPB, Premix, Once, Infuse over: 2 hr'
 E           (Score DCW vs JSON: 100%)
 E         
 E         --- DCW Entry #2 (Mnem: 'magnesium sulfate', Range: 'Current serum level < 1.4') ---
-E           DCW Spec : '2 g, IVPB, Premix, q2h interval, Duration: 2 doses, Infuse over: 2 hr'
-E           JSON Gen : '2 g, IVPB, Premix, Once, infuse over 2 hr'
-E           (Score DCW vs JSON: 65%)
+E           DCW Spec : '2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr'
+E           JSON Gen : '2 g, IVPB, Premix, Once, Infuse over: 2 hr'
+E           (Score DCW vs JSON: 63%)
 E         
 E         --- DCW Entry #3 (Mnem: 'potassium chloride extended release', Range: 'Current serum level 3.2-3.4') ---
-E           DCW Spec : '20 mEq, PO, ER tab, q2h interval, Duration: 2 doses'
-E           JSON Gen : '20 mEq, PO, ER tab, q2h interval, Duration: 2 doses'
+E           DCW Spec : '20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)'
+E           JSON Gen : '20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)'
 E           (Score DCW vs JSON: 100%)
 E         
 E         --- DCW Entry #4 (Mnem: 'potassium chloride', Range: 'Current serum level 3.2-3.4') ---
-E           DCW Spec : '20 mEq, Feeding Tube, liq, q2h interval, Duration: 2 doses'
-E           JSON Gen : '20 mEq, Feeding Tube, Liq, q2h interval, Duration: 2 doses'
+E           DCW Spec : '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 2 dose(s)'
+E           JSON Gen : '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 2 dose(s)'
 E           (Score DCW vs JSON: 100%)
 E         
 E         --- DCW Entry #5 (Mnem: 'potassium chloride 10 mEq/100 mL intravenous solution', Range: 'Current serum level 3.2-3.4') ---
-E           DCW Spec : '10 mEq, IV, q1h, Duration: 4 doses, Infuse over: 1 hr'
-E           JSON Gen : '10 mEq, IV, q1h, Duration: 4 doses, infuse over 1 hr'
-E           (Score DCW vs JSON: 100%)
+E           DCW Spec : '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'
+E           JSON Gen : '10 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'
+E           (Score DCW vs JSON: 99%)
 E         
 E         --- DCW Entry #6 (Mnem: 'potassium chloride 20 mEq/100 mL intravenous solution', Range: 'Current serum level 3.2-3.4') ---
-E           DCW Spec : '20 mEq, IV, q2h interval, Duration: 2 doses, Infuse over: 2 hr'
-E           JSON Gen : '20 mEq, IV, q2h, Duration: 2 doses, infuse over 2 hr'
-E           (Score DCW vs JSON: 91%)
+E           DCW Spec : '20 mEq, IV, q2hr, Duration: 2 dose(s), Infuse over: 2 hr'
+E           JSON Gen : '20 mEq, IV, q2h, Duration: 2 dose(s), Infuse over: 2 hr'
+E           (Score DCW vs JSON: 99%)
 E         
 E         --- DCW Entry #7 (Mnem: 'potassium chloride extended release', Range: 'Current serum level 2.8-3.1') ---
-E           DCW Spec : '20 mEq, PO, ER tab, q2h interval, Duration: 3 doses'
-E           JSON Gen : '20 mEq, PO, ER tab, q2h interval, Duration: 2 doses'
+E           DCW Spec : '20 mEq, PO, ER tab, q2hr (interval), Duration: 3 dose(s)'
+E           JSON Gen : '20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)'
 E           (Score DCW vs JSON: 96%)
 E         
 E         --- DCW Entry #8 (Mnem: 'potassium chloride', Range: 'Current serum level 2.8-3.1') ---
-E           DCW Spec : '20 mEq, Feeding Tube, liq, q2h interval, Duration: 3 doses'
-E           JSON Gen : '20 mEq, Feeding Tube, Liq, q2h interval, Duration: 2 doses'
+E           DCW Spec : '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 3 dose(s)'
+E           JSON Gen : '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 2 dose(s)'
 E           (Score DCW vs JSON: 96%)
 E         
 E         --- DCW Entry #9 (Mnem: 'potassium chloride 10 mEq/100 mL intravenous solution', Range: 'Current serum level 2.8-3.1') ---
-E           DCW Spec : '10 mEq, IV, q1h, Duration: 6 doses, Infuse over: 1 hr'
-E           JSON Gen : '10 mEq, IV, q1h, Duration: 4 doses, infuse over 1 hr'
-E           (Score DCW vs JSON: 98%)
+E           DCW Spec : '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
+E           JSON Gen : '10 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'
+E           (Score DCW vs JSON: 97%)
 E         
 E         --- DCW Entry #10 (Mnem: 'potassium chloride 20 mEq/100 mL intravenous solution', Range: 'Current serum level 2.8-3.1') ---
-E           DCW Spec : '20 mEq, IV, q2h interval, Duration: 3 doses, Infuse over: 2 hr'
-E           JSON Gen : '20 mEq, IV, q2h, Duration: 2 doses, infuse over 2 hr'
-E           (Score DCW vs JSON: 87%)
+E           DCW Spec : '20 mEq, IV, q2hr, Duration: 3 dose(s), Infuse over: 2 hr'
+E           JSON Gen : '20 mEq, IV, q2h, Duration: 2 dose(s), Infuse over: 2 hr'
+E           (Score DCW vs JSON: 95%)
 E         
 E         --- DCW Entry #11 (Mnem: 'potassium chloride 10 mEq/100 mL intravenous solution', Range: 'Current serum level < 2.8') ---
-E           DCW Spec : '10 mEq, IV, q1h, Duration: 8 doses, Infuse over: 1 hr'
-E           JSON Gen : '10 mEq, IV, q1h, Duration: 4 doses, infuse over 1 hr'
-E           (Score DCW vs JSON: 98%)
+E           DCW Spec : '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
+E           JSON Gen : '10 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'
+E           (Score DCW vs JSON: 97%)
 E         
 E         --- DCW Entry #12 (Mnem: 'potassium chloride 20 mEq/100 mL intravenous solution', Range: 'Current serum level < 2.8') ---
-E           DCW Spec : '20 mEq, IV, q2h interval, Duration: 4 doses, Infuse over: 2 hr'
-E           JSON Gen : '20 mEq, IV, q2h, Duration: 2 doses, infuse over 2 hr'
-E           (Score DCW vs JSON: 87%)
+E           DCW Spec : '20 mEq, IV, q2hr, Duration: 4 dose(s), Infuse over: 2 hr'
+E           JSON Gen : '20 mEq, IV, q2h, Duration: 2 dose(s), Infuse over: 2 hr'
+E           (Score DCW vs JSON: 95%)
 E         
 E         --- DCW Entry #13 (Mnem: 'K-Phos Neutral (brand name synonym under primary potassium phosphate-sodium phosphate)', Range: 'Current serum level 1.6-2.0') ---
-E           DCW Spec : '2 tabs, q2h interval, PO, tab, Duration: 2 doses'
+E           DCW Spec : '2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)'
 E           JSON Gen : *** NOT FOUND in JSON Tab ***
 E           (Score DCW vs JSON: 0%)
 E         
 E         --- DCW Entry #14 (Mnem: 'sodium phosphate', Range: 'Current serum level 1.6-2.0') ---
-E           DCW Spec : '15 mmol, IVPB, inj, Once'
+E           DCW Spec : '15 mmol, IVPB, Inj, Once'
 E           JSON Gen : '15 mmol, IVPB, Inj, Once'
 E           (Score DCW vs JSON: 100%)
 E         
 E         --- DCW Entry #15 (Mnem: 'K-Phos Neutral', Range: 'Current serum level 1.0-1.5') ---
-E           DCW Spec : '2 tabs, q2h interval, PO, tab, Duration: 3 doses'
-E           JSON Gen : '2 tab(s), PO, Tab, q2h interval, Duration: 2 doses'
-E           (Score DCW vs JSON: 94%)
+E           DCW Spec : '2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)'
+E           JSON Gen : '2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)'
+E           (Score DCW vs JSON: 98%)
 E         
 E         --- DCW Entry #16 (Mnem: 'sodium phosphate', Range: 'Current serum level 1.0-1.5') ---
-E           DCW Spec : '15 mmol, IVPB, inj, q4h interval, Duration: 2 dose'
+E           DCW Spec : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'
 E           JSON Gen : '15 mmol, IVPB, Inj, Once'
-E           (Score DCW vs JSON: 52%)
+E           (Score DCW vs JSON: 49%)
 E         
 E         --- DCW Entry #17 (Mnem: 'sodium phosphate', Range: 'Current serum level <1.0') ---
-E           DCW Spec : '15 mmol, IVPB, inj, q4h interval, Duration: 2 dose'
+E           DCW Spec : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'
 E           JSON Gen : '15 mmol, IVPB, Inj, Once'
-E           (Score DCW vs JSON: 52%)
-E       assert not "\nDCW vs JSON Sentence Comparison Report for output_regular.json:\n\n--- DCW Entry #0 (Mnem: 'magnesium oxide', Range: 'Current serum level 1.4-1.5') ---\n  DCW Spec : '400 mg, PO, tab,  q12h interval, Duration: 2 doses'\n  JSON Gen : '400 mg, PO, Tab, q12h interval, Duration: 2 doses'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #1 (Mnem: 'magnesium sulfate', Range: 'Current serum level 1.4-1.5') ---\n  DCW Spec : '2 g, IVPB, Premix, Once, Infuse over: 2 hr'\n  JSON Gen : '2 g, IVPB, Premix, Once, infuse over 2 hr'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #2 (Mnem: 'magnesium sulfate', Range: 'Current serum level < 1.4') ---\n  DCW Spec : '2 g, IVPB, Premix, q2h interval, Duration: 2 doses, Infuse over: 2 hr'\n  JSON Gen : '2 g, IVPB, Premix, Once, infuse over 2 hr'\n  (Score DCW vs JSON: 65%)\n\n--- DCW Entry #3 (Mnem: 'potassium chloride extended release', Range: 'Current serum level 3.2-3.4') ---\n  DCW Spec : '20 mEq, PO, ER tab, q2h interval, Duration: 2 doses'\n  JSON Gen : '20 mEq, PO, ER tab, q2h interval, Duration: 2 doses'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #4 (Mnem: 'potassium chloride', Range: 'Current serum level 3.2-3.4') ---\n  DCW Spec : '20 mEq...87%)\n\n--- DCW Entry #13 (Mnem: 'K-Phos Neutral (brand name synonym under primary potassium phosphate-sodium phosphate)', Range: 'Current serum level 1.6-2.0') ---\n  DCW Spec : '2 tabs, q2h interval, PO, tab, Duration: 2 doses'\n  JSON Gen : *** NOT FOUND in JSON Tab ***\n  (Score DCW vs JSON: 0%)\n\n--- DCW Entry #14 (Mnem: 'sodium phosphate', Range: 'Current serum level 1.6-2.0') ---\n  DCW Spec : '15 mmol, IVPB, inj, Once'\n  JSON Gen : '15 mmol, IVPB, Inj, Once'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #15 (Mnem: 'K-Phos Neutral', Range: 'Current serum level 1.0-1.5') ---\n  DCW Spec : '2 tabs, q2h interval, PO, tab, Duration: 3 doses'\n  JSON Gen : '2 tab(s), PO, Tab, q2h interval, Duration: 2 doses'\n  (Score DCW vs JSON: 94%)\n\n--- DCW Entry #16 (Mnem: 'sodium phosphate', Range: 'Current serum level 1.0-1.5') ---\n  DCW Spec : '15 mmol, IVPB, inj, q4h interval, Duration: 2 dose'\n  JSON Gen : '15 mmol, IVPB, Inj, Once'\n  (Score DCW vs JSON: 52%)\n\n--- DCW Entry #17 (Mnem: 'sodium phosphate', Range: 'Current serum level <1.0') ---\n  DCW Spec : '15 mmol, IVPB, inj, q4h interval, Duration: 2 dose'\n  JSON Gen : '15 mmol, IVPB, Inj, Once'\n  (Score DCW vs JSON: 52%)"
+E           (Score DCW vs JSON: 49%)
+E       assert not "\nDCW vs JSON Sentence Comparison Report for output_regular.json:\n\n--- DCW Entry #0 (Mnem: 'magnesium oxide', Range: 'Current serum level 1.4-1.5') ---\n  DCW Spec : '400 mg, PO, Tab, q12hr (interval), Duration: 2 dose(s)'\n  JSON Gen : '400 mg, PO, Tab, q12hr (interval), Duration: 2 dose(s)'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #1 (Mnem: 'magnesium sulfate', Range: 'Current serum level 1.4-1.5') ---\n  DCW Spec : '2 g, IVPB, Premix, Once, Infuse over: 2 hr'\n  JSON Gen : '2 g, IVPB, Premix, Once, Infuse over: 2 hr'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #2 (Mnem: 'magnesium sulfate', Range: 'Current serum level < 1.4') ---\n  DCW Spec : '2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr'\n  JSON Gen : '2 g, IVPB, Premix, Once, Infuse over: 2 hr'\n  (Score DCW vs JSON: 63%)\n\n--- DCW Entry #3 (Mnem: 'potassium chloride extended release', Range: 'Current serum level 3.2-3.4') ---\n  DCW Spec : '20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)'\n  JSON Gen : '20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #4 (Mnem: 'potassium chloride', Range: 'Current serum level 3.2-3.4')...: 'K-Phos Neutral (brand name synonym under primary potassium phosphate-sodium phosphate)', Range: 'Current serum level 1.6-2.0') ---\n  DCW Spec : '2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)'\n  JSON Gen : *** NOT FOUND in JSON Tab ***\n  (Score DCW vs JSON: 0%)\n\n--- DCW Entry #14 (Mnem: 'sodium phosphate', Range: 'Current serum level 1.6-2.0') ---\n  DCW Spec : '15 mmol, IVPB, Inj, Once'\n  JSON Gen : '15 mmol, IVPB, Inj, Once'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #15 (Mnem: 'K-Phos Neutral', Range: 'Current serum level 1.0-1.5') ---\n  DCW Spec : '2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)'\n  JSON Gen : '2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)'\n  (Score DCW vs JSON: 98%)\n\n--- DCW Entry #16 (Mnem: 'sodium phosphate', Range: 'Current serum level 1.0-1.5') ---\n  DCW Spec : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'\n  JSON Gen : '15 mmol, IVPB, Inj, Once'\n  (Score DCW vs JSON: 49%)\n\n--- DCW Entry #17 (Mnem: 'sodium phosphate', Range: 'Current serum level <1.0') ---\n  DCW Spec : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'\n  JSON Gen : '15 mmol, IVPB, Inj, Once'\n  (Score DCW vs JSON: 49%)"
 
 tests/test_dcw_sentences.py:270: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -888,149 +861,63 @@ config_file_path = '/home/pessk/code/ea-python/generated_configs/output_cardiac.
 >           assert not final_error_message, final_error_message
 E           AssertionError: 
 E             Found Discrepancies (JSON vs Expected Files) in output_cardiac.json:
-E               - Sentence Mismatch: Mnemonic 'magnesium sulfate' in Tab 'MAGNESIUM'
-E                 JSON    : '1 g, IVPB, Premix, Once, infuse over 1 hr'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr'
-E                     - '1 g, IVPB, Premix, Once, Infuse over: 1 hr'
-E                     - '2 g, IVPB, Premix, Once, Infuse over: 2 hr'
-E               - Sentence Mismatch: Mnemonic 'magnesium sulfate' in Tab 'MAGNESIUM'
-E                 JSON    : '2 g, IVPB, Premix, Once, infuse over 2 hr'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr'
-E                     - '1 g, IVPB, Premix, Once, Infuse over: 1 hr'
-E                     - '2 g, IVPB, Premix, Once, Infuse over: 2 hr'
-E               - Sentence Mismatch: Mnemonic 'magnesium sulfate' in Tab 'MAGNESIUM'
-E                 JSON    : '2 g, IVPB, Premix, q2h interval, Duration: 2 doses, infuse over 2 hr'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr'
-E                     - '1 g, IVPB, Premix, Once, Infuse over: 1 hr'
-E                     - '2 g, IVPB, Premix, Once, Infuse over: 2 hr'
 E               - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
-E                 JSON    : '10 mEq, IV, q1h, Duration: 2 doses, infuse over 1 hr'
+E                 JSON    : '10 mEq, IV, q1h, Duration: 2 dose(s), Infuse over: 1 hr'
 E                 Expected: Not found exactly in its expected file.
 E                   Expected Sentences in File:
-E                     - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
-E                     - '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'
 E                     - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
+E                     - '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'
+E                     - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
+E                     - ... (1 more)
+E               - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
+E                 JSON    : '10 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'
+E                 Expected: Not found exactly in its expected file.
+E                   Expected Sentences in File:
+E                     - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
+E                     - '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'
+E                     - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
 E                     - ... (1 more)
 E               - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
-E                 JSON    : '20 mEq, IV, Once, infuse over 1 hr'
+E                 JSON    : '20 mEq, IV, q1h, Duration: 2 dose(s), Infuse over: 1 hr'
 E                 Expected: Not found exactly in its expected file.
 E                   Expected Sentences in File:
-E                     - '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
-E                     - '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'
 E                     - '20 mEq, IV, Once, Infuse over: 1 hr'
-E                     - ... (4 more)
-E               - Sentence Mismatch: Mnemonic 'potassium chloride extended release' in Tab 'POTASSIUM'
-E                 JSON    : '20 mEq, PO, ER tab, q2h interval, Duration: 2 doses'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)'
-E                     - '20 mEq, PO, ER tab, q2hr (interval), Duration: 3 dose(s)'
-E                     - '20 mEq, PO, ER tab, Once'
-E               - Sentence Mismatch: Mnemonic 'potassium chloride' in Tab 'POTASSIUM'
-E                 JSON    : '20 mEq, Feeding Tube, Liq, q2h interval, Duration: 2 doses'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 3 dose(s)'
-E                     - '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 2 dose(s)'
-E                     - '20 mEq, Feeding Tube, Liq, Once'
-E               - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
-E                 JSON    : '10 mEq, IV, q1h, Duration: 4 doses, infuse over 1 hr'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
-E                     - '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'
-E                     - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
-E                     - ... (1 more)
-E               - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
-E                 JSON    : '20 mEq, IV, q1h, Duration: 2 doses, infuse over 1 hr'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
-E                     - '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'
-E                     - '20 mEq, IV, Once, Infuse over: 1 hr'
-E                     - ... (4 more)
-E               - Sentence Mismatch: Mnemonic 'potassium chloride extended release' in Tab 'POTASSIUM'
-E                 JSON    : '20 mEq, PO, ER tab, q2h interval, Duration: 3 doses'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)'
-E                     - '20 mEq, PO, ER tab, q2hr (interval), Duration: 3 dose(s)'
-E                     - '20 mEq, PO, ER tab, Once'
-E               - Sentence Mismatch: Mnemonic 'potassium chloride' in Tab 'POTASSIUM'
-E                 JSON    : '20 mEq, Feeding Tube, Liq, q2h interval, Duration: 3 doses'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 3 dose(s)'
-E                     - '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 2 dose(s)'
-E                     - '20 mEq, Feeding Tube, Liq, Once'
-E               - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
-E                 JSON    : '10 mEq, IV, q1h, Duration: 6 doses, infuse over 1 hr'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
-E                     - '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'
-E                     - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
-E                     - ... (1 more)
-E               - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
-E                 JSON    : '20 mEq, IV, q1h, Duration: 3 doses, infuse over 1 hr'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
-E                     - '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'
-E                     - '20 mEq, IV, Once, Infuse over: 1 hr'
+E                     - '20 mEq, IV, q2hr, Duration: 3 dose(s), Infuse over: 2 hr'
+E                     - '20 mEq, IV, q2hr, Duration: 4 dose(s), Infuse over: 2 hr'
 E                     - ... (4 more)
 E               - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
-E                 JSON    : '10 mEq, IV, q1h, Duration: 8 doses, infuse over 1 hr'
+E                 JSON    : '10 mEq, IV, q1h, Duration: 6 dose(s), Infuse over: 1 hr'
 E                 Expected: Not found exactly in its expected file.
 E                   Expected Sentences in File:
-E                     - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
-E                     - '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'
 E                     - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
+E                     - '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'
+E                     - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
 E                     - ... (1 more)
 E               - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
-E                 JSON    : '20 mEq, IV, q1h, Duration: 4 doses, infuse over 1 hr'
+E                 JSON    : '20 mEq, IV, q1h, Duration: 3 dose(s), Infuse over: 1 hr'
 E                 Expected: Not found exactly in its expected file.
 E                   Expected Sentences in File:
-E                     - '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
-E                     - '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'
 E                     - '20 mEq, IV, Once, Infuse over: 1 hr'
+E                     - '20 mEq, IV, q2hr, Duration: 3 dose(s), Infuse over: 2 hr'
+E                     - '20 mEq, IV, q2hr, Duration: 4 dose(s), Infuse over: 2 hr'
 E                     - ... (4 more)
-E               - Sentence Mismatch: Mnemonic 'K-Phos Neutral' in Tab 'PHOSPHATE'
-E                 JSON    : '2 tab(s), PO, Tab, q2h interval, Duration: 2 doses'
+E               - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
+E                 JSON    : '10 mEq, IV, q1h, Duration: 8 dose(s), Infuse over: 1 hr'
 E                 Expected: Not found exactly in its expected file.
 E                   Expected Sentences in File:
-E                     - '2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)'
-E                     - '2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)'
-E               - Sentence Mismatch: Mnemonic 'K-Phos Neutral' in Tab 'PHOSPHATE'
-E                 JSON    : '2 tab(s), PO, Tab, q2h interval, Duration: 3 doses'
+E                     - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
+E                     - '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'
+E                     - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
+E                     - ... (1 more)
+E               - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
+E                 JSON    : '20 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'
 E                 Expected: Not found exactly in its expected file.
 E                   Expected Sentences in File:
-E                     - '2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)'
-E                     - '2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)'
-E               - Sentence Mismatch: Mnemonic 'sodium phosphate' in Tab 'PHOSPHATE'
-E                 JSON    : '15 mmol, IVPB, Inj, q4h interval, Duration: 2 doses'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'
-E                     - '15 mmol, IVPB, Inj, Once'
-E               - Sentence Mismatch: Mnemonic 'sodium phosphate' in Tab 'PHOSPHATE'
-E                 JSON    : '15 mmol, IVPB, Inj, q4h interval, Duration: 2 doses'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'
-E                     - '15 mmol, IVPB, Inj, Once'
-E               - Sentence Mismatch: Mnemonic 'calcium chloride' in Tab 'CALCIUM'
-E                 JSON    : '1 g, IVPB, Inj, Once, infuse over 1 hr'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '1 g, IVPB, Inj, Once, Infuse over: 1 hr'
-E           assert not "\nFound Discrepancies (JSON vs Expected Files) in output_cardiac.json:\n  - Sentence Mismatch: Mnemonic 'magnesium sulfate' in Tab 'MAGNESIUM'\n    JSON    : '1 g, IVPB, Premix, Once, infuse over 1 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr'\n        - '1 g, IVPB, Premix, Once, Infuse over: 1 hr'\n        - '2 g, IVPB, Premix, Once, Infuse over: 2 hr'\n  - Sentence Mismatch: Mnemonic 'magnesium sulfate' in Tab 'MAGNESIUM'\n    JSON    : '2 g, IVPB, Premix, Once, infuse over 2 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr'\n        - '1 g, IVPB, Premix, Once, Infuse over: 1 hr'\n        - '2 g, IVPB, Premix, Once, Infuse over: 2 hr'\n  - Sentence Mismatch: Mnemonic 'magnesium sulfate' in Tab 'MAGNESIUM'\n    JSON    : '2 g, IVPB, Premix, q2h interval, Duration: 2 doses, infuse over 2 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '2 g, IVPB, Premix, q2hr ...terval, Duration: 3 doses'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)'\n        - '2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)'\n  - Sentence Mismatch: Mnemonic 'sodium phosphate' in Tab 'PHOSPHATE'\n    JSON    : '15 mmol, IVPB, Inj, q4h interval, Duration: 2 doses'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'\n        - '15 mmol, IVPB, Inj, Once'\n  - Sentence Mismatch: Mnemonic 'sodium phosphate' in Tab 'PHOSPHATE'\n    JSON    : '15 mmol, IVPB, Inj, q4h interval, Duration: 2 doses'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'\n        - '15 mmol, IVPB, Inj, Once'\n  - Sentence Mismatch: Mnemonic 'calcium chloride' in Tab 'CALCIUM'\n    JSON    : '1 g, IVPB, Inj, Once, infuse over 1 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '1 g, IVPB, Inj, Once, Infuse over: 1 hr'"
+E                     - '20 mEq, IV, Once, Infuse over: 1 hr'
+E                     - '20 mEq, IV, q2hr, Duration: 3 dose(s), Infuse over: 2 hr'
+E                     - '20 mEq, IV, q2hr, Duration: 4 dose(s), Infuse over: 2 hr'
+E                     - ... (4 more)
+E           assert not "\nFound Discrepancies (JSON vs Expected Files) in output_cardiac.json:\n  - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '10 mEq, IV, q1h, Duration: 2 dose(s), Infuse over: 1 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'\n        - ... (1 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '10 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'\n        - ... (1 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSO...      - '20 mEq, IV, Once, Infuse over: 1 hr'\n        - '20 mEq, IV, q2hr, Duration: 3 dose(s), Infuse over: 2 hr'\n        - '20 mEq, IV, q2hr, Duration: 4 dose(s), Infuse over: 2 hr'\n        - ... (4 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '10 mEq, IV, q1h, Duration: 8 dose(s), Infuse over: 1 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'\n        - ... (1 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '20 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '20 mEq, IV, Once, Infuse over: 1 hr'\n        - '20 mEq, IV, q2hr, Duration: 3 dose(s), Infuse over: 2 hr'\n        - '20 mEq, IV, q2hr, Duration: 4 dose(s), Infuse over: 2 hr'\n        - ... (4 more)"
 
 tests/test_expected_sentences.py:200: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -1205,126 +1092,55 @@ config_file_path = '/home/pessk/code/ea-python/generated_configs/output_regular.
 >           assert not final_error_message, final_error_message
 E           AssertionError: 
 E             Found Discrepancies (JSON vs Expected Files) in output_regular.json:
-E               - Sentence Mismatch: Mnemonic 'magnesium oxide' in Tab 'MAGNESIUM'
-E                 JSON    : '400 mg, PO, Tab, q12h interval, Duration: 2 doses'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '400 mg, PO, Tab, q12hr (interval), Duration: 2 dose(s)'
-E               - Sentence Mismatch: Mnemonic 'magnesium sulfate' in Tab 'MAGNESIUM'
-E                 JSON    : '2 g, IVPB, Premix, Once, infuse over 2 hr'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr'
-E                     - '1 g, IVPB, Premix, Once, Infuse over: 1 hr'
-E                     - '2 g, IVPB, Premix, Once, Infuse over: 2 hr'
-E               - Sentence Mismatch: Mnemonic 'magnesium sulfate' in Tab 'MAGNESIUM'
-E                 JSON    : '2 g, IVPB, Premix, q2h interval, Duration: 2 doses, infuse over 2 hr'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr'
-E                     - '1 g, IVPB, Premix, Once, Infuse over: 1 hr'
-E                     - '2 g, IVPB, Premix, Once, Infuse over: 2 hr'
-E               - Sentence Mismatch: Mnemonic 'potassium chloride extended release' in Tab 'POTASSIUM'
-E                 JSON    : '20 mEq, PO, ER tab, q2h interval, Duration: 2 doses'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)'
-E                     - '20 mEq, PO, ER tab, q2hr (interval), Duration: 3 dose(s)'
-E                     - '20 mEq, PO, ER tab, Once'
-E               - Sentence Mismatch: Mnemonic 'potassium chloride' in Tab 'POTASSIUM'
-E                 JSON    : '20 mEq, Feeding Tube, Liq, q2h interval, Duration: 2 doses'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 3 dose(s)'
-E                     - '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 2 dose(s)'
-E                     - '20 mEq, Feeding Tube, Liq, Once'
 E               - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
-E                 JSON    : '10 mEq, IV, q1h, Duration: 4 doses, infuse over 1 hr'
+E                 JSON    : '10 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'
 E                 Expected: Not found exactly in its expected file.
 E                   Expected Sentences in File:
-E                     - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
-E                     - '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'
 E                     - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
+E                     - '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'
+E                     - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
 E                     - ... (1 more)
 E               - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
-E                 JSON    : '20 mEq, IV, q2h, Duration: 2 doses, infuse over 2 hr'
+E                 JSON    : '20 mEq, IV, q2h, Duration: 2 dose(s), Infuse over: 2 hr'
 E                 Expected: Not found exactly in its expected file.
 E                   Expected Sentences in File:
-E                     - '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
-E                     - '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'
 E                     - '20 mEq, IV, Once, Infuse over: 1 hr'
-E                     - ... (4 more)
-E               - Sentence Mismatch: Mnemonic 'potassium chloride extended release' in Tab 'POTASSIUM'
-E                 JSON    : '20 mEq, PO, ER tab, q2h interval, Duration: 3 doses'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)'
-E                     - '20 mEq, PO, ER tab, q2hr (interval), Duration: 3 dose(s)'
-E                     - '20 mEq, PO, ER tab, Once'
-E               - Sentence Mismatch: Mnemonic 'potassium chloride' in Tab 'POTASSIUM'
-E                 JSON    : '20 mEq, Feeding Tube, Liq, q2h interval, Duration: 3 doses'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 3 dose(s)'
-E                     - '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 2 dose(s)'
-E                     - '20 mEq, Feeding Tube, Liq, Once'
-E               - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
-E                 JSON    : '10 mEq, IV, q1h, Duration: 6 doses, infuse over 1 hr'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
-E                     - '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'
-E                     - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
-E                     - ... (1 more)
-E               - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
-E                 JSON    : '20 mEq, IV, q2h, Duration: 3 doses, infuse over 2 hr'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
-E                     - '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'
-E                     - '20 mEq, IV, Once, Infuse over: 1 hr'
+E                     - '20 mEq, IV, q2hr, Duration: 3 dose(s), Infuse over: 2 hr'
+E                     - '20 mEq, IV, q2hr, Duration: 4 dose(s), Infuse over: 2 hr'
 E                     - ... (4 more)
 E               - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
-E                 JSON    : '10 mEq, IV, q1h, Duration: 8 doses, infuse over 1 hr'
+E                 JSON    : '10 mEq, IV, q1h, Duration: 6 dose(s), Infuse over: 1 hr'
 E                 Expected: Not found exactly in its expected file.
 E                   Expected Sentences in File:
-E                     - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
-E                     - '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'
 E                     - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
+E                     - '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'
+E                     - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
 E                     - ... (1 more)
 E               - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
-E                 JSON    : '20 mEq, IV, q2h, Duration: 4 doses, infuse over 2 hr'
+E                 JSON    : '20 mEq, IV, q2h, Duration: 3 dose(s), Infuse over: 2 hr'
 E                 Expected: Not found exactly in its expected file.
 E                   Expected Sentences in File:
-E                     - '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
-E                     - '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'
 E                     - '20 mEq, IV, Once, Infuse over: 1 hr'
+E                     - '20 mEq, IV, q2hr, Duration: 3 dose(s), Infuse over: 2 hr'
+E                     - '20 mEq, IV, q2hr, Duration: 4 dose(s), Infuse over: 2 hr'
 E                     - ... (4 more)
-E               - Sentence Mismatch: Mnemonic 'K-Phos Neutral' in Tab 'PHOSPHATE'
-E                 JSON    : '2 tab(s), PO, Tab, q2h interval, Duration: 2 doses'
+E               - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
+E                 JSON    : '10 mEq, IV, q1h, Duration: 8 dose(s), Infuse over: 1 hr'
 E                 Expected: Not found exactly in its expected file.
 E                   Expected Sentences in File:
-E                     - '2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)'
-E                     - '2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)'
-E               - Sentence Mismatch: Mnemonic 'K-Phos Neutral' in Tab 'PHOSPHATE'
-E                 JSON    : '2 tab(s), PO, Tab, q2h interval, Duration: 3 doses'
+E                     - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
+E                     - '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'
+E                     - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
+E                     - ... (1 more)
+E               - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
+E                 JSON    : '20 mEq, IV, q2h, Duration: 4 dose(s), Infuse over: 2 hr'
 E                 Expected: Not found exactly in its expected file.
 E                   Expected Sentences in File:
-E                     - '2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)'
-E                     - '2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)'
-E               - Sentence Mismatch: Mnemonic 'sodium phosphate' in Tab 'PHOSPHATE'
-E                 JSON    : '15 mmol, IVPB, Inj, q4h interval, Duration: 2 doses'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'
-E                     - '15 mmol, IVPB, Inj, Once'
-E               - Sentence Mismatch: Mnemonic 'sodium phosphate' in Tab 'PHOSPHATE'
-E                 JSON    : '15 mmol, IVPB, Inj, q4h interval, Duration: 2 doses'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'
-E                     - '15 mmol, IVPB, Inj, Once'
-E           assert not "\nFound Discrepancies (JSON vs Expected Files) in output_regular.json:\n  - Sentence Mismatch: Mnemonic 'magnesium oxide' in Tab 'MAGNESIUM'\n    JSON    : '400 mg, PO, Tab, q12h interval, Duration: 2 doses'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '400 mg, PO, Tab, q12hr (interval), Duration: 2 dose(s)'\n  - Sentence Mismatch: Mnemonic 'magnesium sulfate' in Tab 'MAGNESIUM'\n    JSON    : '2 g, IVPB, Premix, Once, infuse over 2 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr'\n        - '1 g, IVPB, Premix, Once, Infuse over: 1 hr'\n        - '2 g, IVPB, Premix, Once, Infuse over: 2 hr'\n  - Sentence Mismatch: Mnemonic 'magnesium sulfate' in Tab 'MAGNESIUM'\n    JSON    : '2 g, IVPB, Premix, q2h interval, Duration: 2 doses, infuse over 2 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr'\n        - '1 g, IVPB, Premix, Once, Infuse over: 1 hr'\n        - '2 g, I... Sentences in File:\n        - '2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)'\n        - '2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)'\n  - Sentence Mismatch: Mnemonic 'K-Phos Neutral' in Tab 'PHOSPHATE'\n    JSON    : '2 tab(s), PO, Tab, q2h interval, Duration: 3 doses'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)'\n        - '2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)'\n  - Sentence Mismatch: Mnemonic 'sodium phosphate' in Tab 'PHOSPHATE'\n    JSON    : '15 mmol, IVPB, Inj, q4h interval, Duration: 2 doses'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'\n        - '15 mmol, IVPB, Inj, Once'\n  - Sentence Mismatch: Mnemonic 'sodium phosphate' in Tab 'PHOSPHATE'\n    JSON    : '15 mmol, IVPB, Inj, q4h interval, Duration: 2 doses'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'\n        - '15 mmol, IVPB, Inj, Once'"
+E                     - '20 mEq, IV, Once, Infuse over: 1 hr'
+E                     - '20 mEq, IV, q2hr, Duration: 3 dose(s), Infuse over: 2 hr'
+E                     - '20 mEq, IV, q2hr, Duration: 4 dose(s), Infuse over: 2 hr'
+E                     - ... (4 more)
+E           assert not "\nFound Discrepancies (JSON vs Expected Files) in output_regular.json:\n  - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '10 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'\n        - ... (1 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '20 mEq, IV, q2h, Duration: 2 dose(s), Infuse over: 2 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '20 mEq, IV, Once, Infuse over: 1 hr'\n        - '20 mEq, IV, q2hr, Duration: 3 dose(s), Infuse over: 2 hr'\n        - '20 mEq, IV, q2hr, Duration: 4 dose(s), Infuse over: 2 hr'\n        - ... (4 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '10 mEq, IV, q...      - '20 mEq, IV, Once, Infuse over: 1 hr'\n        - '20 mEq, IV, q2hr, Duration: 3 dose(s), Infuse over: 2 hr'\n        - '20 mEq, IV, q2hr, Duration: 4 dose(s), Infuse over: 2 hr'\n        - ... (4 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '10 mEq, IV, q1h, Duration: 8 dose(s), Infuse over: 1 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'\n        - ... (1 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '20 mEq, IV, q2h, Duration: 4 dose(s), Infuse over: 2 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '20 mEq, IV, Once, Infuse over: 1 hr'\n        - '20 mEq, IV, q2hr, Duration: 3 dose(s), Infuse over: 2 hr'\n        - '20 mEq, IV, q2hr, Duration: 4 dose(s), Infuse over: 2 hr'\n        - ... (4 more)"
 
 tests/test_expected_sentences.py:200: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -1356,6 +1172,9 @@ DEBUG: Loading expected for Mnemonic='Phosphate Level', Tab='POTASSIUM'
 DEBUG: Loading expected for Mnemonic='Magnesium Level', Tab='POTASSIUM'
 DEBUG: Loading expected for Mnemonic='Potassium Level', Tab='POTASSIUM'
 DEBUG: Loading expected for Mnemonic='Magnesium Level', Tab='POTASSIUM'
+DEBUG: Loading expected for Mnemonic='BMP', Tab='POTASSIUM'
+DEBUG: Loading expected for Mnemonic='Magnesium Level', Tab='POTASSIUM'
+DEBUG: Loading expected for Mnemonic='Phosphate Level', Tab='POTASSIUM'
 DEBUG: Loading expected for Mnemonic='Potassium Level', Tab='POTASSIUM'
 DEBUG: Loading expected for Mnemonic='BMP', Tab='POTASSIUM'
 DEBUG: Loading expected for Mnemonic='Magnesium Level', Tab='POTASSIUM'
@@ -1386,4 +1205,4 @@ DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Whole Blood', Tab='
 DEBUG: Loading expected for Mnemonic='Phosphate Level', Tab='PHOSPHATE'
 DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Serum', Tab='PHOSPHATE'
 DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Whole Blood', Tab='PHOSPHATE'
-========================= 5 failed, 4 passed in 0.58s ==========================
+========================= 5 failed, 4 passed in 0.64s ==========================

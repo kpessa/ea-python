@@ -18,12 +18,10 @@ _section_groups: List[SectionGroup] = [
             'singleSelect': 1,
             'orders': [
                 {
-                    'baseMed': Meds.k_phos_neutral_tab,
-                    'params': {'dose': 2, 'doseUnit': 'tab(s)', 'route': 'PO', 'form': 'Tab', 'frequency': 'q2hr (interval)', 'duration': '2 dose(s)', 'numberOfDoses': 2},
+                    'predefinedMedKey': 'KPHOSNEUT_TAB_2TABS_Q2H_2DOSES'
                 },
                 {
-                    'baseMed': Meds.na_phosphate_iv,
-                    'params': {'dose': 15, 'doseUnit': 'mmol', 'route': 'IVPB', 'form': 'Inj', 'frequency': 'Once', 'numberOfDoses': 1},
+                    'predefinedMedKey': 'NAPHOS_IV_15MMOL_ONCE'
                 },
             ]
         },
@@ -50,12 +48,10 @@ _section_groups: List[SectionGroup] = [
             'singleSelect': 1,
             'orders': [
                 {
-                    'baseMed': Meds.k_phos_neutral_tab,
-                    'params': {'dose': 2, 'doseUnit': 'tab(s)', 'route': 'PO', 'form': 'Tab', 'frequency': 'q2hr (interval)', 'duration': '3 dose(s)', 'numberOfDoses': 3},
+                    'predefinedMedKey': 'KPHOSNEUT_TAB_2TABS_Q2H_3DOSES'
                 },
                 {
-                    'baseMed': Meds.na_phosphate_iv,
-                    'params': {'dose': 15, 'doseUnit': 'mmol', 'route': 'IVPB', 'form': 'Inj', 'frequency': 'q4hr (interval)', 'duration': '2 dose(s)', 'numberOfDoses': 2},
+                    'predefinedMedKey': 'NAPHOS_IV_15MMOL_Q4H_2DOSES'
                 },
             ]
         },
@@ -92,8 +88,7 @@ _section_groups: List[SectionGroup] = [
             'singleSelect': 1,
             'orders': [
                 {
-                    'baseMed': Meds.na_phosphate_iv,
-                    'params': {'dose': 15, 'doseUnit': 'mmol', 'route': 'IVPB', 'form': 'Inj', 'frequency': 'q4hr (interval)', 'duration': '2 dose(s)', 'numberOfDoses': 2},
+                    'predefinedMedKey': 'NAPHOS_IV_15MMOL_Q4H_2DOSES'
                 },
             ]
         },

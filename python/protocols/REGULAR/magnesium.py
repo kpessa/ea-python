@@ -19,20 +19,10 @@ _section_groups: List[SectionGroup] = [
             'singleSelect': 1,
             'orders': [
                 {
-                    'baseMed': Meds.mag_oxide_tab,
-                    'params': {
-                        'dose': 400, 'doseUnit': 'mg', 'route': 'PO', 'form': 'Tab',
-                        'frequency': 'q12hr (interval)', 'duration': '2 dose(s)', 'numberOfDoses': 2,
-                        'infuseOver': None
-                    },
+                    'predefinedMedKey': 'MAG_OX_TAB_400MG_Q12H_2DOSES'
                 },
                 {
-                    'baseMed': Meds.mag_sulfate_iv,
-                    'params': {
-                        'dose': 2, 'doseUnit': 'g', 'route': 'IVPB', 'form': 'Premix',
-                        'frequency': 'Once', 'duration': None, 'numberOfDoses': 1,
-                        'infuseOver': '2 hr'
-                    },
+                    'predefinedMedKey': 'MAG_SULF_IV_2G_ONCE_2HR'
                 },
             ]
         },
@@ -57,12 +47,7 @@ _section_groups: List[SectionGroup] = [
             'singleSelect': 1,
             'orders': [
                 {
-                    'baseMed': Meds.mag_sulfate_iv,
-                    'params': {
-                        'dose': 2, 'doseUnit': 'g', 'route': 'IVPB', 'form': 'Premix',
-                        'frequency': 'q2hr (interval)', 'duration': '2 dose(s)', 'numberOfDoses': 2,
-                        'infuseOver': '2 hr'
-                    },
+                    'predefinedMedKey': 'MAG_SULF_IV_2G_Q2H_2DOSES_2HR'
                 },
             ]
         },

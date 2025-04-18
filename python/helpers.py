@@ -10,6 +10,7 @@ from .types import (
 )
 from . import text as Text
 from . import components as Components
+from .predefined_med_orders import PREDEFINED_MED_ORDERS # Import the new definitions
 
 # --- Environment Variable Handling ---
 
@@ -149,50 +150,51 @@ def _create_order_sentence(
     final_sentence = ', '.join(filter(None, parts)) # Filter out potential None parts if logic changes
     return final_sentence
 
-def _format_total_dose_comment(params: MedicationOrderParams, show_total_dose: bool) -> str:
-    """Formats the total dose part of the comment."""
-    if not show_total_dose:
+def _format_total_dose_comment(parse_info: Dict, show_total_dose: bool) -> str:
+    """Formats the total dose part of the comment using parsed info."""
+    if not show_total_dose or not parse_info: # Also check if parse_info exists
         return ''
-    num_doses = params.get('numberOfDoses', 1) or 1 # Handle None or 0
-    total_dose_value = params['dose'] * num_doses
-    return Text.format_total_dose_text(total_dose_value, params['doseUnit']) + '<br>'
+    # Use pre-parsed values
+    num_doses = parse_info.get('numberOfDoses', 1) or 1 # Handle None or 0
+    dose = parse_info.get('dose')
+    dose_unit = parse_info.get('doseUnit')
 
-# --- Medication Order Creation ---
+    if dose is None or dose_unit is None:
+        print(f"Warning: Missing dose or doseUnit in parse_info for total dose comment: {parse_info}")
+        return '' # Don't add comment if info is missing
+
+    total_dose_value = dose * num_doses
+    return Text.format_total_dose_text(total_dose_value, dose_unit) + '<br>'
+
+# --- Medication Order Creation (Refactored) ---
 
 def create_medication_order(
-    base_med_def: BaseMedicationDefinition,
+    predefined_med_key: str, # Use the key instead of baseMed + params
     recommend_oral: bool,
-    params: MedicationOrderParams,
-    context: GenerationContext
+    context: GenerationContext,
+    extra_comment_override: Optional[str] = None # Allow overriding extra comment if needed
 ) -> BaseOrder:
-    """Creates a BaseOrder structure for a medication."""
+    """Creates a BaseOrder structure using a predefined medication key."""
     route_style = context['routeStyle']
     show_total_dose = context['showTotalDose']
 
-    # --- DEBUG --- 
-    # print(f"DEBUG create_medication_order PARAMS Type: {type(params)}, Keys: {list(params.keys()) if isinstance(params, dict) else 'N/A'}, Value: {params}") # Quieten DEBUG
-    # --- END DEBUG ---
+    # Look up the predefined order details
+    predefined_order = PREDEFINED_MED_ORDERS.get(predefined_med_key)
+    if not predefined_order:
+        raise ValueError(f"Predefined medication key not found: {predefined_med_key}")
 
-    # Restore original call
-    order_sentence = _create_order_sentence(
-        params['dose'],
-        params['doseUnit'],
-        params['route'],
-        params.get('form'),
-        params.get('frequency'),
-        params.get('duration'),
-        params.get('infuseOver')
-    )
+    # Extract details from the predefined order
+    mnemonic = predefined_order['mnemonic']
+    order_sentence = predefined_order['order_sentence']
+    base_med_ref = predefined_order['base_med_ref']
+    parse_info = predefined_order['parse_info']
 
-    # --- Add DEBUG print HERE ---
-    print(f"DEBUG Sentence after call: {repr(order_sentence)}")
-    # --- END DEBUG ---
+    # Use parse_info for total dose comment
+    total_dose_comment = _format_total_dose_comment(parse_info, show_total_dose)
 
-    total_dose_comment = _format_total_dose_comment(params, show_total_dose)
-
-    # Determine route display text based on style
+    # Determine route display text based on style using base_med_ref
     route_display_text = ''
-    route_info = base_med_def['routeInfo']
+    route_info = base_med_ref['routeInfo']
     show_asterisk = route_info['isOralOrTube'] and recommend_oral
 
     if route_style == 'bold_underline':
@@ -200,24 +202,23 @@ def create_medication_order(
             route_display_text = f'<span style="font-weight: 900; text-decoration: underline;">{route_info["pillText"]}</span>'
         # No else needed, route_display_text remains ''
     else: # Default to 'badge' style
-        # Correctly call create_pill, omitting border_style to use default
         route_display_text = Text.create_pill(pill_text=route_info['pillText'], background_color=route_info['pillBgColor'], text_color=route_info['pillTextColor'], show_asterisk=show_asterisk)
 
-    # Construct final comment
-    extra_comment = params.get('extraComment', '')
+    # Construct final comment (using optional override if provided)
+    extra_comment = extra_comment_override # Use override if present
     # Wrap concatenation in parentheses to allow multi-line
     final_comment = (total_dose_comment +
                      (route_display_text if route_display_text else '') +
                      (f' {extra_comment}' if extra_comment else ''))
 
     return {
-        'MNEMONIC': base_med_def['MNEMONIC'],
+        'MNEMONIC': mnemonic,
         'ORDER_SENTENCE': order_sentence,
         'ASC_SHORT_DESCRIPTION': '', # Assuming always empty
         'COMMENT': final_comment.strip(),
     }
 
-# --- Section Creation Helpers (Complex logic from Jsonnet) ---
+# --- Section Creation Helpers (Adjusted Call) ---
 
 def _build_replacement_section(
     group: SectionGroup,
@@ -243,13 +244,20 @@ def _build_replacement_section(
         'SINGLE_SELECT': repl_section_config['singleSelect'],
         'SHOW_INACTIVE_DUPLICATES': 0,
     }
-    # --- Build ORDERS with explicit loop for debugging ---
+    # --- Build ORDERS with explicit loop for debugging --- (Now uses predefinedMedKey)
     orders_list: List[BaseOrder] = []
     for item in repl_section_config.get('orders', []):
-        # --- DEBUG ---
-        print(f"DEBUG LOOP PARAMS for {item.get('baseMed', {}).get('MNEMONIC', 'Unknown')}: {item.get('params')}")
-        # --- END DEBUG ---
-        med_order = create_medication_order(item['baseMed'], recommend_oral_flag, item['params'], context)
+        # item should now be like {'predefinedMedKey': 'KEY_NAME', 'extraComment': 'optional comment'}
+        med_key = item.get('predefinedMedKey')
+        extra_comment = item.get('extraComment') # Pass extra comment if present
+        if not med_key:
+             raise ValueError("Missing 'predefinedMedKey' in replacementSection order item")
+        med_order = create_medication_order(
+            predefined_med_key=med_key, 
+            recommend_oral=recommend_oral_flag, 
+            context=context,
+            extra_comment_override=extra_comment # Pass the specific comment
+        )
         orders_list.append(med_order)
     replacement_section['ORDERS'] = orders_list
     # --- End build ORDERS with loop ---
@@ -329,14 +337,6 @@ def create_grouped_order_sections(
             context=context
         )
         order_sections.append(replacement_section)
-
-        # --- DEBUG: Check sentence immediately after appending replacement section ---
-        if context['protocol'] == 'CARDIAC' and group['rangeInfo'].get('lower') == 1.4:
-            try:
-                print(f"DEBUG Sentence in list after append repl section: {repr(order_sections[-1]['ORDERS'][0]['ORDER_SENTENCE'])}")
-            except Exception as e:
-                 print(f"DEBUG Error inspecting order_sections after append: {e}")
-        # --- END DEBUG ---
 
         # --- Lab Sections ---
         for index, lab_section_config in enumerate(group['labSections']):

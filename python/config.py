@@ -69,17 +69,6 @@ def generate_config(context: GenerationContext) -> FullConfig:
         initial_lab_sections = H.create_initial_lab_sections(protocol_data['initialLabs'])
         # Combine and ensure they are dicts for JSON serialization
 
-        # --- DEBUG: Print grouped_sections before return ---
-        if context['protocol'] == 'CARDIAC':
-             try:
-                 # Check Mg Tab (index 0 implicitly), Section Group 1 (index 1 for 1.4-1.7), First Order (index 0)
-                 target_section = grouped_sections[1] # Should be the Mg 1.4-1.7 section
-                 target_order = target_section['ORDERS'][0]
-                 print(f"DEBUG build_order_sections grouped_sections[1]['ORDERS'][0]['ORDER_SENTENCE'] BEFORE RETURN: {repr(target_order['ORDER_SENTENCE'])}")
-             except (IndexError, KeyError, TypeError) as inspect_e:
-                 print(f"DEBUG Error inspecting grouped_sections in build_order_sections: {inspect_e}")
-        # --- END DEBUG ---
-
         # return [dict(s) for s in grouped_sections + initial_lab_sections] # Original shallow copy
         return [copy.deepcopy(s) for s in grouped_sections + initial_lab_sections] # Use deepcopy
 
@@ -97,14 +86,6 @@ def generate_config(context: GenerationContext) -> FullConfig:
 
         base_tab = H.create_tab(tab_name)
         order_sections = build_order_sections(protocol_data)
-
-        # --- DEBUG: Inspect order_sections before assignment ---
-        if protocol == 'CARDIAC' and tab_name == 'Magnesium':
-             try:
-                 print(f"DEBUG Mg order_sections[1]['ORDERS'][0]['ORDER_SENTENCE'] before assignment: {repr(order_sections[1]['ORDERS'][0]['ORDER_SENTENCE'])}")
-             except (IndexError, KeyError, TypeError) as inspect_e:
-                 print(f"DEBUG Error inspecting order_sections: {inspect_e}")
-        # --- END DEBUG ---
 
         # --- Construct final tab with explicit key order --- 
         

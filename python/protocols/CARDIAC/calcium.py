@@ -19,16 +19,17 @@ _section_groups: List[SectionGroup] = [
             'singleSelect': 1,
             'orders': [
                 {
-                    'baseMed': Meds.calcium_chloride_iv,
-                    'params': {
-                        'dose': 1,
-                        'doseUnit': 'g',
-                        'route': 'IVPB',
-                        'form': 'Inj',
-                        'frequency': 'Once',
-                        'numberOfDoses': 1,
-                        'infuseOver': '1 hr',
-                    },
+                    # 'baseMed': Meds.calcium_chloride_iv,
+                    # 'params': {
+                    #     'dose': 1,
+                    #     'doseUnit': 'g',
+                    #     'route': 'IVPB',
+                    #     'form': 'Inj',
+                    #     'frequency': 'Once',
+                    #     'numberOfDoses': 1,
+                    #     'infuseOver': '1 hr',
+                    # },
+                    'predefinedMedKey': 'CALCIUMCHL_IV_1G_ONCE_1HR'
                 },
             ]
         },

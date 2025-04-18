@@ -19,19 +19,13 @@ _section_groups: List[SectionGroup] = [
             'singleSelect': 1,
             'orders': [
                 {
-                    'baseMed': Meds.mag_sulfate_iv,
-                    'params': {
-                        'dose': 1, 'doseUnit': 'g', 'route': 'IVPB', 'form': 'Premix',
-                        'frequency': 'Once', 'duration': None, 'numberOfDoses': 1,
-                        'infuseOver': '1 hr'
-                    },
+                    'predefinedMedKey': 'MAG_SULF_IV_1G_ONCE_1HR'
                 },
             ]
         },
         'labSections': [
             {
                 'conceptName': H.create_between_concept(_electrolyte, 1.8, 2.0),
-                'associatedRouteType': 'IV', # Jsonnet had 'Peripheral', using 'IV' as per TS translation logic
                 'sectionDescription': 'Monitoring: Recheck BMP and magnesium level with next AM labs.',
                 'orders': [
                     Labs.mag_level_tomorrow_am,
@@ -49,19 +43,13 @@ _section_groups: List[SectionGroup] = [
             'singleSelect': 1,
             'orders': [
                 {
-                    'baseMed': Meds.mag_sulfate_iv,
-                    'params': {
-                        'dose': 2, 'doseUnit': 'g', 'route': 'IVPB', 'form': 'Premix',
-                        'frequency': 'Once', 'duration': None, 'numberOfDoses': 1,
-                        'infuseOver': '2 hr'
-                    },
+                    'predefinedMedKey': 'MAG_SULF_IV_2G_ONCE_2HR'
                 },
             ]
         },
         'labSections': [
             {
                 'conceptName': H.create_between_concept(_electrolyte, 1.4, 1.7),
-                'associatedRouteType': 'IV',
                 'sectionDescription': 'Monitoring: Recheck magnesium level 4 hrs after infusion complete.',
                 'orders': [
                     Labs.get_timed_lab('mag_level', 360),
@@ -80,19 +68,13 @@ _section_groups: List[SectionGroup] = [
             'singleSelect': 1,
             'orders': [
                 {
-                    'baseMed': Meds.mag_sulfate_iv,
-                    'params': {
-                        'dose': 2, 'doseUnit': 'g', 'route': 'IVPB', 'form': 'Premix',
-                        'frequency': 'q2hr (interval)', 'duration': '2 dose(s)', 'numberOfDoses': 2,
-                        'infuseOver': '2 hr'
-                    },
+                    'predefinedMedKey': 'MAG_SULF_IV_2G_Q2H_2DOSES_2HR'
                 },
             ]
         },
         'labSections': [
             {
-                'conceptName': H.create_less_than_concept(_electrolyte, 1.4),
-                'associatedRouteType': 'IV',
+                'conceptName': H.create_less_than_concept(_electrolyte, 1.4),      'associatedRouteType': 'IV',
                 'sectionDescription': 'Monitoring: Recheck magnesium level 4 hrs after infusion complete.',
                 'orders': [
                     Labs.get_timed_lab('mag_level', 480),

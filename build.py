@@ -60,15 +60,6 @@ def main():
             output_filename = f"output_{protocol.lower()}.json"
             output_path = os.path.join(output_dir, output_filename)
 
-            # --- DEBUG: Inspect final structure before dump ---
-            if protocol == 'CARDIAC':
-                try:
-                    problematic_sentence = config_data['RCONFIG']['TABS'][0]['ORDER_SECTIONS'][1]['ORDERS'][0]['ORDER_SENTENCE']
-                    print(f"DEBUG CARDIAC Mg 1.4-1.7 Sentence BEFORE dump: {repr(problematic_sentence)}")
-                except (IndexError, KeyError, TypeError) as inspect_e:
-                    print(f"DEBUG Error inspecting config_data: {inspect_e}")
-            # --- END DEBUG ---
-
             # Write the file with pretty printing (indent=2)
             with open(output_path, 'w', encoding='utf-8') as f:
                 json.dump(config_data, f, indent=2, ensure_ascii=False)
