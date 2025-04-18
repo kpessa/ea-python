@@ -18,8 +18,8 @@ tests/test_expected_sentences.py::test_expected_sentences_match_generated[/home/
 =================================== FAILURES ===================================
 __________________________ test_sentence_verification __________________________
 
-expected_sentences = defaultdict(<class 'set'>, {'BMP': {'Blood, Stat collect, Lab Collect', 'Requested Draw Date and T T;N, Blood, Stat co... Once'}, 'sodium phosphate': {'15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)', '15 mmol, IVPB, Inj, Once'}})
-actual_orders_by_mnemonic = defaultdict(<class 'set'>, {'magnesium sulfate': {'2 g, IVPB, Premix, Once, Infuse over: 2 hr', '2 g, IVPB, Premix, q2..., IVPB, Inj, Once, Infuse over: 1 hr'}, 'magnesium oxide': {'400 mg, PO, Tab, q12hr (interval), Duration: 2 dose(s)'}})
+expected_sentences = defaultdict(<class 'set'>, {'BMP': {'Blood, Timed Study collect, Once', 'Blood, Stat collect, Nurse collect, Once', 'B... Once'}, 'sodium phosphate': {'15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)', '15 mmol, IVPB, Inj, Once'}})
+actual_orders_by_mnemonic = defaultdict(<class 'set'>, {'magnesium sulfate': {'2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse ove..., IVPB, Inj, Once, Infuse over: 1 hr'}, 'magnesium oxide': {'400 mg, PO, Tab, q12hr (interval), Duration: 2 dose(s)'}})
 
     def test_sentence_verification(expected_sentences, actual_orders_by_mnemonic):
         """Verify that generated sentences for each mnemonic exist in the expected extract.csv pool."""
@@ -387,9 +387,9 @@ DEBUG _parse_range_string: Failed to parse range from: '<strong style="font-size
 DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels with next AM labs.</small>' (Parsed: None-None)
 DEBUG ranges_match: Comparison result = True
 DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.6-2.0' (cleaned: '1.6-2.0')
-DEBUG _parse_range_string: Failed to parse range from: 'Phosphorus: 1.0 - 1.5 mg/dL<br><span style="color: red; font-weight: bold;">NOTIFY PHYSICIAN if less than 1.1 mg/dL<br>CRITICALLY LOW RESULT</span> <br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'phosphorus: 1.0 - 1.5 mg/dl<br><span style="color: red; font-weight: bold;">notify physician if less than 1.1 mg/dl<br>critly low result</span> <br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
+DEBUG _parse_range_string: Failed to parse range from: 'Phosphorus: 1.0 - 1.5 mg/dL<br><span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PROVIDER if less than 1.1 mg/dL</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'phosphorus: 1.0 - 1.5 mg/dl<br><span style="color: red; font-weight: bold; font-size: 14px;">notify provider if less than 1.1 mg/dl</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='Phosphorus: 1.0 - 1.5 mg/dL<br><span style="color: red; font-weight: bold;">NOTIFY PHYSICIAN if less than 1.1 mg/dL<br>CRITICALLY LOW RESULT</span> <br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
+DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='Phosphorus: 1.0 - 1.5 mg/dL<br><span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PROVIDER if less than 1.1 mg/dL</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
 DEBUG ranges_match: Comparison result = True
 DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.6-2.0' (cleaned: '1.6-2.0')
 DEBUG _parse_range_string: Failed to parse range from: '<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>ORAL - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels with next AM labs.</small>' (cleaned: '<strong style="font-size: 18px; font-weight: bold; color: #333;">step 2 - order corresponding follow-up lab(s):</strong><br>oral - labs:<br><small style="font-weight: normal;">monitoring: recheck phosphorous & calcium levels with next am labs.</small>')
@@ -402,9 +402,9 @@ DEBUG _parse_range_string: Failed to parse range from: 'IV - Labs:<br><small sty
 DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels 2 hrs after infusion.</small>' (Parsed: None-None)
 DEBUG ranges_match: Comparison result = True
 DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.6-2.0' (cleaned: '1.6-2.0')
-DEBUG _parse_range_string: Failed to parse range from: 'Phosphorus: < 1.0 mg/dL<br><span style="color: red; font-weight: bold;">NOTIFY PHYSICIAN if less than 1.1 mg/dL<br>CRITICALLY LOW RESULT</span> <br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'phosphorus: < 1.0 mg/dl<br><span style="color: red; font-weight: bold;">notify physician if less than 1.1 mg/dl<br>critly low result</span> <br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
+DEBUG _parse_range_string: Failed to parse range from: 'Phosphorus: < 1.0 mg/dL<br><span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PROVIDER if less than 1.1 mg/dL</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (cleaned: 'phosphorus: < 1.0 mg/dl<br><span style="color: red; font-weight: bold; font-size: 14px;">notify provider if less than 1.1 mg/dl</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br>')
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='Phosphorus: < 1.0 mg/dL<br><span style="color: red; font-weight: bold;">NOTIFY PHYSICIAN if less than 1.1 mg/dL<br>CRITICALLY LOW RESULT</span> <br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
+DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='Phosphorus: < 1.0 mg/dL<br><span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PROVIDER if less than 1.1 mg/dL</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: None-None)
 DEBUG ranges_match: Comparison result = True
 DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.6-2.0' (cleaned: '1.6-2.0')
 DEBUG _parse_range_string: Failed to parse range from: '<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels 2 hrs after infusion.</small>' (cleaned: '<strong style="font-size: 18px; font-weight: bold; color: #333;">step 2 - order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">monitoring: recheck phosphorous & calcium levels 2 hrs after infusion.</small>')
@@ -711,14 +711,14 @@ DEBUG _parse_range_string: Failed to parse range from: 'Phosphorus: 1.6 - 2.0 mg
 DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
 DEBUG ranges_match: Comparison result = True
 DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.6-2.0' (cleaned: '1.6-2.0')
-DEBUG _parse_range_string: Failed to parse range from: '<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels with next AM labs.</small>' (cleaned: '<strong style="font-size: 18px; font-weight: bold; color: #333;">step 2 - order corresponding follow-up lab(s):</strong><br>iv - labs:<br><small style="font-weight: normal;">monitoring: recheck phosphorous & calcium levels with next am labs.</small>')
+DEBUG _parse_range_string: Failed to parse range from: '<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels with next AM labs.</small>' (cleaned: '<strong style="font-size: 18px; font-weight: bold; color: #333;">step 2 - order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">monitoring: recheck phosphorous & calcium levels with next am labs.</small>')
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels with next AM labs.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels with next AM labs.</small>' (Parsed: None-None)
 DEBUG ranges_match: Comparison result = True
 DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.6-2.0' (cleaned: '1.6-2.0')
-DEBUG _parse_range_string: Failed to parse range from: 'Phosphorus: 1.0 - 1.5 mg/dL<br><span style="color: red; font-weight: bold;">NOTIFY PHYSICIAN if less than 1.1 mg/dL<br>CRITICALLY LOW RESULT</span> <br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'phosphorus: 1.0 - 1.5 mg/dl<br><span style="color: red; font-weight: bold;">notify physician if less than 1.1 mg/dl<br>critly low result</span> <br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
+DEBUG _parse_range_string: Failed to parse range from: 'Phosphorus: 1.0 - 1.5 mg/dL<br><span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PROVIDER if less than 1.1 mg/dL</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'phosphorus: 1.0 - 1.5 mg/dl<br><span style="color: red; font-weight: bold; font-size: 14px;">notify provider if less than 1.1 mg/dl</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='Phosphorus: 1.0 - 1.5 mg/dL<br><span style="color: red; font-weight: bold;">NOTIFY PHYSICIAN if less than 1.1 mg/dL<br>CRITICALLY LOW RESULT</span> <br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
+DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='Phosphorus: 1.0 - 1.5 mg/dL<br><span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PROVIDER if less than 1.1 mg/dL</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
 DEBUG ranges_match: Comparison result = True
 DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.6-2.0' (cleaned: '1.6-2.0')
 DEBUG _parse_range_string: Failed to parse range from: '<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>ORAL - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels with next AM labs.</small>' (cleaned: '<strong style="font-size: 18px; font-weight: bold; color: #333;">step 2 - order corresponding follow-up lab(s):</strong><br>oral - labs:<br><small style="font-weight: normal;">monitoring: recheck phosphorous & calcium levels with next am labs.</small>')
@@ -731,9 +731,9 @@ DEBUG _parse_range_string: Failed to parse range from: 'IV - Labs:<br><small sty
 DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels 2 hrs after infusion.</small>' (Parsed: None-None)
 DEBUG ranges_match: Comparison result = True
 DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.6-2.0' (cleaned: '1.6-2.0')
-DEBUG _parse_range_string: Failed to parse range from: 'Phosphorus: < 1.0 mg/dL<br><span style="color: red; font-weight: bold;">NOTIFY PHYSICIAN if less than 1.1 mg/dL<br>CRITICALLY LOW RESULT</span> <br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'phosphorus: < 1.0 mg/dl<br><span style="color: red; font-weight: bold;">notify physician if less than 1.1 mg/dl<br>critly low result</span> <br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
+DEBUG _parse_range_string: Failed to parse range from: 'Phosphorus: < 1.0 mg/dL<br><span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PROVIDER if less than 1.1 mg/dL</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (cleaned: 'phosphorus: < 1.0 mg/dl<br><span style="color: red; font-weight: bold; font-size: 14px;">notify provider if less than 1.1 mg/dl</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br>')
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='Phosphorus: < 1.0 mg/dL<br><span style="color: red; font-weight: bold;">NOTIFY PHYSICIAN if less than 1.1 mg/dL<br>CRITICALLY LOW RESULT</span> <br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
+DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='Phosphorus: < 1.0 mg/dL<br><span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PROVIDER if less than 1.1 mg/dL</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: None-None)
 DEBUG ranges_match: Comparison result = True
 DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.6-2.0' (cleaned: '1.6-2.0')
 DEBUG _parse_range_string: Failed to parse range from: '<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels 2 hrs after infusion.</small>' (cleaned: '<strong style="font-size: 18px; font-weight: bold; color: #333;">step 2 - order corresponding follow-up lab(s):</strong><br>iv - labs:<br><small style="font-weight: normal;">monitoring: recheck phosphorous & calcium levels 2 hrs after infusion.</small>')
@@ -865,59 +865,59 @@ E               - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL 
 E                 JSON    : '10 mEq, IV, q1h, Duration: 2 dose(s), Infuse over: 1 hr'
 E                 Expected: Not found exactly in its expected file.
 E                   Expected Sentences in File:
-E                     - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
-E                     - '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'
+E                     - '10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
 E                     - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
+E                     - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
 E                     - ... (1 more)
 E               - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
 E                 JSON    : '10 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'
 E                 Expected: Not found exactly in its expected file.
 E                   Expected Sentences in File:
-E                     - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
-E                     - '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'
+E                     - '10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
 E                     - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
+E                     - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
 E                     - ... (1 more)
 E               - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
 E                 JSON    : '20 mEq, IV, q1h, Duration: 2 dose(s), Infuse over: 1 hr'
 E                 Expected: Not found exactly in its expected file.
 E                   Expected Sentences in File:
+E                     - '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
+E                     - '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'
 E                     - '20 mEq, IV, Once, Infuse over: 1 hr'
-E                     - '20 mEq, IV, q2hr, Duration: 3 dose(s), Infuse over: 2 hr'
-E                     - '20 mEq, IV, q2hr, Duration: 4 dose(s), Infuse over: 2 hr'
 E                     - ... (4 more)
 E               - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
 E                 JSON    : '10 mEq, IV, q1h, Duration: 6 dose(s), Infuse over: 1 hr'
 E                 Expected: Not found exactly in its expected file.
 E                   Expected Sentences in File:
-E                     - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
-E                     - '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'
+E                     - '10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
 E                     - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
+E                     - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
 E                     - ... (1 more)
 E               - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
 E                 JSON    : '20 mEq, IV, q1h, Duration: 3 dose(s), Infuse over: 1 hr'
 E                 Expected: Not found exactly in its expected file.
 E                   Expected Sentences in File:
+E                     - '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
+E                     - '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'
 E                     - '20 mEq, IV, Once, Infuse over: 1 hr'
-E                     - '20 mEq, IV, q2hr, Duration: 3 dose(s), Infuse over: 2 hr'
-E                     - '20 mEq, IV, q2hr, Duration: 4 dose(s), Infuse over: 2 hr'
 E                     - ... (4 more)
 E               - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
 E                 JSON    : '10 mEq, IV, q1h, Duration: 8 dose(s), Infuse over: 1 hr'
 E                 Expected: Not found exactly in its expected file.
 E                   Expected Sentences in File:
-E                     - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
-E                     - '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'
+E                     - '10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
 E                     - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
+E                     - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
 E                     - ... (1 more)
 E               - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
 E                 JSON    : '20 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'
 E                 Expected: Not found exactly in its expected file.
 E                   Expected Sentences in File:
+E                     - '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
+E                     - '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'
 E                     - '20 mEq, IV, Once, Infuse over: 1 hr'
-E                     - '20 mEq, IV, q2hr, Duration: 3 dose(s), Infuse over: 2 hr'
-E                     - '20 mEq, IV, q2hr, Duration: 4 dose(s), Infuse over: 2 hr'
 E                     - ... (4 more)
-E           assert not "\nFound Discrepancies (JSON vs Expected Files) in output_cardiac.json:\n  - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '10 mEq, IV, q1h, Duration: 2 dose(s), Infuse over: 1 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'\n        - ... (1 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '10 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'\n        - ... (1 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSO...      - '20 mEq, IV, Once, Infuse over: 1 hr'\n        - '20 mEq, IV, q2hr, Duration: 3 dose(s), Infuse over: 2 hr'\n        - '20 mEq, IV, q2hr, Duration: 4 dose(s), Infuse over: 2 hr'\n        - ... (4 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '10 mEq, IV, q1h, Duration: 8 dose(s), Infuse over: 1 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'\n        - ... (1 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '20 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '20 mEq, IV, Once, Infuse over: 1 hr'\n        - '20 mEq, IV, q2hr, Duration: 3 dose(s), Infuse over: 2 hr'\n        - '20 mEq, IV, q2hr, Duration: 4 dose(s), Infuse over: 2 hr'\n        - ... (4 more)"
+E           assert not "\nFound Discrepancies (JSON vs Expected Files) in output_cardiac.json:\n  - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '10 mEq, IV, q1h, Duration: 2 dose(s), Infuse over: 1 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'\n        - ... (1 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '10 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'\n        - ... (1 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSO...      - '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'\n        - '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'\n        - '20 mEq, IV, Once, Infuse over: 1 hr'\n        - ... (4 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '10 mEq, IV, q1h, Duration: 8 dose(s), Infuse over: 1 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'\n        - ... (1 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '20 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'\n        - '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'\n        - '20 mEq, IV, Once, Infuse over: 1 hr'\n        - ... (4 more)"
 
 tests/test_expected_sentences.py:200: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -1096,51 +1096,51 @@ E               - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL 
 E                 JSON    : '10 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'
 E                 Expected: Not found exactly in its expected file.
 E                   Expected Sentences in File:
-E                     - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
-E                     - '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'
+E                     - '10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
 E                     - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
+E                     - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
 E                     - ... (1 more)
 E               - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
 E                 JSON    : '20 mEq, IV, q2h, Duration: 2 dose(s), Infuse over: 2 hr'
 E                 Expected: Not found exactly in its expected file.
 E                   Expected Sentences in File:
+E                     - '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
+E                     - '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'
 E                     - '20 mEq, IV, Once, Infuse over: 1 hr'
-E                     - '20 mEq, IV, q2hr, Duration: 3 dose(s), Infuse over: 2 hr'
-E                     - '20 mEq, IV, q2hr, Duration: 4 dose(s), Infuse over: 2 hr'
 E                     - ... (4 more)
 E               - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
 E                 JSON    : '10 mEq, IV, q1h, Duration: 6 dose(s), Infuse over: 1 hr'
 E                 Expected: Not found exactly in its expected file.
 E                   Expected Sentences in File:
-E                     - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
-E                     - '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'
+E                     - '10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
 E                     - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
+E                     - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
 E                     - ... (1 more)
 E               - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
 E                 JSON    : '20 mEq, IV, q2h, Duration: 3 dose(s), Infuse over: 2 hr'
 E                 Expected: Not found exactly in its expected file.
 E                   Expected Sentences in File:
+E                     - '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
+E                     - '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'
 E                     - '20 mEq, IV, Once, Infuse over: 1 hr'
-E                     - '20 mEq, IV, q2hr, Duration: 3 dose(s), Infuse over: 2 hr'
-E                     - '20 mEq, IV, q2hr, Duration: 4 dose(s), Infuse over: 2 hr'
 E                     - ... (4 more)
 E               - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
 E                 JSON    : '10 mEq, IV, q1h, Duration: 8 dose(s), Infuse over: 1 hr'
 E                 Expected: Not found exactly in its expected file.
 E                   Expected Sentences in File:
-E                     - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
-E                     - '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'
+E                     - '10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
 E                     - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
+E                     - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
 E                     - ... (1 more)
 E               - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
 E                 JSON    : '20 mEq, IV, q2h, Duration: 4 dose(s), Infuse over: 2 hr'
 E                 Expected: Not found exactly in its expected file.
 E                   Expected Sentences in File:
+E                     - '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
+E                     - '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'
 E                     - '20 mEq, IV, Once, Infuse over: 1 hr'
-E                     - '20 mEq, IV, q2hr, Duration: 3 dose(s), Infuse over: 2 hr'
-E                     - '20 mEq, IV, q2hr, Duration: 4 dose(s), Infuse over: 2 hr'
 E                     - ... (4 more)
-E           assert not "\nFound Discrepancies (JSON vs Expected Files) in output_regular.json:\n  - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '10 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'\n        - ... (1 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '20 mEq, IV, q2h, Duration: 2 dose(s), Infuse over: 2 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '20 mEq, IV, Once, Infuse over: 1 hr'\n        - '20 mEq, IV, q2hr, Duration: 3 dose(s), Infuse over: 2 hr'\n        - '20 mEq, IV, q2hr, Duration: 4 dose(s), Infuse over: 2 hr'\n        - ... (4 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '10 mEq, IV, q...      - '20 mEq, IV, Once, Infuse over: 1 hr'\n        - '20 mEq, IV, q2hr, Duration: 3 dose(s), Infuse over: 2 hr'\n        - '20 mEq, IV, q2hr, Duration: 4 dose(s), Infuse over: 2 hr'\n        - ... (4 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '10 mEq, IV, q1h, Duration: 8 dose(s), Infuse over: 1 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'\n        - ... (1 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '20 mEq, IV, q2h, Duration: 4 dose(s), Infuse over: 2 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '20 mEq, IV, Once, Infuse over: 1 hr'\n        - '20 mEq, IV, q2hr, Duration: 3 dose(s), Infuse over: 2 hr'\n        - '20 mEq, IV, q2hr, Duration: 4 dose(s), Infuse over: 2 hr'\n        - ... (4 more)"
+E           assert not "\nFound Discrepancies (JSON vs Expected Files) in output_regular.json:\n  - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '10 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'\n        - ... (1 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '20 mEq, IV, q2h, Duration: 2 dose(s), Infuse over: 2 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'\n        - '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'\n        - '20 mEq, IV, Once, Infuse over: 1 hr'\n        - ... (4 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '10 mEq, IV, q...      - '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'\n        - '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'\n        - '20 mEq, IV, Once, Infuse over: 1 hr'\n        - ... (4 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '10 mEq, IV, q1h, Duration: 8 dose(s), Infuse over: 1 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'\n        - ... (1 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '20 mEq, IV, q2h, Duration: 4 dose(s), Infuse over: 2 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'\n        - '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'\n        - '20 mEq, IV, Once, Infuse over: 1 hr'\n        - ... (4 more)"
 
 tests/test_expected_sentences.py:200: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -1165,13 +1165,11 @@ DEBUG: Loading expected for Mnemonic='potassium chloride 10 mEq/100 mL intraveno
 DEBUG: Loading expected for Mnemonic='potassium chloride 20 mEq/100 mL intravenous solution', Tab='POTASSIUM'
 DEBUG: Loading expected for Mnemonic='Potassium Level', Tab='POTASSIUM'
 DEBUG: Loading expected for Mnemonic='Potassium Level', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='Potassium Level', Tab='POTASSIUM'
 DEBUG: Loading expected for Mnemonic='potassium chloride 10 mEq/100 mL intravenous solution', Tab='POTASSIUM'
 DEBUG: Loading expected for Mnemonic='potassium chloride 20 mEq/100 mL intravenous solution', Tab='POTASSIUM'
 DEBUG: Loading expected for Mnemonic='Phosphate Level', Tab='POTASSIUM'
 DEBUG: Loading expected for Mnemonic='Magnesium Level', Tab='POTASSIUM'
 DEBUG: Loading expected for Mnemonic='Potassium Level', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='Magnesium Level', Tab='POTASSIUM'
 DEBUG: Loading expected for Mnemonic='BMP', Tab='POTASSIUM'
 DEBUG: Loading expected for Mnemonic='Magnesium Level', Tab='POTASSIUM'
 DEBUG: Loading expected for Mnemonic='Phosphate Level', Tab='POTASSIUM'
@@ -1205,4 +1203,4 @@ DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Whole Blood', Tab='
 DEBUG: Loading expected for Mnemonic='Phosphate Level', Tab='PHOSPHATE'
 DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Serum', Tab='PHOSPHATE'
 DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Whole Blood', Tab='PHOSPHATE'
-========================= 5 failed, 4 passed in 0.64s ==========================
+========================= 5 failed, 4 passed in 0.29s ==========================

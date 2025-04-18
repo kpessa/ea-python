@@ -40,8 +40,9 @@ _section_groups: List[SectionGroup] = [
     # Group for < 1.4 mg/dL
     {
         'rangeInfo': {'type': 'lessThan', 'electrolyte': _electrolyte, 'level': 1.4, 'unit': _unit},
+        'recommendOral': False, # Explicitly set to False
         'replacementSection': {
-            'criticalAlertText': Text.create_critically_low_notify_physician_text(1.2, 'mg/dL'),
+            'criticalAlertText': Text.create_notify_provider_text(1.2, 'mg/dL'),
             'sectionName': '', 
             'conceptName': H.create_less_than_concept(_electrolyte, 1.4),
             'singleSelect': 1,
@@ -54,10 +55,9 @@ _section_groups: List[SectionGroup] = [
         'labSections': [
             {
                 'conceptName': H.create_less_than_concept(_electrolyte, 1.4),
-                'associatedRouteType': 'IV',
                 'sectionDescription': 'Monitoring: Recheck magnesium level 4 hrs after infusion complete.',
                 'orders': [
-                    Labs.mag_level_tomorrow_am,
+                    Labs.create_specific_timed_lab('mag_level', 480, 'Recheck magnesium level 4 hrs after infusion complete.'),
                 ]
             }
         ]

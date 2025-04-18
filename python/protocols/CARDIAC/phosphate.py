@@ -43,7 +43,7 @@ _section_groups: List[SectionGroup] = [
     {
         'rangeInfo': {'type': 'between', 'electrolyte': _electrolyte, 'lower': 1.0, 'upper': 1.5, 'unit': _unit},
         'replacementSection': {
-            'criticalAlertText': Text.create_critically_low_notify_physician_text(1.1, 'mg/dL'),
+            'criticalAlertText': Text.create_notify_provider_text(1.1, 'mg/dL'),
             'sectionName': '',
             'conceptName': H.create_between_concept(_electrolyte, 1.0, 1.5),
             'singleSelect': 1,
@@ -72,9 +72,12 @@ _section_groups: List[SectionGroup] = [
                 'associatedRouteType': 'IV',
                 'sectionDescription': 'Monitoring: Recheck phosphorous & calcium levels 2 hrs after infusion.',
                 'orders': [
-                    Labs.get_timed_lab('phos_level', 600),
-                    Labs.get_timed_lab('calcium_ion_serum', 600),
-                    Labs.get_timed_lab('calcium_ion_wb', 600),
+                    {'type': 'timed_lab', 'base_name': 'phos_level', 'minutes': 600, 
+                     'comment_base': 'Recheck phosphorous level 2 hrs after infusion.'},
+                    {'type': 'timed_lab', 'base_name': 'calcium_ion_serum', 'minutes': 600, 
+                     'comment_base': 'Recheck calcium level 2 hrs after infusion.'},
+                    {'type': 'timed_lab', 'base_name': 'calcium_ion_wb', 'minutes': 600, 
+                     'comment_base': 'Recheck calcium level 2 hrs after infusion.'},
                 ]
             }
         ]
@@ -82,8 +85,9 @@ _section_groups: List[SectionGroup] = [
     # Group for < 1.0 mg/dL
     {
         'rangeInfo': {'type': 'lessThan', 'electrolyte': _electrolyte, 'level': 1.0, 'unit': _unit},
+        'recommendOral': False,
         'replacementSection': {
-            'criticalAlertText': Text.create_critically_low_notify_physician_text(1.1, 'mg/dL'),
+            'criticalAlertText': Text.create_notify_provider_text(1.1, 'mg/dL'),
             'sectionName': '',
             'conceptName': H.create_less_than_concept(_electrolyte, 1.0),
             'singleSelect': 1,
@@ -98,9 +102,12 @@ _section_groups: List[SectionGroup] = [
                 'conceptName': H.create_less_than_concept(_electrolyte, 1.0),
                 'sectionDescription': 'Monitoring: Recheck phosphorous & calcium levels 2 hrs after infusion.',
                 'orders': [
-                    Labs.get_timed_lab('phos_level', 600),
-                    Labs.get_timed_lab('calcium_ion_serum', 600),
-                    Labs.get_timed_lab('calcium_ion_wb', 600),
+                    {'type': 'timed_lab', 'base_name': 'phos_level', 'minutes': 600, 
+                     'comment_base': 'Recheck phosphorous level 2 hrs after infusion.'},
+                    {'type': 'timed_lab', 'base_name': 'calcium_ion_serum', 'minutes': 600, 
+                     'comment_base': 'Recheck calcium level 2 hrs after infusion.'},
+                    {'type': 'timed_lab', 'base_name': 'calcium_ion_wb', 'minutes': 600, 
+                     'comment_base': 'Recheck calcium level 2 hrs after infusion.'},
                 ]
             }
         ]
@@ -118,9 +125,12 @@ _initial_labs: List[InitialLabConfig] = [
             Labs.phos_level_tomorrow_am,
             Labs.calcium_ion_serum_tomorrow_am,
             Labs.calcium_ion_wb_tomorrow_am,
-            Labs.get_timed_lab('phos_level', 120),
-            Labs.get_timed_lab('calcium_ion_serum', 120),
-            Labs.get_timed_lab('calcium_ion_wb', 120),
+            {'type': 'timed_lab', 'base_name': 'phos_level', 'minutes': 120, 
+             'comment_base': 'Collect phos level 2 hours after event'},
+            {'type': 'timed_lab', 'base_name': 'calcium_ion_serum', 'minutes': 120, 
+             'comment_base': 'Collect calcium level 2 hours after event'},
+            {'type': 'timed_lab', 'base_name': 'calcium_ion_wb', 'minutes': 120, 
+             'comment_base': 'Collect calcium level 2 hours after event'},
         ]
     },
 ]

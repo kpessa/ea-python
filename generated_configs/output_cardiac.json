@@ -46,7 +46,7 @@
         "ORDER_SECTIONS": [
           {
             "SECTION_NAME": "Magnesium: 1.8 - 2.0 mg/dL<br><strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 1 - Order most appropriate replacement:</strong><br>",
-            "CONCEPT_NAME": "[%{EALABMAGTODO}.COUNT > 0 AND {EALABMAGBTW18AND20}%}]",
+            "CONCEPT_NAME": "[%{EALABMAGTODO}.COUNT > 0 AND {EALABMAGBTW18AND20}%]",
             "SINGLE_SELECT": 1,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -54,13 +54,13 @@
                 "MNEMONIC": "magnesium sulfate",
                 "ORDER_SENTENCE": "1 g, IVPB, Premix, Once, Infuse over: 1 hr",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": ""
+                "COMMENT": "Intravenous"
               }
             ]
           },
           {
             "SECTION_NAME": "<strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style=\"font-weight: normal;\">Monitoring: Recheck BMP and magnesium level with next AM labs.</small>",
-            "CONCEPT_NAME": "[%{EALABMAGTODO}.COUNT > 0 AND {EALABMAGBTW18AND20}%}]",
+            "CONCEPT_NAME": "[%{EALABMAGTODO}.COUNT > 0 AND {EALABMAGBTW18AND20}%]",
             "SINGLE_SELECT": 0,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -74,7 +74,7 @@
           },
           {
             "SECTION_NAME": "Magnesium: 1.4 - 1.7 mg/dL<br><strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 1 - Order most appropriate replacement:</strong><br>",
-            "CONCEPT_NAME": "[%{EALABMAGTODO}.COUNT > 0 AND {EALABMAGBTW14AND17}%}]",
+            "CONCEPT_NAME": "[%{EALABMAGTODO}.COUNT > 0 AND {EALABMAGBTW14AND17}%]",
             "SINGLE_SELECT": 1,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -82,13 +82,13 @@
                 "MNEMONIC": "magnesium sulfate",
                 "ORDER_SENTENCE": "2 g, IVPB, Premix, Once, Infuse over: 2 hr",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": ""
+                "COMMENT": "Intravenous"
               }
             ]
           },
           {
             "SECTION_NAME": "<strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style=\"font-weight: normal;\">Monitoring: Recheck magnesium level 4 hrs after infusion complete.</small>",
-            "CONCEPT_NAME": "[%{EALABMAGTODO}.COUNT > 0 AND {EALABMAGBTW14AND17}%}]",
+            "CONCEPT_NAME": "[%{EALABMAGTODO}.COUNT > 0 AND {EALABMAGBTW14AND17}%]",
             "SINGLE_SELECT": 0,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -96,13 +96,13 @@
                 "MNEMONIC": "Magnesium Level",
                 "ORDER_SENTENCE": "Requested Draw Date and T T;N+360, Blood, Timed Study collect, Once",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": "Collect 6.0 hours after event. [Dynamic: mag_level_timed_n360]"
+                "COMMENT": "Recheck magnesium level 4 hrs after infusion complete."
               }
             ]
           },
           {
-            "SECTION_NAME": "Magnesium: < 1.4 mg/dL<br><span style=\"color: red; font-weight: bold;\">NOTIFY PHYSICIAN if less than 1.2 mg/dL<br>CRITICALLY LOW RESULT</span> <br><strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 1 - Order most appropriate replacement:</strong><br>",
-            "CONCEPT_NAME": "[%{EALABMAGTODO}.COUNT > 0 AND {EALABMAGLT14}%}]",
+            "SECTION_NAME": "Magnesium: < 1.4 mg/dL<br><span style=\"color: red; font-weight: bold; font-size: 14px;\">NOTIFY PROVIDER if less than 1.2 mg/dL</span><br><strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 1 - Order most appropriate replacement:</strong><br>",
+            "CONCEPT_NAME": "[%{EALABMAGTODO}.COUNT > 0 AND {EALABMAGLT14}%]",
             "SINGLE_SELECT": 1,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -110,13 +110,13 @@
                 "MNEMONIC": "magnesium sulfate",
                 "ORDER_SENTENCE": "2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": ""
+                "COMMENT": "Intravenous"
               }
             ]
           },
           {
             "SECTION_NAME": "<strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 2 - Order corresponding follow-up lab(s):</strong><br>IV - Labs:<br><small style=\"font-weight: normal;\">Monitoring: Recheck magnesium level 4 hrs after infusion complete.</small>",
-            "CONCEPT_NAME": "[%{EALABMAGTODO}.COUNT > 0 AND {EALABMAGLT14}%}]",
+            "CONCEPT_NAME": "[%{EALABMAGTODO}.COUNT > 0 AND {EALABMAGLT14}%]",
             "SINGLE_SELECT": 0,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -124,7 +124,7 @@
                 "MNEMONIC": "Magnesium Level",
                 "ORDER_SENTENCE": "Requested Draw Date and T T;N+480, Blood, Timed Study collect, Once",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": "Collect 8.0 hours after event. [Dynamic: mag_level_timed_n480]"
+                "COMMENT": "Recheck magnesium level 4 hrs after infusion complete."
               }
             ]
           },
@@ -156,7 +156,7 @@
                 "MNEMONIC": "Magnesium Level",
                 "ORDER_SENTENCE": "Requested Draw Date and T T;N+240, Blood, Timed Study collect, Once",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": "Collect 4.0 hours after event. [Dynamic: mag_level_timed_n240]"
+                "COMMENT": "Collect mag level 4 hours after event"
               }
             ]
           }
@@ -222,7 +222,7 @@
         "ORDER_SECTIONS": [
           {
             "SECTION_NAME": "Potassium: 3.6 - 3.9 mmol/L<br><strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 1 - Order most appropriate replacement:</strong><br><span style=\"font-size: 14px; color: #666; line-height: 1.5;\">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>",
-            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW36AND39}%}]",
+            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW36AND39}%]",
             "SINGLE_SELECT": 1,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -230,13 +230,13 @@
                 "MNEMONIC": "potassium chloride extended release",
                 "ORDER_SENTENCE": "20 mEq, PO, ER tab, Once",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": ""
+                "COMMENT": "Oral *"
               },
               {
                 "MNEMONIC": "potassium chloride",
                 "ORDER_SENTENCE": "20 mEq, Feeding Tube, Liq, Once",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": ""
+                "COMMENT": "Feeding Tube *"
               },
               {
                 "MNEMONIC": "potassium chloride 10 mEq/100 mL intravenous solution",
@@ -254,7 +254,7 @@
           },
           {
             "SECTION_NAME": "<strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 2 - Order corresponding follow-up lab(s):</strong><br>IV - Labs:<br><small style=\"font-weight: normal;\">Monitoring: Recheck BMP with next AM labs.</small>",
-            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW36AND39}%}]",
+            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW36AND39}%]",
             "SINGLE_SELECT": 0,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -268,7 +268,7 @@
           },
           {
             "SECTION_NAME": "Potassium: 3.2 - 3.5 mmol/L<br><strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 1 - Order most appropriate replacement:</strong><br><span style=\"font-size: 14px; color: #666; line-height: 1.5;\">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>",
-            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW32AND35}%}]",
+            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW32AND35}%]",
             "SINGLE_SELECT": 1,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -276,13 +276,13 @@
                 "MNEMONIC": "potassium chloride extended release",
                 "ORDER_SENTENCE": "20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": ""
+                "COMMENT": "Oral *"
               },
               {
                 "MNEMONIC": "potassium chloride",
                 "ORDER_SENTENCE": "20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 2 dose(s)",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": ""
+                "COMMENT": "Feeding Tube *"
               },
               {
                 "MNEMONIC": "potassium chloride 10 mEq/100 mL intravenous solution",
@@ -300,7 +300,7 @@
           },
           {
             "SECTION_NAME": "<strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 2 - Order corresponding follow-up lab(s):</strong><br>ORAL - Labs:<br><small style=\"font-weight: normal;\">Monitoring: Recheck potassium level 4 hours after last dose.</small>",
-            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW32AND35}%}]",
+            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW32AND35}%]",
             "SINGLE_SELECT": 0,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -308,13 +308,13 @@
                 "MNEMONIC": "Potassium Level",
                 "ORDER_SENTENCE": "Requested Draw Date and T T;N+480, Blood, Timed Study collect, Once",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": "Collect 8.0 hours after event. [Dynamic: k_level_timed_n480]"
+                "COMMENT": "Recheck potassium level 4 hours after last dose."
               }
             ]
           },
           {
             "SECTION_NAME": "PERIPHERAL IV - Labs:<br><small style=\"font-weight: normal;\">Monitoring: Recheck potassium level 1 hr after infusion complete.</small>",
-            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW32AND35}%}]",
+            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW32AND35}%]",
             "SINGLE_SELECT": 0,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -322,13 +322,13 @@
                 "MNEMONIC": "Potassium Level",
                 "ORDER_SENTENCE": "Requested Draw Date and T T;N+300, Blood, Timed Study collect, Once",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": "Collect 5.0 hours after event. [Dynamic: k_level_timed_n300]"
+                "COMMENT": "Recheck potassium level 1 hr after infusion complete."
               }
             ]
           },
           {
             "SECTION_NAME": "CENTRAL IV - Labs:<br><small style=\"font-weight: normal;\">Monitoring: Recheck potassium level 1 hr after infusion complete.</small>",
-            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW32AND35}%}]",
+            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW32AND35}%]",
             "SINGLE_SELECT": 0,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -336,13 +336,13 @@
                 "MNEMONIC": "Potassium Level",
                 "ORDER_SENTENCE": "Requested Draw Date and T T;N+180, Blood, Timed Study collect, Once",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": "Collect 3.0 hours after event. [Dynamic: k_level_timed_n180]"
+                "COMMENT": "Recheck potassium level 1 hr after infusion complete."
               }
             ]
           },
           {
             "SECTION_NAME": "Potassium: 2.8 - 3.1 mmol/L<br><strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 1 - Order most appropriate replacement:</strong><br>",
-            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW28AND31}%}]",
+            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW28AND31}%]",
             "SINGLE_SELECT": 1,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -350,13 +350,13 @@
                 "MNEMONIC": "potassium chloride extended release",
                 "ORDER_SENTENCE": "20 mEq, PO, ER tab, q2hr (interval), Duration: 3 dose(s)",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": ""
+                "COMMENT": "Oral"
               },
               {
                 "MNEMONIC": "potassium chloride",
                 "ORDER_SENTENCE": "20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 3 dose(s)",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": ""
+                "COMMENT": "Feeding Tube"
               },
               {
                 "MNEMONIC": "potassium chloride 10 mEq/100 mL intravenous solution",
@@ -374,7 +374,7 @@
           },
           {
             "SECTION_NAME": "<strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 2 - Order corresponding follow-up lab(s):</strong><br>ORAL - Labs:<br><small style=\"font-weight: normal;\">Monitoring: Recheck potassium level 4 hrs after last dose.</small>",
-            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW28AND31}%}]",
+            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW28AND31}%]",
             "SINGLE_SELECT": 0,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -382,13 +382,13 @@
                 "MNEMONIC": "Potassium Level",
                 "ORDER_SENTENCE": "Requested Draw Date and T T;N+600, Blood, Timed Study collect, Once",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": "Collect 10.0 hours after event. [Dynamic: k_level_timed_n600_oral]"
+                "COMMENT": "Recheck potassium level 4 hrs after last dose."
               }
             ]
           },
           {
             "SECTION_NAME": "PERIPHERAL IV - Labs:<br><small style=\"font-weight: normal;\">Monitoring: Recheck potassium level 1 hr after infusion complete.</small>",
-            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW28AND31}%}]",
+            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW28AND31}%]",
             "SINGLE_SELECT": 0,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -396,13 +396,13 @@
                 "MNEMONIC": "Potassium Level",
                 "ORDER_SENTENCE": "Requested Draw Date and T T;N+420, Blood, Timed Study collect, Once",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": "Collect 7.0 hours after event. [Dynamic: k_level_timed_n420]"
+                "COMMENT": "Recheck potassium level 1 hr after infusion complete."
               }
             ]
           },
           {
             "SECTION_NAME": "CENTRAL IV - Labs:<br><small style=\"font-weight: normal;\">Monitoring: Recheck potassium level 1 hr after infusion complete.</small>",
-            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW28AND31}%}]",
+            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW28AND31}%]",
             "SINGLE_SELECT": 0,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -410,13 +410,13 @@
                 "MNEMONIC": "Potassium Level",
                 "ORDER_SENTENCE": "Requested Draw Date and T T;N+240, Blood, Timed Study collect, Once",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": "Collect 4.0 hours after event. [Dynamic: k_level_timed_n240]"
+                "COMMENT": "Recheck potassium level 1 hr after infusion complete."
               }
             ]
           },
           {
-            "SECTION_NAME": "Potassium: < 2.8 mmol/L<br><div style=\"background-color: #fff0f0; border-left: 3px solid #d9534f; color: #a94442; padding: 8px 12px; margin-bottom: 8px; font-weight: bold; font-size: 14px; border-radius: 3px;\">NOTIFY PHYSICIAN<br>CRITICALLY LOW RESULT</div><strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 1 - Order most appropriate replacement:</strong><br><span style=\"font-size: 14px; color: #666; line-height: 1.5;\">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>",
-            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTLT28}%}]",
+            "SECTION_NAME": "Potassium: < 2.8 mmol/L<br><span style=\"color: red; font-weight: bold; font-size: 14px;\">NOTIFY PROVIDER</span><br><strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 1 - Order most appropriate replacement:</strong><br>",
+            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTLT28}%]",
             "SINGLE_SELECT": 1,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -435,8 +435,8 @@
             ]
           },
           {
-            "SECTION_NAME": "<strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style=\"font-weight: normal;\">Monitoring: Add-on mag & phos levels STAT, if not recently obtained.</small>",
-            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTLT28}%}]",
+            "SECTION_NAME": "<strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style=\"font-weight: normal;\">Monitoring: <br>1. Add-on mag & phos levels STAT, if not recently obtained.<br>2. Recheck potassium level 1 hr after infusion complete.<br>3. Repeat BMP, mag and phos levels with next AM labs.<hr>1. Add-on mag & phos levels STAT, if not recently obtained.</small>",
+            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTLT28}%]",
             "SINGLE_SELECT": 0,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -444,19 +444,19 @@
                 "MNEMONIC": "Phosphate Level",
                 "ORDER_SENTENCE": "Requested Draw Date and T T;N, Blood, Routine Today collect, Once, add to specimen in lab",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": "Order an add-on Phosphate Level. Repeat with next AM labs."
+                "COMMENT": "Order an add-on Phosphate Level."
               },
               {
                 "MNEMONIC": "Magnesium Level",
                 "ORDER_SENTENCE": "Requested Draw Date and T T;N, Blood, Routine Today collect, Once, add to specimen in lab",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": "Order an add-on Magnesium Level. Repeat with next AM labs."
+                "COMMENT": "Order an add-on Magnesium Level."
               }
             ]
           },
           {
             "SECTION_NAME": "PERIPHERAL IV - Labs:<br><small style=\"font-weight: normal;\">Monitoring: Recheck potassium level 1 hr after infusion complete.</small>",
-            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTLT28}%}]",
+            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTLT28}%]",
             "SINGLE_SELECT": 0,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -464,13 +464,13 @@
                 "MNEMONIC": "Potassium Level",
                 "ORDER_SENTENCE": "Requested Draw Date and T T;N+540, Blood, Timed Study collect, Once",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": "Collect 9.0 hours after event. [Dynamic: k_level_timed_n540]"
+                "COMMENT": "Recheck potassium level 1 hr after infusion complete."
               }
             ]
           },
           {
             "SECTION_NAME": "CENTRAL IV - Labs:<br><small style=\"font-weight: normal;\">Monitoring: Recheck potassium level 1 hr after infusion complete.</small>",
-            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTLT28}%}]",
+            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTLT28}%]",
             "SINGLE_SELECT": 0,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -478,13 +478,13 @@
                 "MNEMONIC": "Potassium Level",
                 "ORDER_SENTENCE": "Requested Draw Date and T T;N+300, Blood, Timed Study collect, Once",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": "Collect 5.0 hours after event. [Dynamic: k_level_timed_n300]"
+                "COMMENT": "Recheck potassium level 1 hr after infusion complete."
               }
             ]
           },
           {
             "SECTION_NAME": "<small style=\"font-weight: normal;\">Monitoring: Repeat BMP, mag and phos levels with next AM labs.</small>",
-            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTLT28}%}]",
+            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTLT28}%]",
             "SINGLE_SELECT": 0,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -524,19 +524,19 @@
                 "MNEMONIC": "BMP",
                 "ORDER_SENTENCE": "Requested Draw Date and T T;N+240, Blood, Timed Study collect, Once",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": "Collect 4.0 hours after event. [Dynamic: bmp_timed_n240]"
+                "COMMENT": "Collect BMP 4 hours after event"
               },
               {
                 "MNEMONIC": "Magnesium Level",
                 "ORDER_SENTENCE": "Requested Draw Date and T T;N+240, Blood, Timed Study collect, Once",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": "Collect 4.0 hours after event. [Dynamic: mag_level_timed_n240]"
+                "COMMENT": "Collect mag level 4 hours after event"
               },
               {
                 "MNEMONIC": "Phosphate Level",
                 "ORDER_SENTENCE": "Requested Draw Date and T T;N+240, Blood, Timed Study collect, Once",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": "Collect 4.0 hours after event. [Dynamic: phos_level_timed_n240]"
+                "COMMENT": "Collect phos level 4 hours after event"
               }
             ]
           }
@@ -602,7 +602,7 @@
         "ORDER_SECTIONS": [
           {
             "SECTION_NAME": "Phosphorus: 1.6 - 2.0 mg/dL<br><strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 1 - Order most appropriate replacement:</strong><br><span style=\"font-size: 14px; color: #666; line-height: 1.5;\">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>",
-            "CONCEPT_NAME": "[%{EALABPHOSTODO}.COUNT > 0 AND {EALABPHOSBTW16AND20}%}]",
+            "CONCEPT_NAME": "[%{EALABPHOSTODO}.COUNT > 0 AND {EALABPHOSBTW16AND20}%]",
             "SINGLE_SELECT": 1,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -610,19 +610,19 @@
                 "MNEMONIC": "K-Phos Neutral",
                 "ORDER_SENTENCE": "2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": ""
+                "COMMENT": "Oral *"
               },
               {
                 "MNEMONIC": "sodium phosphate",
                 "ORDER_SENTENCE": "15 mmol, IVPB, Inj, Once",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": ""
+                "COMMENT": "Intravenous"
               }
             ]
           },
           {
             "SECTION_NAME": "<strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style=\"font-weight: normal;\">Monitoring: Recheck phosphorous & calcium levels with next AM labs.</small>",
-            "CONCEPT_NAME": "[%{EALABPHOSTODO}.COUNT > 0 AND {EALABPHOSBTW16AND20}%}]",
+            "CONCEPT_NAME": "[%{EALABPHOSTODO}.COUNT > 0 AND {EALABPHOSBTW16AND20}%]",
             "SINGLE_SELECT": 0,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -647,8 +647,8 @@
             ]
           },
           {
-            "SECTION_NAME": "Phosphorus: 1.0 - 1.5 mg/dL<br><span style=\"color: red; font-weight: bold;\">NOTIFY PHYSICIAN if less than 1.1 mg/dL<br>CRITICALLY LOW RESULT</span> <br><strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 1 - Order most appropriate replacement:</strong><br><span style=\"font-size: 14px; color: #666; line-height: 1.5;\">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>",
-            "CONCEPT_NAME": "[%{EALABPHOSTODO}.COUNT > 0 AND {EALABPHOSBTW10AND15}%}]",
+            "SECTION_NAME": "Phosphorus: 1.0 - 1.5 mg/dL<br><span style=\"color: red; font-weight: bold; font-size: 14px;\">NOTIFY PROVIDER if less than 1.1 mg/dL</span><br><strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 1 - Order most appropriate replacement:</strong><br><span style=\"font-size: 14px; color: #666; line-height: 1.5;\">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>",
+            "CONCEPT_NAME": "[%{EALABPHOSTODO}.COUNT > 0 AND {EALABPHOSBTW10AND15}%]",
             "SINGLE_SELECT": 1,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -656,19 +656,19 @@
                 "MNEMONIC": "K-Phos Neutral",
                 "ORDER_SENTENCE": "2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": ""
+                "COMMENT": "Oral *"
               },
               {
                 "MNEMONIC": "sodium phosphate",
                 "ORDER_SENTENCE": "15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": ""
+                "COMMENT": "Intravenous"
               }
             ]
           },
           {
             "SECTION_NAME": "<strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 2 - Order corresponding follow-up lab(s):</strong><br>ORAL - Labs:<br><small style=\"font-weight: normal;\">Monitoring: Recheck phosphorous & calcium levels with next AM labs.</small>",
-            "CONCEPT_NAME": "[%{EALABPHOSTODO}.COUNT > 0 AND {EALABPHOSBTW10AND15}%}]",
+            "CONCEPT_NAME": "[%{EALABPHOSTODO}.COUNT > 0 AND {EALABPHOSBTW10AND15}%]",
             "SINGLE_SELECT": 0,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -694,7 +694,7 @@
           },
           {
             "SECTION_NAME": "IV - Labs:<br><small style=\"font-weight: normal;\">Monitoring: Recheck phosphorous & calcium levels 2 hrs after infusion.</small>",
-            "CONCEPT_NAME": "[%{EALABPHOSTODO}.COUNT > 0 AND {EALABPHOSBTW10AND15}%}]",
+            "CONCEPT_NAME": "[%{EALABPHOSTODO}.COUNT > 0 AND {EALABPHOSBTW10AND15}%]",
             "SINGLE_SELECT": 0,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -702,25 +702,25 @@
                 "MNEMONIC": "Phosphate Level",
                 "ORDER_SENTENCE": "Requested Draw Date and T T;N+600, Blood, Timed Study collect, Once",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": "Collect 10.0 hours after event. [Dynamic: phos_level_timed_n600]"
+                "COMMENT": "Recheck phosphorous level 2 hrs after infusion."
               },
               {
                 "MNEMONIC": "Calcium Level Ionized, Serum",
                 "ORDER_SENTENCE": "Requested Draw Date and T T;N+600, Blood, Timed Study collect, Once",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": "Collect 10.0 hours after event. [Dynamic: calcium_ion_serum_timed_n600]"
+                "COMMENT": "Recheck calcium level 2 hrs after infusion."
               },
               {
                 "MNEMONIC": "Calcium Level Ionized, Whole Blood",
                 "ORDER_SENTENCE": "Requested Draw Date and T T;N+600, Blood, Timed Study collect, Once",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": "Collect 10.0 hours after event. [Dynamic: calcium_ion_wb_timed_n600]"
+                "COMMENT": "Recheck calcium level 2 hrs after infusion."
               }
             ]
           },
           {
-            "SECTION_NAME": "Phosphorus: < 1.0 mg/dL<br><span style=\"color: red; font-weight: bold;\">NOTIFY PHYSICIAN if less than 1.1 mg/dL<br>CRITICALLY LOW RESULT</span> <br><strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 1 - Order most appropriate replacement:</strong><br><span style=\"font-size: 14px; color: #666; line-height: 1.5;\">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>",
-            "CONCEPT_NAME": "[%{EALABPHOSTODO}.COUNT > 0 AND {EALABPHOSLT10}%}]",
+            "SECTION_NAME": "Phosphorus: < 1.0 mg/dL<br><span style=\"color: red; font-weight: bold; font-size: 14px;\">NOTIFY PROVIDER if less than 1.1 mg/dL</span><br><strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 1 - Order most appropriate replacement:</strong><br>",
+            "CONCEPT_NAME": "[%{EALABPHOSTODO}.COUNT > 0 AND {EALABPHOSLT10}%]",
             "SINGLE_SELECT": 1,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -728,13 +728,13 @@
                 "MNEMONIC": "sodium phosphate",
                 "ORDER_SENTENCE": "15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": ""
+                "COMMENT": "Intravenous"
               }
             ]
           },
           {
             "SECTION_NAME": "<strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style=\"font-weight: normal;\">Monitoring: Recheck phosphorous & calcium levels 2 hrs after infusion.</small>",
-            "CONCEPT_NAME": "[%{EALABPHOSTODO}.COUNT > 0 AND {EALABPHOSLT10}%}]",
+            "CONCEPT_NAME": "[%{EALABPHOSTODO}.COUNT > 0 AND {EALABPHOSLT10}%]",
             "SINGLE_SELECT": 0,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -742,19 +742,19 @@
                 "MNEMONIC": "Phosphate Level",
                 "ORDER_SENTENCE": "Requested Draw Date and T T;N+600, Blood, Timed Study collect, Once",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": "Collect 10.0 hours after event. [Dynamic: phos_level_timed_n600]"
+                "COMMENT": "Recheck phosphorous level 2 hrs after infusion."
               },
               {
                 "MNEMONIC": "Calcium Level Ionized, Serum",
                 "ORDER_SENTENCE": "Requested Draw Date and T T;N+600, Blood, Timed Study collect, Once",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": "Collect 10.0 hours after event. [Dynamic: calcium_ion_serum_timed_n600]"
+                "COMMENT": "Recheck calcium level 2 hrs after infusion."
               },
               {
                 "MNEMONIC": "Calcium Level Ionized, Whole Blood",
                 "ORDER_SENTENCE": "Requested Draw Date and T T;N+600, Blood, Timed Study collect, Once",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": "Collect 10.0 hours after event. [Dynamic: calcium_ion_wb_timed_n600]"
+                "COMMENT": "Recheck calcium level 2 hrs after infusion."
               }
             ]
           },
@@ -804,19 +804,19 @@
                 "MNEMONIC": "Phosphate Level",
                 "ORDER_SENTENCE": "Requested Draw Date and T T;N+120, Blood, Timed Study collect, Once",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": "Collect 2.0 hours after event. [Dynamic: phos_level_timed_n120]"
+                "COMMENT": "Collect phos level 2 hours after event"
               },
               {
                 "MNEMONIC": "Calcium Level Ionized, Serum",
                 "ORDER_SENTENCE": "Requested Draw Date and T T;N+120, Blood, Timed Study collect, Once",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": "Collect 2.0 hours after event. [Dynamic: calcium_ion_serum_timed_n120]"
+                "COMMENT": "Collect calcium level 2 hours after event"
               },
               {
                 "MNEMONIC": "Calcium Level Ionized, Whole Blood",
                 "ORDER_SENTENCE": "Requested Draw Date and T T;N+120, Blood, Timed Study collect, Once",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": "Collect 2.0 hours after event. [Dynamic: calcium_ion_wb_timed_n120]"
+                "COMMENT": "Collect calcium level 2 hours after event"
               }
             ]
           }
@@ -882,7 +882,7 @@
         "ORDER_SECTIONS": [
           {
             "SECTION_NAME": "Ionized Calcium: < 1.1 mg/dL<br><strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 1 - Order most appropriate replacement:</strong><br>",
-            "CONCEPT_NAME": "[%{EALABCALCIUMTODO}.COUNT > 0 AND {EALABCALCIUMLT11}%}]",
+            "CONCEPT_NAME": "[%{EALABCALCIUMTODO}.COUNT > 0 AND {EALABCALCIUMLT11}%]",
             "SINGLE_SELECT": 1,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -890,13 +890,13 @@
                 "MNEMONIC": "calcium chloride",
                 "ORDER_SENTENCE": "1 g, IVPB, Inj, Once, Infuse over: 1 hr",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": ""
+                "COMMENT": "Intravenous"
               }
             ]
           },
           {
             "SECTION_NAME": "<strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 2 - Order corresponding follow-up lab(s):</strong><br>IV - Labs:<br><small style=\"font-weight: normal;\">Monitoring: Recheck Ionized Calcium with next AM labs.</small>",
-            "CONCEPT_NAME": "[%{EALABCALCIUMTODO}.COUNT > 0 AND {EALABCALCIUMLT11}%}]",
+            "CONCEPT_NAME": "[%{EALABCALCIUMTODO}.COUNT > 0 AND {EALABCALCIUMLT11}%]",
             "SINGLE_SELECT": 0,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [

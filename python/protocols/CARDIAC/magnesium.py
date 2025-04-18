@@ -52,7 +52,8 @@ _section_groups: List[SectionGroup] = [
                 'conceptName': H.create_between_concept(_electrolyte, 1.4, 1.7),
                 'sectionDescription': 'Monitoring: Recheck magnesium level 4 hrs after infusion complete.',
                 'orders': [
-                    Labs.get_timed_lab('mag_level', 360),
+                    {'type': 'timed_lab', 'base_name': 'mag_level', 'minutes': 360, 
+                     'comment_base': 'Recheck magnesium level 4 hrs after infusion complete.'},
                 ]
             }
         ]
@@ -62,7 +63,7 @@ _section_groups: List[SectionGroup] = [
         'rangeInfo': {'type': 'lessThan', 'electrolyte': _electrolyte, 'level': 1.4, 'unit': _unit},
         'recommendOral': False,
         'replacementSection': {
-            'criticalAlertText': Text.create_critically_low_notify_physician_text(1.2, 'mg/dL'),
+            'criticalAlertText': Text.create_notify_provider_text(1.2, 'mg/dL'),
             'sectionName': '',
             'conceptName': H.create_less_than_concept(_electrolyte, 1.4),
             'singleSelect': 1,
@@ -77,7 +78,8 @@ _section_groups: List[SectionGroup] = [
                 'conceptName': H.create_less_than_concept(_electrolyte, 1.4),      'associatedRouteType': 'IV',
                 'sectionDescription': 'Monitoring: Recheck magnesium level 4 hrs after infusion complete.',
                 'orders': [
-                    Labs.get_timed_lab('mag_level', 480),
+                    {'type': 'timed_lab', 'base_name': 'mag_level', 'minutes': 480, 
+                     'comment_base': 'Recheck magnesium level 4 hrs after infusion complete.'},
                 ]
             }
         ]
@@ -93,7 +95,8 @@ _initial_labs: List[InitialLabConfig] = [
             Labs.mag_level_asap,
             Labs.mag_level_tomorrow_am,
             Labs.bmp_tomorrow_am,
-            Labs.get_timed_lab('mag_level', 240),
+            {'type': 'timed_lab', 'base_name': 'mag_level', 'minutes': 240, 
+             'comment_base': 'Collect mag level 4 hours after event'},
         ]
     }
 ]
