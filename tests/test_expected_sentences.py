@@ -3,122 +3,106 @@ import json
 import os
 import glob
 import re
-from functools import cache # lru_cache not needed now
+import csv # Import csv module
+from functools import cache
 from pathlib import Path
-from thefuzz import process, fuzz
+from thefuzz import process, fuzz # Keep for potential future fuzzy matching?
 from collections import defaultdict
-from typing import Dict, Set
+from typing import Dict, Set, Tuple
 
-# --- Define paths relative to this test file --- 
-# Project root is one level up from the tests directory
+# --- Define paths relative to this test file ---
 PROJECT_ROOT = Path(__file__).parent.parent
 GENERATED_CONFIG_DIR = PROJECT_ROOT / 'generated_configs'
 EXPECTED_SENTENCES_DIR = PROJECT_ROOT / 'expected_sentences'
-EXPECTED_EXTRACT_FILE = EXPECTED_SENTENCES_DIR / 'extract.csv'
-
-# Removed imports from build.py
-# try:
-#     from build import GENERATED_CONFIG_DIR 
-# except ImportError:
-#    ...
+EXPECTED_EXTRACT_FILE = EXPECTED_SENTENCES_DIR / 'extract.csv' # Path to the single CSV
 
 # --- Constants ---
-# EXPECTED_SENTENCES_DIR defined above
-# EXPECTED_EXTRACT_FILE defined above
-FUZZY_MATCH_THRESHOLD = 85
+# FUZZY_MATCH_THRESHOLD = 85 # Keep commented out, using exact match
 
 # --- Helper to get file list for parametrization ---
 def get_generated_config_paths():
     """Returns a list of paths to generated JSON config files for parametrization."""
-    # Ensure the directory constant is valid
-    if not GENERATED_CONFIG_DIR.is_dir(): # Use Path object check
+    if not GENERATED_CONFIG_DIR.is_dir():
         pytest.fail(f"GENERATED_CONFIG_DIR is not defined or not a directory: {GENERATED_CONFIG_DIR}")
-    json_files = glob.glob(str(GENERATED_CONFIG_DIR / '*.json')) # Use Path object for glob
+    json_files = glob.glob(str(GENERATED_CONFIG_DIR / '*.json'))
     if not json_files:
         pytest.fail(f"No generated JSON config files found in {GENERATED_CONFIG_DIR}")
     return json_files
 
-# --- Fixtures ---
-# (No fixtures needed here anymore)
+# --- Fixtures --- (None needed)
 
 # --- Helper Functions ---
 
-def sanitize_filename(mnemonic: str) -> str:
-    """Replaces characters invalid in filenames (like /, ,)."""
-    # Add other replacements if needed (e.g., :, ?, etc.)
-    sanitized = mnemonic.replace('/', '#')
-    sanitized = sanitized.replace(',', '') # Remove commas
-    return sanitized
+# Removed sanitize_filename as it's no longer needed
 
-@cache # Cache results for performance
-def load_expected_sentences(mnemonic: str, electrolyte: str | None = None) -> set[str]:
-    """Loads expected sentences from the corresponding CSV file in expected_sentences/.
-    
-    Determines path based on mnemonic (meds vs labs).
-    Returns a set of non-empty sentences.
+@cache
+def load_all_expected_from_csv() -> Dict[str, Set[str]]:
+    """Loads all expected sentences from extract.csv into a dictionary.
+
+    Reads the CSV file and groups sentences by MNEMONIC.
+    Returns a dictionary mapping mnemonic strings to sets of sentence strings.
+    Caches the result for performance.
     """
-    # Ensure EXPECTED_SENTENCES_DIR is treated as a Path object
-    expected_dir_path = Path(EXPECTED_SENTENCES_DIR) 
-    
-    expected_sentences = set()
-    # Basic check for lab names
-    is_lab = "level" in mnemonic.lower() or mnemonic.lower() == "bmp"
-    
-    # Sanitize the mnemonic for use in filename
-    sanitized_mnemonic = sanitize_filename(mnemonic)
-    
-    expected_file_path = None # Initialize path variable
-    
-    if is_lab:
-        # Use joinpath for robustness - This is the ONLY path for labs
-        expected_file_path = expected_dir_path.joinpath('labs', f"{sanitized_mnemonic}.csv")
-    elif electrolyte: # Only proceed for non-labs if electrolyte (tab key) is provided
-        electrolyte_dir = electrolyte.lower()
-        # Use joinpath for robustness
-        expected_file_path = expected_dir_path.joinpath('meds', electrolyte_dir, f"{sanitized_mnemonic}.csv")
-    # else: # If not a lab and no electrolyte provided, expected_file_path remains None
+    expected_data: Dict[str, Set[str]] = defaultdict(set)
+    if not EXPECTED_EXTRACT_FILE.is_file():
+        pytest.fail(f"Expected sentences file not found: {EXPECTED_EXTRACT_FILE}")
 
-    # Check the determined path
-    if expected_file_path and os.path.isfile(str(expected_file_path)):
-        try:
-            with open(expected_file_path, 'r', encoding='utf-8') as f:
-                for line in f:
-                    sentence = line.strip()
-                    if sentence:
-                        expected_sentences.add(sentence)
-        except Exception as e:
-            print(f"Warning: Failed to read expected sentences from {expected_file_path}: {e}")
-    elif expected_file_path: # Path was constructed but file not found
-        # Print the path we tried to find
-        print(f"DEBUG (test_expected_sentences): Expected file path check failed (os.path.isfile) for: {expected_file_path}") 
-        pass 
-    # else: # Path wasn't constructed (e.g., non-lab mnemonic with no electrolyte) - implicitly return empty set
+    try:
+        with open(EXPECTED_EXTRACT_FILE, 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f, delimiter='\\t') # Use DictReader assuming header row, specify tab delimiter
+            # Verify expected column names (adjust if different)
+            if reader.fieldnames is None: # Check if fieldnames were read
+                 pytest.fail(f"Could not read headers from CSV {EXPECTED_EXTRACT_FILE}")
+                 
+            required_columns = ['MNEMONIC', 'ORDER_SENTENCE_DISPLAY_LINE']
+            if not all(col in reader.fieldnames for col in required_columns):
+                missing = [col for col in required_columns if col not in reader.fieldnames]
+                pytest.fail(
+                    f"CSV {EXPECTED_EXTRACT_FILE.name} missing required columns: {missing}"
+                )
 
-    return expected_sentences
+            for row in reader:
+                mnemonic = row.get('MNEMONIC')
+                sentence = row.get('ORDER_SENTENCE_DISPLAY_LINE')
+                # Add non-empty sentences to the set for the mnemonic
+                if mnemonic and sentence:
+                    expected_data[mnemonic].add(sentence.strip())
+    except Exception as e:
+        pytest.fail(f"Failed to read or parse {EXPECTED_EXTRACT_FILE}: {e}")
+
+    if not expected_data:
+        pytest.fail(f"No data loaded from {EXPECTED_EXTRACT_FILE}")
+
+    return dict(expected_data) # Return a regular dict from defaultdict
+
+# Simple wrapper to get sentences for a specific mnemonic from the cached dict
+def get_expected_sentences_for_mnemonic(mnemonic: str) -> Set[str]:
+    """Retrieves the set of expected sentences for a given mnemonic from the cached CSV data."""
+    all_expected = load_all_expected_from_csv()
+    return all_expected.get(mnemonic, set()) # Return empty set if mnemonic not found
+
 
 def get_protocol_from_filename(filepath):
     """Extracts the protocol name (e.g., Regular, Cardiac) from filename."""
     filename = os.path.basename(filepath)
-    # Example: output_regular.json -> Regular
     if filename.startswith('output_') and filename.endswith('.json'):
         protocol_part = filename[len('output_'):-len('.json')]
-        # Simple capitalization, might need adjustment if names differ
-        return protocol_part.capitalize() 
-    return None # Or raise error if format is unexpected
+        return protocol_part.capitalize()
+    return None
 
-# --- Test Function ---
+# --- Test Function --- (Will modify this next)
 
 @pytest.mark.parametrize("config_file_path", get_generated_config_paths())
 def test_expected_sentences_match_generated(config_file_path):
     """
     Verifies that order sentences in the generated JSON match EXACTLY those defined
-    in the individual files within expected_sentences/.
+    in the expected_sentences/extract.csv file.
     """
-    # --- Clear cache before each test run ---
-    load_expected_sentences.cache_clear()
+    # --- Clear cache (optional, but good practice if data might change between runs) ---
+    load_all_expected_from_csv.cache_clear()
     # --- End Clear Cache ---
-    
-    # Load JSON inside the test now
+
+    # Load JSON inside the test
     try:
         with open(config_file_path, 'r', encoding='utf-8') as f:
             loaded_json_config = json.load(f)
@@ -129,14 +113,13 @@ def test_expected_sentences_match_generated(config_file_path):
     assert protocol, f"Could not determine protocol from filename: {config_file_path}"
 
     errors = []
-    processed_json_orders = set() 
-    # No longer need unmatched_domain_sentences tracking based on extract.csv
+    processed_json_orders = set()
 
-    # Iterate through the generated JSON structure first
+    # Iterate through the generated JSON structure
     try:
         tabs = loaded_json_config.get('RCONFIG', {}).get('TABS', [])
         for tab in tabs:
-            tab_key = tab.get('TAB_KEY')
+            tab_key = tab.get('TAB_KEY') # Still useful for context in errors
             if not tab_key:
                 continue
 
@@ -149,52 +132,52 @@ def test_expected_sentences_match_generated(config_file_path):
                     json_order_id = f"{tab_key}-S{section_index}-O{order_index}-{json_mnemonic}"
 
                     if not json_mnemonic or not json_sentence:
-                        continue 
+                        continue
                     if json_order_id in processed_json_orders:
                         continue
 
-                    # --- Debug: Print mnemonic being loaded ---
-                    print(f"DEBUG: Loading expected for Mnemonic='{json_mnemonic}', Tab='{tab_key}'")
+                    # --- Debug: Print mnemonic being checked ---
+                    # print(f"DEBUG: Checking Mnemonic='{json_mnemonic}', Tab='{tab_key}'")
                     # --- End Debug ---
 
-                    # Load expected sentences from individual file for this mnemonic
-                    expected_sentences = load_expected_sentences(json_mnemonic, tab_key)
+                    # Get expected sentences for this mnemonic from the single CSV
+                    expected_sentences = get_expected_sentences_for_mnemonic(json_mnemonic)
 
                     if not expected_sentences:
-                        # Mnemonic in JSON does not have a corresponding expected file or file is empty!
+                        # Mnemonic in JSON does not exist in extract.csv or has no sentences!
                         errors.append(
-                            f"  - Unexpected/Missing File: Mnemonic '{json_mnemonic}' in Tab '{tab_key}'\n"
-                            f"    JSON Sentence: {repr(json_sentence)}\n"
-                            f"    (No corresponding file found or file empty in expected_sentences/)"
+                            f"  - Unexpected/Missing Entry: Mnemonic '{json_mnemonic}' in Tab '{tab_key}'\
+                             not found or has no sentences in {EXPECTED_EXTRACT_FILE.name}\n"
+                            f"    JSON Sentence: {repr(json_sentence)}"
                         )
                         processed_json_orders.add(json_order_id)
                         continue
 
-                    # --- Exact Comparison Logic ---
+                    # --- Exact Comparison Logic --- (Remains the same)
                     if json_sentence in expected_sentences:
                         # Exact match found - good!
                         processed_json_orders.add(json_order_id)
                     else:
                         # Exact match NOT found - this is an error
                         # Format expected sentences for error message
-                        expected_list_str = "\n      Expected Sentences in File:\n"
-                        preview_count = 3
+                        expected_list_str = f"\n      Expected Sentences for Mnemonic '{json_mnemonic}' in {EXPECTED_EXTRACT_FILE.name}:\n"
+                        preview_count = 5 # Show a few more maybe
                         expected_list_str += "\n".join([f"        - {repr(s)}" for s in list(expected_sentences)[:preview_count]])
                         if len(expected_sentences) > preview_count:
                             expected_list_str += f"\n        - ... ({len(expected_sentences) - preview_count} more)"
-                            
+
                         errors.append(
-                            f"  - Sentence Mismatch: Mnemonic '{json_mnemonic}' in Tab '{tab_key}'\n" 
-                            f"    JSON    : {repr(json_sentence)}\n" 
-                            f"    Expected: Not found exactly in its expected file.{expected_list_str}"
+                            f"  - Sentence Mismatch: Mnemonic '{json_mnemonic}' in Tab '{tab_key}'\n"
+                            f"    JSON    : {repr(json_sentence)}\n"
+                            f"    Expected: Not found exactly in the set of sentences for this mnemonic.{expected_list_str}"
                         )
                         processed_json_orders.add(json_order_id)
-                            
+
     except Exception as e:
         pytest.fail(f"Error processing JSON structure in {config_file_path}: {e}")
 
-    # --- Final Assertion --- 
+    # --- Final Assertion --- (Remains the same, message updated slightly)
     if errors:
-        final_error_message = f"\nFound Discrepancies (JSON vs Expected Files) in {os.path.basename(config_file_path)}:\n"
+        final_error_message = f"\nFound Discrepancies (JSON vs {EXPECTED_EXTRACT_FILE.name}) in {os.path.basename(config_file_path)}:\n"
         final_error_message += "\n".join(errors)
         assert not final_error_message, final_error_message 

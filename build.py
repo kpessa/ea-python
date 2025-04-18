@@ -20,7 +20,8 @@ DCW_ORDER_SENTENCES_FILE = os.path.join(SCRIPT_DIR, 'dcw_order_sentences', 'dcw.
 
 # Use absolute imports assuming 'python' is a package relative to project root
 from python.types import GenerationContext, Protocol
-from python.helpers import get_generation_context
+# from python.helpers import get_generation_context # OLD IMPORT
+from python.env import get_generation_context    # NEW IMPORT
 from python.config import generate_config
 
 def main():
@@ -74,19 +75,23 @@ def main():
     # --- Run Automated Tests ---
     # print("\\\\nRunning automated configuration tests...") # Quieten
     try:
-        # Assuming test_configs.py is in the same directory as build.py (project root)
-        # test_script_path = os.path.join(os.path.dirname(__file__), 'test_configs.py') # Old way
-        
-        # Ensure pytest is installed (optional but good practice)
-        # You might run `pip install -r requirements.txt` separately before the build
-        
-        # Run pytest using the same Python executable that ran build.py
-        # pytest will automatically discover tests in files named test_*.py or *_test.py
-        # The -v flag increases verbosity for clearer output
-        # The -r w flag adds warnings to the short test summary info
-        # The -W always flag attempts to show all warnings
-        pytest_command = [sys.executable, '-m', 'pytest', '-v', '-r', 'w', '-W', 'always']
-        
+        # Define directories for pytest to scan
+        test_dirs = ["tests/", "python/"]  # Scan tests/ and python/ (for doctests)
+
+        # Construct the pytest command
+        pytest_command = [
+            ".venv/bin/python",
+            "-m",
+            "pytest",
+            "-v",                   # Verbose output
+            "--doctest-modules",    # Run doctests in modules
+            "--color=yes",          # Force color output
+            "--code-highlight=yes", # Enable code highlighting
+            "--showlocals",         # Show local variables in tracebacks
+            # "--lf",               # Run only last failed tests (useful for iteration)
+            *test_dirs
+        ]
+
         # Open the output file
         output_py_path = os.path.join(SCRIPT_DIR, 'output.py')
         with open(output_py_path, 'w', encoding='utf-8') as outfile:

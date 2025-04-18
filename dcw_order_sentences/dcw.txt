@@ -1,130 +1,129 @@
 Regular
 
-Magnesium					
-Mnemonic	Order_Sentence	Sequence	OS_Comment	Lab Value Range	Instructions/Note
-magnesium oxide	400 mg, PO, Tab, q12hr (interval), Duration: 2 dose(s)			Current serum level 1.4-1.5	"
+Magnesium			
+Mnemonic	Order_Sentence	Lab Value Range	Instructions/Note
+magnesium oxide	400 mg, PO, Tab, q12hr (interval), Duration: 2 dose(s)	Current serum level 1.4-1.5	"
 Recheck BMP and magnesium level with next AM labs."
-magnesium sulfate	2 g, IVPB, Premix, Once, Infuse over: 2 hr			Current serum level 1.4-1.5	"
+magnesium sulfate	2 g, IVPB, Premix, Once, Infuse over: 2 hr	Current serum level 1.4-1.5	"
 Recheck BMP and magnesium level with next AM labs."
-magnesium sulfate	2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr			Current serum level < 1.4	Recheck magnesium level 4 hrs after infusion complete.
-					
-					
-					
-Potassium					
-Mnemonic	Order_Sentence	Sequence	OS_Comment	Lab Value Range	Instructions/Note
-potassium chloride extended release	20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)			Current serum level 3.2-3.4	Recheck BMP with next AM labs.
-potassium chloride	20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 2 dose(s)			Current serum level 3.2-3.4	Recheck BMP with next AM labs.
-potassium chloride 10 mEq/100 mL intravenous solution	10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr			Current serum level 3.2-3.4	"Peripheral line. 
+magnesium sulfate	2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr	Current serum level < 1.4	Recheck magnesium level 4 hrs after infusion complete.
+			
+			
+			
+Potassium			
+Mnemonic	Order_Sentence	Lab Value Range	Instructions/Note
+potassium chloride extended release	20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)	Current serum level 3.2-3.4	Recheck BMP with next AM labs.
+potassium chloride	20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 2 dose(s)	Current serum level 3.2-3.4	Recheck BMP with next AM labs.
+potassium chloride 10 mEq/100 mL intravenous solution	10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr	Current serum level 3.2-3.4	"Peripheral line. 
 Recheck BMP with next AM labs."
-potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q2hr, Duration: 2 dose(s), Infuse over: 2 hr			Current serum level 3.2-3.4	"Central line preferred.
+potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr	Current serum level 3.2-3.4	"Central line preferred.
 Recheck BMP with next AM labs."
-potassium chloride extended release	20 mEq, PO, ER tab, q2hr (interval), Duration: 3 dose(s)			Current serum level 2.8-3.1	Recheck potassium level 4 hours after last dose.
-potassium chloride	20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 3 dose(s)			Current serum level 2.8-3.1	Recheck potassium level 4 hours after last dose.
-potassium chloride 10 mEq/100 mL intravenous solution	10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr			Current serum level 2.8-3.1	"Peripheral line.
+potassium chloride extended release	20 mEq, PO, ER tab, q2hr (interval), Duration: 3 dose(s)	Current serum level 2.8-3.1	Recheck potassium level 4 hours after last dose.
+potassium chloride	20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 3 dose(s)	Current serum level 2.8-3.1	Recheck potassium level 4 hours after last dose.
+potassium chloride 10 mEq/100 mL intravenous solution	10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr	Current serum level 2.8-3.1	"Peripheral line.
 Recheck potassium level 1 hr after infusion complete."
-potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q2hr, Duration: 3 dose(s), Infuse over: 2 hr			Current serum level 2.8-3.1	"Central line preferred.
+potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q2hr (interval), Duration: 3 dose(s), Infuse over: 2 hr	Current serum level 2.8-3.1	"Central line preferred.
 Recheck potassium level 1 hr after infusion."
-potassium chloride 10 mEq/100 mL intravenous solution	10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr 			Current serum level < 2.8	"Peripheral line.
+potassium chloride 10 mEq/100 mL intravenous solution	10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr 	Current serum level < 2.8	"Peripheral line.
+asdfasfda"
+potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q2hr (interval), Duration: 4 dose(s), Infuse over: 2 hr	Current serum level < 2.8	"Central line preferred
 Add-on mag + phos levels STAT, if not recently obtained.
 Recheck potassium level 1 hr after infusion complete. Repeat BMP, mag and phos levels with next AM labs."
-potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q2hr, Duration: 4 dose(s), Infuse over: 2 hr			Current serum level < 2.8	"Central line preferred
-Add-on mag + phos levels STAT, if not recently obtained.
-Recheck potassium level 1 hr after infusion complete. Repeat BMP, mag and phos levels with next AM labs."
-					
-Phosphorus					
-Mnemonic	Order_Sentence	Sequence	OS_Comment	Lab Value Range	Instructions/Note
-K-Phos Neutral (brand name synonym under primary potassium phosphate-sodium phosphate)	2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)			Current serum level 1.6-2.0	Recheck phosphorous  & calcium levels with next AM labs
-sodium phosphate	15 mmol, IVPB, Inj, Once			Current serum level 1.6-2.0	Recheck phosphorous  & calcium levels with next AM labs
-K-Phos Neutral	2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)			Current serum level 1.0-1.5	Recheck phosphorous  & calcium levels with next AM labs
-sodium phosphate	15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)			Current serum level 1.0-1.5	Recheck phosphorous & calcium levels 2 hrs after infusion
-sodium phosphate	15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)			Current serum level <1.0	Recheck phosphorous & calcium levels 2 hrs after infusion
-					
-					
-					
-Cardiac					
-					
-Magnesium					
-Mnemonic	Order_Sentence	Sequence	OS_Comment	Lab Value Range	Instructions/Note
-magnesium sulfate	1 g, IVPB, Premix, Once, Infuse over: 1 hr			Current serum level 1.8-2	Recheck magnesium level with next AM labs
-magnesium sulfate	2 g, IVPB, Premix, Once, Infuse over: 2 hr			Current serum level 1.4-1.7	Recheck magnesium level 4 hrs after infusion complete
-magnesium sulfate	2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr			Current serum level < 1.4	Recheck magnesium level 4 hrs after infusion complete
-					
-Potassium					
-Mnemonic	Order_Sentence	Sequence	OS_Comment	Lab Value Range	Instructions/Note
-potassium chloride extended release	20 mEq, PO, ER tab, Once			Current serum level 3.6-3.9	Recheck BMP with next AM labs.
-potassium chloride	20 mEq, Feeding Tube, Liq, Once			Current serum level 3.6-3.9	Recheck BMP with next AM labs.
-potassium chloride 10 mEq/100 mL intravenous solution	10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr			Current serum level 3.6-3.9	"Peripheral line. 
+			
+Phosphorus			
+Mnemonic	Order_Sentence	Lab Value Range	Instructions/Note
+K-Phos Neutral (brand name synonym under primary potassium phosphate-sodium phosphate)	2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)	Current serum level 1.6-2.0	Recheck phosphorous  & calcium levels with next AM labs
+sodium phosphate	15 mmol, IVPB, Inj, Once	Current serum level 1.6-2.0	Recheck phosphorous  & calcium levels with next AM labs
+K-Phos Neutral	2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)	Current serum level 1.0-1.5	Recheck phosphorous  & calcium levels with next AM labs
+sodium phosphate	15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)	Current serum level 1.0-1.5	Recheck phosphorous & calcium levels 2 hrs after infusion
+sodium phosphate	15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)	Current serum level <1.0	Recheck phosphorous & calcium levels 2 hrs after infusion
+			
+			
+			
+Cardiac			
+			
+Magnesium			
+Mnemonic	Order_Sentence	Lab Value Range	Instructions/Note
+magnesium sulfate	1 g, IVPB, Premix, Once, Infuse over: 1 hr	Current serum level 1.8-2	Recheck magnesium level with next AM labs
+magnesium sulfate	2 g, IVPB, Premix, Once, Infuse over: 2 hr	Current serum level 1.4-1.7	Recheck magnesium level 4 hrs after infusion complete
+magnesium sulfate	2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr	Current serum level < 1.4	Recheck magnesium level 4 hrs after infusion complete
+			
+Potassium			
+Mnemonic	Order_Sentence	Lab Value Range	Instructions/Note
+potassium chloride extended release	20 mEq, PO, ER tab, Once	Current serum level 3.6-3.9	Recheck BMP with next AM labs.
+potassium chloride	20 mEq, Feeding Tube, Liq, Once	Current serum level 3.6-3.9	Recheck BMP with next AM labs.
+potassium chloride 10 mEq/100 mL intravenous solution	10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr	Current serum level 3.6-3.9	"Peripheral line. 
 Recheck BMP with next AM labs."
-potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, Once, Infuse over: 1 hr			Current serum level 3.6-3.9	"Critical Care only. Central line preferred.
+potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, Once, Infuse over: 1 hr	Current serum level 3.6-3.9	"Critical Care only. Central line preferred.
 Recheck BMP with next AM labs."
-potassium chloride extended release	20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)			Current serum level 3.2-3.5	Recheck potassium level 4 hours after last dose.
-potassium chloride	20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 2 dose(s)			Current serum level 3.2-3.5	Recheck potassium level 4 hours after last dose.
-potassium chloride 10 mEq/100 mL intravenous solution	10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr			Current serum level 3.2-3.5	"Peripheral line. 
+potassium chloride extended release	20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)	Current serum level 3.2-3.5	Recheck potassium level 4 hours after last dose.
+potassium chloride	20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 2 dose(s)	Current serum level 3.2-3.5	Recheck potassium level 4 hours after last dose.
+potassium chloride 10 mEq/100 mL intravenous solution	10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr	Current serum level 3.2-3.5	"Peripheral line. 
 Recheck potassium level 1 hr after infusion complete."
-potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr			Current serum level 3.2-3.5	"Critical Care only. Central line preferred.
+potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr	Current serum level 3.2-3.5	"Critical Care only. Central line preferred.
 Recheck potassium level 1 hr after infusion complete."
-potassium chloride extended release	20 mEq, PO, ER tab, q2hr (interval), Duration: 3 dose(s)			Current serum level 2.8-3.1	Recheck potassium level 4 hours after last dose.
-potassium chloride	20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 3 dose(s)			Current serum level 2.8-3.1	Recheck potassium level 4 hours after last dose.
-potassium chloride 10 mEq/100 mL intravenous solution	10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr			Current serum level 2.8-3.1	"Peripheral line.
+potassium chloride extended release	20 mEq, PO, ER tab, q2hr (interval), Duration: 3 dose(s)	Current serum level 2.8-3.1	Recheck potassium level 4 hours after last dose.
+potassium chloride	20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 3 dose(s)	Current serum level 2.8-3.1	Recheck potassium level 4 hours after last dose.
+potassium chloride 10 mEq/100 mL intravenous solution	10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr	Current serum level 2.8-3.1	"Peripheral line.
 Recheck potassium level 1 hr after infusion complete."
-potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr			Current serum level 2.8-3.1	"Critical Care only. Central line preferred.
+potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr	Current serum level 2.8-3.1	"Critical Care only. Central line preferred.
 Recheck potassium level 1 hr after infusion complete."
-potassium chloride 10 mEq/100 mL intravenous solution	10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr 			Current serum level < 2.8	"Peripheral line.
+potassium chloride 10 mEq/100 mL intravenous solution	10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr 	Current serum level < 2.8	"Peripheral line.
 Add-on mag + phos levels STAT, if not recently obtained.
 Recheck potassium level 1 hr after infusion complete. Repeat BMP, mag and phos levels with next AM labs."
-potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr 			Current serum level < 2.8	"Critical Care only. Central line preferred.
+potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr 	Current serum level < 2.8	"Critical Care only. Central line preferred.
 Add-on mag + phos levels STAT, if not recently obtained.
 Recheck potassium level 1 hr after infusion complete. Repeat BMP, mag and phos levels with next AM labs."
-					
-					
-Phosphorus					
-Mnemonic	Order_Sentence	Sequence	OS_Comment	Lab Value Range	Instructions/Note
-K-Phos Neutral (brand name synonym under primary potassium phosphate-sodium phosphate)	2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)			Current serum level 1.6-2.0	Recheck phosphorous  & calcium levels with next AM labs
-sodium phosphate	15 mmol, IVPB, Inj, Once			Current serum level 1.6-2.0	Recheck phosphorous  & calcium levels with next AM labs
-K-Phos Neutral	2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)			Current serum level 1.0-1.5	Recheck phosphorous  & calcium levels with next AM labs
-sodium phosphate	15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)			Current serum level 1.0-1.5	Recheck phosphorous & calcium levels 2 hrs after infusion
-sodium phosphate	15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)			Current serum level <1.0	Recheck phosphorous & calcium levels 2 hrs after infusion
-					
-Calcium					
-Mnemonic	Order_Sentence	Sequence	OS_Comment	Lab Value Range	Instructions/Note
-calcium chloride	1 g, IVPB, Inj, Once, Infuse over: 1 hr			iCal < 1.1	Notify provider.                                                                                    Recheck iCal with next AM labs.
-					
-					
-					
-DKA					
-					
-Magnesium					
-Mnemonic	Order_Sentence	Sequence	OS_Comment	Lab Value Range	Instructions/Note
-magnesium oxide	400 mg, PO, Tab, q12hr (interval), Duration: 2 dose(s)			Current serum level 1.4-1.5	Recheck magnesium level with next AM labs
-magnesium sulfate	2 g, IVPB, Premix, Once, Infuse over: 2 hr			Current serum level 1.4-1.5	Recheck magnesium level 4 hrs after infusion complete
-magnesium sulfate	2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr			Current serum level < 1.4	Recheck magnesium level 4 hrs after infusion complete
-					
-Potassium					
-Mnemonic	Order_Sentence	Sequence	OS_Comment	Lab Value Range	Instructions/Note
-potassium chloride 10 mEq/100 mL intravenous solution	10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr			Current serum level 3.6-3.9	"Peripheral line. 
+			
+			
+Phosphorus			
+Mnemonic	Order_Sentence	Lab Value Range	Instructions/Note
+K-Phos Neutral (brand name synonym under primary potassium phosphate-sodium phosphate)	2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)	Current serum level 1.6-2.0	Recheck phosphorous  & calcium levels with next AM labs
+sodium phosphate	15 mmol, IVPB, Inj, Once	Current serum level 1.6-2.0	Recheck phosphorous  & calcium levels with next AM labs
+K-Phos Neutral	2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)	Current serum level 1.0-1.5	Recheck phosphorous  & calcium levels with next AM labs
+sodium phosphate	15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)	Current serum level 1.0-1.5	Recheck phosphorous & calcium levels 2 hrs after infusion
+sodium phosphate	15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)	Current serum level <1.0	Recheck phosphorous & calcium levels 2 hrs after infusion
+			
+Calcium			
+Mnemonic	Order_Sentence	Lab Value Range	Instructions/Note
+calcium chloride	1 g, IVPB, Inj, Once, Infuse over: 1 hr	iCal < 1.1	Notify provider.                                                                                    Recheck iCal with next AM labs.
+			
+			
+			
+DKA			
+			
+Magnesium			
+Mnemonic	Order_Sentence	Lab Value Range	Instructions/Note
+magnesium oxide	400 mg, PO, Tab, q12hr (interval), Duration: 2 dose(s)	Current serum level 1.4-1.5	Recheck magnesium level with next AM labs
+magnesium sulfate	2 g, IVPB, Premix, Once, Infuse over: 2 hr	Current serum level 1.4-1.5	Recheck magnesium level 4 hrs after infusion complete
+magnesium sulfate	2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr	Current serum level < 1.4	Recheck magnesium level 4 hrs after infusion complete
+			
+Potassium			
+Mnemonic	Order_Sentence	Lab Value Range	Instructions/Note
+potassium chloride 10 mEq/100 mL intravenous solution	10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr	Current serum level 3.6-3.9	"Peripheral line. 
 Recheck BMP with next AM labs."
-potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, Once, Infuse over: 1 hr			Current serum level 3.6-3.9	"Critical Care only. Central line preferred.
+potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, Once, Infuse over: 1 hr	Current serum level 3.6-3.9	"Critical Care only. Central line preferred.
 Recheck BMP with next AM labs."
-potassium chloride 10 mEq/100 mL intravenous solution	10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr			Current serum level 3.2-3.5	"Peripheral line. 
+potassium chloride 10 mEq/100 mL intravenous solution	10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr	Current serum level 3.2-3.5	"Peripheral line. 
 Recheck potassium level 1 hr after infusion complete"
-potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr			Current serum level 3.2-3.5	"Critical Care only. Central line preferred.
+potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr	Current serum level 3.2-3.5	"Critical Care only. Central line preferred.
 Recheck potassium level 1 hr after infusion complete"
-potassium chloride 10 mEq/100 mL intravenous solution	10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr			Current serum level 2.8-3.1	"Peripheral line
+potassium chloride 10 mEq/100 mL intravenous solution	10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr	Current serum level 2.8-3.1	"Peripheral line
 Recheck potassium level 1 hr after infusion complete"
-potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr			Current serum level 2.8-3.1	"Critical Care only. Central line preferred.
+potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr	Current serum level 2.8-3.1	"Critical Care only. Central line preferred.
 Recheck potassium level 1 hr after infusion complete"
-potassium chloride 10 mEq/100 mL intravenous solution	10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr 			Current serum level < 2.8	"Peripheral line.
+potassium chloride 10 mEq/100 mL intravenous solution	10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr 	Current serum level < 2.8	"Peripheral line.
 Add-on mag + phos levels STAT, if not recently obtained.
 Recheck potassium level 1 hr after infusion complete. Repeat BMP, mag and phos levels with next AM labs."
-potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr			Current serum level < 2.8	"Critical Care only. Central line preferred.
+potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr	Current serum level < 2.8	"Critical Care only. Central line preferred.
 Add-on mag + phos levels STAT, if not recently obtained.
 Recheck potassium level 1 hr after infusion complete. Repeat BMP, mag and phos levels with next AM labs."
-					
-					
-Phosphorus					
-Mnemonic	Order_Sentence	Sequence	OS_Comment	Lab Value Range	Instructions/Note
-K-Phos Neutral (brand name synonym under primary potassium phosphate-sodium phosphate)	2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)			Current serum level 1.6-2.0	Recheck phosphorous  & calcium levels with next AM labs
-sodium phosphate	15 mmol, IVPB, Inj, Once			Current serum level 1.6-2.0	Recheck phosphorous  & calcium levels with next AM labs
-K-Phos Neutral	2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)			Current serum level 1.0-1.5	Recheck phosphorous  & calcium levels with next AM labs
-sodium phosphate	15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)			Current serum level 1.0-1.5	Recheck phosphorous & calcium levels 2 hrs after infusion
-sodium phosphate	15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)			Current serum level <1.0	Recheck phosphorous & calcium levels 2 hrs after infusion
+			
+			
+Phosphorus			
+Mnemonic	Order_Sentence	Lab Value Range	Instructions/Note
+K-Phos Neutral (brand name synonym under primary potassium phosphate-sodium phosphate)	2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)	Current serum level 1.6-2.0	Recheck phosphorous  & calcium levels with next AM labs
+sodium phosphate	15 mmol, IVPB, Inj, Once	Current serum level 1.6-2.0	Recheck phosphorous  & calcium levels with next AM labs
+K-Phos Neutral	2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)	Current serum level 1.0-1.5	Recheck phosphorous  & calcium levels with next AM labs
+sodium phosphate	15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)	Current serum level 1.0-1.5	Recheck phosphorous & calcium levels 2 hrs after infusion
+sodium phosphate	15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)	Current serum level <1.0	Recheck phosphorous & calcium levels 2 hrs after infusion

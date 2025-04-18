@@ -1,73 +1,46 @@
-============================= test session starts ==============================
-platform linux -- Python 3.12.3, pytest-8.3.5, pluggy-1.5.0 -- /home/pessk/code/ea-python/.venv/bin/python3
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.12.3, pytest-8.3.5, pluggy-1.5.0 -- /home/pessk/code/ea-python/.venv/bin/python
 cachedir: .pytest_cache
 rootdir: /home/pessk/code/ea-python
 plugins: sugar-1.0.0
-collecting ... collected 9 items
+[1mcollecting ... [0mcollected 33 items
 
-test_config_sentences.py::test_all_expected_mnemonics_found PASSED       [ 11%]
-test_config_sentences.py::test_no_unexpected_mnemonics_without_expectations PASSED [ 22%]
-test_config_sentences.py::test_sentence_verification FAILED              [ 33%]
-test_config_structure.py::test_generated_config_key_order[output_regular.json] PASSED [ 44%]
-test_config_structure.py::test_generated_config_key_order[output_cardiac.json] PASSED [ 55%]
-tests/test_dcw_sentences.py::test_dcw_sentences_match_generated[/home/pessk/code/ea-python/generated_configs/output_cardiac.json] FAILED [ 66%]
-tests/test_dcw_sentences.py::test_dcw_sentences_match_generated[/home/pessk/code/ea-python/generated_configs/output_regular.json] FAILED [ 77%]
-tests/test_expected_sentences.py::test_expected_sentences_match_generated[/home/pessk/code/ea-python/generated_configs/output_cardiac.json] FAILED [ 88%]
-tests/test_expected_sentences.py::test_expected_sentences_match_generated[/home/pessk/code/ea-python/generated_configs/output_regular.json] FAILED [100%]
+tests/test_dcw_sentences.py::test_dcw_sentences_match_generated[/home/pessk/code/ea-python/generated_configs/output_cardiac.json] [31mFAILED[0m[31m [  3%][0m
+tests/test_dcw_sentences.py::test_dcw_sentences_match_generated[/home/pessk/code/ea-python/generated_configs/output_regular.json] [31mFAILED[0m[31m [  6%][0m
+tests/test_expected_sentences.py::test_expected_sentences_match_generated[/home/pessk/code/ea-python/generated_configs/output_cardiac.json] [31mFAILED[0m[31m [  9%][0m
+tests/test_expected_sentences.py::test_expected_sentences_match_generated[/home/pessk/code/ea-python/generated_configs/output_regular.json] [31mFAILED[0m[31m [ 12%][0m
+tests/test_generated_output.py::test_top_level_structure[regular_config] [32mPASSED[0m[31m [ 15%][0m
+tests/test_generated_output.py::test_top_level_structure[cardiac_config] [32mPASSED[0m[31m [ 18%][0m
+tests/test_generated_output.py::test_rconfig_structure[regular_config] [32mPASSED[0m[31m [ 21%][0m
+tests/test_generated_output.py::test_rconfig_structure[cardiac_config] [32mPASSED[0m[31m [ 24%][0m
+tests/test_generated_output.py::test_tab_structure[regular_config] [32mPASSED[0m[31m [ 27%][0m
+tests/test_generated_output.py::test_tab_structure[cardiac_config] [32mPASSED[0m[31m [ 30%][0m
+tests/test_generated_output.py::test_order_basic_fields[regular_config] [32mPASSED[0m[31m [ 33%][0m
+tests/test_generated_output.py::test_order_basic_fields[cardiac_config] [32mPASSED[0m[31m [ 36%][0m
+tests/test_generated_output.py::test_lab_sentence_format[regular_config] [32mPASSED[0m[31m [ 39%][0m
+tests/test_generated_output.py::test_lab_sentence_format[cardiac_config] [32mPASSED[0m[31m [ 42%][0m
+tests/test_generated_output.py::test_med_sentence_start_format[regular_config] [32mPASSED[0m[31m [ 45%][0m
+tests/test_generated_output.py::test_med_sentence_start_format[cardiac_config] [32mPASSED[0m[31m [ 48%][0m
+tests/test_generated_output.py::test_med_sentence_frequency_format[regular_config] [32mPASSED[0m[31m [ 51%][0m
+tests/test_generated_output.py::test_med_sentence_frequency_format[cardiac_config] [32mPASSED[0m[31m [ 54%][0m
+tests/test_generated_output.py::test_med_sentence_infuse_over_format[regular_config] [32mPASSED[0m[31m [ 57%][0m
+tests/test_generated_output.py::test_med_sentence_infuse_over_format[cardiac_config] [32mPASSED[0m[31m [ 60%][0m
+python/formatting.py::python.formatting.format_level_for_concept [32mPASSED[0m[31m  [ 63%][0m
+python/formatting.py::python.formatting.format_level_for_display [32mPASSED[0m[31m  [ 66%][0m
+python/lab_orders.py::python.lab_orders.create_specific_timed_lab [32mPASSED[0m[31m [ 69%][0m
+python/lab_orders.py::python.lab_orders.get_timed_lab [32mPASSED[0m[31m             [ 72%][0m
+python/naming.py::python.naming.create_between_concept [32mPASSED[0m[31m            [ 75%][0m
+python/naming.py::python.naming.create_between_section_name [32mPASSED[0m[31m       [ 78%][0m
+python/naming.py::python.naming.create_less_than_concept [32mPASSED[0m[31m          [ 81%][0m
+python/naming.py::python.naming.create_less_than_section_name [32mPASSED[0m[31m     [ 84%][0m
+python/naming.py::python.naming.get_concept_name [32mPASSED[0m[31m                  [ 87%][0m
+python/order_builder.py::python.order_builder.create_lab_order [32mPASSED[0m[31m    [ 90%][0m
+python/tab_builder.py::python.tab_builder._create_graphed_results [32mPASSED[0m[31m [ 93%][0m
+python/tab_builder.py::python.tab_builder._create_mnemonic [32mPASSED[0m[31m        [ 96%][0m
+python/text.py::python.text.create_notify_provider_text [32mPASSED[0m[31m           [100%][0m
 
 =================================== FAILURES ===================================
-__________________________ test_sentence_verification __________________________
-
-expected_sentences = defaultdict(<class 'set'>, {'BMP': {'Blood, Timed Study collect, Once', 'Blood, Stat collect, Nurse collect, Once', 'B... Once'}, 'sodium phosphate': {'15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)', '15 mmol, IVPB, Inj, Once'}})
-actual_orders_by_mnemonic = defaultdict(<class 'set'>, {'magnesium sulfate': {'2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse ove..., IVPB, Inj, Once, Infuse over: 1 hr'}, 'magnesium oxide': {'400 mg, PO, Tab, q12hr (interval), Duration: 2 dose(s)'}})
-
-    def test_sentence_verification(expected_sentences, actual_orders_by_mnemonic):
-        """Verify that generated sentences for each mnemonic exist in the expected extract.csv pool."""
-        mnemonics_to_test = actual_orders_by_mnemonic.keys() # Test all generated mnemonics
-    
-        failures = [] # Store sentence mismatch errors
-    
-        for mnemonic in mnemonics_to_test:
-            expected_set = expected_sentences.get(mnemonic, set()) # Sentences for this mnemonic in extract.csv
-            found_set = actual_orders_by_mnemonic.get(mnemonic, set()) # Sentences generated in JSON
-    
-            # missing_expected = expected_set - found_set # Domain sentences not generated - IGNORE THIS CASE
-            extra_generated = found_set - expected_set  # Generated sentences not in domain extract
-    
-            # Report generated sentences not matching the domain expectation for this mnemonic
-            if extra_generated:
-                error_detail = [f"Sentences generated for MNEMONIC '{mnemonic}' that DO NOT match any entry in {EXPECTED_EXTRACT_FILE}:"]
-                for sentence in sorted(list(extra_generated)):
-                    error_detail.append(f"    - {repr(sentence)}") # Use repr to show quotes clearly
-                failures.append("\n".join(error_detail))
-    
-            # # Report domain sentences that were expected but not generated for this mnemonic - REMOVED
-            # if missing_expected:
-            #     error_detail = [f"Sentences defined for MNEMONIC '{mnemonic}' in {EXPECTED_EXTRACT_FILE} but NOT generated:"]
-            #     for sentence in sorted(list(missing_expected)):
-            #         error_detail.append(f"    - {sentence}")
-            #     failures.append("\n".join(error_detail))
-    
->       assert not failures, "\n\n" + "\n\n".join(failures)
-E       AssertionError: 
-E         
-E         Sentences generated for MNEMONIC 'potassium chloride 10 mEq/100 mL intravenous solution' that DO NOT match any entry in /home/pessk/code/ea-python/expected_sentences/extract.csv:
-E             - '10 mEq, IV, q1h, Duration: 2 dose(s), Infuse over: 1 hr'
-E             - '10 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'
-E             - '10 mEq, IV, q1h, Duration: 6 dose(s), Infuse over: 1 hr'
-E             - '10 mEq, IV, q1h, Duration: 8 dose(s), Infuse over: 1 hr'
-E         
-E         Sentences generated for MNEMONIC 'potassium chloride 20 mEq/100 mL intravenous solution' that DO NOT match any entry in /home/pessk/code/ea-python/expected_sentences/extract.csv:
-E             - '20 mEq, IV, q1h, Duration: 2 dose(s), Infuse over: 1 hr'
-E             - '20 mEq, IV, q1h, Duration: 3 dose(s), Infuse over: 1 hr'
-E             - '20 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'
-E             - '20 mEq, IV, q2h, Duration: 2 dose(s), Infuse over: 2 hr'
-E             - '20 mEq, IV, q2h, Duration: 3 dose(s), Infuse over: 2 hr'
-E             - '20 mEq, IV, q2h, Duration: 4 dose(s), Infuse over: 2 hr'
-E       assert not ["Sentences generated for MNEMONIC 'potassium chloride 10 mEq/100 mL intravenous solution' that DO NOT match any entry in /home/pessk/code/ea-python/expected_sentences/extract.csv:\n    - '10 mEq, IV, q1h, Duration: 2 dose(s), Infuse over: 1 hr'\n    - '10 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'\n    - '10 mEq, IV, q1h, Duration: 6 dose(s), Infuse over: 1 hr'\n    - '10 mEq, IV, q1h, Duration: 8 dose(s), Infuse over: 1 hr'", "Sentences generated for MNEMONIC 'potassium chloride 20 mEq/100 mL intravenous solution' that DO NOT match any entry in /home/pessk/code/ea-python/expected_sentences/extract.csv:\n    - '20 mEq, IV, q1h, Duration: 2 dose(s), Infuse over: 1 hr'\n    - '20 mEq, IV, q1h, Duration: 3 dose(s), Infuse over: 1 hr'\n    - '20 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'\n    - '20 mEq, IV, q2h, Duration: 2 dose(s), Infuse over: 2 hr'\n    - '20 mEq, IV, q2h, Duration: 3 dose(s), Infuse over: 2 hr'\n    - '20 mEq, IV, q2h, Duration: 4 dose(s), Infuse over: 2 hr'"]
-
-test_config_sentences.py:173: AssertionError
-_ test_dcw_sentences_match_generated[/home/pessk/code/ea-python/generated_configs/output_cardiac.json] _
+[31m[1m_ test_dcw_sentences_match_generated[/home/pessk/code/ea-python/generated_configs/output_cardiac.json] _[0m
 
 config_file_path = '/home/pessk/code/ea-python/generated_configs/output_cardiac.json'
 dcw_data = [{'Electrolyte': 'Magnesium', 'Instructions/Note': 'Recheck BMP and magnesium level with next AM labs.', 'Lab Value Ra... Range': 'Current serum level 3.2-3.4', 'Mnemonic': 'potassium chloride 10 mEq/100 mL intravenous solution', ...}, ...]
@@ -97,14 +70,19 @@ dcw_data = [{'Electrolyte': 'Magnesium', 'Instructions/Note': 'Recheck BMP and m
     
         for index, dcw_entry in enumerate(protocol_dcw_entries):
             dcw_electrolyte = dcw_entry.get('Electrolyte')
-            dcw_mnemonic = dcw_entry.get('Mnemonic')
+            dcw_mnemonic_raw = dcw_entry.get('Mnemonic') # Get raw mnemonic
             dcw_range = dcw_entry.get('Lab Value Range') # Keep for context
             dcw_sentence = dcw_entry.get('Order_Sentence')
     
-            if not all([protocol, dcw_electrolyte, dcw_mnemonic, dcw_sentence]):
+            # Clean the DCW mnemonic - remove parentheses and content within
+            dcw_mnemonic_cleaned = re.sub(r'\s*\(.*?\)\s*$', '', dcw_mnemonic_raw).strip() if dcw_mnemonic_raw else None
+    
+            if not all([protocol, dcw_electrolyte, dcw_mnemonic_cleaned, dcw_sentence]): # Use cleaned mnemonic for check
+                # Optionally log skipping due to missing cleaned mnemonic
+                # print(f"Skipping DCW entry {index}: Missing required data after cleaning mnemonic.")
                 continue
     
-            # --- Find JSON Counterpart (by mnemonic within the correct tab) ---
+            # --- Find JSON Counterpart (by cleaned mnemonic within the correct tab) ---
             json_sentence_found = None
             try:
                 tabs = loaded_json_config.get('RCONFIG', {}).get('TABS', [])
@@ -130,7 +108,8 @@ dcw_data = [{'Electrolyte': 'Magnesium', 'Instructions/Note': 'Recheck BMP and m
                         if is_range_match:
                              orders_in_section = section.get('ORDERS', [])
                              for order in orders_in_section:
-                                 if order.get('MNEMONIC') == dcw_mnemonic:
+                                 # Compare JSON mnemonic with the CLEANED DCW mnemonic
+                                 if order.get('MNEMONIC') == dcw_mnemonic_cleaned:
                                      json_sentence_found = order.get('ORDER_SENTENCE')
                                      found_match_for_dcw_entry = True # Mark as found
                                      break # Found the correct order in the matching section
@@ -145,15 +124,16 @@ dcw_data = [{'Electrolyte': 'Magnesium', 'Instructions/Note': 'Recheck BMP and m
                 processing_errors.append(f"Error finding JSON counterpart for DCW entry {index}: {e}")
                 continue
     
-            # --- Fuzzy Compare DCW vs JSON ---
+            # --- Fuzzy Compare DCW vs JSON --- (Uses json_sentence_found)
             comparison_score = 0
             if json_sentence_found:
+                # Compare the original DCW sentence with the found JSON sentence
                 comparison_score = fuzz.token_sort_ratio(dcw_sentence, json_sentence_found)
             # else: json_sentence_found remains None
     
-            # --- Compile Report Line ---
+            # --- Compile Report Line --- (Show original DCW mnemonic for context)
             report_line = f'''
-    --- DCW Entry #{index} (Mnem: '{dcw_mnemonic}', Range: '{dcw_range}') ---
+    --- DCW Entry #{index} (Mnem: '{dcw_mnemonic_raw}', Range: '{dcw_range}') ---
       DCW Spec : {repr(dcw_sentence)}
       JSON Gen : {repr(json_sentence_found) if json_sentence_found else '*** NOT FOUND in JSON Tab ***'}
       (Score DCW vs JSON: {comparison_score}%)'''
@@ -170,278 +150,427 @@ dcw_data = [{'Electrolyte': 'Magnesium', 'Instructions/Note': 'Recheck BMP and m
     
         # Fail if there's anything in the report to ensure it's always printed
 >       assert not final_output_message, final_output_message
-E       AssertionError: 
-E         DCW vs JSON Sentence Comparison Report for output_cardiac.json:
-E         
-E         --- DCW Entry #0 (Mnem: 'magnesium sulfate', Range: 'Current serum level 1.8-2') ---
-E           DCW Spec : '1 g, IVPB, Premix, Once, Infuse over: 1 hr'
-E           JSON Gen : '1 g, IVPB, Premix, Once, Infuse over: 1 hr'
-E           (Score DCW vs JSON: 100%)
-E         
-E         --- DCW Entry #1 (Mnem: 'magnesium sulfate', Range: 'Current serum level 1.4-1.7') ---
-E           DCW Spec : '2 g, IVPB, Premix, Once, Infuse over: 2 hr'
-E           JSON Gen : '1 g, IVPB, Premix, Once, Infuse over: 1 hr'
-E           (Score DCW vs JSON: 95%)
-E         
-E         --- DCW Entry #2 (Mnem: 'magnesium sulfate', Range: 'Current serum level < 1.4') ---
-E           DCW Spec : '2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr'
-E           JSON Gen : '1 g, IVPB, Premix, Once, Infuse over: 1 hr'
-E           (Score DCW vs JSON: 59%)
-E         
-E         --- DCW Entry #3 (Mnem: 'potassium chloride extended release', Range: 'Current serum level 3.6-3.9') ---
-E           DCW Spec : '20 mEq, PO, ER tab, Once'
-E           JSON Gen : '20 mEq, PO, ER tab, Once'
-E           (Score DCW vs JSON: 100%)
-E         
-E         --- DCW Entry #4 (Mnem: 'potassium chloride', Range: 'Current serum level 3.6-3.9') ---
-E           DCW Spec : '20 mEq, Feeding Tube, Liq, Once'
-E           JSON Gen : '20 mEq, Feeding Tube, Liq, Once'
-E           (Score DCW vs JSON: 100%)
-E         
-E         --- DCW Entry #5 (Mnem: 'potassium chloride 10 mEq/100 mL intravenous solution', Range: 'Current serum level 3.6-3.9') ---
-E           DCW Spec : '10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
-E           JSON Gen : '10 mEq, IV, q1h, Duration: 2 dose(s), Infuse over: 1 hr'
-E           (Score DCW vs JSON: 99%)
-E         
-E         --- DCW Entry #6 (Mnem: 'potassium chloride 20 mEq/100 mL intravenous solution', Range: 'Current serum level 3.6-3.9') ---
-E           DCW Spec : '20 mEq, IV, Once, Infuse over: 1 hr'
-E           JSON Gen : '20 mEq, IV, Once, Infuse over: 1 hr'
-E           (Score DCW vs JSON: 100%)
-E         
-E         --- DCW Entry #7 (Mnem: 'potassium chloride extended release', Range: 'Current serum level 3.2-3.5') ---
-E           DCW Spec : '20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)'
-E           JSON Gen : '20 mEq, PO, ER tab, Once'
-E           (Score DCW vs JSON: 49%)
-E         
-E         --- DCW Entry #8 (Mnem: 'potassium chloride', Range: 'Current serum level 3.2-3.5') ---
-E           DCW Spec : '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 2 dose(s)'
-E           JSON Gen : '20 mEq, Feeding Tube, Liq, Once'
-E           (Score DCW vs JSON: 58%)
-E         
-E         --- DCW Entry #9 (Mnem: 'potassium chloride 10 mEq/100 mL intravenous solution', Range: 'Current serum level 3.2-3.5') ---
-E           DCW Spec : '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'
-E           JSON Gen : '10 mEq, IV, q1h, Duration: 2 dose(s), Infuse over: 1 hr'
-E           (Score DCW vs JSON: 97%)
-E         
-E         --- DCW Entry #10 (Mnem: 'potassium chloride 20 mEq/100 mL intravenous solution', Range: 'Current serum level 3.2-3.5') ---
-E           DCW Spec : '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
-E           JSON Gen : '20 mEq, IV, Once, Infuse over: 1 hr'
-E           (Score DCW vs JSON: 65%)
-E         
-E         --- DCW Entry #11 (Mnem: 'potassium chloride extended release', Range: 'Current serum level 2.8-3.1') ---
-E           DCW Spec : '20 mEq, PO, ER tab, q2hr (interval), Duration: 3 dose(s)'
-E           JSON Gen : '20 mEq, PO, ER tab, Once'
-E           (Score DCW vs JSON: 49%)
-E         
-E         --- DCW Entry #12 (Mnem: 'potassium chloride', Range: 'Current serum level 2.8-3.1') ---
-E           DCW Spec : '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 3 dose(s)'
-E           JSON Gen : '20 mEq, Feeding Tube, Liq, Once'
-E           (Score DCW vs JSON: 58%)
-E         
-E         --- DCW Entry #13 (Mnem: 'potassium chloride 10 mEq/100 mL intravenous solution', Range: 'Current serum level 2.8-3.1') ---
-E           DCW Spec : '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
-E           JSON Gen : '10 mEq, IV, q1h, Duration: 2 dose(s), Infuse over: 1 hr'
-E           (Score DCW vs JSON: 97%)
-E         
-E         --- DCW Entry #14 (Mnem: 'potassium chloride 20 mEq/100 mL intravenous solution', Range: 'Current serum level 2.8-3.1') ---
-E           DCW Spec : '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'
-E           JSON Gen : '20 mEq, IV, Once, Infuse over: 1 hr'
-E           (Score DCW vs JSON: 65%)
-E         
-E         --- DCW Entry #15 (Mnem: 'potassium chloride 10 mEq/100 mL intravenous solution', Range: 'Current serum level < 2.8') ---
-E           DCW Spec : '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
-E           JSON Gen : '10 mEq, IV, q1h, Duration: 2 dose(s), Infuse over: 1 hr'
-E           (Score DCW vs JSON: 97%)
-E         
-E         --- DCW Entry #16 (Mnem: 'potassium chloride 20 mEq/100 mL intravenous solution', Range: 'Current serum level < 2.8') ---
-E           DCW Spec : '20 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'
-E           JSON Gen : '20 mEq, IV, Once, Infuse over: 1 hr'
-E           (Score DCW vs JSON: 65%)
-E         
-E         --- DCW Entry #17 (Mnem: 'K-Phos Neutral (brand name synonym under primary potassium phosphate-sodium phosphate)', Range: 'Current serum level 1.6-2.0') ---
-E           DCW Spec : '2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)'
-E           JSON Gen : *** NOT FOUND in JSON Tab ***
-E           (Score DCW vs JSON: 0%)
-E         
-E         --- DCW Entry #18 (Mnem: 'sodium phosphate', Range: 'Current serum level 1.6-2.0') ---
-E           DCW Spec : '15 mmol, IVPB, Inj, Once'
-E           JSON Gen : '15 mmol, IVPB, Inj, Once'
-E           (Score DCW vs JSON: 100%)
-E         
-E         --- DCW Entry #19 (Mnem: 'K-Phos Neutral', Range: 'Current serum level 1.0-1.5') ---
-E           DCW Spec : '2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)'
-E           JSON Gen : '2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)'
-E           (Score DCW vs JSON: 98%)
-E         
-E         --- DCW Entry #20 (Mnem: 'sodium phosphate', Range: 'Current serum level 1.0-1.5') ---
-E           DCW Spec : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'
-E           JSON Gen : '15 mmol, IVPB, Inj, Once'
-E           (Score DCW vs JSON: 49%)
-E         
-E         --- DCW Entry #21 (Mnem: 'sodium phosphate', Range: 'Current serum level <1.0') ---
-E           DCW Spec : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'
-E           JSON Gen : '15 mmol, IVPB, Inj, Once'
-E           (Score DCW vs JSON: 49%)
-E         
-E         --- DCW Entry #22 (Mnem: 'calcium chloride', Range: 'iCal < 1.1') ---
-E           DCW Spec : '1 g, IVPB, Inj, Once, Infuse over: 1 hr'
-E           JSON Gen : '1 g, IVPB, Inj, Once, Infuse over: 1 hr'
-E           (Score DCW vs JSON: 100%)
-E       assert not "\nDCW vs JSON Sentence Comparison Report for output_cardiac.json:\n\n--- DCW Entry #0 (Mnem: 'magnesium sulfate', Range: 'Current serum level 1.8-2') ---\n  DCW Spec : '1 g, IVPB, Premix, Once, Infuse over: 1 hr'\n  JSON Gen : '1 g, IVPB, Premix, Once, Infuse over: 1 hr'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #1 (Mnem: 'magnesium sulfate', Range: 'Current serum level 1.4-1.7') ---\n  DCW Spec : '2 g, IVPB, Premix, Once, Infuse over: 2 hr'\n  JSON Gen : '1 g, IVPB, Premix, Once, Infuse over: 1 hr'\n  (Score DCW vs JSON: 95%)\n\n--- DCW Entry #2 (Mnem: 'magnesium sulfate', Range: 'Current serum level < 1.4') ---\n  DCW Spec : '2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr'\n  JSON Gen : '1 g, IVPB, Premix, Once, Infuse over: 1 hr'\n  (Score DCW vs JSON: 59%)\n\n--- DCW Entry #3 (Mnem: 'potassium chloride extended release', Range: 'Current serum level 3.6-3.9') ---\n  DCW Spec : '20 mEq, PO, ER tab, Once'\n  JSON Gen : '20 mEq, PO, ER tab, Once'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #4 (Mnem: 'potassium chloride', Range: 'Current serum level 3.6-3.9') ---\n  DCW Spec : '20 mEq, Feeding Tube, Liq, Once'\n  JSON Gen : '20 mEq, Feeding Tube,...Gen : *** NOT FOUND in JSON Tab ***\n  (Score DCW vs JSON: 0%)\n\n--- DCW Entry #18 (Mnem: 'sodium phosphate', Range: 'Current serum level 1.6-2.0') ---\n  DCW Spec : '15 mmol, IVPB, Inj, Once'\n  JSON Gen : '15 mmol, IVPB, Inj, Once'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #19 (Mnem: 'K-Phos Neutral', Range: 'Current serum level 1.0-1.5') ---\n  DCW Spec : '2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)'\n  JSON Gen : '2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)'\n  (Score DCW vs JSON: 98%)\n\n--- DCW Entry #20 (Mnem: 'sodium phosphate', Range: 'Current serum level 1.0-1.5') ---\n  DCW Spec : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'\n  JSON Gen : '15 mmol, IVPB, Inj, Once'\n  (Score DCW vs JSON: 49%)\n\n--- DCW Entry #21 (Mnem: 'sodium phosphate', Range: 'Current serum level <1.0') ---\n  DCW Spec : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'\n  JSON Gen : '15 mmol, IVPB, Inj, Once'\n  (Score DCW vs JSON: 49%)\n\n--- DCW Entry #22 (Mnem: 'calcium chloride', Range: 'iCal < 1.1') ---\n  DCW Spec : '1 g, IVPB, Inj, Once, Infuse over: 1 hr'\n  JSON Gen : '1 g, IVPB, Inj, Once, Infuse over: 1 hr'\n  (Score DCW vs JSON: 100%)"
+[1m[31mE       AssertionError: [0m
+[1m[31mE         DCW vs JSON Sentence Comparison Report for output_cardiac.json:[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #0 (Mnem: 'magnesium sulfate', Range: 'Current serum level 1.8-2') ---[0m
+[1m[31mE           DCW Spec : '1 g, IVPB, Premix, Once, Infuse over: 1 hr'[0m
+[1m[31mE           JSON Gen : '1 g, IVPB, Premix, Once, Infuse over: 1 hr'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #1 (Mnem: 'magnesium sulfate', Range: 'Current serum level 1.4-1.7') ---[0m
+[1m[31mE           DCW Spec : '2 g, IVPB, Premix, Once, Infuse over: 2 hr'[0m
+[1m[31mE           JSON Gen : '2 g, IVPB, Premix, Once, Infuse over: 2 hr'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #2 (Mnem: 'magnesium sulfate', Range: 'Current serum level < 1.4') ---[0m
+[1m[31mE           DCW Spec : '2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr'[0m
+[1m[31mE           JSON Gen : '2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #3 (Mnem: 'potassium chloride extended release', Range: 'Current serum level 3.6-3.9') ---[0m
+[1m[31mE           DCW Spec : '20 mEq, PO, ER tab, Once'[0m
+[1m[31mE           JSON Gen : '20 mEq, PO, ER tab, Once'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #4 (Mnem: 'potassium chloride', Range: 'Current serum level 3.6-3.9') ---[0m
+[1m[31mE           DCW Spec : '20 mEq, Feeding Tube, Liq, Once'[0m
+[1m[31mE           JSON Gen : '20 mEq, Feeding Tube, Liq, Once'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #5 (Mnem: 'potassium chloride 10 mEq/100 mL intravenous solution', Range: 'Current serum level 3.6-3.9') ---[0m
+[1m[31mE           DCW Spec : '10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'[0m
+[1m[31mE           JSON Gen : '10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #6 (Mnem: 'potassium chloride 20 mEq/100 mL intravenous solution', Range: 'Current serum level 3.6-3.9') ---[0m
+[1m[31mE           DCW Spec : '20 mEq, IV, Once, Infuse over: 1 hr'[0m
+[1m[31mE           JSON Gen : '20 mEq, IV, Once, Infuse over: 1 hr'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #7 (Mnem: 'potassium chloride extended release', Range: 'Current serum level 3.2-3.5') ---[0m
+[1m[31mE           DCW Spec : '20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)'[0m
+[1m[31mE           JSON Gen : '20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #8 (Mnem: 'potassium chloride', Range: 'Current serum level 3.2-3.5') ---[0m
+[1m[31mE           DCW Spec : '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 2 dose(s)'[0m
+[1m[31mE           JSON Gen : '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 2 dose(s)'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #9 (Mnem: 'potassium chloride 10 mEq/100 mL intravenous solution', Range: 'Current serum level 3.2-3.5') ---[0m
+[1m[31mE           DCW Spec : '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'[0m
+[1m[31mE           JSON Gen : '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #10 (Mnem: 'potassium chloride 20 mEq/100 mL intravenous solution', Range: 'Current serum level 3.2-3.5') ---[0m
+[1m[31mE           DCW Spec : '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'[0m
+[1m[31mE           JSON Gen : '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #11 (Mnem: 'potassium chloride extended release', Range: 'Current serum level 2.8-3.1') ---[0m
+[1m[31mE           DCW Spec : '20 mEq, PO, ER tab, q2hr (interval), Duration: 3 dose(s)'[0m
+[1m[31mE           JSON Gen : '20 mEq, PO, ER tab, q2hr (interval), Duration: 3 dose(s)'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #12 (Mnem: 'potassium chloride', Range: 'Current serum level 2.8-3.1') ---[0m
+[1m[31mE           DCW Spec : '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 3 dose(s)'[0m
+[1m[31mE           JSON Gen : '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 3 dose(s)'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #13 (Mnem: 'potassium chloride 10 mEq/100 mL intravenous solution', Range: 'Current serum level 2.8-3.1') ---[0m
+[1m[31mE           DCW Spec : '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'[0m
+[1m[31mE           JSON Gen : '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #14 (Mnem: 'potassium chloride 20 mEq/100 mL intravenous solution', Range: 'Current serum level 2.8-3.1') ---[0m
+[1m[31mE           DCW Spec : '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'[0m
+[1m[31mE           JSON Gen : '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #15 (Mnem: 'potassium chloride 10 mEq/100 mL intravenous solution', Range: 'Current serum level < 2.8') ---[0m
+[1m[31mE           DCW Spec : '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'[0m
+[1m[31mE           JSON Gen : '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #16 (Mnem: 'potassium chloride 20 mEq/100 mL intravenous solution', Range: 'Current serum level < 2.8') ---[0m
+[1m[31mE           DCW Spec : '20 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'[0m
+[1m[31mE           JSON Gen : '20 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #17 (Mnem: 'K-Phos Neutral (brand name synonym under primary potassium phosphate-sodium phosphate)', Range: 'Current serum level 1.6-2.0') ---[0m
+[1m[31mE           DCW Spec : '2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)'[0m
+[1m[31mE           JSON Gen : '2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #18 (Mnem: 'sodium phosphate', Range: 'Current serum level 1.6-2.0') ---[0m
+[1m[31mE           DCW Spec : '15 mmol, IVPB, Inj, Once'[0m
+[1m[31mE           JSON Gen : '15 mmol, IVPB, Inj, Once'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #19 (Mnem: 'K-Phos Neutral', Range: 'Current serum level 1.0-1.5') ---[0m
+[1m[31mE           DCW Spec : '2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)'[0m
+[1m[31mE           JSON Gen : '2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #20 (Mnem: 'sodium phosphate', Range: 'Current serum level 1.0-1.5') ---[0m
+[1m[31mE           DCW Spec : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'[0m
+[1m[31mE           JSON Gen : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #21 (Mnem: 'sodium phosphate', Range: 'Current serum level <1.0') ---[0m
+[1m[31mE           DCW Spec : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'[0m
+[1m[31mE           JSON Gen : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #22 (Mnem: 'calcium chloride', Range: 'iCal < 1.1') ---[0m
+[1m[31mE           DCW Spec : '1 g, IVPB, Inj, Once, Infuse over: 1 hr'[0m
+[1m[31mE           JSON Gen : '1 g, IVPB, Inj, Once, Infuse over: 1 hr'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE       assert not "\nDCW vs JSON Sentence Comparison Report for output_cardiac.json:\n\n--- DCW Entry #0 (Mnem: 'magnesium sulfate', Range: 'Current serum level 1.8-2') ---\n  DCW Spec : '1 g, IVPB, Premix, Once, Infuse over: 1 hr'\n  JSON Gen : '1 g, IVPB, Premix, Once, Infuse over: 1 hr'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #1 (Mnem: 'magnesium sulfate', Range: 'Current serum level 1.4-1.7') ---\n  DCW Spec : '2 g, IVPB, Premix, Once, Infuse over: 2 hr'\n  JSON Gen : '2 g, IVPB, Premix, Once, Infuse over: 2 hr'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #2 (Mnem: 'magnesium sulfate', Range: 'Current serum level < 1.4') ---\n  DCW Spec : '2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr'\n  JSON Gen : '2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #3 (Mnem: 'potassium chloride extended release', Range: 'Current serum level 3.6-3.9') ---\n  DCW Spec : '20 mEq, PO, ER tab, Once'\n  JSON Gen : '20 mEq, PO, ER tab, Once'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #4 (Mnem: 'potassium chloride', Range: 'Current serum level 3.6-3.9') ---\n  DCW Spec : '20 mEq, Feeding Tube, Liq, Once'\n ...-- DCW Entry #18 (Mnem: 'sodium phosphate', Range: 'Current serum level 1.6-2.0') ---\n  DCW Spec : '15 mmol, IVPB, Inj, Once'\n  JSON Gen : '15 mmol, IVPB, Inj, Once'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #19 (Mnem: 'K-Phos Neutral', Range: 'Current serum level 1.0-1.5') ---\n  DCW Spec : '2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)'\n  JSON Gen : '2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #20 (Mnem: 'sodium phosphate', Range: 'Current serum level 1.0-1.5') ---\n  DCW Spec : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'\n  JSON Gen : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #21 (Mnem: 'sodium phosphate', Range: 'Current serum level <1.0') ---\n  DCW Spec : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'\n  JSON Gen : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #22 (Mnem: 'calcium chloride', Range: 'iCal < 1.1') ---\n  DCW Spec : '1 g, IVPB, Inj, Once, Infuse over: 1 hr'\n  JSON Gen : '1 g, IVPB, Inj, Once, Infuse over: 1 hr'\n  (Score DCW vs JSON: 100%)"[0m
 
-tests/test_dcw_sentences.py:270: AssertionError
+comparison_report_lines = ["\n--- DCW Entry #0 (Mnem: 'magnesium sulfate', Range: 'Current serum level 1.8-2') ---\n  DCW Spec : '1 g, IVPB, Pre...ver: 1 hr'\n  JSON Gen : '10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'\n  (Score DCW vs JSON: 100%)", ...]
+comparison_score = 100
+config_file_path = '/home/pessk/code/ea-python/generated_configs/output_cardiac.json'
+dcw_data   = [{'Electrolyte': 'Magnesium', 'Instructions/Note': 'Recheck BMP and magnesium level with next AM labs.', 'Lab Value Ra... Range': 'Current serum level 3.2-3.4', 'Mnemonic': 'potassium chloride 10 mEq/100 mL intravenous solution', ...}, ...]
+dcw_electrolyte = 'Calcium'
+dcw_entry  = {'Electrolyte': 'Calcium', 'Instructions/Note': 'Notify provider.                                                     ...                Recheck iCal with next AM labs.', 'Lab Value Range': 'iCal < 1.1', 'Mnemonic': 'calcium chloride', ...}
+dcw_mnemonic_cleaned = 'calcium chloride'
+dcw_mnemonic_raw = 'calcium chloride'
+dcw_range  = 'iCal < 1.1'
+dcw_sentence = '1 g, IVPB, Inj, Once, Infuse over: 1 hr'
+f          = <_io.TextIOWrapper name='/home/pessk/code/ea-python/generated_configs/output_cardiac.json' mode='r' encoding='utf-8'>
+final_output_message = "\nDCW vs JSON Sentence Comparison Report for output_cardiac.json:\n\n--- DCW Entry #0 (Mnem: 'magnesium sulfate', Ran...PB, Inj, Once, Infuse over: 1 hr'\n  JSON Gen : '1 g, IVPB, Inj, Once, Infuse over: 1 hr'\n  (Score DCW vs JSON: 100%)"
+found_match_for_dcw_entry = True
+index      = 22
+is_range_match = True
+json_sentence_found = '1 g, IVPB, Inj, Once, Infuse over: 1 hr'
+loaded_json_config = {'RCONFIG': {'CCL_POSTPROCESS': 'UHS_MPG_GET_TABBED_ADVISOR', 'JSON_RETURN': '', 'TABS': [{'CANCEL_BUTTON': {}, 'CONCE...rder)', 'TOOLTIP': 'Room type: Critical Care, PCU, Telemetry, MS (Med/Surg) with Telemetry Monitoring order'}], ...}]}}
+order      = {'ASC_SHORT_DESCRIPTION': '', 'COMMENT': 'Intravenous', 'MNEMONIC': 'calcium chloride', 'ORDER_SENTENCE': '1 g, IVPB, Inj, Once, Infuse over: 1 hr'}
+order_sections = [{'CONCEPT_NAME': '[%{EALABCALCIUMTODO}.COUNT > 0 AND {EALABCALCIUMLT11}%]', 'ORDERS': [{'ASC_SHORT_DESCRIPTION': '', ...1;0400, Blood, Tomorrow AM collect, Once'}], 'SECTION_NAME': 'Calcium Lab Orders', 'SHOW_INACTIVE_DUPLICATES': 0, ...}]
+orders_in_section = [{'ASC_SHORT_DESCRIPTION': '', 'COMMENT': 'Intravenous', 'MNEMONIC': 'calcium chloride', 'ORDER_SENTENCE': '1 g, IVPB, Inj, Once, Infuse over: 1 hr'}]
+processing_errors = []
+protocol   = 'Cardiac'
+protocol_dcw_entries = [{'Electrolyte': 'Magnesium', 'Instructions/Note': 'Recheck magnesium level with next AM labs', 'Lab Value Range': 'Cu... Range': 'Current serum level 3.6-3.9', 'Mnemonic': 'potassium chloride 10 mEq/100 mL intravenous solution', ...}, ...]
+report_line = "\n--- DCW Entry #22 (Mnem: 'calcium chloride', Range: 'iCal < 1.1') ---\n  DCW Spec : '1 g, IVPB, Inj, Once, Infuse over: 1 hr'\n  JSON Gen : '1 g, IVPB, Inj, Once, Infuse over: 1 hr'\n  (Score DCW vs JSON: 100%)"
+section    = {'CONCEPT_NAME': '[%{EALABCALCIUMTODO}.COUNT > 0 AND {EALABCALCIUMLT11}%]', 'ORDERS': [{'ASC_SHORT_DESCRIPTION': '', '...ht: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>', 'SHOW_INACTIVE_DUPLICATES': 0, ...}
+section_name = 'Ionized Calcium: < 1.1 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>'
+tabs       = [{'CANCEL_BUTTON': {}, 'CONCEPTS': [], 'CONCEPT_FOR_DISMISS': 'EALABMAGTODO', 'CRITERIA': [{'CONCEPT_NAME': '[%true%]'... order)', 'TOOLTIP': 'Room type: Critical Care, PCU, Telemetry, MS (Med/Surg) with Telemetry Monitoring order'}], ...}]
+target_tab = {'CANCEL_BUTTON': {}, 'CONCEPTS': [], 'CONCEPT_FOR_DISMISS': 'EALABCALCIUMTODO', 'CRITERIA': [{'CONCEPT_NAME': '[%true...g order)', 'TOOLTIP': 'Room type: Critical Care, PCU, Telemetry, MS (Med/Surg) with Telemetry Monitoring order'}], ...}
+
+[1m[31mtests/test_dcw_sentences.py[0m:280: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.8-2' (cleaned: '1.8-2')
-DEBUG _parse_range_string: Failed to parse range from: 'Magnesium: 1.8 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (cleaned: 'magnesium: 1.8 - 2.0 mg/dl<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br>')
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.8-2' (Parsed: None-None) vs JSON_Section='Magnesium: 1.8 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: None-None)
+DEBUG ranges_match: Comparing DCW='Current serum level 1.8-2' (Parsed: 1.8-2.0) vs JSON_Section='Magnesium: 1.8 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: 1.8-2.0)
 DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.4-1.7' (cleaned: '1.4-1.7')
-DEBUG _parse_range_string: Failed to parse range from: 'Magnesium: 1.8 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (cleaned: 'magnesium: 1.8 - 2.0 mg/dl<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br>')
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.4-1.7' (Parsed: None-None) vs JSON_Section='Magnesium: 1.8 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: None-None)
-DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level < 1.4' (cleaned: '< 1.4')
-DEBUG _parse_range_string: Failed to parse range from: 'Magnesium: 1.8 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (cleaned: 'magnesium: 1.8 - 2.0 mg/dl<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br>')
+DEBUG ranges_match: Comparing DCW='Current serum level 1.4-1.7' (Parsed: 1.4-1.7) vs JSON_Section='Magnesium: 1.8 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: 1.8-2.0)
+DEBUG ranges_match: Comparison result = False
 
-DEBUG ranges_match: Comparing DCW='Current serum level < 1.4' (Parsed: None-None) vs JSON_Section='Magnesium: 1.8 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: None-None)
-DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 3.6-3.9' (cleaned: '3.6-3.9')
-DEBUG _parse_range_string: Failed to parse range from: 'Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'potassium: 3.6 - 3.9 mmol/l<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
+DEBUG ranges_match: Comparing DCW='Current serum level 1.4-1.7' (Parsed: 1.4-1.7) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">Monitoring: Recheck BMP and magnesium level with next AM labs.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
 
-DEBUG ranges_match: Comparing DCW='Current serum level 3.6-3.9' (Parsed: None-None) vs JSON_Section='Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
+DEBUG ranges_match: Comparing DCW='Current serum level 1.4-1.7' (Parsed: 1.4-1.7) vs JSON_Section='Magnesium: 1.4 - 1.7 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: 1.4-1.7)
 DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 3.6-3.9' (cleaned: '3.6-3.9')
-DEBUG _parse_range_string: Failed to parse range from: 'Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'potassium: 3.6 - 3.9 mmol/l<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
 
-DEBUG ranges_match: Comparing DCW='Current serum level 3.6-3.9' (Parsed: None-None) vs JSON_Section='Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
-DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 3.6-3.9' (cleaned: '3.6-3.9')
-DEBUG _parse_range_string: Failed to parse range from: 'Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'potassium: 3.6 - 3.9 mmol/l<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
+DEBUG ranges_match: Comparing DCW='Current serum level < 1.4' (Parsed: None-1.4) vs JSON_Section='Magnesium: 1.8 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: 1.8-2.0)
+DEBUG ranges_match: Comparison result = False
 
-DEBUG ranges_match: Comparing DCW='Current serum level 3.6-3.9' (Parsed: None-None) vs JSON_Section='Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
-DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 3.6-3.9' (cleaned: '3.6-3.9')
-DEBUG _parse_range_string: Failed to parse range from: 'Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'potassium: 3.6 - 3.9 mmol/l<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
+DEBUG ranges_match: Comparing DCW='Current serum level < 1.4' (Parsed: None-1.4) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">Monitoring: Recheck BMP and magnesium level with next AM labs.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
 
-DEBUG ranges_match: Comparing DCW='Current serum level 3.6-3.9' (Parsed: None-None) vs JSON_Section='Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
-DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 3.2-3.5' (cleaned: '3.2-3.5')
-DEBUG _parse_range_string: Failed to parse range from: 'Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'potassium: 3.6 - 3.9 mmol/l<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
+DEBUG ranges_match: Comparing DCW='Current serum level < 1.4' (Parsed: None-1.4) vs JSON_Section='Magnesium: 1.4 - 1.7 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: 1.4-1.7)
+DEBUG ranges_match: Comparison result = False
 
-DEBUG ranges_match: Comparing DCW='Current serum level 3.2-3.5' (Parsed: None-None) vs JSON_Section='Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
-DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 3.2-3.5' (cleaned: '3.2-3.5')
-DEBUG _parse_range_string: Failed to parse range from: 'Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'potassium: 3.6 - 3.9 mmol/l<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
+DEBUG ranges_match: Comparing DCW='Current serum level < 1.4' (Parsed: None-1.4) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">Monitoring: Recheck magnesium level 4 hrs after infusion complete.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
 
-DEBUG ranges_match: Comparing DCW='Current serum level 3.2-3.5' (Parsed: None-None) vs JSON_Section='Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
+DEBUG ranges_match: Comparing DCW='Current serum level < 1.4' (Parsed: None-1.4) vs JSON_Section='Magnesium: < 1.4 mg/dL<br><span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PHYSICIAN if less than 1.2 mg/dL</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: None-1.4)
 DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 3.2-3.5' (cleaned: '3.2-3.5')
-DEBUG _parse_range_string: Failed to parse range from: 'Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'potassium: 3.6 - 3.9 mmol/l<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
 
-DEBUG ranges_match: Comparing DCW='Current serum level 3.2-3.5' (Parsed: None-None) vs JSON_Section='Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
+DEBUG ranges_match: Comparing DCW='Current serum level 3.6-3.9' (Parsed: 3.6-3.9) vs JSON_Section='Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.6-3.9)
 DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 3.2-3.5' (cleaned: '3.2-3.5')
-DEBUG _parse_range_string: Failed to parse range from: 'Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'potassium: 3.6 - 3.9 mmol/l<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
 
-DEBUG ranges_match: Comparing DCW='Current serum level 3.2-3.5' (Parsed: None-None) vs JSON_Section='Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
+DEBUG ranges_match: Comparing DCW='Current serum level 3.6-3.9' (Parsed: 3.6-3.9) vs JSON_Section='Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.6-3.9)
 DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 2.8-3.1' (cleaned: '2.8-3.1')
-DEBUG _parse_range_string: Failed to parse range from: 'Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'potassium: 3.6 - 3.9 mmol/l<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
 
-DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: None-None) vs JSON_Section='Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
+DEBUG ranges_match: Comparing DCW='Current serum level 3.6-3.9' (Parsed: 3.6-3.9) vs JSON_Section='Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.6-3.9)
 DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 2.8-3.1' (cleaned: '2.8-3.1')
-DEBUG _parse_range_string: Failed to parse range from: 'Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'potassium: 3.6 - 3.9 mmol/l<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
 
-DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: None-None) vs JSON_Section='Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
+DEBUG ranges_match: Comparing DCW='Current serum level 3.6-3.9' (Parsed: 3.6-3.9) vs JSON_Section='Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.6-3.9)
 DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 2.8-3.1' (cleaned: '2.8-3.1')
-DEBUG _parse_range_string: Failed to parse range from: 'Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'potassium: 3.6 - 3.9 mmol/l<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
 
-DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: None-None) vs JSON_Section='Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
-DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 2.8-3.1' (cleaned: '2.8-3.1')
-DEBUG _parse_range_string: Failed to parse range from: 'Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'potassium: 3.6 - 3.9 mmol/l<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
+DEBUG ranges_match: Comparing DCW='Current serum level 3.2-3.5' (Parsed: 3.2-3.5) vs JSON_Section='Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.6-3.9)
+DEBUG ranges_match: Comparison result = False
 
-DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: None-None) vs JSON_Section='Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
-DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level < 2.8' (cleaned: '< 2.8')
-DEBUG _parse_range_string: Failed to parse range from: 'Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'potassium: 3.6 - 3.9 mmol/l<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
+DEBUG ranges_match: Comparing DCW='Current serum level 3.2-3.5' (Parsed: 3.2-3.5) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck BMP with next AM labs.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
 
-DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-None) vs JSON_Section='Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
+DEBUG ranges_match: Comparing DCW='Current serum level 3.2-3.5' (Parsed: 3.2-3.5) vs JSON_Section='Potassium: 3.2 - 3.5 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.2-3.5)
 DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level < 2.8' (cleaned: '< 2.8')
-DEBUG _parse_range_string: Failed to parse range from: 'Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'potassium: 3.6 - 3.9 mmol/l<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
 
-DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-None) vs JSON_Section='Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
-DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.6-2.0' (cleaned: '1.6-2.0')
-DEBUG _parse_range_string: Failed to parse range from: 'Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'phosphorus: 1.6 - 2.0 mg/dl<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
+DEBUG ranges_match: Comparing DCW='Current serum level 3.2-3.5' (Parsed: 3.2-3.5) vs JSON_Section='Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.6-3.9)
+DEBUG ranges_match: Comparison result = False
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
-DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.6-2.0' (cleaned: '1.6-2.0')
-DEBUG _parse_range_string: Failed to parse range from: '<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels with next AM labs.</small>' (cleaned: '<strong style="font-size: 18px; font-weight: bold; color: #333;">step 2 - order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">monitoring: recheck phosphorous & calcium levels with next am labs.</small>')
+DEBUG ranges_match: Comparing DCW='Current serum level 3.2-3.5' (Parsed: 3.2-3.5) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck BMP with next AM labs.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels with next AM labs.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparing DCW='Current serum level 3.2-3.5' (Parsed: 3.2-3.5) vs JSON_Section='Potassium: 3.2 - 3.5 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.2-3.5)
 DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.6-2.0' (cleaned: '1.6-2.0')
-DEBUG _parse_range_string: Failed to parse range from: 'Phosphorus: 1.0 - 1.5 mg/dL<br><span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PROVIDER if less than 1.1 mg/dL</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'phosphorus: 1.0 - 1.5 mg/dl<br><span style="color: red; font-weight: bold; font-size: 14px;">notify provider if less than 1.1 mg/dl</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='Phosphorus: 1.0 - 1.5 mg/dL<br><span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PROVIDER if less than 1.1 mg/dL</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
-DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.6-2.0' (cleaned: '1.6-2.0')
-DEBUG _parse_range_string: Failed to parse range from: '<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>ORAL - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels with next AM labs.</small>' (cleaned: '<strong style="font-size: 18px; font-weight: bold; color: #333;">step 2 - order corresponding follow-up lab(s):</strong><br>oral - labs:<br><small style="font-weight: normal;">monitoring: recheck phosphorous & calcium levels with next am labs.</small>')
+DEBUG ranges_match: Comparing DCW='Current serum level 3.2-3.5' (Parsed: 3.2-3.5) vs JSON_Section='Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.6-3.9)
+DEBUG ranges_match: Comparison result = False
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>ORAL - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels with next AM labs.</small>' (Parsed: None-None)
-DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.6-2.0' (cleaned: '1.6-2.0')
-DEBUG _parse_range_string: Failed to parse range from: 'IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels 2 hrs after infusion.</small>' (cleaned: 'iv - labs:<br><small style="font-weight: normal;">monitoring: recheck phosphorous & calcium levels 2 hrs after infusion.</small>')
+DEBUG ranges_match: Comparing DCW='Current serum level 3.2-3.5' (Parsed: 3.2-3.5) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck BMP with next AM labs.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels 2 hrs after infusion.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparing DCW='Current serum level 3.2-3.5' (Parsed: 3.2-3.5) vs JSON_Section='Potassium: 3.2 - 3.5 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.2-3.5)
 DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.6-2.0' (cleaned: '1.6-2.0')
-DEBUG _parse_range_string: Failed to parse range from: 'Phosphorus: < 1.0 mg/dL<br><span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PROVIDER if less than 1.1 mg/dL</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (cleaned: 'phosphorus: < 1.0 mg/dl<br><span style="color: red; font-weight: bold; font-size: 14px;">notify provider if less than 1.1 mg/dl</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br>')
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='Phosphorus: < 1.0 mg/dL<br><span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PROVIDER if less than 1.1 mg/dL</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: None-None)
-DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.6-2.0' (cleaned: '1.6-2.0')
-DEBUG _parse_range_string: Failed to parse range from: '<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels 2 hrs after infusion.</small>' (cleaned: '<strong style="font-size: 18px; font-weight: bold; color: #333;">step 2 - order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">monitoring: recheck phosphorous & calcium levels 2 hrs after infusion.</small>')
+DEBUG ranges_match: Comparing DCW='Current serum level 3.2-3.5' (Parsed: 3.2-3.5) vs JSON_Section='Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.6-3.9)
+DEBUG ranges_match: Comparison result = False
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels 2 hrs after infusion.</small>' (Parsed: None-None)
-DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.6-2.0' (cleaned: '1.6-2.0')
-DEBUG _parse_range_string: Failed to parse range from: 'Phosphorous Lab Orders' (cleaned: 'phosphorous lab orders')
+DEBUG ranges_match: Comparing DCW='Current serum level 3.2-3.5' (Parsed: 3.2-3.5) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck BMP with next AM labs.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='Phosphorous Lab Orders' (Parsed: None-None)
+DEBUG ranges_match: Comparing DCW='Current serum level 3.2-3.5' (Parsed: 3.2-3.5) vs JSON_Section='Potassium: 3.2 - 3.5 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.2-3.5)
 DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.6-2.0' (cleaned: '1.6-2.0')
-DEBUG _parse_range_string: Failed to parse range from: 'Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'phosphorus: 1.6 - 2.0 mg/dl<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
-DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.0-1.5' (cleaned: '1.0-1.5')
-DEBUG _parse_range_string: Failed to parse range from: 'Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'phosphorus: 1.6 - 2.0 mg/dl<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.6-3.9)
+DEBUG ranges_match: Comparison result = False
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.0-1.5' (Parsed: None-None) vs JSON_Section='Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
-DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.0-1.5' (cleaned: '1.0-1.5')
-DEBUG _parse_range_string: Failed to parse range from: 'Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'phosphorus: 1.6 - 2.0 mg/dl<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck BMP with next AM labs.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.0-1.5' (Parsed: None-None) vs JSON_Section='Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
-DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level <1.0' (cleaned: '<1.0')
-DEBUG _parse_range_string: Failed to parse range from: 'Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'phosphorus: 1.6 - 2.0 mg/dl<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='Potassium: 3.2 - 3.5 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.2-3.5)
+DEBUG ranges_match: Comparison result = False
 
-DEBUG ranges_match: Comparing DCW='Current serum level <1.0' (Parsed: None-None) vs JSON_Section='Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
-DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'iCal < 1.1' (cleaned: '< 1.1')
-DEBUG _parse_range_string: Failed to parse range from: 'Ionized Calcium: < 1.1 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (cleaned: 'ionized calcium: < 1.1 mg/dl<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br>')
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>ORAL - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck potassium level 4 hours after last dose.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
 
-DEBUG ranges_match: Comparing DCW='iCal < 1.1' (Parsed: None-None) vs JSON_Section='Ionized Calcium: < 1.1 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: None-None)
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='PERIPHERAL IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck potassium level 1 hr after infusion complete.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='CENTRAL IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck potassium level 1 hr after infusion complete.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='Potassium: 2.8 - 3.1 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: 2.8-3.1)
 DEBUG ranges_match: Comparison result = True
-_ test_dcw_sentences_match_generated[/home/pessk/code/ea-python/generated_configs/output_regular.json] _
+
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.6-3.9)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck BMP with next AM labs.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='Potassium: 3.2 - 3.5 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.2-3.5)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>ORAL - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck potassium level 4 hours after last dose.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='PERIPHERAL IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck potassium level 1 hr after infusion complete.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='CENTRAL IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck potassium level 1 hr after infusion complete.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='Potassium: 2.8 - 3.1 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: 2.8-3.1)
+DEBUG ranges_match: Comparison result = True
+
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.6-3.9)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck BMP with next AM labs.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='Potassium: 3.2 - 3.5 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.2-3.5)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>ORAL - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck potassium level 4 hours after last dose.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='PERIPHERAL IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck potassium level 1 hr after infusion complete.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='CENTRAL IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck potassium level 1 hr after infusion complete.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='Potassium: 2.8 - 3.1 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: 2.8-3.1)
+DEBUG ranges_match: Comparison result = True
+
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.6-3.9)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck BMP with next AM labs.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='Potassium: 3.2 - 3.5 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.2-3.5)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>ORAL - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck potassium level 4 hours after last dose.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='PERIPHERAL IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck potassium level 1 hr after infusion complete.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='CENTRAL IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck potassium level 1 hr after infusion complete.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='Potassium: 2.8 - 3.1 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: 2.8-3.1)
+DEBUG ranges_match: Comparison result = True
+
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.6-3.9)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck BMP with next AM labs.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='Potassium: 3.2 - 3.5 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.2-3.5)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>ORAL - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck potassium level 4 hours after last dose.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='PERIPHERAL IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck potassium level 1 hr after infusion complete.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='CENTRAL IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck potassium level 1 hr after infusion complete.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='Potassium: 2.8 - 3.1 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: 2.8-3.1)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>ORAL - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck potassium level 4 hrs after last dose.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='PERIPHERAL IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck potassium level 1 hr after infusion complete.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='CENTRAL IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck potassium level 1 hr after infusion complete.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='Potassium: < 2.8 mmol/L<br><span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PHYSICIAN</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: None-2.8)
+DEBUG ranges_match: Comparison result = True
+
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='Potassium: 3.6 - 3.9 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.6-3.9)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck BMP with next AM labs.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='Potassium: 3.2 - 3.5 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.2-3.5)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>ORAL - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck potassium level 4 hours after last dose.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='PERIPHERAL IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck potassium level 1 hr after infusion complete.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='CENTRAL IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck potassium level 1 hr after infusion complete.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='Potassium: 2.8 - 3.1 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: 2.8-3.1)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>ORAL - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck potassium level 4 hrs after last dose.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='PERIPHERAL IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck potassium level 1 hr after infusion complete.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='CENTRAL IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck potassium level 1 hr after infusion complete.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='Potassium: < 2.8 mmol/L<br><span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PHYSICIAN</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: None-2.8)
+DEBUG ranges_match: Comparison result = True
+
+DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: 1.6-2.0) vs JSON_Section='Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 1.6-2.0)
+DEBUG ranges_match: Comparison result = True
+
+DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: 1.6-2.0) vs JSON_Section='Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 1.6-2.0)
+DEBUG ranges_match: Comparison result = True
+
+DEBUG ranges_match: Comparing DCW='Current serum level 1.0-1.5' (Parsed: 1.0-1.5) vs JSON_Section='Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 1.6-2.0)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level 1.0-1.5' (Parsed: 1.0-1.5) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels with next AM labs.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level 1.0-1.5' (Parsed: 1.0-1.5) vs JSON_Section='Phosphorus: 1.0 - 1.5 mg/dL<br><span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PHYSICIAN if less than 1.1 mg/dL</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 1.0-1.5)
+DEBUG ranges_match: Comparison result = True
+
+DEBUG ranges_match: Comparing DCW='Current serum level 1.0-1.5' (Parsed: 1.0-1.5) vs JSON_Section='Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 1.6-2.0)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level 1.0-1.5' (Parsed: 1.0-1.5) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels with next AM labs.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level 1.0-1.5' (Parsed: 1.0-1.5) vs JSON_Section='Phosphorus: 1.0 - 1.5 mg/dL<br><span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PHYSICIAN if less than 1.1 mg/dL</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 1.0-1.5)
+DEBUG ranges_match: Comparison result = True
+
+DEBUG ranges_match: Comparing DCW='Current serum level <1.0' (Parsed: None-1.0) vs JSON_Section='Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 1.6-2.0)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level <1.0' (Parsed: None-1.0) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels with next AM labs.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level <1.0' (Parsed: None-1.0) vs JSON_Section='Phosphorus: 1.0 - 1.5 mg/dL<br><span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PHYSICIAN if less than 1.1 mg/dL</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 1.0-1.5)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level <1.0' (Parsed: None-1.0) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>ORAL - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels with next AM labs.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level <1.0' (Parsed: None-1.0) vs JSON_Section='IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels 2 hrs after infusion.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level <1.0' (Parsed: None-1.0) vs JSON_Section='Phosphorus: < 1.0 mg/dL<br><span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PHYSICIAN if less than 1.1 mg/dL</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: None-1.0)
+DEBUG ranges_match: Comparison result = True
+
+DEBUG ranges_match: Comparing DCW='iCal < 1.1' (Parsed: None-1.1) vs JSON_Section='Ionized Calcium: < 1.1 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: None-1.1)
+DEBUG ranges_match: Comparison result = True
+[31m[1m_ test_dcw_sentences_match_generated[/home/pessk/code/ea-python/generated_configs/output_regular.json] _[0m
 
 config_file_path = '/home/pessk/code/ea-python/generated_configs/output_regular.json'
 dcw_data = [{'Electrolyte': 'Magnesium', 'Instructions/Note': 'Recheck BMP and magnesium level with next AM labs.', 'Lab Value Ra... Range': 'Current serum level 3.2-3.4', 'Mnemonic': 'potassium chloride 10 mEq/100 mL intravenous solution', ...}, ...]
@@ -471,14 +600,19 @@ dcw_data = [{'Electrolyte': 'Magnesium', 'Instructions/Note': 'Recheck BMP and m
     
         for index, dcw_entry in enumerate(protocol_dcw_entries):
             dcw_electrolyte = dcw_entry.get('Electrolyte')
-            dcw_mnemonic = dcw_entry.get('Mnemonic')
+            dcw_mnemonic_raw = dcw_entry.get('Mnemonic') # Get raw mnemonic
             dcw_range = dcw_entry.get('Lab Value Range') # Keep for context
             dcw_sentence = dcw_entry.get('Order_Sentence')
     
-            if not all([protocol, dcw_electrolyte, dcw_mnemonic, dcw_sentence]):
+            # Clean the DCW mnemonic - remove parentheses and content within
+            dcw_mnemonic_cleaned = re.sub(r'\s*\(.*?\)\s*$', '', dcw_mnemonic_raw).strip() if dcw_mnemonic_raw else None
+    
+            if not all([protocol, dcw_electrolyte, dcw_mnemonic_cleaned, dcw_sentence]): # Use cleaned mnemonic for check
+                # Optionally log skipping due to missing cleaned mnemonic
+                # print(f"Skipping DCW entry {index}: Missing required data after cleaning mnemonic.")
                 continue
     
-            # --- Find JSON Counterpart (by mnemonic within the correct tab) ---
+            # --- Find JSON Counterpart (by cleaned mnemonic within the correct tab) ---
             json_sentence_found = None
             try:
                 tabs = loaded_json_config.get('RCONFIG', {}).get('TABS', [])
@@ -504,7 +638,8 @@ dcw_data = [{'Electrolyte': 'Magnesium', 'Instructions/Note': 'Recheck BMP and m
                         if is_range_match:
                              orders_in_section = section.get('ORDERS', [])
                              for order in orders_in_section:
-                                 if order.get('MNEMONIC') == dcw_mnemonic:
+                                 # Compare JSON mnemonic with the CLEANED DCW mnemonic
+                                 if order.get('MNEMONIC') == dcw_mnemonic_cleaned:
                                      json_sentence_found = order.get('ORDER_SENTENCE')
                                      found_match_for_dcw_entry = True # Mark as found
                                      break # Found the correct order in the matching section
@@ -519,15 +654,16 @@ dcw_data = [{'Electrolyte': 'Magnesium', 'Instructions/Note': 'Recheck BMP and m
                 processing_errors.append(f"Error finding JSON counterpart for DCW entry {index}: {e}")
                 continue
     
-            # --- Fuzzy Compare DCW vs JSON ---
+            # --- Fuzzy Compare DCW vs JSON --- (Uses json_sentence_found)
             comparison_score = 0
             if json_sentence_found:
+                # Compare the original DCW sentence with the found JSON sentence
                 comparison_score = fuzz.token_sort_ratio(dcw_sentence, json_sentence_found)
             # else: json_sentence_found remains None
     
-            # --- Compile Report Line ---
+            # --- Compile Report Line --- (Show original DCW mnemonic for context)
             report_line = f'''
-    --- DCW Entry #{index} (Mnem: '{dcw_mnemonic}', Range: '{dcw_range}') ---
+    --- DCW Entry #{index} (Mnem: '{dcw_mnemonic_raw}', Range: '{dcw_range}') ---
       DCW Spec : {repr(dcw_sentence)}
       JSON Gen : {repr(json_sentence_found) if json_sentence_found else '*** NOT FOUND in JSON Tab ***'}
       (Score DCW vs JSON: {comparison_score}%)'''
@@ -544,228 +680,323 @@ dcw_data = [{'Electrolyte': 'Magnesium', 'Instructions/Note': 'Recheck BMP and m
     
         # Fail if there's anything in the report to ensure it's always printed
 >       assert not final_output_message, final_output_message
-E       AssertionError: 
-E         DCW vs JSON Sentence Comparison Report for output_regular.json:
-E         
-E         --- DCW Entry #0 (Mnem: 'magnesium oxide', Range: 'Current serum level 1.4-1.5') ---
-E           DCW Spec : '400 mg, PO, Tab, q12hr (interval), Duration: 2 dose(s)'
-E           JSON Gen : '400 mg, PO, Tab, q12hr (interval), Duration: 2 dose(s)'
-E           (Score DCW vs JSON: 100%)
-E         
-E         --- DCW Entry #1 (Mnem: 'magnesium sulfate', Range: 'Current serum level 1.4-1.5') ---
-E           DCW Spec : '2 g, IVPB, Premix, Once, Infuse over: 2 hr'
-E           JSON Gen : '2 g, IVPB, Premix, Once, Infuse over: 2 hr'
-E           (Score DCW vs JSON: 100%)
-E         
-E         --- DCW Entry #2 (Mnem: 'magnesium sulfate', Range: 'Current serum level < 1.4') ---
-E           DCW Spec : '2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr'
-E           JSON Gen : '2 g, IVPB, Premix, Once, Infuse over: 2 hr'
-E           (Score DCW vs JSON: 63%)
-E         
-E         --- DCW Entry #3 (Mnem: 'potassium chloride extended release', Range: 'Current serum level 3.2-3.4') ---
-E           DCW Spec : '20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)'
-E           JSON Gen : '20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)'
-E           (Score DCW vs JSON: 100%)
-E         
-E         --- DCW Entry #4 (Mnem: 'potassium chloride', Range: 'Current serum level 3.2-3.4') ---
-E           DCW Spec : '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 2 dose(s)'
-E           JSON Gen : '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 2 dose(s)'
-E           (Score DCW vs JSON: 100%)
-E         
-E         --- DCW Entry #5 (Mnem: 'potassium chloride 10 mEq/100 mL intravenous solution', Range: 'Current serum level 3.2-3.4') ---
-E           DCW Spec : '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'
-E           JSON Gen : '10 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'
-E           (Score DCW vs JSON: 99%)
-E         
-E         --- DCW Entry #6 (Mnem: 'potassium chloride 20 mEq/100 mL intravenous solution', Range: 'Current serum level 3.2-3.4') ---
-E           DCW Spec : '20 mEq, IV, q2hr, Duration: 2 dose(s), Infuse over: 2 hr'
-E           JSON Gen : '20 mEq, IV, q2h, Duration: 2 dose(s), Infuse over: 2 hr'
-E           (Score DCW vs JSON: 99%)
-E         
-E         --- DCW Entry #7 (Mnem: 'potassium chloride extended release', Range: 'Current serum level 2.8-3.1') ---
-E           DCW Spec : '20 mEq, PO, ER tab, q2hr (interval), Duration: 3 dose(s)'
-E           JSON Gen : '20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)'
-E           (Score DCW vs JSON: 96%)
-E         
-E         --- DCW Entry #8 (Mnem: 'potassium chloride', Range: 'Current serum level 2.8-3.1') ---
-E           DCW Spec : '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 3 dose(s)'
-E           JSON Gen : '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 2 dose(s)'
-E           (Score DCW vs JSON: 96%)
-E         
-E         --- DCW Entry #9 (Mnem: 'potassium chloride 10 mEq/100 mL intravenous solution', Range: 'Current serum level 2.8-3.1') ---
-E           DCW Spec : '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
-E           JSON Gen : '10 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'
-E           (Score DCW vs JSON: 97%)
-E         
-E         --- DCW Entry #10 (Mnem: 'potassium chloride 20 mEq/100 mL intravenous solution', Range: 'Current serum level 2.8-3.1') ---
-E           DCW Spec : '20 mEq, IV, q2hr, Duration: 3 dose(s), Infuse over: 2 hr'
-E           JSON Gen : '20 mEq, IV, q2h, Duration: 2 dose(s), Infuse over: 2 hr'
-E           (Score DCW vs JSON: 95%)
-E         
-E         --- DCW Entry #11 (Mnem: 'potassium chloride 10 mEq/100 mL intravenous solution', Range: 'Current serum level < 2.8') ---
-E           DCW Spec : '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
-E           JSON Gen : '10 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'
-E           (Score DCW vs JSON: 97%)
-E         
-E         --- DCW Entry #12 (Mnem: 'potassium chloride 20 mEq/100 mL intravenous solution', Range: 'Current serum level < 2.8') ---
-E           DCW Spec : '20 mEq, IV, q2hr, Duration: 4 dose(s), Infuse over: 2 hr'
-E           JSON Gen : '20 mEq, IV, q2h, Duration: 2 dose(s), Infuse over: 2 hr'
-E           (Score DCW vs JSON: 95%)
-E         
-E         --- DCW Entry #13 (Mnem: 'K-Phos Neutral (brand name synonym under primary potassium phosphate-sodium phosphate)', Range: 'Current serum level 1.6-2.0') ---
-E           DCW Spec : '2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)'
-E           JSON Gen : *** NOT FOUND in JSON Tab ***
-E           (Score DCW vs JSON: 0%)
-E         
-E         --- DCW Entry #14 (Mnem: 'sodium phosphate', Range: 'Current serum level 1.6-2.0') ---
-E           DCW Spec : '15 mmol, IVPB, Inj, Once'
-E           JSON Gen : '15 mmol, IVPB, Inj, Once'
-E           (Score DCW vs JSON: 100%)
-E         
-E         --- DCW Entry #15 (Mnem: 'K-Phos Neutral', Range: 'Current serum level 1.0-1.5') ---
-E           DCW Spec : '2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)'
-E           JSON Gen : '2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)'
-E           (Score DCW vs JSON: 98%)
-E         
-E         --- DCW Entry #16 (Mnem: 'sodium phosphate', Range: 'Current serum level 1.0-1.5') ---
-E           DCW Spec : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'
-E           JSON Gen : '15 mmol, IVPB, Inj, Once'
-E           (Score DCW vs JSON: 49%)
-E         
-E         --- DCW Entry #17 (Mnem: 'sodium phosphate', Range: 'Current serum level <1.0') ---
-E           DCW Spec : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'
-E           JSON Gen : '15 mmol, IVPB, Inj, Once'
-E           (Score DCW vs JSON: 49%)
-E       assert not "\nDCW vs JSON Sentence Comparison Report for output_regular.json:\n\n--- DCW Entry #0 (Mnem: 'magnesium oxide', Range: 'Current serum level 1.4-1.5') ---\n  DCW Spec : '400 mg, PO, Tab, q12hr (interval), Duration: 2 dose(s)'\n  JSON Gen : '400 mg, PO, Tab, q12hr (interval), Duration: 2 dose(s)'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #1 (Mnem: 'magnesium sulfate', Range: 'Current serum level 1.4-1.5') ---\n  DCW Spec : '2 g, IVPB, Premix, Once, Infuse over: 2 hr'\n  JSON Gen : '2 g, IVPB, Premix, Once, Infuse over: 2 hr'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #2 (Mnem: 'magnesium sulfate', Range: 'Current serum level < 1.4') ---\n  DCW Spec : '2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr'\n  JSON Gen : '2 g, IVPB, Premix, Once, Infuse over: 2 hr'\n  (Score DCW vs JSON: 63%)\n\n--- DCW Entry #3 (Mnem: 'potassium chloride extended release', Range: 'Current serum level 3.2-3.4') ---\n  DCW Spec : '20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)'\n  JSON Gen : '20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #4 (Mnem: 'potassium chloride', Range: 'Current serum level 3.2-3.4')...: 'K-Phos Neutral (brand name synonym under primary potassium phosphate-sodium phosphate)', Range: 'Current serum level 1.6-2.0') ---\n  DCW Spec : '2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)'\n  JSON Gen : *** NOT FOUND in JSON Tab ***\n  (Score DCW vs JSON: 0%)\n\n--- DCW Entry #14 (Mnem: 'sodium phosphate', Range: 'Current serum level 1.6-2.0') ---\n  DCW Spec : '15 mmol, IVPB, Inj, Once'\n  JSON Gen : '15 mmol, IVPB, Inj, Once'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #15 (Mnem: 'K-Phos Neutral', Range: 'Current serum level 1.0-1.5') ---\n  DCW Spec : '2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)'\n  JSON Gen : '2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)'\n  (Score DCW vs JSON: 98%)\n\n--- DCW Entry #16 (Mnem: 'sodium phosphate', Range: 'Current serum level 1.0-1.5') ---\n  DCW Spec : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'\n  JSON Gen : '15 mmol, IVPB, Inj, Once'\n  (Score DCW vs JSON: 49%)\n\n--- DCW Entry #17 (Mnem: 'sodium phosphate', Range: 'Current serum level <1.0') ---\n  DCW Spec : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'\n  JSON Gen : '15 mmol, IVPB, Inj, Once'\n  (Score DCW vs JSON: 49%)"
+[1m[31mE       AssertionError: [0m
+[1m[31mE         DCW vs JSON Sentence Comparison Report for output_regular.json:[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #0 (Mnem: 'magnesium oxide', Range: 'Current serum level 1.4-1.5') ---[0m
+[1m[31mE           DCW Spec : '400 mg, PO, Tab, q12hr (interval), Duration: 2 dose(s)'[0m
+[1m[31mE           JSON Gen : '400 mg, PO, Tab, q12hr (interval), Duration: 2 dose(s)'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #1 (Mnem: 'magnesium sulfate', Range: 'Current serum level 1.4-1.5') ---[0m
+[1m[31mE           DCW Spec : '2 g, IVPB, Premix, Once, Infuse over: 2 hr'[0m
+[1m[31mE           JSON Gen : '2 g, IVPB, Premix, Once, Infuse over: 2 hr'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #2 (Mnem: 'magnesium sulfate', Range: 'Current serum level < 1.4') ---[0m
+[1m[31mE           DCW Spec : '2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr'[0m
+[1m[31mE           JSON Gen : '2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #3 (Mnem: 'potassium chloride extended release', Range: 'Current serum level 3.2-3.4') ---[0m
+[1m[31mE           DCW Spec : '20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)'[0m
+[1m[31mE           JSON Gen : '20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #4 (Mnem: 'potassium chloride', Range: 'Current serum level 3.2-3.4') ---[0m
+[1m[31mE           DCW Spec : '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 2 dose(s)'[0m
+[1m[31mE           JSON Gen : '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 2 dose(s)'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #5 (Mnem: 'potassium chloride 10 mEq/100 mL intravenous solution', Range: 'Current serum level 3.2-3.4') ---[0m
+[1m[31mE           DCW Spec : '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'[0m
+[1m[31mE           JSON Gen : '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #6 (Mnem: 'potassium chloride 20 mEq/100 mL intravenous solution', Range: 'Current serum level 3.2-3.4') ---[0m
+[1m[31mE           DCW Spec : '20 mEq, IV, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr'[0m
+[1m[31mE           JSON Gen : '20 mEq, IV, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #7 (Mnem: 'potassium chloride extended release', Range: 'Current serum level 2.8-3.1') ---[0m
+[1m[31mE           DCW Spec : '20 mEq, PO, ER tab, q2hr (interval), Duration: 3 dose(s)'[0m
+[1m[31mE           JSON Gen : '20 mEq, PO, ER tab, q2hr (interval), Duration: 3 dose(s)'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #8 (Mnem: 'potassium chloride', Range: 'Current serum level 2.8-3.1') ---[0m
+[1m[31mE           DCW Spec : '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 3 dose(s)'[0m
+[1m[31mE           JSON Gen : '20 mEq, Feeding Tube, Liq, q2hr (interval), Duration: 3 dose(s)'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #9 (Mnem: 'potassium chloride 10 mEq/100 mL intravenous solution', Range: 'Current serum level 2.8-3.1') ---[0m
+[1m[31mE           DCW Spec : '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'[0m
+[1m[31mE           JSON Gen : '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #10 (Mnem: 'potassium chloride 20 mEq/100 mL intravenous solution', Range: 'Current serum level 2.8-3.1') ---[0m
+[1m[31mE           DCW Spec : '20 mEq, IV, q2hr (interval), Duration: 3 dose(s), Infuse over: 2 hr'[0m
+[1m[31mE           JSON Gen : '20 mEq, IV, q2hr (interval), Duration: 3 dose(s), Infuse over: 2 hr'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #11 (Mnem: 'potassium chloride 10 mEq/100 mL intravenous solution', Range: 'Current serum level < 2.8') ---[0m
+[1m[31mE           DCW Spec : '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'[0m
+[1m[31mE           JSON Gen : '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #12 (Mnem: 'potassium chloride 20 mEq/100 mL intravenous solution', Range: 'Current serum level < 2.8') ---[0m
+[1m[31mE           DCW Spec : '20 mEq, IV, q2hr (interval), Duration: 4 dose(s), Infuse over: 2 hr'[0m
+[1m[31mE           JSON Gen : '20 mEq, IV, q2hr (interval), Duration: 4 dose(s), Infuse over: 2 hr'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #13 (Mnem: 'K-Phos Neutral (brand name synonym under primary potassium phosphate-sodium phosphate)', Range: 'Current serum level 1.6-2.0') ---[0m
+[1m[31mE           DCW Spec : '2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)'[0m
+[1m[31mE           JSON Gen : '2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #14 (Mnem: 'sodium phosphate', Range: 'Current serum level 1.6-2.0') ---[0m
+[1m[31mE           DCW Spec : '15 mmol, IVPB, Inj, Once'[0m
+[1m[31mE           JSON Gen : '15 mmol, IVPB, Inj, Once'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #15 (Mnem: 'K-Phos Neutral', Range: 'Current serum level 1.0-1.5') ---[0m
+[1m[31mE           DCW Spec : '2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)'[0m
+[1m[31mE           JSON Gen : '2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #16 (Mnem: 'sodium phosphate', Range: 'Current serum level 1.0-1.5') ---[0m
+[1m[31mE           DCW Spec : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'[0m
+[1m[31mE           JSON Gen : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE         [0m
+[1m[31mE         --- DCW Entry #17 (Mnem: 'sodium phosphate', Range: 'Current serum level <1.0') ---[0m
+[1m[31mE           DCW Spec : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'[0m
+[1m[31mE           JSON Gen : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'[0m
+[1m[31mE           (Score DCW vs JSON: 100%)[0m
+[1m[31mE       assert not "\nDCW vs JSON Sentence Comparison Report for output_regular.json:\n\n--- DCW Entry #0 (Mnem: 'magnesium oxide', Range: 'Current serum level 1.4-1.5') ---\n  DCW Spec : '400 mg, PO, Tab, q12hr (interval), Duration: 2 dose(s)'\n  JSON Gen : '400 mg, PO, Tab, q12hr (interval), Duration: 2 dose(s)'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #1 (Mnem: 'magnesium sulfate', Range: 'Current serum level 1.4-1.5') ---\n  DCW Spec : '2 g, IVPB, Premix, Once, Infuse over: 2 hr'\n  JSON Gen : '2 g, IVPB, Premix, Once, Infuse over: 2 hr'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #2 (Mnem: 'magnesium sulfate', Range: 'Current serum level < 1.4') ---\n  DCW Spec : '2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr'\n  JSON Gen : '2 g, IVPB, Premix, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #3 (Mnem: 'potassium chloride extended release', Range: 'Current serum level 3.2-3.4') ---\n  DCW Spec : '20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)'\n  JSON Gen : '20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #4 (Mnem: 'potassium chloride', Rang...: 'Current serum level 1.6-2.0') ---\n  DCW Spec : '2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)'\n  JSON Gen : '2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #14 (Mnem: 'sodium phosphate', Range: 'Current serum level 1.6-2.0') ---\n  DCW Spec : '15 mmol, IVPB, Inj, Once'\n  JSON Gen : '15 mmol, IVPB, Inj, Once'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #15 (Mnem: 'K-Phos Neutral', Range: 'Current serum level 1.0-1.5') ---\n  DCW Spec : '2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)'\n  JSON Gen : '2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #16 (Mnem: 'sodium phosphate', Range: 'Current serum level 1.0-1.5') ---\n  DCW Spec : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'\n  JSON Gen : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'\n  (Score DCW vs JSON: 100%)\n\n--- DCW Entry #17 (Mnem: 'sodium phosphate', Range: 'Current serum level <1.0') ---\n  DCW Spec : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'\n  JSON Gen : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'\n  (Score DCW vs JSON: 100%)"[0m
 
-tests/test_dcw_sentences.py:270: AssertionError
+comparison_report_lines = ["\n--- DCW Entry #0 (Mnem: 'magnesium oxide', Range: 'Current serum level 1.4-1.5') ---\n  DCW Spec : '400 mg, PO, Ta...ver: 1 hr'\n  JSON Gen : '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr'\n  (Score DCW vs JSON: 100%)", ...]
+comparison_score = 100
+config_file_path = '/home/pessk/code/ea-python/generated_configs/output_regular.json'
+dcw_data   = [{'Electrolyte': 'Magnesium', 'Instructions/Note': 'Recheck BMP and magnesium level with next AM labs.', 'Lab Value Ra... Range': 'Current serum level 3.2-3.4', 'Mnemonic': 'potassium chloride 10 mEq/100 mL intravenous solution', ...}, ...]
+dcw_electrolyte = 'Phosphorus'
+dcw_entry  = {'Electrolyte': 'Phosphorus', 'Instructions/Note': 'Recheck phosphorous & calcium levels 2 hrs after infusion', 'Lab Value Range': 'Current serum level <1.0', 'Mnemonic': 'sodium phosphate', ...}
+dcw_mnemonic_cleaned = 'sodium phosphate'
+dcw_mnemonic_raw = 'sodium phosphate'
+dcw_range  = 'Current serum level <1.0'
+dcw_sentence = '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'
+f          = <_io.TextIOWrapper name='/home/pessk/code/ea-python/generated_configs/output_regular.json' mode='r' encoding='utf-8'>
+final_output_message = "\nDCW vs JSON Sentence Comparison Report for output_regular.json:\n\n--- DCW Entry #0 (Mnem: 'magnesium oxide', Range...tion: 2 dose(s)'\n  JSON Gen : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'\n  (Score DCW vs JSON: 100%)"
+found_match_for_dcw_entry = True
+index      = 17
+is_range_match = True
+json_sentence_found = '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'
+loaded_json_config = {'RCONFIG': {'CCL_POSTPROCESS': 'UHS_MPG_GET_TABBED_ADVISOR', 'JSON_RETURN': '', 'TABS': [{'CANCEL_BUTTON': {}, 'CONCE...rder)', 'TOOLTIP': 'Room type: Critical Care, PCU, Telemetry, MS (Med/Surg) with Telemetry Monitoring order'}], ...}]}}
+order      = {'ASC_SHORT_DESCRIPTION': '', 'COMMENT': 'Intravenous', 'MNEMONIC': 'sodium phosphate', 'ORDER_SENTENCE': '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'}
+order_sections = [{'CONCEPT_NAME': '[%{EALABPHOSTODO}.COUNT > 0 AND {EALABPHOSBTW16AND20}%]', 'ORDERS': [{'ASC_SHORT_DESCRIPTION': '', ...ld; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>', 'SHOW_INACTIVE_DUPLICATES': 0, ...}, ...]
+orders_in_section = [{'ASC_SHORT_DESCRIPTION': '', 'COMMENT': 'Intravenous', 'MNEMONIC': 'sodium phosphate', 'ORDER_SENTENCE': '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'}]
+processing_errors = []
+protocol   = 'Regular'
+protocol_dcw_entries = [{'Electrolyte': 'Magnesium', 'Instructions/Note': 'Recheck BMP and magnesium level with next AM labs.', 'Lab Value Ra... Range': 'Current serum level 3.2-3.4', 'Mnemonic': 'potassium chloride 10 mEq/100 mL intravenous solution', ...}, ...]
+report_line = "\n--- DCW Entry #17 (Mnem: 'sodium phosphate', Range: 'Current serum level <1.0') ---\n  DCW Spec : '15 mmol, IVPB, I...tion: 2 dose(s)'\n  JSON Gen : '15 mmol, IVPB, Inj, q4hr (interval), Duration: 2 dose(s)'\n  (Score DCW vs JSON: 100%)"
+section    = {'CONCEPT_NAME': '[%{EALABPHOSTODO}.COUNT > 0 AND {EALABPHOSLT10}%]', 'ORDERS': [{'ASC_SHORT_DESCRIPTION': '', 'COMMEN...ht: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>', 'SHOW_INACTIVE_DUPLICATES': 0, ...}
+section_name = 'Phosphorus: < 1.0 mg/dL<br><span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PHYSICIAN if less tha...ong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>'
+tabs       = [{'CANCEL_BUTTON': {}, 'CONCEPTS': [], 'CONCEPT_FOR_DISMISS': 'EALABMAGTODO', 'CRITERIA': [{'CONCEPT_NAME': '[%true%]'... order)', 'TOOLTIP': 'Room type: Critical Care, PCU, Telemetry, MS (Med/Surg) with Telemetry Monitoring order'}], ...}]
+target_tab = {'CANCEL_BUTTON': {}, 'CONCEPTS': [], 'CONCEPT_FOR_DISMISS': 'EALABPHOSTODO', 'CRITERIA': [{'CONCEPT_NAME': '[%true%]'...g order)', 'TOOLTIP': 'Room type: Critical Care, PCU, Telemetry, MS (Med/Surg) with Telemetry Monitoring order'}], ...}
+
+[1m[31mtests/test_dcw_sentences.py[0m:280: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.4-1.5' (cleaned: '1.4-1.5')
-DEBUG _parse_range_string: Failed to parse range from: 'Magnesium: 1.4 - 1.5 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'magnesium: 1.4 - 1.5 mg/dl<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.4-1.5' (Parsed: None-None) vs JSON_Section='Magnesium: 1.4 - 1.5 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
+DEBUG ranges_match: Comparing DCW='Current serum level 1.4-1.5' (Parsed: 1.4-1.5) vs JSON_Section='Magnesium: 1.4 - 1.5 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 1.4-1.5)
 DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.4-1.5' (cleaned: '1.4-1.5')
-DEBUG _parse_range_string: Failed to parse range from: 'Magnesium: 1.4 - 1.5 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'magnesium: 1.4 - 1.5 mg/dl<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.4-1.5' (Parsed: None-None) vs JSON_Section='Magnesium: 1.4 - 1.5 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
+DEBUG ranges_match: Comparing DCW='Current serum level 1.4-1.5' (Parsed: 1.4-1.5) vs JSON_Section='Magnesium: 1.4 - 1.5 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 1.4-1.5)
 DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level < 1.4' (cleaned: '< 1.4')
-DEBUG _parse_range_string: Failed to parse range from: 'Magnesium: 1.4 - 1.5 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'magnesium: 1.4 - 1.5 mg/dl<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
 
-DEBUG ranges_match: Comparing DCW='Current serum level < 1.4' (Parsed: None-None) vs JSON_Section='Magnesium: 1.4 - 1.5 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
-DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 3.2-3.4' (cleaned: '3.2-3.4')
-DEBUG _parse_range_string: Failed to parse range from: 'Potassium: 3.2 - 3.4 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'potassium: 3.2 - 3.4 mmol/l<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
+DEBUG ranges_match: Comparing DCW='Current serum level < 1.4' (Parsed: None-1.4) vs JSON_Section='Magnesium: 1.4 - 1.5 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 1.4-1.5)
+DEBUG ranges_match: Comparison result = False
 
-DEBUG ranges_match: Comparing DCW='Current serum level 3.2-3.4' (Parsed: None-None) vs JSON_Section='Potassium: 3.2 - 3.4 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
-DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 3.2-3.4' (cleaned: '3.2-3.4')
-DEBUG _parse_range_string: Failed to parse range from: 'Potassium: 3.2 - 3.4 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'potassium: 3.2 - 3.4 mmol/l<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
+DEBUG ranges_match: Comparing DCW='Current serum level < 1.4' (Parsed: None-1.4) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">Monitoring: Recheck BMP and magnesium level with next AM labs.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
 
-DEBUG ranges_match: Comparing DCW='Current serum level 3.2-3.4' (Parsed: None-None) vs JSON_Section='Potassium: 3.2 - 3.4 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
+DEBUG ranges_match: Comparing DCW='Current serum level < 1.4' (Parsed: None-1.4) vs JSON_Section='Magnesium: < 1.4 mg/dL<br><span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PHYSICIAN if less than 1.2 mg/dL</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: None-1.4)
 DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 3.2-3.4' (cleaned: '3.2-3.4')
-DEBUG _parse_range_string: Failed to parse range from: 'Potassium: 3.2 - 3.4 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'potassium: 3.2 - 3.4 mmol/l<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
 
-DEBUG ranges_match: Comparing DCW='Current serum level 3.2-3.4' (Parsed: None-None) vs JSON_Section='Potassium: 3.2 - 3.4 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
+DEBUG ranges_match: Comparing DCW='Current serum level 3.2-3.4' (Parsed: 3.2-3.4) vs JSON_Section='Potassium: 3.2 - 3.4 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.2-3.4)
 DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 3.2-3.4' (cleaned: '3.2-3.4')
-DEBUG _parse_range_string: Failed to parse range from: 'Potassium: 3.2 - 3.4 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'potassium: 3.2 - 3.4 mmol/l<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
 
-DEBUG ranges_match: Comparing DCW='Current serum level 3.2-3.4' (Parsed: None-None) vs JSON_Section='Potassium: 3.2 - 3.4 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
+DEBUG ranges_match: Comparing DCW='Current serum level 3.2-3.4' (Parsed: 3.2-3.4) vs JSON_Section='Potassium: 3.2 - 3.4 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.2-3.4)
 DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 2.8-3.1' (cleaned: '2.8-3.1')
-DEBUG _parse_range_string: Failed to parse range from: 'Potassium: 3.2 - 3.4 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'potassium: 3.2 - 3.4 mmol/l<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
 
-DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: None-None) vs JSON_Section='Potassium: 3.2 - 3.4 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
+DEBUG ranges_match: Comparing DCW='Current serum level 3.2-3.4' (Parsed: 3.2-3.4) vs JSON_Section='Potassium: 3.2 - 3.4 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.2-3.4)
 DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 2.8-3.1' (cleaned: '2.8-3.1')
-DEBUG _parse_range_string: Failed to parse range from: 'Potassium: 3.2 - 3.4 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'potassium: 3.2 - 3.4 mmol/l<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
 
-DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: None-None) vs JSON_Section='Potassium: 3.2 - 3.4 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
+DEBUG ranges_match: Comparing DCW='Current serum level 3.2-3.4' (Parsed: 3.2-3.4) vs JSON_Section='Potassium: 3.2 - 3.4 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.2-3.4)
 DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 2.8-3.1' (cleaned: '2.8-3.1')
-DEBUG _parse_range_string: Failed to parse range from: 'Potassium: 3.2 - 3.4 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'potassium: 3.2 - 3.4 mmol/l<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
 
-DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: None-None) vs JSON_Section='Potassium: 3.2 - 3.4 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
-DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 2.8-3.1' (cleaned: '2.8-3.1')
-DEBUG _parse_range_string: Failed to parse range from: 'Potassium: 3.2 - 3.4 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'potassium: 3.2 - 3.4 mmol/l<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='Potassium: 3.2 - 3.4 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.2-3.4)
+DEBUG ranges_match: Comparison result = False
 
-DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: None-None) vs JSON_Section='Potassium: 3.2 - 3.4 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
-DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level < 2.8' (cleaned: '< 2.8')
-DEBUG _parse_range_string: Failed to parse range from: 'Potassium: 3.2 - 3.4 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'potassium: 3.2 - 3.4 mmol/l<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">Monitoring: Recheck BMP with next AM labs.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
 
-DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-None) vs JSON_Section='Potassium: 3.2 - 3.4 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='Potassium: 2.8 - 3.1 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: 2.8-3.1)
 DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level < 2.8' (cleaned: '< 2.8')
-DEBUG _parse_range_string: Failed to parse range from: 'Potassium: 3.2 - 3.4 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'potassium: 3.2 - 3.4 mmol/l<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
 
-DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-None) vs JSON_Section='Potassium: 3.2 - 3.4 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
-DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.6-2.0' (cleaned: '1.6-2.0')
-DEBUG _parse_range_string: Failed to parse range from: 'Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'phosphorus: 1.6 - 2.0 mg/dl<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='Potassium: 3.2 - 3.4 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.2-3.4)
+DEBUG ranges_match: Comparison result = False
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
-DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.6-2.0' (cleaned: '1.6-2.0')
-DEBUG _parse_range_string: Failed to parse range from: '<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels with next AM labs.</small>' (cleaned: '<strong style="font-size: 18px; font-weight: bold; color: #333;">step 2 - order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">monitoring: recheck phosphorous & calcium levels with next am labs.</small>')
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">Monitoring: Recheck BMP with next AM labs.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels with next AM labs.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='Potassium: 2.8 - 3.1 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: 2.8-3.1)
 DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.6-2.0' (cleaned: '1.6-2.0')
-DEBUG _parse_range_string: Failed to parse range from: 'Phosphorus: 1.0 - 1.5 mg/dL<br><span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PROVIDER if less than 1.1 mg/dL</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'phosphorus: 1.0 - 1.5 mg/dl<br><span style="color: red; font-weight: bold; font-size: 14px;">notify provider if less than 1.1 mg/dl</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='Phosphorus: 1.0 - 1.5 mg/dL<br><span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PROVIDER if less than 1.1 mg/dL</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
-DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.6-2.0' (cleaned: '1.6-2.0')
-DEBUG _parse_range_string: Failed to parse range from: '<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>ORAL - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels with next AM labs.</small>' (cleaned: '<strong style="font-size: 18px; font-weight: bold; color: #333;">step 2 - order corresponding follow-up lab(s):</strong><br>oral - labs:<br><small style="font-weight: normal;">monitoring: recheck phosphorous & calcium levels with next am labs.</small>')
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='Potassium: 3.2 - 3.4 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.2-3.4)
+DEBUG ranges_match: Comparison result = False
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>ORAL - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels with next AM labs.</small>' (Parsed: None-None)
-DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.6-2.0' (cleaned: '1.6-2.0')
-DEBUG _parse_range_string: Failed to parse range from: 'IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels 2 hrs after infusion.</small>' (cleaned: 'iv - labs:<br><small style="font-weight: normal;">monitoring: recheck phosphorous & calcium levels 2 hrs after infusion.</small>')
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">Monitoring: Recheck BMP with next AM labs.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels 2 hrs after infusion.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='Potassium: 2.8 - 3.1 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: 2.8-3.1)
 DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.6-2.0' (cleaned: '1.6-2.0')
-DEBUG _parse_range_string: Failed to parse range from: 'Phosphorus: < 1.0 mg/dL<br><span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PROVIDER if less than 1.1 mg/dL</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (cleaned: 'phosphorus: < 1.0 mg/dl<br><span style="color: red; font-weight: bold; font-size: 14px;">notify provider if less than 1.1 mg/dl</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br>')
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='Phosphorus: < 1.0 mg/dL<br><span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PROVIDER if less than 1.1 mg/dL</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: None-None)
-DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.6-2.0' (cleaned: '1.6-2.0')
-DEBUG _parse_range_string: Failed to parse range from: '<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels 2 hrs after infusion.</small>' (cleaned: '<strong style="font-size: 18px; font-weight: bold; color: #333;">step 2 - order corresponding follow-up lab(s):</strong><br>iv - labs:<br><small style="font-weight: normal;">monitoring: recheck phosphorous & calcium levels 2 hrs after infusion.</small>')
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='Potassium: 3.2 - 3.4 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.2-3.4)
+DEBUG ranges_match: Comparison result = False
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels 2 hrs after infusion.</small>' (Parsed: None-None)
-DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.6-2.0' (cleaned: '1.6-2.0')
-DEBUG _parse_range_string: Failed to parse range from: 'Phosphorous Lab Orders' (cleaned: 'phosphorous lab orders')
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">Monitoring: Recheck BMP with next AM labs.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='Phosphorous Lab Orders' (Parsed: None-None)
+DEBUG ranges_match: Comparing DCW='Current serum level 2.8-3.1' (Parsed: 2.8-3.1) vs JSON_Section='Potassium: 2.8 - 3.1 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: 2.8-3.1)
 DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.6-2.0' (cleaned: '1.6-2.0')
-DEBUG _parse_range_string: Failed to parse range from: 'Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'phosphorus: 1.6 - 2.0 mg/dl<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: None-None) vs JSON_Section='Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
-DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.0-1.5' (cleaned: '1.0-1.5')
-DEBUG _parse_range_string: Failed to parse range from: 'Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'phosphorus: 1.6 - 2.0 mg/dl<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='Potassium: 3.2 - 3.4 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.2-3.4)
+DEBUG ranges_match: Comparison result = False
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.0-1.5' (Parsed: None-None) vs JSON_Section='Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
-DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level 1.0-1.5' (cleaned: '1.0-1.5')
-DEBUG _parse_range_string: Failed to parse range from: 'Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'phosphorus: 1.6 - 2.0 mg/dl<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">Monitoring: Recheck BMP with next AM labs.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
 
-DEBUG ranges_match: Comparing DCW='Current serum level 1.0-1.5' (Parsed: None-None) vs JSON_Section='Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
-DEBUG ranges_match: Comparison result = True
-DEBUG _parse_range_string: Failed to parse range from: 'Current serum level <1.0' (cleaned: '<1.0')
-DEBUG _parse_range_string: Failed to parse range from: 'Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (cleaned: 'phosphorus: 1.6 - 2.0 mg/dl<br><strong style="font-size: 18px; font-weight: bold; color: #333;">step 1 - order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* if patient is not npo, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>')
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='Potassium: 2.8 - 3.1 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: 2.8-3.1)
+DEBUG ranges_match: Comparison result = False
 
-DEBUG ranges_match: Comparing DCW='Current serum level <1.0' (Parsed: None-None) vs JSON_Section='Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: None-None)
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>ORAL / FEEDING TUBE - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck potassium level 4 hrs after last dose.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck potassium level 1 hr after infusion complete.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='Potassium: < 2.8 mmol/L<br><span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PHYSICIAN</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: None-2.8)
 DEBUG ranges_match: Comparison result = True
-_ test_expected_sentences_match_generated[/home/pessk/code/ea-python/generated_configs/output_cardiac.json] _
+
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='Potassium: 3.2 - 3.4 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 3.2-3.4)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">Monitoring: Recheck BMP with next AM labs.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='Potassium: 2.8 - 3.1 mmol/L<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: 2.8-3.1)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>ORAL / FEEDING TUBE - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck potassium level 4 hrs after last dose.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck potassium level 1 hr after infusion complete.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level < 2.8' (Parsed: None-2.8) vs JSON_Section='Potassium: < 2.8 mmol/L<br><span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PHYSICIAN</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: None-2.8)
+DEBUG ranges_match: Comparison result = True
+
+DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: 1.6-2.0) vs JSON_Section='Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 1.6-2.0)
+DEBUG ranges_match: Comparison result = True
+
+DEBUG ranges_match: Comparing DCW='Current serum level 1.6-2.0' (Parsed: 1.6-2.0) vs JSON_Section='Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 1.6-2.0)
+DEBUG ranges_match: Comparison result = True
+
+DEBUG ranges_match: Comparing DCW='Current serum level 1.0-1.5' (Parsed: 1.0-1.5) vs JSON_Section='Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 1.6-2.0)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level 1.0-1.5' (Parsed: 1.0-1.5) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels with next AM labs.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level 1.0-1.5' (Parsed: 1.0-1.5) vs JSON_Section='Phosphorus: 1.0 - 1.5 mg/dL<br><span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PHYSICIAN if less than 1.1 mg/dL</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 1.0-1.5)
+DEBUG ranges_match: Comparison result = True
+
+DEBUG ranges_match: Comparing DCW='Current serum level 1.0-1.5' (Parsed: 1.0-1.5) vs JSON_Section='Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 1.6-2.0)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level 1.0-1.5' (Parsed: 1.0-1.5) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels with next AM labs.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level 1.0-1.5' (Parsed: 1.0-1.5) vs JSON_Section='Phosphorus: 1.0 - 1.5 mg/dL<br><span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PHYSICIAN if less than 1.1 mg/dL</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 1.0-1.5)
+DEBUG ranges_match: Comparison result = True
+
+DEBUG ranges_match: Comparing DCW='Current serum level <1.0' (Parsed: None-1.0) vs JSON_Section='Phosphorus: 1.6 - 2.0 mg/dL<br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 1.6-2.0)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level <1.0' (Parsed: None-1.0) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels with next AM labs.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level <1.0' (Parsed: None-1.0) vs JSON_Section='Phosphorus: 1.0 - 1.5 mg/dL<br><span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PHYSICIAN if less than 1.1 mg/dL</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br><span style="font-size: 14px; color: #666; line-height: 1.5;">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>' (Parsed: 1.0-1.5)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level <1.0' (Parsed: None-1.0) vs JSON_Section='<strong style="font-size: 18px; font-weight: bold; color: #333;">Step 2 - Order corresponding follow-up lab(s):</strong><br>ORAL - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels with next AM labs.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level <1.0' (Parsed: None-1.0) vs JSON_Section='IV - Labs:<br><small style="font-weight: normal;">Monitoring: Recheck phosphorous & calcium levels 2 hrs after infusion.</small>' (Parsed: None-None)
+DEBUG ranges_match: Comparison result = False
+
+DEBUG ranges_match: Comparing DCW='Current serum level <1.0' (Parsed: None-1.0) vs JSON_Section='Phosphorus: < 1.0 mg/dL<br><span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PHYSICIAN if less than 1.1 mg/dL</span><br><strong style="font-size: 18px; font-weight: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>' (Parsed: None-1.0)
+DEBUG ranges_match: Comparison result = True
+[31m[1m_ test_expected_sentences_match_generated[/home/pessk/code/ea-python/generated_configs/output_cardiac.json] _[0m
+
+    @cache
+    def load_all_expected_from_csv() -> Dict[str, Set[str]]:
+        """Loads all expected sentences from extract.csv into a dictionary.
+    
+        Reads the CSV file and groups sentences by MNEMONIC.
+        Returns a dictionary mapping mnemonic strings to sets of sentence strings.
+        Caches the result for performance.
+        """
+        expected_data: Dict[str, Set[str]] = defaultdict(set)
+        if not EXPECTED_EXTRACT_FILE.is_file():
+            pytest.fail(f"Expected sentences file not found: {EXPECTED_EXTRACT_FILE}")
+    
+        try:
+            with open(EXPECTED_EXTRACT_FILE, 'r', encoding='utf-8') as f:
+>               reader = csv.DictReader(f, delimiter='\\t') # Use DictReader assuming header row, specify tab delimiter
+
+expected_data = defaultdict(<class 'set'>, {})
+f          = <_io.TextIOWrapper name='/home/pessk/code/ea-python/expected_sentences/extract.csv' mode='r' encoding='utf-8'>
+
+[1m[31mtests/test_expected_sentences.py[0m:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <csv.DictReader object at 0x7fcfd879ae40>
+f = <_io.TextIOWrapper name='/home/pessk/code/ea-python/expected_sentences/extract.csv' mode='r' encoding='utf-8'>
+fieldnames = None, restkey = None, restval = None, dialect = 'excel', args = ()
+kwds = {'delimiter': '\\t'}
+
+    def __init__(self, f, fieldnames=None, restkey=None, restval=None,
+                 dialect="excel", *args, **kwds):
+        if fieldnames is not None and iter(fieldnames) is fieldnames:
+            fieldnames = list(fieldnames)
+        self._fieldnames = fieldnames   # list of keys for the dict
+        self.restkey = restkey          # key to catch long rows
+        self.restval = restval          # default value for short rows
+>       self.reader = reader(f, dialect, *args, **kwds)
+[1m[31mE       TypeError: "delimiter" must be a 1-character string[0m
+
+args       = ()
+dialect    = 'excel'
+f          = <_io.TextIOWrapper name='/home/pessk/code/ea-python/expected_sentences/extract.csv' mode='r' encoding='utf-8'>
+fieldnames = None
+kwds       = {'delimiter': '\\t'}
+restkey    = None
+restval    = None
+self       = <csv.DictReader object at 0x7fcfd879ae40>
+
+[1m[31m/usr/lib/python3.12/csv.py[0m:91: TypeError
+
+[33mDuring handling of the above exception, another exception occurred:[0m
 
 config_file_path = '/home/pessk/code/ea-python/generated_configs/output_cardiac.json'
 
@@ -773,13 +1004,13 @@ config_file_path = '/home/pessk/code/ea-python/generated_configs/output_cardiac.
     def test_expected_sentences_match_generated(config_file_path):
         """
         Verifies that order sentences in the generated JSON match EXACTLY those defined
-        in the individual files within expected_sentences/.
+        in the expected_sentences/extract.csv file.
         """
-        # --- Clear cache before each test run ---
-        load_expected_sentences.cache_clear()
+        # --- Clear cache (optional, but good practice if data might change between runs) ---
+        load_all_expected_from_csv.cache_clear()
         # --- End Clear Cache ---
     
-        # Load JSON inside the test now
+        # Load JSON inside the test
         try:
             with open(config_file_path, 'r', encoding='utf-8') as f:
                 loaded_json_config = json.load(f)
@@ -791,13 +1022,12 @@ config_file_path = '/home/pessk/code/ea-python/generated_configs/output_cardiac.
     
         errors = []
         processed_json_orders = set()
-        # No longer need unmatched_domain_sentences tracking based on extract.csv
     
-        # Iterate through the generated JSON structure first
+        # Iterate through the generated JSON structure
         try:
             tabs = loaded_json_config.get('RCONFIG', {}).get('TABS', [])
             for tab in tabs:
-                tab_key = tab.get('TAB_KEY')
+                tab_key = tab.get('TAB_KEY') # Still useful for context in errors
                 if not tab_key:
                     continue
     
@@ -814,189 +1044,130 @@ config_file_path = '/home/pessk/code/ea-python/generated_configs/output_cardiac.
                         if json_order_id in processed_json_orders:
                             continue
     
-                        # --- Debug: Print mnemonic being loaded ---
-                        print(f"DEBUG: Loading expected for Mnemonic='{json_mnemonic}', Tab='{tab_key}'")
+                        # --- Debug: Print mnemonic being checked ---
+                        # print(f"DEBUG: Checking Mnemonic='{json_mnemonic}', Tab='{tab_key}'")
                         # --- End Debug ---
     
-                        # Load expected sentences from individual file for this mnemonic
-                        expected_sentences = load_expected_sentences(json_mnemonic, tab_key)
-    
-                        if not expected_sentences:
-                            # Mnemonic in JSON does not have a corresponding expected file or file is empty!
-                            errors.append(
-                                f"  - Unexpected/Missing File: Mnemonic '{json_mnemonic}' in Tab '{tab_key}'\n"
-                                f"    JSON Sentence: {repr(json_sentence)}\n"
-                                f"    (No corresponding file found or file empty in expected_sentences/)"
-                            )
-                            processed_json_orders.add(json_order_id)
-                            continue
-    
-                        # --- Exact Comparison Logic ---
-                        if json_sentence in expected_sentences:
-                            # Exact match found - good!
-                            processed_json_orders.add(json_order_id)
-                        else:
-                            # Exact match NOT found - this is an error
-                            # Format expected sentences for error message
-                            expected_list_str = "\n      Expected Sentences in File:\n"
-                            preview_count = 3
-                            expected_list_str += "\n".join([f"        - {repr(s)}" for s in list(expected_sentences)[:preview_count]])
-                            if len(expected_sentences) > preview_count:
-                                expected_list_str += f"\n        - ... ({len(expected_sentences) - preview_count} more)"
-    
-                            errors.append(
-                                f"  - Sentence Mismatch: Mnemonic '{json_mnemonic}' in Tab '{tab_key}'\n"
-                                f"    JSON    : {repr(json_sentence)}\n"
-                                f"    Expected: Not found exactly in its expected file.{expected_list_str}"
-                            )
-                            processed_json_orders.add(json_order_id)
-    
-        except Exception as e:
-            pytest.fail(f"Error processing JSON structure in {config_file_path}: {e}")
-    
-        # --- Final Assertion ---
-        if errors:
-            final_error_message = f"\nFound Discrepancies (JSON vs Expected Files) in {os.path.basename(config_file_path)}:\n"
-            final_error_message += "\n".join(errors)
->           assert not final_error_message, final_error_message
-E           AssertionError: 
-E             Found Discrepancies (JSON vs Expected Files) in output_cardiac.json:
-E               - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
-E                 JSON    : '10 mEq, IV, q1h, Duration: 2 dose(s), Infuse over: 1 hr'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
-E                     - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
-E                     - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
-E                     - ... (1 more)
-E               - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
-E                 JSON    : '10 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
-E                     - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
-E                     - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
-E                     - ... (1 more)
-E               - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
-E                 JSON    : '20 mEq, IV, q1h, Duration: 2 dose(s), Infuse over: 1 hr'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
-E                     - '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'
-E                     - '20 mEq, IV, Once, Infuse over: 1 hr'
-E                     - ... (4 more)
-E               - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
-E                 JSON    : '10 mEq, IV, q1h, Duration: 6 dose(s), Infuse over: 1 hr'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
-E                     - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
-E                     - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
-E                     - ... (1 more)
-E               - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
-E                 JSON    : '20 mEq, IV, q1h, Duration: 3 dose(s), Infuse over: 1 hr'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
-E                     - '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'
-E                     - '20 mEq, IV, Once, Infuse over: 1 hr'
-E                     - ... (4 more)
-E               - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
-E                 JSON    : '10 mEq, IV, q1h, Duration: 8 dose(s), Infuse over: 1 hr'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
-E                     - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
-E                     - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
-E                     - ... (1 more)
-E               - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
-E                 JSON    : '20 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
-E                     - '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'
-E                     - '20 mEq, IV, Once, Infuse over: 1 hr'
-E                     - ... (4 more)
-E           assert not "\nFound Discrepancies (JSON vs Expected Files) in output_cardiac.json:\n  - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '10 mEq, IV, q1h, Duration: 2 dose(s), Infuse over: 1 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'\n        - ... (1 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '10 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'\n        - ... (1 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSO...      - '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'\n        - '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'\n        - '20 mEq, IV, Once, Infuse over: 1 hr'\n        - ... (4 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '10 mEq, IV, q1h, Duration: 8 dose(s), Infuse over: 1 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'\n        - ... (1 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '20 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'\n        - '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'\n        - '20 mEq, IV, Once, Infuse over: 1 hr'\n        - ... (4 more)"
+                        # Get expected sentences for this mnemonic from the single CSV
+>                       expected_sentences = get_expected_sentences_for_mnemonic(json_mnemonic)
 
-tests/test_expected_sentences.py:200: AssertionError
------------------------------ Captured stdout call -----------------------------
-DEBUG: Loading expected for Mnemonic='magnesium sulfate', Tab='MAGNESIUM'
-DEBUG: Loading expected for Mnemonic='Magnesium Level', Tab='MAGNESIUM'
-DEBUG: Loading expected for Mnemonic='magnesium sulfate', Tab='MAGNESIUM'
-DEBUG: Loading expected for Mnemonic='Magnesium Level', Tab='MAGNESIUM'
-DEBUG: Loading expected for Mnemonic='magnesium sulfate', Tab='MAGNESIUM'
-DEBUG: Loading expected for Mnemonic='Magnesium Level', Tab='MAGNESIUM'
-DEBUG: Loading expected for Mnemonic='Magnesium Level', Tab='MAGNESIUM'
-DEBUG: Loading expected for Mnemonic='Magnesium Level', Tab='MAGNESIUM'
-DEBUG: Loading expected for Mnemonic='BMP', Tab='MAGNESIUM'
-DEBUG: Loading expected for Mnemonic='Magnesium Level', Tab='MAGNESIUM'
-DEBUG: Loading expected for Mnemonic='potassium chloride extended release', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='potassium chloride', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='potassium chloride 10 mEq/100 mL intravenous solution', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='potassium chloride 20 mEq/100 mL intravenous solution', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='BMP', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='potassium chloride extended release', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='potassium chloride', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='potassium chloride 10 mEq/100 mL intravenous solution', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='potassium chloride 20 mEq/100 mL intravenous solution', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='Potassium Level', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='Potassium Level', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='Potassium Level', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='potassium chloride extended release', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='potassium chloride', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='potassium chloride 10 mEq/100 mL intravenous solution', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='potassium chloride 20 mEq/100 mL intravenous solution', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='Potassium Level', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='Potassium Level', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='Potassium Level', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='potassium chloride 10 mEq/100 mL intravenous solution', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='potassium chloride 20 mEq/100 mL intravenous solution', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='Phosphate Level', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='Magnesium Level', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='Potassium Level', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='Potassium Level', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='BMP', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='Magnesium Level', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='Phosphate Level', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='Potassium Level', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='BMP', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='Magnesium Level', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='Phosphate Level', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='K-Phos Neutral', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='sodium phosphate', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Phosphate Level', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Serum', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Whole Blood', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='K-Phos Neutral', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='sodium phosphate', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Phosphate Level', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Serum', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Whole Blood', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Phosphate Level', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Serum', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Whole Blood', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='sodium phosphate', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Phosphate Level', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Serum', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Whole Blood', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Phosphate Level', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Serum', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Whole Blood', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Phosphate Level', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Serum', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Whole Blood', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Phosphate Level', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Serum', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Whole Blood', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='calcium chloride', Tab='CALCIUM'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Serum', Tab='CALCIUM'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Whole Blood', Tab='CALCIUM'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Serum', Tab='CALCIUM'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Whole Blood', Tab='CALCIUM'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Serum', Tab='CALCIUM'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Whole Blood', Tab='CALCIUM'
-_ test_expected_sentences_match_generated[/home/pessk/code/ea-python/generated_configs/output_regular.json] _
+config_file_path = '/home/pessk/code/ea-python/generated_configs/output_cardiac.json'
+errors     = []
+f          = <_io.TextIOWrapper name='/home/pessk/code/ea-python/generated_configs/output_cardiac.json' mode='r' encoding='utf-8'>
+json_mnemonic = 'magnesium sulfate'
+json_order_id = 'MAGNESIUM-S0-O0-magnesium sulfate'
+json_sentence = '1 g, IVPB, Premix, Once, Infuse over: 1 hr'
+loaded_json_config = {'RCONFIG': {'CCL_POSTPROCESS': 'UHS_MPG_GET_TABBED_ADVISOR', 'JSON_RETURN': '', 'TABS': [{'CANCEL_BUTTON': {}, 'CONCE...rder)', 'TOOLTIP': 'Room type: Critical Care, PCU, Telemetry, MS (Med/Surg) with Telemetry Monitoring order'}], ...}]}}
+order      = {'ASC_SHORT_DESCRIPTION': '', 'COMMENT': 'Intravenous', 'MNEMONIC': 'magnesium sulfate', 'ORDER_SENTENCE': '1 g, IVPB, Premix, Once, Infuse over: 1 hr'}
+order_index = 0
+order_sections = [{'CONCEPT_NAME': '[%{EALABMAGTODO}.COUNT > 0 AND {EALABMAGBTW18AND20}%]', 'ORDERS': [{'ASC_SHORT_DESCRIPTION': '', 'C...>Monitoring: Recheck magnesium level 4 hrs after infusion complete.</small>', 'SHOW_INACTIVE_DUPLICATES': 0, ...}, ...]
+orders_in_section = [{'ASC_SHORT_DESCRIPTION': '', 'COMMENT': 'Intravenous', 'MNEMONIC': 'magnesium sulfate', 'ORDER_SENTENCE': '1 g, IVPB, Premix, Once, Infuse over: 1 hr'}]
+processed_json_orders = set()
+protocol   = 'Cardiac'
+section    = {'CONCEPT_NAME': '[%{EALABMAGTODO}.COUNT > 0 AND {EALABMAGBTW18AND20}%]', 'ORDERS': [{'ASC_SHORT_DESCRIPTION': '', 'CO...ht: bold; color: #333;">Step 1 - Order most appropriate replacement:</strong><br>', 'SHOW_INACTIVE_DUPLICATES': 0, ...}
+section_index = 0
+tab        = {'CANCEL_BUTTON': {}, 'CONCEPTS': [], 'CONCEPT_FOR_DISMISS': 'EALABMAGTODO', 'CRITERIA': [{'CONCEPT_NAME': '[%true%]',...g order)', 'TOOLTIP': 'Room type: Critical Care, PCU, Telemetry, MS (Med/Surg) with Telemetry Monitoring order'}], ...}
+tab_key    = 'MAGNESIUM'
+tabs       = [{'CANCEL_BUTTON': {}, 'CONCEPTS': [], 'CONCEPT_FOR_DISMISS': 'EALABMAGTODO', 'CRITERIA': [{'CONCEPT_NAME': '[%true%]'... order)', 'TOOLTIP': 'Room type: Critical Care, PCU, Telemetry, MS (Med/Surg) with Telemetry Monitoring order'}], ...}]
+
+[1m[31mtests/test_expected_sentences.py[0m:144: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31mtests/test_expected_sentences.py[0m:81: in get_expected_sentences_for_mnemonic
+    all_expected = load_all_expected_from_csv()
+        mnemonic   = 'magnesium sulfate'
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    @cache
+    def load_all_expected_from_csv() -> Dict[str, Set[str]]:
+        """Loads all expected sentences from extract.csv into a dictionary.
+    
+        Reads the CSV file and groups sentences by MNEMONIC.
+        Returns a dictionary mapping mnemonic strings to sets of sentence strings.
+        Caches the result for performance.
+        """
+        expected_data: Dict[str, Set[str]] = defaultdict(set)
+        if not EXPECTED_EXTRACT_FILE.is_file():
+            pytest.fail(f"Expected sentences file not found: {EXPECTED_EXTRACT_FILE}")
+    
+        try:
+            with open(EXPECTED_EXTRACT_FILE, 'r', encoding='utf-8') as f:
+                reader = csv.DictReader(f, delimiter='\\t') # Use DictReader assuming header row, specify tab delimiter
+                # Verify expected column names (adjust if different)
+                if reader.fieldnames is None: # Check if fieldnames were read
+                     pytest.fail(f"Could not read headers from CSV {EXPECTED_EXTRACT_FILE}")
+    
+                required_columns = ['MNEMONIC', 'ORDER_SENTENCE_DISPLAY_LINE']
+                if not all(col in reader.fieldnames for col in required_columns):
+                    missing = [col for col in required_columns if col not in reader.fieldnames]
+                    pytest.fail(
+                        f"CSV {EXPECTED_EXTRACT_FILE.name} missing required columns: {missing}"
+                    )
+    
+                for row in reader:
+                    mnemonic = row.get('MNEMONIC')
+                    sentence = row.get('ORDER_SENTENCE_DISPLAY_LINE')
+                    # Add non-empty sentences to the set for the mnemonic
+                    if mnemonic and sentence:
+                        expected_data[mnemonic].add(sentence.strip())
+        except Exception as e:
+>           pytest.fail(f"Failed to read or parse {EXPECTED_EXTRACT_FILE}: {e}")
+[1m[31mE           Failed: Failed to read or parse /home/pessk/code/ea-python/expected_sentences/extract.csv: "delimiter" must be a 1-character string[0m
+
+expected_data = defaultdict(<class 'set'>, {})
+f          = <_io.TextIOWrapper name='/home/pessk/code/ea-python/expected_sentences/extract.csv' mode='r' encoding='utf-8'>
+
+[1m[31mtests/test_expected_sentences.py[0m:71: Failed
+[31m[1m_ test_expected_sentences_match_generated[/home/pessk/code/ea-python/generated_configs/output_regular.json] _[0m
+
+    @cache
+    def load_all_expected_from_csv() -> Dict[str, Set[str]]:
+        """Loads all expected sentences from extract.csv into a dictionary.
+    
+        Reads the CSV file and groups sentences by MNEMONIC.
+        Returns a dictionary mapping mnemonic strings to sets of sentence strings.
+        Caches the result for performance.
+        """
+        expected_data: Dict[str, Set[str]] = defaultdict(set)
+        if not EXPECTED_EXTRACT_FILE.is_file():
+            pytest.fail(f"Expected sentences file not found: {EXPECTED_EXTRACT_FILE}")
+    
+        try:
+            with open(EXPECTED_EXTRACT_FILE, 'r', encoding='utf-8') as f:
+>               reader = csv.DictReader(f, delimiter='\\t') # Use DictReader assuming header row, specify tab delimiter
+
+expected_data = defaultdict(<class 'set'>, {})
+f          = <_io.TextIOWrapper name='/home/pessk/code/ea-python/expected_sentences/extract.csv' mode='r' encoding='utf-8'>
+
+[1m[31mtests/test_expected_sentences.py[0m:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <csv.DictReader object at 0x7fcfd863fe90>
+f = <_io.TextIOWrapper name='/home/pessk/code/ea-python/expected_sentences/extract.csv' mode='r' encoding='utf-8'>
+fieldnames = None, restkey = None, restval = None, dialect = 'excel', args = ()
+kwds = {'delimiter': '\\t'}
+
+    def __init__(self, f, fieldnames=None, restkey=None, restval=None,
+                 dialect="excel", *args, **kwds):
+        if fieldnames is not None and iter(fieldnames) is fieldnames:
+            fieldnames = list(fieldnames)
+        self._fieldnames = fieldnames   # list of keys for the dict
+        self.restkey = restkey          # key to catch long rows
+        self.restval = restval          # default value for short rows
+>       self.reader = reader(f, dialect, *args, **kwds)
+[1m[31mE       TypeError: "delimiter" must be a 1-character string[0m
+
+args       = ()
+dialect    = 'excel'
+f          = <_io.TextIOWrapper name='/home/pessk/code/ea-python/expected_sentences/extract.csv' mode='r' encoding='utf-8'>
+fieldnames = None
+kwds       = {'delimiter': '\\t'}
+restkey    = None
+restval    = None
+self       = <csv.DictReader object at 0x7fcfd863fe90>
+
+[1m[31m/usr/lib/python3.12/csv.py[0m:91: TypeError
+
+[33mDuring handling of the above exception, another exception occurred:[0m
 
 config_file_path = '/home/pessk/code/ea-python/generated_configs/output_regular.json'
 
@@ -1004,13 +1175,13 @@ config_file_path = '/home/pessk/code/ea-python/generated_configs/output_regular.
     def test_expected_sentences_match_generated(config_file_path):
         """
         Verifies that order sentences in the generated JSON match EXACTLY those defined
-        in the individual files within expected_sentences/.
+        in the expected_sentences/extract.csv file.
         """
-        # --- Clear cache before each test run ---
-        load_expected_sentences.cache_clear()
+        # --- Clear cache (optional, but good practice if data might change between runs) ---
+        load_all_expected_from_csv.cache_clear()
         # --- End Clear Cache ---
     
-        # Load JSON inside the test now
+        # Load JSON inside the test
         try:
             with open(config_file_path, 'r', encoding='utf-8') as f:
                 loaded_json_config = json.load(f)
@@ -1022,13 +1193,12 @@ config_file_path = '/home/pessk/code/ea-python/generated_configs/output_regular.
     
         errors = []
         processed_json_orders = set()
-        # No longer need unmatched_domain_sentences tracking based on extract.csv
     
-        # Iterate through the generated JSON structure first
+        # Iterate through the generated JSON structure
         try:
             tabs = loaded_json_config.get('RCONFIG', {}).get('TABS', [])
             for tab in tabs:
-                tab_key = tab.get('TAB_KEY')
+                tab_key = tab.get('TAB_KEY') # Still useful for context in errors
                 if not tab_key:
                     continue
     
@@ -1045,162 +1215,82 @@ config_file_path = '/home/pessk/code/ea-python/generated_configs/output_regular.
                         if json_order_id in processed_json_orders:
                             continue
     
-                        # --- Debug: Print mnemonic being loaded ---
-                        print(f"DEBUG: Loading expected for Mnemonic='{json_mnemonic}', Tab='{tab_key}'")
+                        # --- Debug: Print mnemonic being checked ---
+                        # print(f"DEBUG: Checking Mnemonic='{json_mnemonic}', Tab='{tab_key}'")
                         # --- End Debug ---
     
-                        # Load expected sentences from individual file for this mnemonic
-                        expected_sentences = load_expected_sentences(json_mnemonic, tab_key)
-    
-                        if not expected_sentences:
-                            # Mnemonic in JSON does not have a corresponding expected file or file is empty!
-                            errors.append(
-                                f"  - Unexpected/Missing File: Mnemonic '{json_mnemonic}' in Tab '{tab_key}'\n"
-                                f"    JSON Sentence: {repr(json_sentence)}\n"
-                                f"    (No corresponding file found or file empty in expected_sentences/)"
-                            )
-                            processed_json_orders.add(json_order_id)
-                            continue
-    
-                        # --- Exact Comparison Logic ---
-                        if json_sentence in expected_sentences:
-                            # Exact match found - good!
-                            processed_json_orders.add(json_order_id)
-                        else:
-                            # Exact match NOT found - this is an error
-                            # Format expected sentences for error message
-                            expected_list_str = "\n      Expected Sentences in File:\n"
-                            preview_count = 3
-                            expected_list_str += "\n".join([f"        - {repr(s)}" for s in list(expected_sentences)[:preview_count]])
-                            if len(expected_sentences) > preview_count:
-                                expected_list_str += f"\n        - ... ({len(expected_sentences) - preview_count} more)"
-    
-                            errors.append(
-                                f"  - Sentence Mismatch: Mnemonic '{json_mnemonic}' in Tab '{tab_key}'\n"
-                                f"    JSON    : {repr(json_sentence)}\n"
-                                f"    Expected: Not found exactly in its expected file.{expected_list_str}"
-                            )
-                            processed_json_orders.add(json_order_id)
-    
-        except Exception as e:
-            pytest.fail(f"Error processing JSON structure in {config_file_path}: {e}")
-    
-        # --- Final Assertion ---
-        if errors:
-            final_error_message = f"\nFound Discrepancies (JSON vs Expected Files) in {os.path.basename(config_file_path)}:\n"
-            final_error_message += "\n".join(errors)
->           assert not final_error_message, final_error_message
-E           AssertionError: 
-E             Found Discrepancies (JSON vs Expected Files) in output_regular.json:
-E               - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
-E                 JSON    : '10 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
-E                     - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
-E                     - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
-E                     - ... (1 more)
-E               - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
-E                 JSON    : '20 mEq, IV, q2h, Duration: 2 dose(s), Infuse over: 2 hr'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
-E                     - '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'
-E                     - '20 mEq, IV, Once, Infuse over: 1 hr'
-E                     - ... (4 more)
-E               - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
-E                 JSON    : '10 mEq, IV, q1h, Duration: 6 dose(s), Infuse over: 1 hr'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
-E                     - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
-E                     - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
-E                     - ... (1 more)
-E               - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
-E                 JSON    : '20 mEq, IV, q2h, Duration: 3 dose(s), Infuse over: 2 hr'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
-E                     - '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'
-E                     - '20 mEq, IV, Once, Infuse over: 1 hr'
-E                     - ... (4 more)
-E               - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
-E                 JSON    : '10 mEq, IV, q1h, Duration: 8 dose(s), Infuse over: 1 hr'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
-E                     - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'
-E                     - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'
-E                     - ... (1 more)
-E               - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'
-E                 JSON    : '20 mEq, IV, q2h, Duration: 4 dose(s), Infuse over: 2 hr'
-E                 Expected: Not found exactly in its expected file.
-E                   Expected Sentences in File:
-E                     - '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'
-E                     - '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'
-E                     - '20 mEq, IV, Once, Infuse over: 1 hr'
-E                     - ... (4 more)
-E           assert not "\nFound Discrepancies (JSON vs Expected Files) in output_regular.json:\n  - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '10 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'\n        - ... (1 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '20 mEq, IV, q2h, Duration: 2 dose(s), Infuse over: 2 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'\n        - '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'\n        - '20 mEq, IV, Once, Infuse over: 1 hr'\n        - ... (4 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '10 mEq, IV, q...      - '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'\n        - '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'\n        - '20 mEq, IV, Once, Infuse over: 1 hr'\n        - ... (4 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 10 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '10 mEq, IV, q1h, Duration: 8 dose(s), Infuse over: 1 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr'\n        - '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr'\n        - ... (1 more)\n  - Sentence Mismatch: Mnemonic 'potassium chloride 20 mEq/100 mL intravenous solution' in Tab 'POTASSIUM'\n    JSON    : '20 mEq, IV, q2h, Duration: 4 dose(s), Infuse over: 2 hr'\n    Expected: Not found exactly in its expected file.\n      Expected Sentences in File:\n        - '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr'\n        - '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr'\n        - '20 mEq, IV, Once, Infuse over: 1 hr'\n        - ... (4 more)"
+                        # Get expected sentences for this mnemonic from the single CSV
+>                       expected_sentences = get_expected_sentences_for_mnemonic(json_mnemonic)
 
-tests/test_expected_sentences.py:200: AssertionError
------------------------------ Captured stdout call -----------------------------
-DEBUG: Loading expected for Mnemonic='magnesium oxide', Tab='MAGNESIUM'
-DEBUG: Loading expected for Mnemonic='magnesium sulfate', Tab='MAGNESIUM'
-DEBUG: Loading expected for Mnemonic='BMP', Tab='MAGNESIUM'
-DEBUG: Loading expected for Mnemonic='Magnesium Level', Tab='MAGNESIUM'
-DEBUG: Loading expected for Mnemonic='magnesium sulfate', Tab='MAGNESIUM'
-DEBUG: Loading expected for Mnemonic='Magnesium Level', Tab='MAGNESIUM'
-DEBUG: Loading expected for Mnemonic='Magnesium Level', Tab='MAGNESIUM'
-DEBUG: Loading expected for Mnemonic='Magnesium Level', Tab='MAGNESIUM'
-DEBUG: Loading expected for Mnemonic='BMP', Tab='MAGNESIUM'
-DEBUG: Loading expected for Mnemonic='Magnesium Level', Tab='MAGNESIUM'
-DEBUG: Loading expected for Mnemonic='potassium chloride extended release', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='potassium chloride', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='potassium chloride 10 mEq/100 mL intravenous solution', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='potassium chloride 20 mEq/100 mL intravenous solution', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='BMP', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='potassium chloride extended release', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='potassium chloride', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='potassium chloride 10 mEq/100 mL intravenous solution', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='potassium chloride 20 mEq/100 mL intravenous solution', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='Potassium Level', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='Potassium Level', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='potassium chloride 10 mEq/100 mL intravenous solution', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='potassium chloride 20 mEq/100 mL intravenous solution', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='Phosphate Level', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='Magnesium Level', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='Potassium Level', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='BMP', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='Magnesium Level', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='Phosphate Level', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='Potassium Level', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='BMP', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='Magnesium Level', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='Phosphate Level', Tab='POTASSIUM'
-DEBUG: Loading expected for Mnemonic='K-Phos Neutral', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='sodium phosphate', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Phosphate Level', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Serum', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Whole Blood', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='K-Phos Neutral', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='sodium phosphate', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Phosphate Level', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Serum', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Whole Blood', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Phosphate Level', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Serum', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Whole Blood', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='sodium phosphate', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Phosphate Level', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Serum', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Whole Blood', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Phosphate Level', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Serum', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Whole Blood', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Phosphate Level', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Serum', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Whole Blood', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Phosphate Level', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Serum', Tab='PHOSPHATE'
-DEBUG: Loading expected for Mnemonic='Calcium Level Ionized, Whole Blood', Tab='PHOSPHATE'
-========================= 5 failed, 4 passed in 0.29s ==========================
+config_file_path = '/home/pessk/code/ea-python/generated_configs/output_regular.json'
+errors     = []
+f          = <_io.TextIOWrapper name='/home/pessk/code/ea-python/generated_configs/output_regular.json' mode='r' encoding='utf-8'>
+json_mnemonic = 'magnesium oxide'
+json_order_id = 'MAGNESIUM-S0-O0-magnesium oxide'
+json_sentence = '400 mg, PO, Tab, q12hr (interval), Duration: 2 dose(s)'
+loaded_json_config = {'RCONFIG': {'CCL_POSTPROCESS': 'UHS_MPG_GET_TABBED_ADVISOR', 'JSON_RETURN': '', 'TABS': [{'CANCEL_BUTTON': {}, 'CONCE...rder)', 'TOOLTIP': 'Room type: Critical Care, PCU, Telemetry, MS (Med/Surg) with Telemetry Monitoring order'}], ...}]}}
+order      = {'ASC_SHORT_DESCRIPTION': '', 'COMMENT': 'Oral *', 'MNEMONIC': 'magnesium oxide', 'ORDER_SENTENCE': '400 mg, PO, Tab, q12hr (interval), Duration: 2 dose(s)'}
+order_index = 0
+order_sections = [{'CONCEPT_NAME': '[%{EALABMAGTODO}.COUNT > 0 AND {EALABMAGBTW14AND15}%]', 'ORDERS': [{'ASC_SHORT_DESCRIPTION': '', 'C...0400, Blood, Tomorrow AM collect, Once'}], 'SECTION_NAME': 'Magnesium Lab Orders', 'SHOW_INACTIVE_DUPLICATES': 0, ...}]
+orders_in_section = [{'ASC_SHORT_DESCRIPTION': '', 'COMMENT': 'Oral *', 'MNEMONIC': 'magnesium oxide', 'ORDER_SENTENCE': '400 mg, PO, Tab,...MENT': 'Intravenous', 'MNEMONIC': 'magnesium sulfate', 'ORDER_SENTENCE': '2 g, IVPB, Premix, Once, Infuse over: 2 hr'}]
+processed_json_orders = set()
+protocol   = 'Regular'
+section    = {'CONCEPT_NAME': '[%{EALABMAGTODO}.COUNT > 0 AND {EALABMAGBTW14AND15}%]', 'ORDERS': [{'ASC_SHORT_DESCRIPTION': '', 'CO...ications, the recommended choice of replacement route is to be oral. </span> <br>', 'SHOW_INACTIVE_DUPLICATES': 0, ...}
+section_index = 0
+tab        = {'CANCEL_BUTTON': {}, 'CONCEPTS': [], 'CONCEPT_FOR_DISMISS': 'EALABMAGTODO', 'CRITERIA': [{'CONCEPT_NAME': '[%true%]',...g order)', 'TOOLTIP': 'Room type: Critical Care, PCU, Telemetry, MS (Med/Surg) with Telemetry Monitoring order'}], ...}
+tab_key    = 'MAGNESIUM'
+tabs       = [{'CANCEL_BUTTON': {}, 'CONCEPTS': [], 'CONCEPT_FOR_DISMISS': 'EALABMAGTODO', 'CRITERIA': [{'CONCEPT_NAME': '[%true%]'... order)', 'TOOLTIP': 'Room type: Critical Care, PCU, Telemetry, MS (Med/Surg) with Telemetry Monitoring order'}], ...}]
+
+[1m[31mtests/test_expected_sentences.py[0m:144: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31mtests/test_expected_sentences.py[0m:81: in get_expected_sentences_for_mnemonic
+    all_expected = load_all_expected_from_csv()
+        mnemonic   = 'magnesium oxide'
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    @cache
+    def load_all_expected_from_csv() -> Dict[str, Set[str]]:
+        """Loads all expected sentences from extract.csv into a dictionary.
+    
+        Reads the CSV file and groups sentences by MNEMONIC.
+        Returns a dictionary mapping mnemonic strings to sets of sentence strings.
+        Caches the result for performance.
+        """
+        expected_data: Dict[str, Set[str]] = defaultdict(set)
+        if not EXPECTED_EXTRACT_FILE.is_file():
+            pytest.fail(f"Expected sentences file not found: {EXPECTED_EXTRACT_FILE}")
+    
+        try:
+            with open(EXPECTED_EXTRACT_FILE, 'r', encoding='utf-8') as f:
+                reader = csv.DictReader(f, delimiter='\\t') # Use DictReader assuming header row, specify tab delimiter
+                # Verify expected column names (adjust if different)
+                if reader.fieldnames is None: # Check if fieldnames were read
+                     pytest.fail(f"Could not read headers from CSV {EXPECTED_EXTRACT_FILE}")
+    
+                required_columns = ['MNEMONIC', 'ORDER_SENTENCE_DISPLAY_LINE']
+                if not all(col in reader.fieldnames for col in required_columns):
+                    missing = [col for col in required_columns if col not in reader.fieldnames]
+                    pytest.fail(
+                        f"CSV {EXPECTED_EXTRACT_FILE.name} missing required columns: {missing}"
+                    )
+    
+                for row in reader:
+                    mnemonic = row.get('MNEMONIC')
+                    sentence = row.get('ORDER_SENTENCE_DISPLAY_LINE')
+                    # Add non-empty sentences to the set for the mnemonic
+                    if mnemonic and sentence:
+                        expected_data[mnemonic].add(sentence.strip())
+        except Exception as e:
+>           pytest.fail(f"Failed to read or parse {EXPECTED_EXTRACT_FILE}: {e}")
+[1m[31mE           Failed: Failed to read or parse /home/pessk/code/ea-python/expected_sentences/extract.csv: "delimiter" must be a 1-character string[0m
+
+expected_data = defaultdict(<class 'set'>, {})
+f          = <_io.TextIOWrapper name='/home/pessk/code/ea-python/expected_sentences/extract.csv' mode='r' encoding='utf-8'>
+
+[1m[31mtests/test_expected_sentences.py[0m:71: Failed
+[36m[1m=========================== short test summary info ============================[0m
+[31mFAILED[0m tests/test_dcw_sentences.py::[1mtest_dcw_sentences_match_generated[/home/pessk/code/ea-python/generated_configs/output_cardiac.json][0m - AssertionError: 
+[31mFAILED[0m tests/test_dcw_sentences.py::[1mtest_dcw_sentences_match_generated[/home/pessk/code/ea-python/generated_configs/output_regular.json][0m - AssertionError: 
+[31mFAILED[0m tests/test_expected_sentences.py::[1mtest_expected_sentences_match_generated[/home/pessk/code/ea-python/generated_configs/output_cardiac.json][0m - Failed: Failed to read or parse /home/pessk/code/ea-python/expected_sentenc...
+[31mFAILED[0m tests/test_expected_sentences.py::[1mtest_expected_sentences_match_generated[/home/pessk/code/ea-python/generated_configs/output_regular.json][0m - Failed: Failed to read or parse /home/pessk/code/ea-python/expected_sentenc...
+[31m========================= [31m[1m4 failed[0m, [32m29 passed[0m[31m in 0.69s[0m[31m =========================[0m

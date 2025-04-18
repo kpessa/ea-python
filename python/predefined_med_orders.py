@@ -46,12 +46,12 @@ PREDEFINED_MED_ORDERS = {
     },
     'KCL_IVPERIPH_10MEQ_Q1H_4DOSES_1HR': {
         'mnemonic': Meds.kcl_iv_peripheral['MNEMONIC'],
-        'order_sentence': '10 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr',
+        'order_sentence': '10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr',
         'base_med_ref': Meds.kcl_iv_peripheral,
     },
     'KCL_IVCENT_20MEQ_Q2H_2DOSES_2HR': {
         'mnemonic': Meds.kcl_iv_central['MNEMONIC'],
-        'order_sentence': '20 mEq, IV, q2h, Duration: 2 dose(s), Infuse over: 2 hr',
+        'order_sentence': '20 mEq, IV, q2hr (interval), Duration: 2 dose(s), Infuse over: 2 hr',
         'base_med_ref': Meds.kcl_iv_central,
     },
     'KCL_ERTAB_20MEQ_Q2H_3DOSES': {
@@ -66,22 +66,22 @@ PREDEFINED_MED_ORDERS = {
     },
     'KCL_IVPERIPH_10MEQ_Q1H_6DOSES_1HR': {
         'mnemonic': Meds.kcl_iv_peripheral['MNEMONIC'],
-        'order_sentence': '10 mEq, IV, q1h, Duration: 6 dose(s), Infuse over: 1 hr',
+        'order_sentence': '10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr',
         'base_med_ref': Meds.kcl_iv_peripheral,
     },
     'KCL_IVCENT_20MEQ_Q2H_3DOSES_2HR': {
         'mnemonic': Meds.kcl_iv_central['MNEMONIC'],
-        'order_sentence': '20 mEq, IV, q2h, Duration: 3 dose(s), Infuse over: 2 hr',
+        'order_sentence': '20 mEq, IV, q2hr (interval), Duration: 3 dose(s), Infuse over: 2 hr',
         'base_med_ref': Meds.kcl_iv_central,
     },
      'KCL_IVPERIPH_10MEQ_Q1H_8DOSES_1HR': {
         'mnemonic': Meds.kcl_iv_peripheral['MNEMONIC'],
-        'order_sentence': '10 mEq, IV, q1h, Duration: 8 dose(s), Infuse over: 1 hr',
+        'order_sentence': '10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr',
         'base_med_ref': Meds.kcl_iv_peripheral,
     },
     'KCL_IVCENT_20MEQ_Q2H_4DOSES_2HR': {
         'mnemonic': Meds.kcl_iv_central['MNEMONIC'],
-        'order_sentence': '20 mEq, IV, q2h, Duration: 4 dose(s), Infuse over: 2 hr',
+        'order_sentence': '20 mEq, IV, q2hr (interval), Duration: 4 dose(s), Infuse over: 2 hr',
         'base_med_ref': Meds.kcl_iv_central,
     },
     'KCL_ERTAB_20MEQ_ONCE': { # Cardiac Only
@@ -96,7 +96,7 @@ PREDEFINED_MED_ORDERS = {
     },
     'KCL_IVPERIPH_10MEQ_Q1H_2DOSES_1HR': { # Cardiac Only
         'mnemonic': Meds.kcl_iv_peripheral['MNEMONIC'],
-        'order_sentence': '10 mEq, IV, q1h, Duration: 2 dose(s), Infuse over: 1 hr',
+        'order_sentence': '10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr',
         'base_med_ref': Meds.kcl_iv_peripheral,
     },
     'KCL_IVCENT_20MEQ_ONCE_1HR': { # Cardiac Only
@@ -106,17 +106,17 @@ PREDEFINED_MED_ORDERS = {
     },
     'KCL_IVCENT_20MEQ_Q1H_2DOSES_1HR': { # Cardiac Only
         'mnemonic': Meds.kcl_iv_central['MNEMONIC'],
-        'order_sentence': '20 mEq, IV, q1h, Duration: 2 dose(s), Infuse over: 1 hr',
+        'order_sentence': '20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr',
         'base_med_ref': Meds.kcl_iv_central,
     },
     'KCL_IVCENT_20MEQ_Q1H_3DOSES_1HR': { # Cardiac Only
         'mnemonic': Meds.kcl_iv_central['MNEMONIC'],
-        'order_sentence': '20 mEq, IV, q1h, Duration: 3 dose(s), Infuse over: 1 hr',
+        'order_sentence': '20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr',
         'base_med_ref': Meds.kcl_iv_central,
     },
     'KCL_IVCENT_20MEQ_Q1H_4DOSES_1HR': { # Cardiac Only
         'mnemonic': Meds.kcl_iv_central['MNEMONIC'],
-        'order_sentence': '20 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr',
+        'order_sentence': '20 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr',
         'base_med_ref': Meds.kcl_iv_central,
     },
 

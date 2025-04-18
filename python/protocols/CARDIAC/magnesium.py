@@ -1,6 +1,6 @@
 from typing import List
 from ...types import ProtocolData, SectionGroup, InitialLabConfig
-from ... import helpers as H
+from ... import naming as Naming
 from ... import text as Text
 from ... import medication_orders as Meds
 from ... import lab_orders as Labs
@@ -15,7 +15,7 @@ _section_groups: List[SectionGroup] = [
         'recommendOral': False,
         'replacementSection': {
             'sectionName': '', # Built dynamically
-            'conceptName': H.create_between_concept(_electrolyte, 1.8, 2.0),
+            'conceptName': Naming.create_between_concept(_electrolyte, 1.8, 2.0),
             'singleSelect': 1,
             'orders': [
                 {
@@ -25,7 +25,7 @@ _section_groups: List[SectionGroup] = [
         },
         'labSections': [
             {
-                'conceptName': H.create_between_concept(_electrolyte, 1.8, 2.0),
+                'conceptName': Naming.create_between_concept(_electrolyte, 1.8, 2.0),
                 'sectionDescription': 'Monitoring: Recheck BMP and magnesium level with next AM labs.',
                 'orders': [
                     Labs.mag_level_tomorrow_am,
@@ -39,7 +39,7 @@ _section_groups: List[SectionGroup] = [
         'recommendOral': False,
         'replacementSection': {
             'sectionName': '',
-            'conceptName': H.create_between_concept(_electrolyte, 1.4, 1.7),
+            'conceptName': Naming.create_between_concept(_electrolyte, 1.4, 1.7),
             'singleSelect': 1,
             'orders': [
                 {
@@ -49,7 +49,7 @@ _section_groups: List[SectionGroup] = [
         },
         'labSections': [
             {
-                'conceptName': H.create_between_concept(_electrolyte, 1.4, 1.7),
+                'conceptName': Naming.create_between_concept(_electrolyte, 1.4, 1.7),
                 'sectionDescription': 'Monitoring: Recheck magnesium level 4 hrs after infusion complete.',
                 'orders': [
                     {'type': 'timed_lab', 'base_name': 'mag_level', 'minutes': 360, 
@@ -65,7 +65,7 @@ _section_groups: List[SectionGroup] = [
         'replacementSection': {
             'criticalAlertText': Text.create_notify_provider_text(1.2, 'mg/dL'),
             'sectionName': '',
-            'conceptName': H.create_less_than_concept(_electrolyte, 1.4),
+            'conceptName': Naming.create_less_than_concept(_electrolyte, 1.4),
             'singleSelect': 1,
             'orders': [
                 {
@@ -75,7 +75,7 @@ _section_groups: List[SectionGroup] = [
         },
         'labSections': [
             {
-                'conceptName': H.create_less_than_concept(_electrolyte, 1.4),      'associatedRouteType': 'IV',
+                'conceptName': Naming.create_less_than_concept(_electrolyte, 1.4),      'associatedRouteType': 'IV',
                 'sectionDescription': 'Monitoring: Recheck magnesium level 4 hrs after infusion complete.',
                 'orders': [
                     {'type': 'timed_lab', 'base_name': 'mag_level', 'minutes': 480, 

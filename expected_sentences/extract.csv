@@ -26,9 +26,6 @@ Calcium Level Ionized, Whole Blood	Blood, Stat collect, Once
 Calcium Level Ionized, Whole Blood	Blood, Tomorrow AM collect, Requested Draw Date and T T+1;0400, Once
 Calcium Level Ionized, Whole Blood	Requested Draw Date and T T+1;0400, Blood, Tomorrow AM collect, 1xDaily
 Calcium Level Ionized, Whole Blood	Requested Draw Date and T T+1;0400, Blood, Tomorrow AM collect, Once, for 3 days
-Calcium Level Ionized, Whole Blood	Requested Draw Date and T T+1;0400, Blood, Tomorrow AM collect, Once
-Calcium Level Ionized, Whole Blood	Requested Draw Date and T T;N+120, Blood, Timed Study collect, Once
-Calcium Level Ionized, Whole Blood	Requested Draw Date and T T;N+600, Blood, Timed Study collect, Once
 K-Phos Neutral	1 tab(s), PO, Tab, 3xDaily with meals, Clinical Instructions: contains: phosphorus 8 mmol, potassium 1.1 meq, sodium 13 meq per tablet.
 K-Phos Neutral	2 tab(s), PO, Tab, q2hr (interval), Duration: 2 dose(s)
 K-Phos Neutral	2 tab(s), PO, Tab, q2hr (interval), Duration: 3 dose(s)
@@ -110,9 +107,6 @@ potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q1hr, Duration
 potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q2hr (interval), Duration: 2 dose(s), Rate: 2, hr
 potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q2hr (interval), Duration: 3 dose(s), Infuse over: 2 hr
 potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q2hr (interval), Duration: 4 dose(s), Infuse over: 2 hr
-potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q2hr, Duration: 2 dose(s), Infuse over: 2 hr
-potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q2hr, Duration: 3 dose(s), Infuse over: 2 hr
-potassium chloride 20 mEq/100 mL intravenous solution	20 mEq, IV, q2hr, Duration: 4 dose(s), Infuse over: 2 hr
 potassium chloride extended release	10 mEq, PO, ER tab, Once
 potassium chloride extended release	20 mEq, PO, ER tab, Once
 potassium chloride extended release	20 mEq, PO, ER tab, q2hr (interval), Duration: 2 dose(s)

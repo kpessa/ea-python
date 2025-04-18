@@ -19,13 +19,19 @@ step2_text = f'<strong style="{_step_title_style}">Step 2 - Order corresponding 
 recommended_oral_text = f'<span style="{_guidance_style}">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>'
 
 # Alerts
-notify_provider_simple_text = f'<span style="{_notify_provider_style}">NOTIFY PROVIDER</span><br>'
+notify_provider_simple_text = f'<span style="{_notify_provider_style}">NOTIFY PHYSICIAN</span><br>'
 
 # Function to create the specific "Notify Physician if less than X" text
 def create_notify_provider_text(level: float, unit: str) -> str:
-    """Creates specific HTML text for results requiring provider notification."""
+    """Creates specific HTML text for results requiring provider notification.
+
+    >>> create_notify_provider_text(1.2, 'mg/dL')
+    '<span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PHYSICIAN if less than 1.2 mg/dL</span><br>'
+    >>> create_notify_provider_text(2.8, 'mmol/L')
+    '<span style="color: red; font-weight: bold; font-size: 14px;">NOTIFY PHYSICIAN if less than 2.8 mmol/L</span><br>'
+    """
     formatted_level = format_level_for_display(level)
-    return f'<span style="{_notify_provider_style}">NOTIFY PROVIDER if less than {formatted_level} {unit}</span><br>'
+    return f'<span style="{_notify_provider_style}">NOTIFY PHYSICIAN if less than {formatted_level} {unit}</span><br>'
 
 # Note: In Jsonnet, createCriticallyLowNotifyPhysicianText was defined inside the main object.
 # Here, it's a standalone function like the others. 

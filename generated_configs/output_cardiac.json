@@ -101,7 +101,7 @@
             ]
           },
           {
-            "SECTION_NAME": "Magnesium: < 1.4 mg/dL<br><span style=\"color: red; font-weight: bold; font-size: 14px;\">NOTIFY PROVIDER if less than 1.2 mg/dL</span><br><strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 1 - Order most appropriate replacement:</strong><br>",
+            "SECTION_NAME": "Magnesium: < 1.4 mg/dL<br><span style=\"color: red; font-weight: bold; font-size: 14px;\">NOTIFY PHYSICIAN if less than 1.2 mg/dL</span><br><strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 1 - Order most appropriate replacement:</strong><br>",
             "CONCEPT_NAME": "[%{EALABMAGTODO}.COUNT > 0 AND {EALABMAGLT14}%]",
             "SINGLE_SELECT": 1,
             "SHOW_INACTIVE_DUPLICATES": 0,
@@ -240,7 +240,7 @@
               },
               {
                 "MNEMONIC": "potassium chloride 10 mEq/100 mL intravenous solution",
-                "ORDER_SENTENCE": "10 mEq, IV, q1h, Duration: 2 dose(s), Infuse over: 1 hr",
+                "ORDER_SENTENCE": "10 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr",
                 "ASC_SHORT_DESCRIPTION": "",
                 "COMMENT": "<span style=\"font-weight: 900; text-decoration: underline;\">Peripheral IV</span>"
               },
@@ -268,7 +268,7 @@
           },
           {
             "SECTION_NAME": "Potassium: 3.2 - 3.5 mmol/L<br><strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 1 - Order most appropriate replacement:</strong><br><span style=\"font-size: 14px; color: #666; line-height: 1.5;\">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>",
-            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW32AND35}%]",
+            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW32AND34}%]",
             "SINGLE_SELECT": 1,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -286,13 +286,13 @@
               },
               {
                 "MNEMONIC": "potassium chloride 10 mEq/100 mL intravenous solution",
-                "ORDER_SENTENCE": "10 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr",
+                "ORDER_SENTENCE": "10 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr",
                 "ASC_SHORT_DESCRIPTION": "",
                 "COMMENT": "<span style=\"font-weight: 900; text-decoration: underline;\">Peripheral IV</span>"
               },
               {
                 "MNEMONIC": "potassium chloride 20 mEq/100 mL intravenous solution",
-                "ORDER_SENTENCE": "20 mEq, IV, q1h, Duration: 2 dose(s), Infuse over: 1 hr",
+                "ORDER_SENTENCE": "20 mEq, IV, q1hr, Duration: 2 dose(s), Infuse over: 1 hr",
                 "ASC_SHORT_DESCRIPTION": "",
                 "COMMENT": "<span style=\"font-weight: 900; text-decoration: underline;\">Central IV Preferred</span>"
               }
@@ -300,7 +300,7 @@
           },
           {
             "SECTION_NAME": "<strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 2 - Order corresponding follow-up lab(s):</strong><br>ORAL - Labs:<br><small style=\"font-weight: normal;\">Monitoring: Recheck potassium level 4 hours after last dose.</small>",
-            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW32AND35}%]",
+            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW32AND34}%]",
             "SINGLE_SELECT": 0,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -308,13 +308,13 @@
                 "MNEMONIC": "Potassium Level",
                 "ORDER_SENTENCE": "Requested Draw Date and T T;N+480, Blood, Timed Study collect, Once",
                 "ASC_SHORT_DESCRIPTION": "",
-                "COMMENT": "Recheck potassium level 4 hours after last dose."
+                "COMMENT": "Recheck potassium level 4 hrs after last dose."
               }
             ]
           },
           {
             "SECTION_NAME": "PERIPHERAL IV - Labs:<br><small style=\"font-weight: normal;\">Monitoring: Recheck potassium level 1 hr after infusion complete.</small>",
-            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW32AND35}%]",
+            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW32AND34}%]",
             "SINGLE_SELECT": 0,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -328,7 +328,7 @@
           },
           {
             "SECTION_NAME": "CENTRAL IV - Labs:<br><small style=\"font-weight: normal;\">Monitoring: Recheck potassium level 1 hr after infusion complete.</small>",
-            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW32AND35}%]",
+            "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTBTW32AND34}%]",
             "SINGLE_SELECT": 0,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
@@ -360,13 +360,13 @@
               },
               {
                 "MNEMONIC": "potassium chloride 10 mEq/100 mL intravenous solution",
-                "ORDER_SENTENCE": "10 mEq, IV, q1h, Duration: 6 dose(s), Infuse over: 1 hr",
+                "ORDER_SENTENCE": "10 mEq, IV, q1hr, Duration: 6 dose(s), Infuse over: 1 hr",
                 "ASC_SHORT_DESCRIPTION": "",
                 "COMMENT": "<span style=\"font-weight: 900; text-decoration: underline;\">Peripheral IV</span>"
               },
               {
                 "MNEMONIC": "potassium chloride 20 mEq/100 mL intravenous solution",
-                "ORDER_SENTENCE": "20 mEq, IV, q1h, Duration: 3 dose(s), Infuse over: 1 hr",
+                "ORDER_SENTENCE": "20 mEq, IV, q1hr, Duration: 3 dose(s), Infuse over: 1 hr",
                 "ASC_SHORT_DESCRIPTION": "",
                 "COMMENT": "<span style=\"font-weight: 900; text-decoration: underline;\">Central IV Preferred</span>"
               }
@@ -415,20 +415,20 @@
             ]
           },
           {
-            "SECTION_NAME": "Potassium: < 2.8 mmol/L<br><span style=\"color: red; font-weight: bold; font-size: 14px;\">NOTIFY PROVIDER</span><br><strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 1 - Order most appropriate replacement:</strong><br>",
+            "SECTION_NAME": "Potassium: < 2.8 mmol/L<br><span style=\"color: red; font-weight: bold; font-size: 14px;\">NOTIFY PHYSICIAN</span><br><strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 1 - Order most appropriate replacement:</strong><br>",
             "CONCEPT_NAME": "[%{EALABPOTTODO}.COUNT > 0 AND {EALABPOTLT28}%]",
             "SINGLE_SELECT": 1,
             "SHOW_INACTIVE_DUPLICATES": 0,
             "ORDERS": [
               {
                 "MNEMONIC": "potassium chloride 10 mEq/100 mL intravenous solution",
-                "ORDER_SENTENCE": "10 mEq, IV, q1h, Duration: 8 dose(s), Infuse over: 1 hr",
+                "ORDER_SENTENCE": "10 mEq, IV, q1hr, Duration: 8 dose(s), Infuse over: 1 hr",
                 "ASC_SHORT_DESCRIPTION": "",
                 "COMMENT": "<span style=\"font-weight: 900; text-decoration: underline;\">Peripheral IV</span>"
               },
               {
                 "MNEMONIC": "potassium chloride 20 mEq/100 mL intravenous solution",
-                "ORDER_SENTENCE": "20 mEq, IV, q1h, Duration: 4 dose(s), Infuse over: 1 hr",
+                "ORDER_SENTENCE": "20 mEq, IV, q1hr, Duration: 4 dose(s), Infuse over: 1 hr",
                 "ASC_SHORT_DESCRIPTION": "",
                 "COMMENT": "<span style=\"font-weight: 900; text-decoration: underline;\">Central IV Preferred</span>"
               }
@@ -647,7 +647,7 @@
             ]
           },
           {
-            "SECTION_NAME": "Phosphorus: 1.0 - 1.5 mg/dL<br><span style=\"color: red; font-weight: bold; font-size: 14px;\">NOTIFY PROVIDER if less than 1.1 mg/dL</span><br><strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 1 - Order most appropriate replacement:</strong><br><span style=\"font-size: 14px; color: #666; line-height: 1.5;\">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>",
+            "SECTION_NAME": "Phosphorus: 1.0 - 1.5 mg/dL<br><span style=\"color: red; font-weight: bold; font-size: 14px;\">NOTIFY PHYSICIAN if less than 1.1 mg/dL</span><br><strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 1 - Order most appropriate replacement:</strong><br><span style=\"font-size: 14px; color: #666; line-height: 1.5;\">* If patient is not NPO, and tolerating oral medications, the recommended choice of replacement route is to be oral. </span> <br>",
             "CONCEPT_NAME": "[%{EALABPHOSTODO}.COUNT > 0 AND {EALABPHOSBTW10AND15}%]",
             "SINGLE_SELECT": 1,
             "SHOW_INACTIVE_DUPLICATES": 0,
@@ -719,7 +719,7 @@
             ]
           },
           {
-            "SECTION_NAME": "Phosphorus: < 1.0 mg/dL<br><span style=\"color: red; font-weight: bold; font-size: 14px;\">NOTIFY PROVIDER if less than 1.1 mg/dL</span><br><strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 1 - Order most appropriate replacement:</strong><br>",
+            "SECTION_NAME": "Phosphorus: < 1.0 mg/dL<br><span style=\"color: red; font-weight: bold; font-size: 14px;\">NOTIFY PHYSICIAN if less than 1.1 mg/dL</span><br><strong style=\"font-size: 18px; font-weight: bold; color: #333;\">Step 1 - Order most appropriate replacement:</strong><br>",
             "CONCEPT_NAME": "[%{EALABPHOSTODO}.COUNT > 0 AND {EALABPHOSLT10}%]",
             "SINGLE_SELECT": 1,
             "SHOW_INACTIVE_DUPLICATES": 0,

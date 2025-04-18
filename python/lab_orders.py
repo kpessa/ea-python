@@ -121,7 +121,17 @@ all_lab_orders: Dict[str, LabOrderDefinition] = {
 # --- Dynamic Lab Order Generation ---
 
 def get_timed_lab(base_name: str, minutes: int, suffix: str = '') -> LabOrderDefinition:
-    """Generates LabOrderDefinitions for timed labs based on base name, minutes, and optional suffix."""
+    """Generates LabOrderDefinitions for timed labs based on base name, minutes, and optional suffix.
+
+    >>> get_timed_lab('k_level', 240)
+    {'MNEMONIC': 'Potassium Level', 'ORDER_SENTENCE': 'Requested Draw Date and T T;N+240, Blood, Timed Study collect, Once', 'COMMENT': 'Collect 4.0 hours after event. [Dynamic: k_level_timed_n240]'}
+    >>> get_timed_lab('mag_level', 360, suffix='_cardiac')
+    {'MNEMONIC': 'Magnesium Level', 'ORDER_SENTENCE': 'Requested Draw Date and T T;N+360, Blood, Timed Study collect, Once', 'COMMENT': 'Collect 6.0 hours after event. [Dynamic: mag_level_timed_n360_cardiac]'}
+    >>> get_timed_lab('invalid_lab', 60)
+    Traceback (most recent call last):
+        ...
+    ValueError: Unknown base lab name 'invalid_lab' for timed order
+    """
     # Find the base mnemonic
     mnemonic = _base_lab_mnemonics.get(base_name)
     
@@ -140,7 +150,19 @@ def get_timed_lab(base_name: str, minutes: int, suffix: str = '') -> LabOrderDef
 
 # --- New function for specific timed lab comments ---
 def create_specific_timed_lab(base_name: str, minutes: int, comment_base: str, suffix: str = '') -> LabOrderDefinition:
-    """Generates LabOrderDefinitions for timed labs with a specific base comment."""
+    """Generates LabOrderDefinitions for timed labs with a specific base comment.
+
+    Note: suffix parameter is currently unused in the output but kept for interface consistency.
+
+    >>> create_specific_timed_lab('phos_level', 120, 'Collect 2 hours after something.')
+    {'MNEMONIC': 'Phosphate Level', 'ORDER_SENTENCE': 'Requested Draw Date and T T;N+120, Blood, Timed Study collect, Once', 'COMMENT': 'Collect 2 hours after something.'}
+    >>> create_specific_timed_lab('bmp', 480, 'Recheck BMP later.')
+    {'MNEMONIC': 'BMP', 'ORDER_SENTENCE': 'Requested Draw Date and T T;N+480, Blood, Timed Study collect, Once', 'COMMENT': 'Recheck BMP later.'}
+    >>> create_specific_timed_lab('no_such_lab', 60, 'Test')
+    Traceback (most recent call last):
+        ...
+    ValueError: Unknown base lab name 'no_such_lab' for specific timed order
+    """
     mnemonic = _base_lab_mnemonics.get(base_name)
     if not mnemonic:
         raise ValueError(f"Unknown base lab name '{base_name}' for specific timed order")

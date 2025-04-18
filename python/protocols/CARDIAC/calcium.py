@@ -1,7 +1,7 @@
 from typing import List
 from ...types import ProtocolData, SectionGroup, InitialLabConfig
-from ... import helpers as H
-# from ... import text as Text # Not needed
+from ... import naming as Naming
+from ... import text as Text
 from ... import medication_orders as Meds
 from ... import lab_orders as Labs
 
@@ -15,7 +15,7 @@ _section_groups: List[SectionGroup] = [
         'recommendOral': False,
         'replacementSection': {
             'sectionName': '',
-            'conceptName': H.create_less_than_concept(_electrolyte, 1.1),
+            'conceptName': Naming.create_less_than_concept(_electrolyte, 1.1),
             'singleSelect': 1,
             'orders': [
                 {
@@ -35,7 +35,7 @@ _section_groups: List[SectionGroup] = [
         },
         'labSections': [
             {
-                'conceptName': H.create_less_than_concept(_electrolyte, 1.1),
+                'conceptName': Naming.create_less_than_concept(_electrolyte, 1.1),
                 'associatedRouteType': 'IV',
                 'sectionDescription': f'Monitoring: Recheck {_electrolyte} with next AM labs.',
                 'orders': [

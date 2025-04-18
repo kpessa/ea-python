@@ -68,7 +68,7 @@ def get_protocol_from_filename(filepath):
     return None
 
 def _parse_range_string(range_str: str) -> tuple[float | None, float | None]:
-    """Parses a range string (e.g., '1.0-1.5', '< 1.0', or embedded in text) into low/high float values."""
+    """Parses a range string (e.g., '1.0-1.5', '< 1.0', '1-2', '< 1' or embedded in text) into low/high float values."""
     if not range_str:
         return None, None
     
@@ -76,9 +76,10 @@ def _parse_range_string(range_str: str) -> tuple[float | None, float | None]:
     cleaned_str = range_str.lower().replace("current serum level", "").replace("ical", "").strip()
     low_float, high_float = None, None
     
-    # Try searching for "low - high" format (e.g., "1.8 - 2.0")
+    # Try searching for "low - high" format (decimal optional)
     # Use re.search to find the pattern anywhere in the string
-    match = re.search(r"(\d+\.\d+)\\s*-\\s*(\d+\.\d+)", cleaned_str)
+    # Regex: digits (optional decimal) - digits (optional decimal)
+    match = re.search(r"(\d+(?:\.\d+)?)\s*-\s*(\d+(?:\.\d+)?)", cleaned_str)
     if match:
         try:
             low_float = float(match.group(1))
@@ -89,8 +90,9 @@ def _parse_range_string(range_str: str) -> tuple[float | None, float | None]:
         except ValueError:
             pass # Ignore parsing error and try next format
 
-    # Try searching for "< high" format (e.g., "< 1.4")
-    match = re.search(r"<\\s*(\d+\.\d+)", cleaned_str)
+    # Try searching for "< high" format (decimal optional)
+    # Regex: < digits (optional decimal)
+    match = re.search(r"<\s*(\d+(?:\.\d+)?)", cleaned_str)
     if match:
         try:
             # For '< X', low is None, high is X
@@ -99,7 +101,8 @@ def _parse_range_string(range_str: str) -> tuple[float | None, float | None]:
         except ValueError:
              pass # Ignore parsing error
 
-    print(f"DEBUG _parse_range_string: Failed to parse range from: '{range_str}' (cleaned: '{cleaned_str}')")
+    # Only print debug if parsing truly failed for BOTH formats
+    # print(f"DEBUG _parse_range_string: Failed to parse range from: '{range_str}' (cleaned: '{cleaned_str}')")
     return None, None # Return None if no format matched
 
 def ranges_match(dcw_range_str: str, json_section_name: str) -> bool:
@@ -195,14 +198,19 @@ def test_dcw_sentences_match_generated(config_file_path, dcw_data):
 
     for index, dcw_entry in enumerate(protocol_dcw_entries):
         dcw_electrolyte = dcw_entry.get('Electrolyte')
-        dcw_mnemonic = dcw_entry.get('Mnemonic')
+        dcw_mnemonic_raw = dcw_entry.get('Mnemonic') # Get raw mnemonic
         dcw_range = dcw_entry.get('Lab Value Range') # Keep for context
         dcw_sentence = dcw_entry.get('Order_Sentence')
 
-        if not all([protocol, dcw_electrolyte, dcw_mnemonic, dcw_sentence]):
+        # Clean the DCW mnemonic - remove parentheses and content within
+        dcw_mnemonic_cleaned = re.sub(r'\s*\(.*?\)\s*$', '', dcw_mnemonic_raw).strip() if dcw_mnemonic_raw else None
+
+        if not all([protocol, dcw_electrolyte, dcw_mnemonic_cleaned, dcw_sentence]): # Use cleaned mnemonic for check
+            # Optionally log skipping due to missing cleaned mnemonic
+            # print(f"Skipping DCW entry {index}: Missing required data after cleaning mnemonic.")
             continue
 
-        # --- Find JSON Counterpart (by mnemonic within the correct tab) ---
+        # --- Find JSON Counterpart (by cleaned mnemonic within the correct tab) ---
         json_sentence_found = None
         try:
             tabs = loaded_json_config.get('RCONFIG', {}).get('TABS', [])
@@ -221,37 +229,39 @@ def test_dcw_sentences_match_generated(config_file_path, dcw_data):
                 found_match_for_dcw_entry = False # Flag to ensure we find a matching section/order
                 for section in order_sections:
                     section_name = section.get('SECTION_NAME', '')
-                    
+
                     # Use the refactored ranges_match function
                     is_range_match = ranges_match(dcw_range, section_name)
 
                     if is_range_match:
                          orders_in_section = section.get('ORDERS', [])
                          for order in orders_in_section:
-                             if order.get('MNEMONIC') == dcw_mnemonic:
+                             # Compare JSON mnemonic with the CLEANED DCW mnemonic
+                             if order.get('MNEMONIC') == dcw_mnemonic_cleaned:
                                  json_sentence_found = order.get('ORDER_SENTENCE')
                                  found_match_for_dcw_entry = True # Mark as found
                                  break # Found the correct order in the matching section
                          if found_match_for_dcw_entry:
                              break # Exit section loop once match is found
-                
+
                 # If no match was found after checking all sections, json_sentence_found remains None
                 if not found_match_for_dcw_entry:
                     json_sentence_found = None # Ensure it's None if no suitable section/order found
 
         except Exception as e:
             processing_errors.append(f"Error finding JSON counterpart for DCW entry {index}: {e}")
-            continue 
+            continue
 
-        # --- Fuzzy Compare DCW vs JSON --- 
+        # --- Fuzzy Compare DCW vs JSON --- (Uses json_sentence_found)
         comparison_score = 0
         if json_sentence_found:
+            # Compare the original DCW sentence with the found JSON sentence
             comparison_score = fuzz.token_sort_ratio(dcw_sentence, json_sentence_found)
         # else: json_sentence_found remains None
 
-        # --- Compile Report Line --- 
+        # --- Compile Report Line --- (Show original DCW mnemonic for context)
         report_line = f'''
---- DCW Entry #{index} (Mnem: '{dcw_mnemonic}', Range: '{dcw_range}') ---
+--- DCW Entry #{index} (Mnem: '{dcw_mnemonic_raw}', Range: '{dcw_range}') ---
   DCW Spec : {repr(dcw_sentence)}
   JSON Gen : {repr(json_sentence_found) if json_sentence_found else '*** NOT FOUND in JSON Tab ***'}
   (Score DCW vs JSON: {comparison_score}%)'''

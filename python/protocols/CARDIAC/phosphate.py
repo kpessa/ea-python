@@ -1,6 +1,6 @@
 from typing import List
 from ...types import ProtocolData, SectionGroup, InitialLabConfig
-from ... import helpers as H
+from ... import naming as Naming
 from ... import text as Text
 from ... import medication_orders as Meds
 from ... import lab_orders as Labs
@@ -16,7 +16,7 @@ _section_groups: List[SectionGroup] = [
         'rangeInfo': {'type': 'between', 'electrolyte': _electrolyte, 'lower': 1.6, 'upper': 2.0, 'unit': _unit},
         'replacementSection': {
             'sectionName': '',
-            'conceptName': H.create_between_concept(_electrolyte, 1.6, 2.0),
+            'conceptName': Naming.create_between_concept(_electrolyte, 1.6, 2.0),
             'singleSelect': 1,
             'orders': [
                 {
@@ -29,7 +29,7 @@ _section_groups: List[SectionGroup] = [
         },
         'labSections': [
             {
-                'conceptName': H.create_between_concept(_electrolyte, 1.6, 2.0),
+                'conceptName': Naming.create_between_concept(_electrolyte, 1.6, 2.0),
                 'sectionDescription': 'Monitoring: Recheck phosphorous & calcium levels with next AM labs.',
                 'orders': [
                     Labs.phos_level_tomorrow_am,
@@ -45,7 +45,7 @@ _section_groups: List[SectionGroup] = [
         'replacementSection': {
             'criticalAlertText': Text.create_notify_provider_text(1.1, 'mg/dL'),
             'sectionName': '',
-            'conceptName': H.create_between_concept(_electrolyte, 1.0, 1.5),
+            'conceptName': Naming.create_between_concept(_electrolyte, 1.0, 1.5),
             'singleSelect': 1,
             'orders': [
                 {
@@ -58,7 +58,7 @@ _section_groups: List[SectionGroup] = [
         },
         'labSections': [
             {
-                'conceptName': H.create_between_concept(_electrolyte, 1.0, 1.5),
+                'conceptName': Naming.create_between_concept(_electrolyte, 1.0, 1.5),
                 'associatedRouteType': 'Oral',
                 'sectionDescription': 'Monitoring: Recheck phosphorous & calcium levels with next AM labs.',
                 'orders': [
@@ -68,7 +68,7 @@ _section_groups: List[SectionGroup] = [
                 ]
             },
             {
-                'conceptName': H.create_between_concept(_electrolyte, 1.0, 1.5),
+                'conceptName': Naming.create_between_concept(_electrolyte, 1.0, 1.5),
                 'associatedRouteType': 'IV',
                 'sectionDescription': 'Monitoring: Recheck phosphorous & calcium levels 2 hrs after infusion.',
                 'orders': [
@@ -89,7 +89,7 @@ _section_groups: List[SectionGroup] = [
         'replacementSection': {
             'criticalAlertText': Text.create_notify_provider_text(1.1, 'mg/dL'),
             'sectionName': '',
-            'conceptName': H.create_less_than_concept(_electrolyte, 1.0),
+            'conceptName': Naming.create_less_than_concept(_electrolyte, 1.0),
             'singleSelect': 1,
             'orders': [
                 {
@@ -99,7 +99,7 @@ _section_groups: List[SectionGroup] = [
         },
         'labSections': [
             {
-                'conceptName': H.create_less_than_concept(_electrolyte, 1.0),
+                'conceptName': Naming.create_less_than_concept(_electrolyte, 1.0),
                 'sectionDescription': 'Monitoring: Recheck phosphorous & calcium levels 2 hrs after infusion.',
                 'orders': [
                     {'type': 'timed_lab', 'base_name': 'phos_level', 'minutes': 600, 

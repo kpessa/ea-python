@@ -6,7 +6,8 @@ from .types import (
     ProtocolData, TabConfig, RConfig, FullConfig, ResourceUrl, Mnemonic,
     GenerationContext, Protocol
 )
-from . import helpers as H
+from . import section_builder as Sections
+from . import tab_builder as Tabs
 
 # --- Protocol Specific Overrides ---
 
@@ -65,8 +66,8 @@ def generate_config(context: GenerationContext) -> FullConfig:
     def build_order_sections(protocol_data: Optional[ProtocolData]) -> List[Dict]: # Return list of dicts for JSON
         if not protocol_data:
             return []
-        grouped_sections = H.create_grouped_order_sections(protocol_data['sectionGroups'], context)
-        initial_lab_sections = H.create_initial_lab_sections(protocol_data['initialLabs'])
+        grouped_sections = Sections.create_grouped_order_sections(protocol_data['sectionGroups'], context)
+        initial_lab_sections = Sections.create_initial_lab_sections(protocol_data['initialLabs'])
         # Combine and ensure they are dicts for JSON serialization
 
         # return [dict(s) for s in grouped_sections + initial_lab_sections] # Original shallow copy
@@ -84,7 +85,7 @@ def generate_config(context: GenerationContext) -> FullConfig:
              print(f"Warning: Missing expected protocol data for {protocol}/{electrolyte}. Skipping tab.")
              return None
 
-        base_tab = H.create_tab(tab_name)
+        base_tab = Tabs.create_tab(tab_name)
         order_sections = build_order_sections(protocol_data)
 
         # --- Construct final tab with explicit key order --- 

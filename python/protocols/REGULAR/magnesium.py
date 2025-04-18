@@ -1,6 +1,6 @@
 from ...types import ProtocolData, SectionGroup, InitialLabConfig
 from typing import List # Import List
-from ... import helpers as H # For concept generation
+from ... import naming as Naming # NEW IMPORT
 from ... import text as Text # For alert text
 from ... import medication_orders as Meds
 from ... import lab_orders as Labs
@@ -15,7 +15,7 @@ _section_groups: List[SectionGroup] = [
         'rangeInfo': {'type': 'between', 'electrolyte': _electrolyte, 'lower': 1.4, 'upper': 1.5, 'unit': _unit},
         'replacementSection': {
             'sectionName': '', # Built dynamically in helpers
-            'conceptName': H.create_between_concept(_electrolyte, 1.4, 1.5),
+            'conceptName': Naming.create_between_concept(_electrolyte, 1.4, 1.5),
             'singleSelect': 1,
             'orders': [
                 {
@@ -28,7 +28,7 @@ _section_groups: List[SectionGroup] = [
         },
         'labSections': [
             { # Single lab section for all routes in this group
-                'conceptName': H.create_between_concept(_electrolyte, 1.4, 1.5),
+                'conceptName': Naming.create_between_concept(_electrolyte, 1.4, 1.5),
                 'sectionDescription': 'Monitoring: Recheck BMP and magnesium level with next AM labs.',
                 'orders': [
                     Labs.bmp_tomorrow_am,
@@ -44,7 +44,7 @@ _section_groups: List[SectionGroup] = [
         'replacementSection': {
             'criticalAlertText': Text.create_notify_provider_text(1.2, 'mg/dL'),
             'sectionName': '', 
-            'conceptName': H.create_less_than_concept(_electrolyte, 1.4),
+            'conceptName': Naming.create_less_than_concept(_electrolyte, 1.4),
             'singleSelect': 1,
             'orders': [
                 {
@@ -54,7 +54,7 @@ _section_groups: List[SectionGroup] = [
         },
         'labSections': [
             {
-                'conceptName': H.create_less_than_concept(_electrolyte, 1.4),
+                'conceptName': Naming.create_less_than_concept(_electrolyte, 1.4),
                 'sectionDescription': 'Monitoring: Recheck magnesium level 4 hrs after infusion complete.',
                 'orders': [
                     Labs.create_specific_timed_lab('mag_level', 480, 'Recheck magnesium level 4 hrs after infusion complete.'),

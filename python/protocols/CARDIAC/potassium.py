@@ -1,6 +1,6 @@
 from typing import List
 from ...types import ProtocolData, SectionGroup, InitialLabConfig
-from ... import helpers as H
+from ... import naming as Naming
 from ... import text as Text
 from ... import medication_orders as Meds
 from ... import lab_orders as Labs
@@ -14,7 +14,7 @@ _section_groups: List[SectionGroup] = [
         'rangeInfo': {'type': 'between', 'electrolyte': _electrolyte, 'lower': 3.6, 'upper': 3.9, 'unit': _unit},
         'replacementSection': {
             'sectionName': '',
-            'conceptName': H.create_between_concept(_electrolyte, 3.6, 3.9),
+            'conceptName': Naming.create_between_concept(_electrolyte, 3.6, 3.9),
             'singleSelect': 1,
             'orders': [
                 {
@@ -33,7 +33,7 @@ _section_groups: List[SectionGroup] = [
         },
         'labSections': [
             {
-                'conceptName': H.create_between_concept(_electrolyte, 3.6, 3.9),
+                'conceptName': Naming.create_between_concept(_electrolyte, 3.6, 3.9),
                 'associatedRouteType': 'IV',
                 'sectionDescription': 'Monitoring: Recheck BMP with next AM labs.',
                 'orders': [
@@ -47,7 +47,7 @@ _section_groups: List[SectionGroup] = [
         'rangeInfo': {'type': 'between', 'electrolyte': _electrolyte, 'lower': 3.2, 'upper': 3.5, 'unit': _unit},
         'replacementSection': {
             'sectionName': '',
-            'conceptName': H.create_between_concept(_electrolyte, 3.2, 3.5),
+            'conceptName': Naming.create_between_concept(_electrolyte, 3.2, 3.4),
             'singleSelect': 1,
             'orders': [
                 {
@@ -66,7 +66,7 @@ _section_groups: List[SectionGroup] = [
         },
         'labSections': [
             {
-                'conceptName': H.create_between_concept(_electrolyte, 3.2, 3.5),
+                'conceptName': Naming.create_between_concept(_electrolyte, 3.2, 3.4),
                 'associatedRouteType': 'Oral',
                 'sectionDescription': 'Monitoring: Recheck potassium level 4 hours after last dose.',
                 'orders': [
@@ -75,7 +75,7 @@ _section_groups: List[SectionGroup] = [
                 ]
             },
             {
-                'conceptName': H.create_between_concept(_electrolyte, 3.2, 3.5),
+                'conceptName': Naming.create_between_concept(_electrolyte, 3.2, 3.4),
                 'associatedRouteType': 'Peripheral',
                 'sectionDescription': 'Monitoring: Recheck potassium level 1 hr after infusion complete.',
                 'orders': [
@@ -84,7 +84,7 @@ _section_groups: List[SectionGroup] = [
                 ]
             },
             {
-                'conceptName': H.create_between_concept(_electrolyte, 3.2, 3.5),
+                'conceptName': Naming.create_between_concept(_electrolyte, 3.2, 3.4),
                 'associatedRouteType': 'Central',
                 'sectionDescription': 'Monitoring: Recheck potassium level 1 hr after infusion complete.',
                 'orders': [
@@ -100,7 +100,7 @@ _section_groups: List[SectionGroup] = [
         'recommendOral': False,
         'replacementSection': {
             'sectionName': '',
-            'conceptName': H.create_between_concept(_electrolyte, 2.8, 3.1),
+            'conceptName': Naming.create_between_concept(_electrolyte, 2.8, 3.1),
             'singleSelect': 1,
             'orders': [
                 {
@@ -119,7 +119,7 @@ _section_groups: List[SectionGroup] = [
         },
         'labSections': [
             {
-                'conceptName': H.create_between_concept(_electrolyte, 2.8, 3.1),
+                'conceptName': Naming.create_between_concept(_electrolyte, 2.8, 3.1),
                 'associatedRouteType': 'Oral',
                 'sectionDescription': 'Monitoring: Recheck potassium level 4 hrs after last dose.',
                 'orders': [
@@ -128,7 +128,7 @@ _section_groups: List[SectionGroup] = [
                 ]
             },
             {
-                'conceptName': H.create_between_concept(_electrolyte, 2.8, 3.1),
+                'conceptName': Naming.create_between_concept(_electrolyte, 2.8, 3.1),
                 'associatedRouteType': 'Peripheral',
                 'sectionDescription': 'Monitoring: Recheck potassium level 1 hr after infusion complete.',
                 'orders': [
@@ -137,7 +137,7 @@ _section_groups: List[SectionGroup] = [
                 ]
             },
             {
-                'conceptName': H.create_between_concept(_electrolyte, 2.8, 3.1),
+                'conceptName': Naming.create_between_concept(_electrolyte, 2.8, 3.1),
                 'associatedRouteType': 'Central',
                 'sectionDescription': 'Monitoring: Recheck potassium level 1 hr after infusion complete.',
                 'orders': [
@@ -154,7 +154,7 @@ _section_groups: List[SectionGroup] = [
         'replacementSection': {
             'criticalAlertText': Text.notify_provider_simple_text,
             'sectionName': '',
-            'conceptName': H.create_less_than_concept(_electrolyte, 2.8),
+            'conceptName': Naming.create_less_than_concept(_electrolyte, 2.8),
             'singleSelect': 1,
             'orders': [
                 {
@@ -167,7 +167,7 @@ _section_groups: List[SectionGroup] = [
         },
         'labSections': [
             {
-                'conceptName': H.create_less_than_concept(_electrolyte, 2.8),
+                'conceptName': Naming.create_less_than_concept(_electrolyte, 2.8),
                 'sectionDescription': 'Monitoring: <br>1. Add-on mag & phos levels STAT, if not recently obtained.<br>2. Recheck potassium level 1 hr after infusion complete.<br>3. Repeat BMP, mag and phos levels with next AM labs.<hr>1. Add-on mag & phos levels STAT, if not recently obtained.',
                 'orders': [
                     Labs.phos_level_add_on,
@@ -175,7 +175,7 @@ _section_groups: List[SectionGroup] = [
                 ]
             },
             {
-                'conceptName': H.create_less_than_concept(_electrolyte, 2.8),
+                'conceptName': Naming.create_less_than_concept(_electrolyte, 2.8),
                 'associatedRouteType': 'Peripheral',
                 'sectionDescription': 'Monitoring: Recheck potassium level 1 hr after infusion complete.',
                 'orders': [
@@ -184,7 +184,7 @@ _section_groups: List[SectionGroup] = [
                 ]
             },
             {
-                'conceptName': H.create_less_than_concept(_electrolyte, 2.8),
+                'conceptName': Naming.create_less_than_concept(_electrolyte, 2.8),
                 'associatedRouteType': 'Central',
                 'sectionDescription': 'Monitoring: Recheck potassium level 1 hr after infusion complete.',
                 'orders': [
@@ -193,7 +193,7 @@ _section_groups: List[SectionGroup] = [
                 ]
             },
             {
-                'conceptName': H.create_less_than_concept(_electrolyte, 2.8),
+                'conceptName': Naming.create_less_than_concept(_electrolyte, 2.8),
                 'sectionDescription': 'Monitoring: Repeat BMP, mag and phos levels with next AM labs.',
                 'orders': [
                     Labs.bmp_tomorrow_am,
