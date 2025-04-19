@@ -2,13 +2,11 @@ import pytest
 import json
 import os
 import glob
-import re
 import csv # Import csv module
 from functools import cache
 from pathlib import Path
-from thefuzz import process, fuzz # Keep for potential future fuzzy matching?
 from collections import defaultdict
-from typing import Dict, Set, Tuple
+from typing import Dict, Set
 
 # --- Define paths relative to this test file ---
 PROJECT_ROOT = Path(__file__).parent.parent.parent

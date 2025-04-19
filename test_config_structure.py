@@ -1,7 +1,7 @@
 import json
 import os
 import pytest
-from typing import Any, List
+from typing import Any
 
 # --- Constants ---
 CONFIG_DIR = 'generated_configs'

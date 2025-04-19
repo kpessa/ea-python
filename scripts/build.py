@@ -2,24 +2,24 @@ import json
 import os
 import sys
 import subprocess # Added for running test script
-from typing import List, cast
-
-# --- Constants ---
-# Define paths relative to the script's location
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
-GENERATED_CONFIG_DIR = os.path.join(PROJECT_ROOT, 'generated_configs')
-FIXTURES_DIR = os.path.join(PROJECT_ROOT, 'tests', 'fixtures')
-DCW_ORDER_SENTENCES_FILE = os.path.join(FIXTURES_DIR, 'dcw_sentences', 'dcw.txt')
+from typing import List
 
 # Ensure the parent directory (project root) is in the path for relative imports
 # This is necessary for imports to work correctly
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
 sys.path.insert(0, PROJECT_ROOT)
 
 # Use absolute imports from the src package
-from src.types import GenerationContext, Protocol
+from src.types import Protocol
 from src.env import get_generation_context
 from src.config import generate_config
+
+# --- Constants ---
+# Define paths relative to the script's location (moved below sys.path modification)
+GENERATED_CONFIG_DIR = os.path.join(PROJECT_ROOT, 'generated_configs')
+FIXTURES_DIR = os.path.join(PROJECT_ROOT, 'tests', 'fixtures')
+DCW_ORDER_SENTENCES_FILE = os.path.join(FIXTURES_DIR, 'dcw_sentences', 'dcw.txt')
 
 def main():
     """Main build function to generate JSON configs."""

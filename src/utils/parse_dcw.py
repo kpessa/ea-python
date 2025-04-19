@@ -112,8 +112,8 @@ def parse_dcw_file(filepath: str) -> List[Dict[str, Optional[str]]]:
 # Keep the main execution block for potential direct script running/testing
 if __name__ == "__main__":
     # Adjust path relative to the new location if run directly
-    # Assumes running from project root: python -m python.utils.parse_dcw
-    DCW_FILE = 'dcw_order_sentences/dcw.txt'
+    # Assumes running from project root: python src/utils/parse_dcw.py
+    DCW_FILE = 'tests/fixtures/dcw_sentences/dcw.txt' # Corrected path
     print(f"Parsing file: {DCW_FILE}")
     parsed_data = parse_dcw_file(DCW_FILE)
 

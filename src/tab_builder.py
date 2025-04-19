@@ -2,7 +2,7 @@ from typing import List, Dict
 
 from .types import Mnemonic, GraphedResult
 from . import components as Components
-from . import naming as Naming
+from .utils import naming as Naming
 
 
 def _create_mnemonic(tab_name: str) -> Mnemonic:
@@ -23,7 +23,7 @@ def _create_graphed_results(tab_name: str) -> List[GraphedResult]:
     >>> _create_graphed_results('Phosphorus') # Note: Special case for event set
     [{'LABEL': 'Phosphorus Level', 'EVENT_SET': 'TPN Phosphate Serum Phosphate', 'LOOKBACK': '144,H', 'MAX_RESULT_COUNT': '6', 'RESULTS_VIEW': {'LOOKBEHIND_LABEL': ''}}]
     """
-    concept_base = Naming.get_concept_name(tab_name)
+    # concept_base = Naming.get_concept_name(tab_name) # Unused variable
     event_set_electrolyte = tab_name
     if tab_name == 'Phosphorus':
         event_set_electrolyte = 'Phosphate'

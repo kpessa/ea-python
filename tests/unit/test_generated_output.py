@@ -200,7 +200,7 @@ def test_med_sentence_start_format(config_fixture, request):
     config = request.getfixturevalue(config_fixture)
     for order in get_all_med_orders_from_config(config):
         sentence = order.get("ORDER_SENTENCE", "")
-        mnemonic = order.get("MNEMONIC", "") # Get mnemonic for debug
+        # mnemonic = order.get("MNEMONIC", "") # Get mnemonic for debug - UNUSED
         # print(f"DEBUG: Checking Mnemonic='{mnemonic}', Sentence='{sentence}'") # Keep commented for now
         # Regex: Start (^) digits, optional decimal+digits, space, ANY chars except comma for unit ([^,]+), comma
         assert re.match(r"^\d+(\.\d+)?\s+[^,]+,\s*", sentence), \

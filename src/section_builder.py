@@ -5,9 +5,9 @@ from .types import (
     BaseOrder, SectionGroup, OrderSection, InitialLabConfig, GenerationContext
 )
 from . import text as Text
-from . import lab_orders as Labs 
-from . import order_builder as Orders
-from . import formatting as Format
+from .orders import lab_orders as Labs
+from .orders import order_builder as Orders
+from .utils import formatting as Format
 from . import constants as C
 
 # --- Section Creation Helpers ---

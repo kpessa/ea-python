@@ -1,9 +1,9 @@
 from typing import List
+
+from ...orders import lab_orders as Labs
 from ...types import ProtocolData, SectionGroup, InitialLabConfig
-from ... import naming as Naming
+from ...utils import naming as Naming
 from ... import text as Text
-from ... import medication_orders as Meds
-from ... import lab_orders as Labs
 
 _electrolyte = 'Phosphorus' # Use consistent spelling
 _unit = 'mg/dL'

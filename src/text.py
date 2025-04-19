@@ -1,5 +1,3 @@
-import math
-from typing import Union
 
 # Helper function equivalent to Jsonnet's std.format('%.1f', level)
 def format_level_for_display(level: float) -> str:

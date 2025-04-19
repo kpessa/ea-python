@@ -3,8 +3,7 @@ import copy # For deep copying base tab structures
 from typing import List, Optional, Dict, cast
 
 from .types import (
-    ProtocolData, TabConfig, RConfig, FullConfig, ResourceUrl, Mnemonic,
-    GenerationContext, Protocol
+    ProtocolData, TabConfig, RConfig, FullConfig, ResourceUrl, GenerationContext, Protocol
 )
 from . import section_builder as Sections
 from . import tab_builder as Tabs

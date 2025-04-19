@@ -5,7 +5,7 @@ import glob
 from functools import lru_cache, cache
 import re # Add import for regex
 from pathlib import Path # Added Path
-from thefuzz import process, fuzz # Added thefuzz
+from thefuzz import fuzz # Added thefuzz
 
 # Assuming parse_dcw.py is now in src/utils
 # Need to ensure src path is discoverable if running pytest directly
@@ -259,9 +259,10 @@ def test_dcw_sentences_match_generated(config_file_path, dcw_data):
             # Compare the original DCW sentence with the found JSON sentence
             comparison_score = fuzz.token_sort_ratio(dcw_sentence, json_sentence_found)
             if comparison_score < 100: # Check if score is less than perfect
-                 mismatch_found = True
-        else: # json_sentence_found is None
-             mismatch_found = True # Mark as mismatch if not found
+                 # mismatch_found = True # This variable is assigned but not used elsewhere
+                 pass # Keep structure
+        # else: # json_sentence_found is None
+             # mismatch_found = True # Mark as mismatch if not found
 
         # --- Compile Report Line --- (Show original DCW mnemonic for context)
         report_line = f'''

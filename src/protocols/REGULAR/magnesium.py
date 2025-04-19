@@ -1,9 +1,9 @@
+from typing import List
+
+from ...orders import lab_orders as Labs
 from ...types import ProtocolData, SectionGroup, InitialLabConfig
-from typing import List # Import List
-from ... import naming as Naming # NEW IMPORT
+from ...utils import naming as Naming # Corrected import
 from ... import text as Text # For alert text
-from ... import medication_orders as Meds
-from ... import lab_orders as Labs
 
 # Define the electrolyte name for clarity
 _electrolyte = 'Magnesium'
