@@ -6,21 +6,12 @@ from typing import List, Dict, Set, Any
 from collections import defaultdict
 from pathlib import Path
 
-# --- Define paths relative to this test file (Attempt 3) --- 
-# Assuming this file lives in the project root where build.py is executed
-# Let's derive from CWD if possible, else use __file__ cautiously.
-# CWD might be more reliable when run via subprocess.
-try:
-    PROJECT_ROOT = Path.cwd()
-    if not (PROJECT_ROOT / 'build.py').is_file(): # Check if CWD is project root
-        raise OSError("Not in project root")
-except Exception:
-    # Fallback to __file__ based path if CWD fails
-    TEST_FILE_PATH = Path(__file__).resolve()
-    PROJECT_ROOT = TEST_FILE_PATH.parent # Assuming tests run from project root now
+# --- Define paths relative to this test file --- 
+TEST_FILE_PATH = Path(__file__).resolve()
+PROJECT_ROOT = TEST_FILE_PATH.parents[2]  # Go up two levels from tests/integration to project root
 
 GENERATED_CONFIG_DIR = PROJECT_ROOT / 'generated_configs'
-EXPECTED_SENTENCES_DIR = PROJECT_ROOT / 'expected_sentences'
+EXPECTED_SENTENCES_DIR = PROJECT_ROOT / 'tests' / 'fixtures' / 'expected_sentences'
 EXPECTED_EXTRACT_FILE = EXPECTED_SENTENCES_DIR / 'extract.csv'
 
 # --- Debug path definitions ---

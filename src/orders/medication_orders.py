@@ -1,4 +1,4 @@
-from .types import BaseMedicationDefinition
+from ..types import BaseMedicationDefinition
 from typing import Dict
 
 # Base Medication Definitions (matching common/medication_orders.jsonnet)

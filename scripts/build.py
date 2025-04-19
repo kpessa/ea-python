@@ -5,15 +5,15 @@ import subprocess # Added for running test script
 from typing import List
 
 # Ensure the parent directory (project root) is in the path for relative imports
-# This is necessary for imports to work correctly
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
-sys.path.insert(0, PROJECT_ROOT)
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
 
-# Use absolute imports from the src package
-from src.types import Protocol
-from src.env import get_generation_context
-from src.config import generate_config
+# Now we can safely import our local modules
+from src.types import Protocol  # noqa: E402
+from src.env import get_generation_context  # noqa: E402
+from src.config import generate_config  # noqa: E402
 
 # --- Constants ---
 # Define paths relative to the script's location (moved below sys.path modification)
@@ -73,7 +73,7 @@ def main():
     # print("\\\\nRunning automated configuration tests...") # Quieten
     try:
         # Define directories for pytest to scan
-        test_dirs = ["tests/unit/", "src/"]  # Scan tests/unit/ and src/ (for doctests)
+        test_dirs = ["tests/unit/", "tests/integration/", "src/"]  # Added integration tests
 
         # Construct the pytest command
         pytest_command = [

@@ -7,6 +7,7 @@ from .types import (
 )
 from . import section_builder as Sections
 from . import tab_builder as Tabs
+from .protocols import PROTOCOLS
 
 # --- Protocol Specific Overrides ---
 
@@ -18,37 +19,17 @@ _cardiac_resource_urls: List[ResourceUrl] = [
 ]
 _cardiac_mnemonic_suffix = ' Replacement CARD'
 
-# --- Helper Function to Get Protocol Data (using dynamic import) ---
+# --- Helper Function to Get Protocol Data ---
 
 def _get_protocol_data(protocol: Protocol, electrolyte: str) -> Optional[ProtocolData]:
-    """Dynamically imports protocol data based on protocol and electrolyte."""
-    # Construct module name without '_data' suffix
-    module_name = f".protocols.{protocol}.{electrolyte.lower()}"
-    # NOTE: Jsonnet used Phosphorus, but Python modules likely named phosphate
-    if electrolyte == 'Phosphorus':
-        module_name = f".protocols.{protocol}.phosphate"
-    # Keep other explicit mappings if needed (though redundant if electrolyte.lower() works)
-    # elif electrolyte == 'Calcium':
-    #     module_name = f".protocols.{protocol}.calcium"
-    # elif electrolyte == 'Potassium':
-    #     module_name = f".protocols.{protocol}.potassium"
-    # elif electrolyte == 'Magnesium':
-    #     module_name = f".protocols.{protocol}.magnesium"
-    # else:
-    #     print(f"Warning: Unhandled electrolyte for import: {electrolyte}")
-    #     return None
-        
+    """Gets protocol data from the PROTOCOLS dictionary."""
     try:
-        # Relative import within the 'python' package
-        proto_module = importlib.import_module(module_name, package='python')
-        # Assume data is stored in a variable named 'data' within the module
-        return cast(ProtocolData, getattr(proto_module, 'data', None))
-    except ModuleNotFoundError:
+        return cast(ProtocolData, PROTOCOLS[protocol][electrolyte])
+    except KeyError:
         # This is expected for combinations like REGULAR/Calcium
-        # print(f"Debug: Module not found for {protocol}/{electrolyte} at {module_name}")
         return None
     except Exception as e:
-        print(f"Error importing protocol data for {protocol}/{electrolyte}: {e}")
+        print(f"Error getting protocol data for {protocol}/{electrolyte}: {e}")
         return None
 
 # --- Main Configuration Generation Logic ---

@@ -1,4 +1,4 @@
-from .types import LabOrderDefinition
+from ..types import LabOrderDefinition
 from typing import Dict
 
 # Definitions for Lab Orders (matching common/lab_orders.jsonnet)

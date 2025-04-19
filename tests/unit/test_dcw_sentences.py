@@ -195,7 +195,7 @@ def test_dcw_sentences_match_generated(config_file_path, dcw_data):
 
     comparison_report_lines = []
     processing_errors = []
-    mismatch_found = False # Flag to track if any mismatch or 'not found' occurred
+    # mismatch_found = False # Flag to track if any mismatch or 'not found' occurred - UNUSED
 
     for index, dcw_entry in enumerate(protocol_dcw_entries):
         dcw_electrolyte = dcw_entry.get('Electrolyte')
