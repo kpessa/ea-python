@@ -1,0 +1,25 @@
+select distinct ocs.mnemonic,os.order_sentence_display_line
+	
+from order_catalog_synonym ocs,order_sentence os
+plan ocs where ocs.mnemonic in (
+	"calcium chloride"
+	,"magnesium oxide","magnesium sulfate"
+	,"K-Phos Neutral","sodium phosphate"
+	,"potassium chloride","potassium chloride extended release"
+	,"potassium chloride 10 mEq/100 mL intravenous solution"
+	,"potassium chloride 20 mEq/100 mL intravenous solution"
+	,"BMP"
+	,"Magnesium Level"
+	,"Phosphate Level"
+	,"Potassium Level"
+	,"Calcium Level Ionized, Whole Blood"
+	,"Calcium Level Ionized, Serum"
+  )
+join os where os.parent_entity_name="ORDER_CATALOG_SYNONYM"
+	and os.parent_entity_id=ocs.synonym_id
+	; and os.order_sentence_display_line="Requested Draw Date and T T;N+240, Blood, Timed Study collect, Once"
+	and os.updt_task in (     500010,      500225)
+
+	;and os.usage_flag=1
+order by ocs.mnemonic,os.order_sentence_display_line
+with time=15
