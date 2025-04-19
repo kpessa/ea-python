@@ -195,6 +195,7 @@ def test_dcw_sentences_match_generated(config_file_path, dcw_data):
 
     comparison_report_lines = []
     processing_errors = []
+    mismatch_found = False # Flag to track if any mismatch or 'not found' occurred
 
     for index, dcw_entry in enumerate(protocol_dcw_entries):
         dcw_electrolyte = dcw_entry.get('Electrolyte')
@@ -257,7 +258,10 @@ def test_dcw_sentences_match_generated(config_file_path, dcw_data):
         if json_sentence_found:
             # Compare the original DCW sentence with the found JSON sentence
             comparison_score = fuzz.token_sort_ratio(dcw_sentence, json_sentence_found)
-        # else: json_sentence_found remains None
+            if comparison_score < 100: # Check if score is less than perfect
+                 mismatch_found = True
+        else: # json_sentence_found is None
+             mismatch_found = True # Mark as mismatch if not found
 
         # --- Compile Report Line --- (Show original DCW mnemonic for context)
         report_line = f'''
@@ -276,5 +280,6 @@ def test_dcw_sentences_match_generated(config_file_path, dcw_data):
          final_output_message += f"\n\nErrors encountered during processing for {os.path.basename(config_file_path)}:\n"
          final_output_message += "\n".join(processing_errors)
 
-    # Fail if there's anything in the report to ensure it's always printed
-    assert not final_output_message, final_output_message 
+    # Fail only if there were processing errors OR a mismatch/not found occurred
+    # The report will still be printed if there are entries, even if all match.
+    assert not processing_errors and not mismatch_found, final_output_message 

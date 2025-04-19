@@ -49,7 +49,7 @@ def load_all_expected_from_csv() -> Dict[str, Set[str]]:
 
     try:
         with open(EXPECTED_EXTRACT_FILE, 'r', encoding='utf-8') as f:
-            reader = csv.DictReader(f, delimiter='\\t') # Use DictReader assuming header row, specify tab delimiter
+            reader = csv.DictReader(f, delimiter='\t') # Use DictReader assuming header row, specify tab delimiter
             # Verify expected column names (adjust if different)
             if reader.fieldnames is None: # Check if fieldnames were read
                  pytest.fail(f"Could not read headers from CSV {EXPECTED_EXTRACT_FILE}")
