@@ -40,7 +40,7 @@ def main():
     os.makedirs(output_dir, exist_ok=True) # Ensure the directory exists
 
     # --- Generate and Write Configs ---
-    protocols_to_build: List[Protocol] = ['REGULAR', 'CARDIAC'] # Add 'DKA' when ready
+    protocols_to_build: List[Protocol] = ['REGULAR', 'CARDIAC', 'DKA']  # Added DKA protocol
 
     build_failed = False
     for protocol in protocols_to_build:

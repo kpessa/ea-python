@@ -1,6 +1,6 @@
 # Empty file to make 'protocols' a package 
 
-from . import REGULAR, CARDIAC
+from . import REGULAR, CARDIAC, DKA
 
 # Export all protocol data
 PROTOCOLS = {
@@ -14,5 +14,10 @@ PROTOCOLS = {
         'Potassium': CARDIAC.potassium_data,
         'Phosphorus': CARDIAC.phosphate_data,
         'Calcium': CARDIAC.calcium_data,
+    },
+    'DKA': {
+        'Magnesium': DKA.magnesium_data,
+        'Potassium': DKA.potassium_data,
+        'Phosphorus': DKA.phosphate_data,
     }
 } 

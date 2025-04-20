@@ -949,10 +949,6 @@
         ],
         "RESOURCE_URLS": [
           {
-            "LABEL": "Electrolyte Protocol Guideline",
-            "URL": "https://baycare1.sharepoint.com/sites/NUR/Shared%20Documents/Electrolyte%20Protocol%20Guideline.pdf"
-          },
-          {
             "LABEL": "Cardiac Electrolyte Replacement Guide",
             "URL": "https://baycare1.sharepoint.com/sites/NUR/Shared%20Documents/Cardiac%20Electrolyte%20Replacement%20Guide.pdf"
           }
